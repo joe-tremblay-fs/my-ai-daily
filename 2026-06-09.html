@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — June 9, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 4px 0 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; line-height: 1.6; margin-bottom: 9px; }
+    .themes-box li:last-child { margin-bottom: 0; }
+    .themes-box li::marker { color: var(--accent2); }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily · re-scanned</div>
+  <h1>June 9, 2026</h1>
+  <div class="meta">
+    <span>5 companies</span>
+    <span>7 practitioner blogs</span>
+    <span>7 Substacks</span>
+    <span>2 X accounts</span>
+    <span>HN / community</span>
+    <span style="color:var(--warn)">Apple rebuilds Siri on Google Gemini · OpenAI files its S-1 · Google ships Gemma 4 12B</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>Apple rebuilds Siri on Google Gemini (WWDC 2026)</strong> — a custom Gemini-derived model runs in Google Cloud on Nvidia GPUs for the heaviest reasoning, behind a three-tier Private Cloud Compute router (~$1B/yr). Simon Willison's teardown quotes Apple's Security Research blog confirming the design and that "all binaries will be published for public inspection." Three Apple items top HN (Siri AI 535 pts/480 comments, Gemini architecture 532/406, Core AI Framework 267/68).</li>
+      <li><strong>OpenAI confidentially filed its draft S-1</strong> — the post is now live on <a href="https://openai.com/index/openai-submits-confidential-s-1/">openai.com/index</a> and on HN (334 pts), at a reported ~$852B valuation with ~900M weekly ChatGPT users — exactly a week after <a href="https://www.anthropic.com/news/confidential-draft-s1-sec">Anthropic's S-1</a>. Two frontier labs are now on the IPO track at once.</li>
+      <li><strong>Google shipped Gemma 4 12B</strong> <span style="color:var(--accent2)">(new since the earlier scan)</span> — a "unified, encoder-free multimodal" open model, surfaced on the DeepMind blog the same week Google landed the proprietary-Gemini Apple deal.</li>
+      <li><strong>Open weights keep pressing from below</strong> — <a href="https://mimo.xiaomi.com/blog/mimo-tilert-1000tps">Xiaomi's MiMo-v2.5-Pro-UltraSpeed</a> (1T @ ~1,000 tps, 546 pts) on throughput, after DeepSeek V4-Pro on cost; plus <a href="https://cognition.ai/blog/frontier-code">Cognition's FrontierCode</a> (158 pts).</li>
+      <li><strong>A loud skeptic counter-narrative</strong> — Ed Zitron's "<a href="https://www.wheresyoured.at/ai-is-slowing-down/">AI is slowing down</a>" (504 pts) and "<a href="https://martinalderson.com/posts/xais-new-rental-business/">xAI is a datacentre REIT</a>" (523 pts) trended right alongside the blockbuster headlines.</li>
+      <li><strong>Simon Willison ships datasette-agent-edit 0.1a0</strong> (Jun 7) — reusable agentic editing tools re-implementing Claude's <code>view</code>/<code>str_replace</code>/<code>insert</code> design, his "favorite published" approach — plus a detailed WWDC teardown.</li>
+      <li><strong>The labs' own newsrooms stayed static</strong> — Anthropic since Jun 3, OpenAI index since Jun 1, AWS since Jun 2; and the <strong>Jun 5 Claude outage / data-leak claim still has no published postmortem — day 4</strong>.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ANTHROPIC -->
+<div class="section">
+  <div class="section-header">
+    <h2>Anthropic</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new newsroom posts since Jun 3 (<a href="https://www.anthropic.com/news/services-track-partner-hub">Services Track &amp; Partner Hub</a>, <a href="https://www.anthropic.com/news/AI-enabled-cyber-threats-mitre-attack">MITRE ATT&amp;CK threat mapping</a>). The newsroom is still topped by <a href="https://www.anthropic.com/news/claude-opus-4-8">Claude Opus 4.8</a> (May 28), with <a href="https://www.anthropic.com/news/expanding-project-glasswing">Project Glasswing expansion</a> (Jun 2) and the <a href="https://www.anthropic.com/news/confidential-draft-s1-sec">confidential S-1</a> (Jun 1) below it.</div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://cybernews.com/ai-news/claude-outage-resolved-anthropic-opus-model-errors/">Jun 5 Claude outage + possible cross-user data leak — still no postmortem (day 4)</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+    </div>
+    <div class="item-date">Jun 5, 2026 — investigation still open as of Jun 9</div>
+    <div class="item-body">Four days on, Anthropic has still not published a root-cause analysis for Friday's ~2-hour disruption (elevated errors on Opus 4.7/4.8 starting ~11:19 a.m. EDT, across <a href="https://status.anthropic.com/history">claude.ai, the API, Claude Code, and Cowork</a>) or the social-media claims that Claude <em>returned responses meant for other users</em>. Anthropic's standing position is unchanged: infrastructure issue, not a breach, no confirmed leaked customer data. For a company that filed an S-1 last week, the lengthening postmortem silence is itself the story to watch. (Carried; confirmed no update via search today.)</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">Carried: <a href="https://www.anthropic.com/news/confidential-draft-s1-sec">confidential S-1</a> (Jun 1) · <a href="https://www.anthropic.com/news/series-h">$65B Series H ($965B post-money)</a> · <a href="https://www.anthropic.com/news/expanding-project-glasswing">Project Glasswing expansion</a> · Agent SDK billing change (Jun 15)</div>
+    </div>
+    <div class="item-date">Jun 1–3, 2026</div>
+    <div class="item-body">The IPO track plus the Jun 15 Agent SDK billing change (workloads move off the chat-subscription pool to a separate $20–$200/month credit at API list rates). With OpenAI's S-1 now public (see OpenAI section), Anthropic is one of two frontier labs simultaneously filed with the SEC.</div>
+  </div>
+</div>
+
+<!-- OPENAI -->
+<div class="section">
+  <div class="section-header">
+    <h2>OpenAI</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://openai.com/index/openai-submits-confidential-s-1/">OpenAI confidentially submits draft S-1 to the SEC</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 8, 2026 — openai.com/index + HN front page (334 pts, 263 comments)</div>
+    <div class="item-body">OpenAI confirmed (initially on X, "expecting it to leak") that it has confidentially filed a draft S-1, at a reported <strong>~$852B post-money valuation</strong> (its March round) and <strong>~900M weekly ChatGPT users</strong>. The company stressed no timing is decided — "there are things easier to do as a private company" — but the filing preserves the option to go public sooner; <a href="https://fortune.com/2026/06/09/openai-files-confidential-s-1-sec-ipo/">Goldman Sachs and Morgan Stanley</a> are reported as underwriters, with a possible (unconfirmed) September debut. This lands exactly one week after <a href="https://www.anthropic.com/news/confidential-draft-s1-sec">Anthropic's S-1</a> and follows OpenAI's May PBC-restructuring jury win — the two leading labs are now racing toward the public markets in parallel.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new posts on the OpenAI news index itself since Jun 1 (<a href="https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/">GPT-5.5/5.4 &amp; Codex GA on Bedrock</a>). Standing items: <a href="https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/">Rosalind Biodefense</a> (May 29), <a href="https://openai.com/index/trustworthy-third-party-evaluations-foundations/">trustworthy third-party evaluations</a> (May 29), the <a href="https://openai.com/index/openai-frontier-governance-framework/">Frontier Governance Framework</a> (May 28), and <a href="https://openai.com/index/building-self-improving-tax-agents-with-codex/">self-improving tax agents with Codex</a> (May 27).</div>
+  </div>
+</div>
+
+<!-- GOOGLE -->
+<div class="section">
+  <div class="section-header">
+    <h2>Google DeepMind</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.macrumors.com/2026/06/08/apple-reveals-new-ai-architecture/">Google wins the Apple AI deal: Siri rebuilt on a custom Gemini-derived model</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 8, 2026 — via Apple WWDC 2026 (not a DeepMind blog post)</div>
+    <div class="item-body">The biggest Google AI story in months didn't come from deepmind.google — it came from Apple's keynote. Apple's overhauled <strong>Siri AI</strong> routes its heaviest reasoning (agentic tool-use, complex reasoning) to a <strong>custom Gemini-derived model running on Nvidia GPUs in Google Cloud</strong>, reportedly a ~$1B/year deal. It's a landmark validation of Gemini as a third-party foundation layer and arguably the most consequential model-distribution win of 2026 so far. (Full detail in the Community section.) Google's own blog is otherwise topped by the May I/O batch: <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni/">Gemini Omni</a>, <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/">Gemini 3.5</a>, <a href="https://antigravity.google/blog/introducing-google-antigravity-2-0">Antigravity 2.0</a>, <a href="https://deepmind.google/blog/co-scientist-a-multi-agent-ai-partner-to-accelerate-research/">Co-Scientist</a>.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/">Introducing Gemma 4 12B: a unified, encoder-free multimodal model</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">June 2026 — blog.google (newly surfaced on the DeepMind blog index)</div>
+    <div class="item-body">Newly appearing on the Google/DeepMind blog: <strong>Gemma 4 12B</strong>, billed as a "unified, encoder-free multimodal model." It's the next iteration of Google's open-weight family and a direct entry in the same open-model conversation as Xiaomi MiMo, DeepSeek V4-Pro, and Microsoft's MAI batch — i.e., Google keeping a foot in the open-weight camp even as it lands the proprietary-Gemini Apple deal. Two other fresh DeepMind posts: <a href="https://deepmind.google/blog/measuring-the-impact-of-learning-with-ai-in-sierra-leone-and-beyond/">Measuring the impact of learning with AI in Sierra Leone and beyond</a> and <a href="https://blog.google/topics/google-europe/powering-the-future-of-robotics-in-europe/">Powering the future of robotics in Europe</a>.</div>
+  </div>
+</div>
+
+<!-- AWS -->
+<div class="section">
+  <div class="section-header">
+    <h2>AWS</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new ML Blog posts since Jun 2. Standing Jun 2 items: <a href="https://aws.amazon.com/blogs/machine-learning/the-art-and-science-of-hyperparameter-optimization-on-amazon-nova-forge/">Hyperparameter optimization on Amazon Nova Forge</a> (fine-tuning without degrading general capability), <a href="https://aws.amazon.com/blogs/machine-learning/object-detection-with-amazon-nova-2-lite/">Object detection with Nova 2 Lite</a>, and <a href="https://aws.amazon.com/blogs/machine-learning/how-baz-improved-its-ai-agent-code-review-accuracy-using-amazon-bedrock-agentcore/">How Baz improved AI Agent Code Review with AgentCore</a>. The Jun 1 AgentCore cluster (Gateway, Identity, Payments, Policy/Lambda interceptors), the Jun 1 <a href="https://aws.amazon.com/blogs/machine-learning/openai-models-and-codex-on-amazon-bedrock-are-now-generally-available/">OpenAI models + Codex GA on Bedrock</a>, and the Mar 31 <a href="https://aws.amazon.com/blogs/machine-learning/aws-launches-frontier-agents-for-security-testing-and-cloud-operations/">frontier agents GA</a> (Security Agent pentest, DevOps Agent) remain the headline items.</div>
+  </div>
+</div>
+
+<!-- MICROSOFT -->
+<div class="section">
+  <div class="section-header">
+    <h2>Microsoft</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new AI posts surfaced. The Jun 2 Build MAI model batch — <strong>MAI-Thinking-1 (1T MoE, 35B active)</strong> and <strong>MAI-Code-1-Flash (137B, 5B active)</strong>, with Simon Willison's corrected sizing and the "appropriately licensed data" debunk — remains the standing story, alongside the May 21 thought-leadership piece (<a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/21/ai-needs-more-than-intelligence-it-needs-humanity/">"AI needs more than intelligence — it needs humanity"</a>).</div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; Substacks</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison — simonwillison.net</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/8/wwdc/">WWDC: Apple's Private Cloud Compute now extends to Google Cloud + Nvidia GPUs</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 8, 2026 — 11:58 pm</div>
+      <div class="item-body">The day's most detailed read on the Apple/Gemini architecture, with a healthy "I'll believe it when I see it" caveat after Apple's 2024 Apple Intelligence overpromises. Willison quotes Apple's Security Research blog confirming that for "the most demanding tasks, including agentic tool-use and complex reasoning," Apple "worked with Google and NVIDIA to extend our PCC infrastructure to Google Cloud systems using NVIDIA GPUs." Notable claims: PCC-on-Google-Cloud reuses Apple-silicon patterns (per-request namespaces, short-TTL recycled inference software, attested keys in an isolated confidential VM) and "<strong>all binaries will be published for public inspection</strong>"; he also flags that the new <strong>Core AI</strong> library integrates with Meta's PyTorch (<code>coreai-torch</code>) and that Siri will lean on vision-LLMs to read the screen rather than requiring per-app integration.</div>
+    </div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://github.com/datasette/datasette-agent-edit/releases/tag/0.1a0">datasette-agent-edit 0.1a0 — reusable agentic text-editing tools</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 7, 2026 — 11:56 pm</div>
+      <div class="item-body">A base plugin for <a href="https://agent.datasette.io/">Datasette Agent</a> that re-implements the <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/text-editor-tool">Claude text-editor tool</a> design — <code>view</code> (sections with line numbers), <code>str_replace</code> (replace an exact, unique <code>old_str</code> or fail), and <code>insert</code> (after a given line). Willison calls Claude's design his "favorite published" approach to agentic editing and is factoring it out so future plugins (collaborative Markdown, large-SQL editing, SVG editing) don't each reinvent it. A small but concrete vote for Anthropic's text-editor primitives as a de-facto standard.</div>
+    </div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new AI entries since Jun 8; the Jun 6 <a href="https://simonwillison.net/2026/Jun/6/micropython-in-a-sandbox/">Running Python code in a sandbox with MicroPython and WASM</a> post (+ <a href="https://github.com/simonw/micropython-wasm/releases/tag/0.1a2">micropython-wasm 0.1a2</a>) remains his prior entry; Jun 7 also had wildlife sightings (non-AI).</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly Radar — oreilly.com/radar</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new articles since <a href="https://www.oreilly.com/radar/open-source-ecosystems/">Open Source Ecosystems</a> (May 29). Standing reads: <a href="https://www.oreilly.com/radar/your-ai-agent-already-forgot-half-of-what-you-told-it/">Your AI Agent Already Forgot Half of What You Told It</a>, <a href="https://www.oreilly.com/radar/who-authorized-that-the-delegation-problem-in-multi-agent-ai/">the delegation problem in multi-agent AI</a>, <a href="https://www.oreilly.com/radar/this-week-in-ai-rethinking-the-agent-harness/">Rethinking the Agent Harness</a>, and the Addy Osmani Claude Code video series.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">GitHub Blog — github.blog/ai-and-ml</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new AI post since the <a href="https://github.blog/ai-and-ml/github-copilot/github-recognized-as-a-leader-in-the-gartner-magic-quadrant-for-enterprise-ai-coding-agents-for-the-third-year-in-a-row/">Gartner Leader</a> note (May 22). On-theme standing pieces: <a href="https://github.blog/ai-and-ml/github-copilot/improving-token-efficiency-in-github-agentic-workflows/">Improving token efficiency in GitHub Agentic Workflows</a>, <a href="https://github.blog/ai-and-ml/generative-ai/agent-pull-requests-are-everywhere-heres-how-to-review-them/">Agent pull requests are everywhere. Here's how to review them</a>, and <a href="https://github.blog/ai-and-ml/generative-ai/validating-agentic-behavior-when-correct-isnt-deterministic/">Validating agentic behavior when "correct" isn't deterministic</a>.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Addy Osmani · Adam Tornhill · Casey Muratori</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);"><strong>Addy Osmani (Elevate):</strong> no new post since <a href="https://addyo.substack.com/p/loop-engineering">Loop Engineering</a> (Jun 8) — designing the loops that prompt agents (automations, worktrees, skills, connectors, sub-agents + memory). <strong>Adam Tornhill:</strong> no new since <a href="https://adamtornhill.substack.com/p/why-merge-conflicts-became-the-new">Why Merge Conflicts became the new Agentic Bottleneck</a> (Jun 2). <strong>Casey Muratori / Computer Enhance:</strong> no new AI since <a href="https://www.computerenhance.com/p/will-ai-make-me-worse">Will AI Make Me Worse?</a> (Jun 4); the Jun 1 post was a non-AI game-history interview (the first Entity Component System).</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Ethan Mollick · Pragmatic Engineer · Jessica Talisman · Lenny</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);"><strong>Ethan Mollick / One Useful Thing:</strong> Substack JSON API returned empty again; latest known is <a href="https://www.oneusefulthing.org/p/co-existence-and-the-end-of-co-intelligence">Co-Existence and the End of Co-Intelligence</a> (Jun 4). <strong>Pragmatic Engineer:</strong> no new AI post; latest is <a href="https://newsletter.pragmaticengineer.com/p/kubernetes-and-retiring-at-the-top">Kelsey Hightower</a> (Jun 3, not AI). Most relevant recent: <a href="https://newsletter.pragmaticengineer.com/p/ideas-slow-down-to-speed-up-when">Slow down to speed up when working with AI agents</a> (Jun 2, "devs are generating 2x+ the code of six months ago") and <a href="https://newsletter.pragmaticengineer.com/p/the-pulse-a-trend-of-trying-to-cut">a trend of trying to cut AI spend within eng departments?</a> (May 28). <strong>Jessica Talisman:</strong> latest remains <a href="https://jessicatalisman.substack.com/p/before-the-structure">Before the Structure</a> (Jun 1). <strong>Lenny Rachitsky:</strong> no new AI-relevant post.</div>
+    </div>
+  </div>
+</div>
+
+<!-- X / SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Social</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">@trq212 (Thariq, Claude Code team)</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new headline post surfaced today. Standing references remain his threads on <a href="https://x.com/trq212/status/2053979505346425179">Agent View</a> (multi-session management, "tmux for Claude Code"), the <strong>AskUserQuestion</strong> elicitation tool, <a href="https://x.com/trq212/status/2024638793719177291">"design agents for prompt caching first"</a>, and using Claude Code as a general agent beyond code.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">@karpathy (Andrej Karpathy)</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new headline post confirmed. Live references: the <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">LLM Wiki</a> (agent-maintained Markdown memory with a schema file + health checks + backlinks), <a href="https://github.com/karpathy/autoresearch">AutoResearch</a> (overnight single-GPU nanochat experiment loops — reportedly 700 experiments / 20 optimizations over two days), and the <strong>LLM Council</strong> sketch — orchestration middleware between apps and a "volatile market of AI models." The Apple/Gemini routing architecture is a real-world echo of exactly that middleware idea.</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community</h2>
+    <span class="section-tag tag-community">HN &amp; Reddit</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title">Apple WWDC 2026 sweeps the HN front page: <a href="https://www.apple.com/apple-intelligence/">Siri AI</a>, <a href="https://www.macrumors.com/2026/06/08/apple-reveals-new-ai-architecture/">Gemini architecture</a>, <a href="https://developer.apple.com/documentation/coreai/">Core AI Framework</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 8, 2026 — HN front page (535 / 532 / 267 pts; 480 / 406 / 68 comments)</div>
+    <div class="item-body">Apple's biggest AI reset in 15 years, and still the dominant topic the next day. <strong>Siri AI</strong> is rebuilt on a custom <strong>Gemini-derived model run on Nvidia GPUs in Google Cloud</strong> (~$1B/year), behind a three-tier router: simple tasks on-device, moderate ones via Apple's Private Cloud Compute, heaviest reasoning to Google Cloud — with the contract barring Google from training on Apple data and (per Apple) PCC binaries published for inspection. A <strong>Core AI Framework</strong> opens on-device + PCC models to third-party developers (integrating PyTorch), and <a href="https://techcrunch.com/2026/06/08/apple-bets-cheaper-ai-will-woo-small-developers/">Apple is positioning cheaper AI to woo small developers</a> (49 pts). Strategically: Apple conceded the frontier-model race and became a distributor of someone else's model — a huge Gemini win, and a live example of the "harness/orchestration over base model" thesis.</div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48452317">OpenAI confidential S-1 filing</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 8, 2026 — HN front page (334 pts, 263 comments)</div>
+    <div class="item-body">Heavily discussed alongside the Apple news (see OpenAI section for detail): ~$852B valuation, ~900M weekly ChatGPT users, a week after Anthropic's S-1. HN debate centered on whether a September listing is realistic and what an IPO means for OpenAI's capped-profit/PBC structure.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://mimo.xiaomi.com/blog/mimo-tilert-1000tps">MiMo-v2.5-Pro-UltraSpeed: 1T model at 1,000 tokens/second</a> (Xiaomi)</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 8, 2026 — HN front page (546 pts, 395 comments)</div>
+    <div class="item-body">Another open-weight-world entrant, this time foregrounding <em>throughput</em>: a trillion-parameter model serving at a reported ~1,000 tokens/sec. Coming a day after DeepSeek V4-Pro's capability-per-dollar run — and the same week as Google's Gemma 4 12B — it reinforces that the most aggressive price/speed numbers keep arriving from Chinese labs (Xiaomi, DeepSeek) and open families rather than the US proprietary frontier.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://cognition.ai/blog/frontier-code">FrontierCode</a> (Cognition)</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 8, 2026 — HN front page (158 pts, 31 comments)</div>
+    <div class="item-body">Cognition (Devin) released FrontierCode — a coding-model / agent push that puts it back in direct competition with Claude Code, Codex, and Copilot CLI. On-theme with the week's coding-agent and "agent harness" thread; worth watching how its benchmarks land versus the open-weight surge.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.wheresyoured.at/ai-is-slowing-down/">AI is slowing down</a> (Ed Zitron) · <a href="https://martinalderson.com/posts/xais-new-rental-business/">xAI is a datacentre REIT</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 8, 2026 — HN front page (504 pts / 525 comments · 523 pts / 406 comments)</div>
+    <div class="item-body">The loud skeptical counter-narrative — two of the most-commented threads of the day. Zitron argues capability gains are decelerating and the economics don't justify the capex; the Alderson piece argues xAI now looks more like a datacentre rental business than a frontier lab. Together they feed a growing "is the bubble cooling?" mood even as Apple/OpenAI headlines suggest the opposite.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48449187">Ask HN: What tools have you made for yourself since the advent of AI?</a></div>
+    </div>
+    <div class="item-date">Jun 8, 2026 — HN front page (260 pts, 430 comments)</div>
+    <div class="item-body">A big, practical thread of personal tools people now build casually because AI lowered the cost of one-off software — directly echoing Karpathy's "software is changing" framing. Pairs with two other live front-page items poking at AI-era software culture: <a href="https://vorpus.github.io/performativeUI/">Performative-UI</a>, a satirical React library of AI-design tropes (915 pts), and Launch HN: <a href="https://intunedhq.com">Intuned</a> (YC S22), reliable browser automations as code (106 pts).</div>
+  </div>
+</div>
+
+<!-- NOTABLE THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>Apple concedes the frontier and becomes a model distributor</h3>
+    <p>The single biggest signal of the day: Apple — with effectively unlimited capital — chose to <em>license</em> a custom Gemini-derived model from Google rather than ship a competitive frontier model of its own. That reframes the competitive map. Apple's defensible layer is distribution, privacy architecture (the three-tier PCC router, now extended to Google Cloud), and the developer surface (Core AI Framework + PyTorch), not the base model. It's the clearest real-world endorsement yet of the "harness/orchestration beats raw model" thesis the practitioner blogs (Osmani's Loop Engineering, Karpathy's LLM Council) have been articulating — and a massive commercial win for Gemini as a third-party foundation.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>Two frontier labs on the IPO track at once</h3>
+    <p>OpenAI's S-1 (~$852B, ~900M weekly users) one week after Anthropic's means the two leading labs are now simultaneously filed with the SEC. Whatever the timing, this forces a level of financial disclosure the sector has never had — burn rates, compute commitments, revenue mix — and sets up a public-market valuation test for the whole "frontier lab" business model. Watch for the inevitable leaks of actual numbers.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>Open weights keep applying pressure from below — now Google too</h3>
+    <p>This week alone: DeepSeek V4-Pro on capability-per-dollar, Xiaomi's MiMo at ~1,000 tokens/sec, and now Google's own <strong>Gemma 4 12B</strong> (encoder-free multimodal). The most aggressive cost/throughput claims keep coming from open or Chinese models, and even Google — fresh off landing the proprietary-Gemini Apple deal — is still shipping open weights. Combined with Microsoft's small-active-parameter MAI models and the week's cost-cutting thread (Pragmatic Engineer's "cut AI spend," GitHub token billing), the budget-pressure conversation now has credible cheap alternatives pulling on it from below.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>A loud "AI is slowing down" counter-narrative — on the same day as blockbuster headlines</h3>
+    <p>The juxtaposition is the point: Ed Zitron's "AI is slowing down" (504 pts) and "xAI is a datacentre REIT" (523 pts) trended right alongside the Apple/Gemini and OpenAI-IPO news. The optimist read (huge deals, IPO race) and the skeptic read (decelerating gains, unsustainable capex) are both peaking at once. For a practitioner, the useful signal isn't who's right but that capital-efficiency and durable economics — not raw capability — are becoming the axis people argue about.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>Anthropic's text-editor tools are quietly becoming a standard</h3>
+    <p>Simon Willison factoring Claude's <code>view</code>/<code>str_replace</code>/<code>insert</code> design into a reusable Datasette plugin — and calling it his "favorite published" approach — is a small data point with a big implication: the primitives a lab ships for agentic editing can propagate into the wider ecosystem as de-facto conventions, the same way AGENTS.md did. Worth tracking which vendor's tool schemas other people choose to copy.</p>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Sources checked (re-scan, Jun 9):</strong> Anthropic (no new since Jun 3; Jun 5 outage still without postmortem, day 4 — confirmed via search), OpenAI (S-1 post live Jun 8 ✓; news index unchanged since Jun 1), Google DeepMind (Apple/Gemini deal via WWDC ✓; <strong>Gemma 4 12B newly surfaced</strong> ✓ + Sierra Leone, robotics-Europe posts), AWS ML Blog (no new since Jun 2), Microsoft (no new surfaced; MAI batch standing), Simon Willison (Jun 8 WWDC ✓ + Jun 7 datasette-agent-edit ✓), O'Reilly Radar (no new since May 29), GitHub Blog (no new AI since May 22), Addy Osmani / Elevate (no new since Jun 8), Adam Tornhill (Substack ✓ — Jun 2 latest), Casey Muratori / Computer Enhance (Substack ✓ — Jun 4 latest AI), Ethan Mollick / One Useful Thing (API empty), Gergely Orosz / Pragmatic Engineer (Substack ✓ — Jun 2 latest AI), Jessica Talisman (Jun 1 latest), Lenny Rachitsky (no new AI), @trq212 (WebSearch — no new), @karpathy (WebSearch — no new), Hacker News (front page ✓).</p>
+  <p style="margin-top:8px;"><strong>New today:</strong> Apple WWDC — Siri rebuilt on a custom Gemini-derived model on Nvidia GPUs in Google Cloud (~$1B/yr), Core AI Framework (HN 535/532/267 pts); OpenAI confidential S-1 at ~$852B / ~900M weekly users (HN 334 pts); <strong>Google Gemma 4 12B</strong> (encoder-free multimodal open model); Xiaomi MiMo-v2.5-Pro-UltraSpeed 1T @ ~1,000 tps (HN 546 pts); Cognition FrontierCode (HN 158 pts); Ed Zitron "AI is slowing down" (HN 504 pts) + "xAI is a datacentre REIT" (HN 523 pts); Simon Willison's WWDC teardown (Jun 8) + datasette-agent-edit 0.1a0 (Jun 7); Ask HN "tools you've made since AI" (260 pts), Performative-UI (915 pts), Intuned Launch HN (106 pts).</p>
+  <p style="margin-top:8px;"><strong>Carried over (not new):</strong> Anthropic Jun 5 outage / data-leak investigation (no postmortem yet), S-1 / Series H, Project Glasswing, Agent SDK billing change (Jun 15); DeepSeek V4-Pro open-weight benchmarks; Addy Osmani's Loop Engineering; OpenAI Lockdown Mode &amp; Bedrock GA; Google I/O stack; AWS AgentCore cluster + frontier agents; Microsoft MAI models; Karpathy LLM Wiki / AutoResearch / LLM Council; the week's skill-degradation and inference-cost threads.</p>
+  <p style="margin-top:12px; color:var(--muted);">Re-scanned and regenerated Jun 9, 2026.</p>
+</footer>
+
+</body>
+</html>

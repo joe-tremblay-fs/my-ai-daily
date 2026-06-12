@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — June 10, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 4px 0 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; line-height: 1.6; margin-bottom: 9px; }
+    .themes-box li:last-child { margin-bottom: 0; }
+    .themes-box li::marker { color: var(--accent2); }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>June 10, 2026</h1>
+  <div class="meta">
+    <span>5 companies</span>
+    <span>7 practitioner blogs</span>
+    <span>7 Substacks</span>
+    <span>2 X accounts</span>
+    <span>HN / community</span>
+    <span style="color:var(--warn)">Anthropic ships Claude Fable 5 &amp; Mythos 5 · the first public Mythos-class model · undisclosed "silent interventions" spark backlash</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>Anthropic launches Claude Fable 5 and Claude Mythos 5</strong> — the first <em>Mythos-class</em> model (a tier above Opus) made generally available. Per Anthropic, Fable 5 is "state-of-the-art on nearly all tested benchmarks," and the lead grows "the longer and more complex the task." Priced at <strong>$10/M input · $50/M output</strong> (less than half of Mythos Preview). <a href="https://www.anthropic.com/news/claude-fable-5-mythos-5">Announcement</a>. This is today's dominant story by a wide margin.</li>
+      <li><strong>The headline capability claims are extreme.</strong> Stripe reports Fable 5 did a codebase-wide migration of a <strong>50-million-line Ruby codebase in a day</strong> (≈two months of team work by hand); it's the <strong>top scorer on Cognition's FrontierCode</strong> eval even at medium effort; new vision SOTA (beat Pokémon FireRed with a vision-only harness); and on Mythos 5, internal scientists accelerated <strong>drug design ~10×</strong> and trained a genomics model that beat a <em>Science</em>-published model at 100× smaller.</li>
+      <li><strong>New "silent interventions" are drawing fire</strong> <span style="color:var(--warn)">(safety/ethics)</span> — the 319-page system card reveals that for frontier-LLM-development requests (pretraining pipelines, distributed training, ML accelerator design), Fable 5's effectiveness is quietly degraded via prompt modification / steering vectors / PEFT, <strong>invisible to the user</strong> (~0.03% of traffic). Simon Willison: "I'm not at all keen on a model that silently corrupts its replies." Latent.Space framed it as "Mythos but Safe, with Controversial Terms."</li>
+      <li><strong>Mythos 5 = same model, cyber safeguards lifted</strong> — "the strongest cybersecurity capabilities of any model in the world," deployed first to Project Glasswing cyberdefenders and the US government. Fable's classifiers otherwise fall back to Opus 4.8 on cyber / bio-chem / distillation queries (&lt;5% of sessions).</li>
+      <li><strong>Day-one distribution everywhere</strong> — Fable 5 shipped GA simultaneously in <a href="https://github.blog/changelog/2026-06-09-claude-fable-5-is-generally-available-for-github-copilot/">GitHub Copilot</a>, <a href="https://azure.microsoft.com/en-us/blog/claude-fable-5-is-now-available-in-microsoft-foundry-powering-the-next-era-of-autonomous-agents/">Microsoft Foundry</a>, and Cursor. <strong>Karpathy</strong> called it "a major-version-bump-deserving step change forward" and riffed on Jevons paradox: "working software increasingly comes out on a tap… Free your mind."</li>
+      <li><strong>Simon Willison's hands-on take</strong> (Jun 9, 2,395 words) — "something of a <em>beast</em>… slow, expensive, and has been quite happily churning through everything I've thrown at it. The challenge is finding tasks that it can't do." He shipped <a href="https://github.com/simonw/llm/releases/tag/0.32a3">llm 0.32a3</a> "almost entirely written by" Fable 5; one session cost $74.</li>
+      <li><strong>The rest of the field stayed put.</strong> Yesterday's headlines — Apple/Gemini WWDC deal, OpenAI's S-1, Gemma 4 12B, Xiaomi MiMo, Cognition's FrontierCode, DeepSeek V4-Pro, Ed Zitron's "AI is slowing down" — are all carried, not new. Google quietly surfaced <strong>Gemini 3.5 Live Translate</strong>. AWS/Microsoft newsrooms unchanged.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ANTHROPIC -->
+<div class="section">
+  <div class="section-header">
+    <h2>Anthropic</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.anthropic.com/news/claude-fable-5-mythos-5">Claude Fable 5 and Claude Mythos 5 — the first generally-available Mythos-class model</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 9, 2026 — anthropic.com/news</div>
+    <div class="item-body">
+      Anthropic released <strong>Claude Fable 5</strong>, a "Mythos-class" model — a new tier <em>above</em> the Opus class. It claims state-of-the-art results "on nearly all tested benchmarks," with the lead over prior Claude models widening "the longer and more complex the task." Pricing is <strong>$10/M input and $50/M output</strong>, under half the cost of the earlier Mythos Preview. Concrete claims from early-access customers: Stripe ran a <strong>codebase-wide migration of a 50M-line Ruby codebase in a day</strong> (vs ~two months by a team); Fable is the <strong>highest scorer on Cognition's FrontierCode/FrontierBench</strong> eval (even at medium effort, and more token-efficient than past models); it's the new <strong>vision SOTA</strong> (rebuilds web apps from screenshots; beat Pokémon FireRed with a vision-only harness where earlier models needed scaffolding); and with file-based memory it reached the final act of <em>Slay the Spire</em> 3× more often than Opus 4.8. Cursor (SOTA on CursorBench), GitHub, Replit (top on ViBench), and finance/legal customers all reported best-ever results. Fable is free on Pro/Max/Team/Enterprise through <strong>June 22</strong>, after which it requires usage credits until capacity allows a permanent return.
+    </div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title">Claude Mythos 5 — "the strongest cybersecurity capabilities of any model in the world"; classifiers + a new 30-day retention policy</div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 9, 2026 — anthropic.com/news</div>
+    <div class="item-body">
+      <strong>Mythos 5</strong> is the same underlying model as Fable 5 with cyber safeguards lifted, deployed first through <a href="https://www.anthropic.com/glasswing">Project Glasswing</a> (with the US government) and soon a broader trusted-access program; a parallel biology trusted-access program is planned. To release Fable safely, Anthropic added <strong>safety classifiers</strong>: requests flagged for cybersecurity, biology/chemistry, or distillation are silently handled by <strong>Claude Opus 4.8</strong> instead (with the user notified). Anthropic says &gt;95% of Fable sessions involve no fallback, an external bug bounty found no universal jailbreaks in 1,000+ hours, and on Mythos 5 internal scientists accelerated <strong>protein/drug design ~10×</strong> (9 of 14 targets yielding strong candidates), produced novel molecular-biology hypotheses preferred over Opus-class ~80% of the time, and trained a single-cell genomics model spanning 138 species that beat a recent <em>Science</em>-published model while being 100× smaller. Anthropic also now requires <strong>30-day data retention</strong> on all Mythos-class traffic (first- and third-party) for safety/abuse defense, not training.
+    </div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://jonready.com/blog/posts/claude-fable5-is-allowed-to-sabotage-your-app-if-youre-a-competitor.html">"Silent interventions": Fable 5 will quietly limit help on frontier-LLM-development tasks — invisibly</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 10, 2026 — system card §, via HN &amp; Simon Willison</div>
+    <div class="item-body">
+      The most contested detail in the <a href="https://www-cdn.anthropic.com/d00db56fa754a1b115b6dd7cb2e3c342ee809620.pdf">319-page system card</a>: unlike the cyber/bio/distillation classifiers (which visibly fall back to Opus), a separate set of interventions targeting <strong>frontier-LLM development</strong> — "building pretraining pipelines, distributed training infrastructure, or ML accelerator design" — will <strong>not be visible to the user</strong>. Instead Fable's effectiveness is degraded through "prompt modification, steering vectors, or parameter-efficient fine-tuning (PEFT)," affecting an estimated ~0.03% of traffic in &lt;0.1% of organizations, justified by reference to <a href="https://www.anthropic.com/institute/recursive-self-improvement">recursive self-improvement</a> risk and ToS enforcement. Simon Willison: "I believe this is the first time Anthropic have announced these kinds of silent interventions… I'm not at all keen on a model that silently corrupts its replies." Latent.Space dubbed the launch "Mythos but Safe, with Controversial Terms," and Chinese tech press (36Kr) ran "Claude Secretly Becomes Dumber in AI Research." A genuinely new governance/trust question: a model that quietly underperforms on a sanctioned topic class without telling you.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">Carried (not new): the Jun 5 ~2-hour Claude outage / cross-user-leak claims still have no published postmortem (now day 5), though service is restored and the Fable 5 launch suggests Anthropic has moved on; <a href="https://www.anthropic.com/news/confidential-draft-s1-sec">confidential S-1</a> (Jun 1), <a href="https://www.anthropic.com/news/series-h">$65B Series H ($965B post-money)</a>, <a href="https://www.anthropic.com/news/expanding-project-glasswing">Project Glasswing expansion</a> (Jun 2), <a href="https://www.anthropic.com/news/services-track-partner-hub">Services Track &amp; Partner Hub</a> (Jun 3), <a href="https://www.anthropic.com/news/AI-enabled-cyber-threats-mitre-attack">MITRE ATT&amp;CK threat mapping</a> (Jun 3), and the Jun 15 Agent SDK billing change.</div>
+  </div>
+</div>
+
+<!-- OPENAI -->
+<div class="section">
+  <div class="section-header">
+    <h2>OpenAI</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new posts on the OpenAI news index since Jun 1 (<a href="https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/">GPT-5.5/5.4 &amp; Codex GA on Bedrock</a>). Carried: the Jun 8 <a href="https://openai.com/index/openai-submits-confidential-s-1/">confidential S-1</a> (~$852B valuation, ~900M weekly ChatGPT users, still on HN at 334 pts), <a href="https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/">Rosalind Biodefense</a> (May 29), <a href="https://openai.com/index/trustworthy-third-party-evaluations-foundations/">trustworthy third-party evaluations</a> (May 29), the <a href="https://openai.com/index/openai-frontier-governance-framework/">Frontier Governance Framework</a> (May 28), and <a href="https://openai.com/index/building-self-improving-tax-agents-with-codex/">self-improving tax agents with Codex</a> (May 27). Notably absent today: any public OpenAI response to Fable 5 — its benchmark claims (e.g. SWE-Bench Pro ~80%+, reportedly ~11 pts ahead of the next model) implicitly put GPT-5.5 in second place.</div>
+  </div>
+</div>
+
+<!-- GOOGLE -->
+<div class="section">
+  <div class="section-header">
+    <h2>Google DeepMind</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-live-3-5-translate/">Fluid, natural voice translation with Gemini 3.5 Live Translate</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">June 2026 — blog.google (newly surfaced on the DeepMind blog index)</div>
+    <div class="item-body">Newly appearing on the Google/DeepMind blog: <strong>Gemini 3.5 Live Translate</strong>, a real-time voice-translation capability — a consumer-facing extension of the Gemini 3.5 / Gemini Omni line announced at I/O. A modest update on a day dominated by Anthropic. Otherwise the DeepMind blog is unchanged: <a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/">Gemma 4 12B</a> (encoder-free multimodal open model), <a href="https://deepmind.google/blog/measuring-the-impact-of-learning-with-ai-in-sierra-leone-and-beyond/">Sierra Leone learning study</a>, robotics-in-Europe, <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni/">Gemini Omni</a>, and <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/">Gemini 3.5</a>.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">Carried: the Apple/Gemini WWDC deal (Siri rebuilt on a custom Gemini-derived model on Nvidia GPUs in Google Cloud, ~$1B/yr) remains the biggest <em>Google</em> story of the week, but it broke Jun 8 and was covered in detail yesterday — see the Community section and the Topics page.</div>
+  </div>
+</div>
+
+<!-- AWS -->
+<div class="section">
+  <div class="section-header">
+    <h2>AWS</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new ML Blog posts since Jun 2. Standing items: <a href="https://aws.amazon.com/blogs/machine-learning/the-art-and-science-of-hyperparameter-optimization-on-amazon-nova-forge/">Hyperparameter optimization on Amazon Nova Forge</a>, <a href="https://aws.amazon.com/blogs/machine-learning/object-detection-with-amazon-nova-2-lite/">Object detection with Nova 2 Lite</a>, <a href="https://aws.amazon.com/blogs/machine-learning/how-baz-improved-its-ai-agent-code-review-accuracy-using-amazon-bedrock-agentcore/">Baz AI Agent Code Review with AgentCore</a> (all Jun 2), the Jun 1 AgentCore cluster (Gateway, Identity, Payments, Policy/Lambda interceptors), <a href="https://aws.amazon.com/blogs/machine-learning/openai-models-and-codex-on-amazon-bedrock-are-now-generally-available/">OpenAI models + Codex GA on Bedrock</a>, and the Mar 31 <a href="https://aws.amazon.com/blogs/machine-learning/aws-launches-frontier-agents-for-security-testing-and-cloud-operations/">frontier agents GA</a>. (Claude on Bedrock is an AWS distribution surface; watch for Fable 5 availability on Bedrock to follow.)</div>
+  </div>
+</div>
+
+<!-- MICROSOFT -->
+<div class="section">
+  <div class="section-header">
+    <h2>Microsoft</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://azure.microsoft.com/en-us/blog/claude-fable-5-is-now-available-in-microsoft-foundry-powering-the-next-era-of-autonomous-agents/">Claude Fable 5 available day-one in Microsoft Foundry</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 9, 2026 — Azure blog</div>
+    <div class="item-body">Microsoft put <strong>Fable 5 into Microsoft Foundry on launch day</strong>, framing it as "powering the next era of autonomous agents" — the same company that two weeks ago shipped its own in-house MAI models. The split posture (build MAI to reduce dependence on any single lab, <em>and</em> distribute Anthropic's frontier model immediately) is the story: Microsoft is hedging on models while competing on the platform/agent layer. The Microsoft Cloud blog itself is otherwise unchanged (latest AI thought-leadership: <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/21/ai-needs-more-than-intelligence-it-needs-humanity/">"AI needs more than intelligence — it needs humanity"</a>, May 21); the Jun 2 Build MAI batch (MAI-Thinking-1, MAI-Code-1-Flash) remains the standing model story.</div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; Substacks</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison — simonwillison.net</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/9/claude-fable-5/">Initial impressions of Claude Fable 5</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 9, 2026 — 11:59 pm (2,395 words)</div>
+      <div class="item-body">Five-and-a-half hours hands-on without early access: "this is something of a <em>beast</em>. It's slow, expensive and has been quite happily churning through everything I've thrown at it so far. As is frequently the case with current frontier models the challenge is finding tasks that it <em>can't</em> do." He shipped <a href="https://github.com/simonw/llm/releases/tag/0.32a3">llm 0.32a3</a> "almost entirely written by the new Claude Fable 5," and (via <a href="https://til.simonwillison.net/llms/agentsview-custom-model-price">a TIL on AgentsView</a>) showed his day's usage: one <code>datasette-agent</code> session alone cost <strong>$74.06</strong>, with ~$516 saved by prompt caching. The expense is real — Fable rewards heavy cache reuse.</div>
+    </div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/10/if-claude-fable-stops-helping-you/">If Claude Fable stops helping you, you'll never know</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 10, 2026 — 12:37 am</div>
+      <div class="item-body">Willison amplifies Jonathon Ready's reading of the system card's undisclosed "silent interventions" for frontier-LLM-development queries, and registers a sharp objection: "I'm not at all keen on a model that silently corrupts its replies to questions about 'ML accelerator design' purely to slow down research that might conflict with Anthropic's own goals." The first prominent practitioner pushback on a frontier lab quietly degrading a model on a policy-defined topic class without user notice — likely the start of a larger trust conversation.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Other practitioners on Fable 5</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://www.lennysnewsletter.com/p/claude-fable-5-review-what-the-new">Lenny's Newsletter: "Claude Fable 5 review — what the new Mythos model gets right (and very wrong)"</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 9, 2026 — lennysnewsletter.com</div>
+      <div class="item-body">Lenny Rachitsky's first AI-relevant post in a while is a same-day Fable 5 review, splitting the capability story (genuinely strong long-horizon coding) from the "very wrong" — landing on the controversial terms (silent interventions, 30-day retention, the Jun 22 paywall cliff). Independent reviews piled up fast: <a href="https://artificialanalysis.ai/articles/claude-fable-5-mythos">Artificial Analysis</a> ("the first public Mythos-class model") and <a href="https://www.latent.space/p/ainews-anthropic-claude-fable-5-mythos">Latent.Space</a> ("Mythos but Safe, with Controversial Terms").</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly · GitHub Blog · Addy Osmani</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);"><strong>O'Reilly Radar:</strong> no new articles since <a href="https://www.oreilly.com/radar/open-source-ecosystems/">Open Source Ecosystems</a> (May 29); standing reads on agent memory, the delegation problem, and the agent harness. <strong>GitHub Blog (AI &amp; ML):</strong> no new editorial post since the May 22 <a href="https://github.blog/ai-and-ml/github-copilot/github-recognized-as-a-leader-in-the-gartner-magic-quadrant-for-enterprise-ai-coding-agents-for-the-third-year-in-a-row/">Gartner Leader</a> note — but the GitHub Changelog shipped <a href="https://github.blog/changelog/2026-06-09-claude-fable-5-is-generally-available-for-github-copilot/">Claude Fable 5 GA for Copilot</a> on Jun 9. <strong>Addy Osmani (Elevate):</strong> no new post since <a href="https://addyo.substack.com/p/loop-engineering">Loop Engineering</a> (Jun 8).</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Adam Tornhill · Casey Muratori · Pragmatic Engineer · Mollick · Jessica Talisman</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);"><strong>Adam Tornhill:</strong> no new since <a href="https://adamtornhill.substack.com/p/why-merge-conflicts-became-the-new">Why Merge Conflicts became the new Agentic Bottleneck</a> (Jun 2). <strong>Casey Muratori / Computer Enhance:</strong> Jun 9 post is a non-AI game-dev interview (<a href="https://www.computerenhance.com/p/intuitive-random-selection-with-marc">Intuitive Random Selection</a>); his latest AI piece remains <a href="https://www.computerenhance.com/p/will-ai-make-me-worse">Will AI Make Me Worse?</a> (Jun 4). <strong>Pragmatic Engineer:</strong> no new AI post; latest is <a href="https://newsletter.pragmaticengineer.com/p/kubernetes-and-retiring-at-the-top">Kelsey Hightower</a> (Jun 3, not AI); most relevant recent is <a href="https://newsletter.pragmaticengineer.com/p/ideas-slow-down-to-speed-up-when">Slow down to speed up with AI agents</a> (Jun 2). <strong>Ethan Mollick / One Useful Thing:</strong> Substack JSON API returned empty again; latest known is <a href="https://www.oneusefulthing.org/p/co-existence-and-the-end-of-co-intelligence">Co-Existence and the End of Co-Intelligence</a> (Jun 4). <strong>Jessica Talisman:</strong> latest remains <a href="https://jessicatalisman.substack.com/p/before-the-structure">Before the Structure</a> (Jun 1).</div>
+    </div>
+  </div>
+</div>
+
+<!-- X / SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Social</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">@karpathy (Andrej Karpathy)</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://twitter.com/karpathy/status/2064409694761054332">Karpathy on Claude Fable 5: "a major-version-bump-deserving step change forward"</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 9, 2026 — via X (quoted by Simon Willison)</div>
+      <div class="item-body">Karpathy called Fable 5 "very exciting" and "leap-forward progress worthy of a major version upgrade," then articulated the Jevons-paradox consequence: "I feel a lot of things changing as working software increasingly comes out on a tap. The Jevons paradox kicks in and I feel my own demand for software growing substantially. You can ask for anything — explainers, visualizers, dashboards, bespoke single-use apps… you can 10X your test suite, auto-optimize code, run giant research projects… 'Free your mind.'" The clearest statement of why a step-change coding model changes <em>how much</em> software gets built, not just how fast.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">@trq212 (Thariq, Claude Code team)</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new standalone headline post surfaced today beyond the Fable 5 launch chatter (Fable is "significantly more dependable at dispatching and sustaining parallel subagents" per early notes). Standing references: <a href="https://x.com/trq212/status/2053979505346425179">Agent View</a> (multi-session management), the AskUserQuestion elicitation tool, and "design agents for prompt caching first" — the last especially relevant given Fable 5's pricing makes caching the difference between $74 and ~$590 a session.</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community</h2>
+    <span class="section-tag tag-community">HN &amp; Reddit</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">Fable 5's "silent interventions" hit Hacker News — <a href="https://news.ycombinator.com/item?id=48467896">"If Claude Fable stops helping you, you'll never know"</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 10, 2026 — HN discussion (climbing)</div>
+    <div class="item-body">The Fable 5 launch is being digested on HN primarily through the <em>controversy</em> rather than the benchmarks: the undisclosed degradation of frontier-LLM-development help, the 30-day mandatory retention, and the June 22 "free, then pay" cliff. The capability claims (50M-line Ruby migration, vision-only Pokémon, ~10× drug design) are being treated as impressive-but-vendor-supplied pending independent eval. Expect a benchmark-replication wave over the next few days.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">Carried HN front page: <a href="https://www.macrumors.com/2026/06/08/apple-reveals-new-ai-architecture/">Apple/Gemini architecture</a> (532) · <a href="https://www.apple.com/apple-intelligence/">Siri AI</a> (535) · <a href="https://mimo.xiaomi.com/blog/mimo-tilert-1000tps">Xiaomi MiMo 1T @ 1,000 tps</a> (546) · <a href="https://www.wheresyoured.at/ai-is-slowing-down/">AI is slowing down</a> (504) · <a href="https://martinalderson.com/posts/xais-new-rental-business/">xAI is a datacentre REIT</a> (523) · <a href="https://cognition.ai/blog/frontier-code">FrontierCode</a> (158) · <a href="https://news.ycombinator.com/item?id=48452317">OpenAI S-1</a> (334)</div>
+    </div>
+    <div class="item-date">Jun 8–10, 2026 — still on the front page</div>
+    <div class="item-body">Yesterday's slate persists. Worth flagging the cross-reference: <strong>Cognition's FrontierCode</strong>, on the front page as its own product launch, is also the eval Anthropic chose to showcase Fable 5's top score — coding-agent vendors and the labs are now benchmarking against each other in public. New non-model items: <a href="https://signal.org/blog/pdfs/2026-06-08-uk-surveillance-is-not-safety.pdf">Signal's statement against UK surveillance</a> (526) and the <a href="https://news.ycombinator.com/item?id=48449187">Ask HN "tools you've built since AI"</a> thread (260) — the latter directly echoing Karpathy's "software on tap" framing.</div>
+  </div>
+</div>
+
+<!-- NOTABLE THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>The capability ceiling jumped — and the labs are pricing it like a luxury good</h3>
+    <p>Fable 5's headline claims (a 50M-line migration in a day, vision-only game completion, ~10× drug design, a genomics model that beats a published <em>Science</em> result at 100× the efficiency) describe a model meaningfully past Opus 4.8. The pricing and rollout tell the rest of the story: $10/$50 per M tokens, a single Willison session costing $74, and a hard "free through June 22, then usage credits" cliff because Anthropic can't predict demand. Frontier capability is now arriving as a metered, capacity-constrained premium tier — the opposite end of the spectrum from the week's open-weight cost stories (DeepSeek, Xiaomi, Gemma 4). The market is splitting into "cheap and good enough" vs. "expensive and frontier."</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>Silent interventions: a new category of trust problem</h3>
+    <p>The most important <em>new</em> idea today isn't a capability — it's a governance precedent. Anthropic is shipping a model that will quietly underperform on a defined topic class (frontier-LLM development) <em>without telling the user</em>, via steering vectors / PEFT / prompt modification. It's narrow (~0.03% of traffic) and the stated motive (slowing recursive self-improvement by bad actors) is defensible, but Willison's objection generalizes: if a vendor can invisibly degrade quality on one sanctioned topic, users can no longer fully trust that a weak answer reflects the model's true capability. This collides with the week's "harness over base model" and reliability themes — the model is now an actor with undisclosed agendas, not just a tool.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>The Mythos tier formalizes a two-speed safety regime</h3>
+    <p>Anthropic has now codified a structure: a maximally-capable base model (Mythos 5) released only to vetted cyberdefenders and the US government, and a publicly-available sibling (Fable 5) that's the same weights wrapped in classifiers that fall back to Opus on cyber/bio/distillation. This is the clearest operationalization yet of "release capability gated by who you are." It pairs with mandatory 30-day retention and trusted-access programs for cyber and biology — a model-distribution architecture organized around trust tiers rather than a single public release. Expect other labs to be asked why they don't do the same.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>Day-one omnipresence is now table stakes for a frontier launch</h3>
+    <p>Fable 5 didn't ship to claude.ai and then trickle out — it was generally available in GitHub Copilot, Microsoft Foundry, and Cursor on the same day, with Bedrock likely to follow. The distribution surface is now as much a part of a launch as the model card. Notably, Microsoft is simultaneously building MAI models and reselling Anthropic's frontier model on Foundry — hedging on models while competing on the agent/platform layer. The base model is increasingly a component that flows instantly into everyone's harness; differentiation is moving to orchestration, price, and trust.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>"Software on tap" — Jevons paradox as the operative mental model</h3>
+    <p>Karpathy's reaction to Fable 5 — demand for software <em>grows</em> as the cost of producing it falls — is becoming the dominant framing among practitioners, and it's showing up empirically: the Ask HN "tools you've built since AI" thread, Willison one-shotting a release, customers reporting apps that "took a hundred prompts a year ago." This is the optimistic mirror of the same week's skeptic narrative (Zitron's "AI is slowing down"). The two can both be true: capability gains may be decelerating on benchmarks even as the <em>economic</em> effect of cheap-enough software production keeps compounding.</p>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Sources checked (Jun 10):</strong> Anthropic (<strong>Claude Fable 5 + Mythos 5 launched Jun 9</strong> ✓; system-card "silent interventions" detail ✓), OpenAI (no new since Jun 1; S-1 carried), Google DeepMind (<strong>Gemini 3.5 Live Translate newly surfaced</strong> ✓; Apple/Gemini deal carried), AWS ML Blog (no new since Jun 2), Microsoft (Cloud blog unchanged; <strong>Fable 5 GA in Microsoft Foundry</strong> ✓), Simon Willison (Jun 9 Fable 5 impressions ✓ + Jun 10 "silent interventions" post ✓ + llm 0.32a3 + AgentsView TIL), O'Reilly Radar (no new since May 29), GitHub Blog (no new editorial since May 22; Changelog Fable 5 GA ✓), Addy Osmani (no new since Jun 8), Adam Tornhill (Substack ✓ — Jun 2 latest), Casey Muratori / Computer Enhance (Substack ✓ — Jun 9 non-AI; Jun 4 latest AI), Ethan Mollick / One Useful Thing (API empty), Gergely Orosz / Pragmatic Engineer (Substack ✓ — Jun 3 latest, non-AI), Lenny Rachitsky (<strong>Fable 5 review ✓</strong>), Jessica Talisman (Jun 1 latest), @karpathy (WebSearch ✓ — Fable 5 reaction), @trq212 (WebSearch — no new standalone), Hacker News (front page ✓).</p>
+  <p style="margin-top:8px;"><strong>New today:</strong> Claude Fable 5 (first public Mythos-class model, $10/$50 per M tokens, SOTA claims incl. 50M-line Ruby migration in a day, vision-only Pokémon, top of Cognition FrontierCode); Claude Mythos 5 (cyber safeguards lifted, Glasswing + US gov, ~10× drug design, 138-species genomics model beating a Science result at 100× smaller); the system card's undisclosed "silent interventions" on frontier-LLM-development tasks + new 30-day Mythos-class retention (HN/Willison/Latent.Space/36Kr backlash); day-one GA in GitHub Copilot, Microsoft Foundry, Cursor; Karpathy "major-version-bump" + Jevons-paradox reaction; Simon Willison's hands-on review; Lenny's Fable 5 review; Google Gemini 3.5 Live Translate.</p>
+  <p style="margin-top:8px;"><strong>Carried over (not new):</strong> Apple/Gemini WWDC deal; OpenAI S-1; Gemma 4 12B; Xiaomi MiMo 1T @ 1,000 tps; Cognition FrontierCode (now also Fable 5's showcase eval); DeepSeek V4-Pro; Ed Zitron "AI is slowing down" + "xAI is a datacentre REIT"; Anthropic Jun 5 outage (resolved; still no postmortem, day 5); Anthropic S-1 / Series H / Glasswing / Agent SDK billing; Microsoft MAI batch; AWS AgentCore cluster.</p>
+  <p style="margin-top:12px; color:var(--muted);">Scanned and generated Jun 10, 2026.</p>
+</footer>
+
+</body>
+</html>

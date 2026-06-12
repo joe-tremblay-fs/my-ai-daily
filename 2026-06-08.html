@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — June 8, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>June 8, 2026</h1>
+  <div class="meta">
+    <span>5 companies</span>
+    <span>7 practitioner blogs</span>
+    <span>7 Substacks</span>
+    <span>2 X accounts</span>
+    <span>HN / community</span>
+    <span style="color:var(--warn)">Labs quiet a 3rd day — fresh stories: DeepSeek V4-Pro (open-weight) + Addy Osmani's "Loop Engineering"</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <p>Monday, and the frontier labs stayed quiet for a third straight day — no new posts from Anthropic, OpenAI, Google, AWS, or Microsoft since the Jun 1–3 wave. The genuinely new story comes from the open-weight world: <strong>DeepSeek V4-Pro</strong> is topping Hacker News (277 pts) on benchmarks that put a cheap open model in frontier territory — <strong>80.6% SWE-bench Verified, 90.1% GPQA Diamond, 67.9% Terminal-Bench 2.0, at roughly $0.435 per million tokens</strong> (GPT-5.5 still edges agentic tasks at ~82.7% Terminal-Bench). Two practitioner-flavored HN items also matter: <a href="https://github.com/devenjarvis/lathe">Lathe</a> ("use LLMs to learn a new domain, not skip past it," 323 pts) is a direct, tool-shaped answer to this week's skill-degradation worry, and Sebastian Raschka's <a href="https://twitter.com/rasbt/status/2063649136323252397">"Do agents.md files help coding agents?"</a> puts an empirical lens on the AGENTS.md convention. On the practitioner blogs there's one genuinely fresh item: <strong>Addy Osmani's "<a href="https://addyo.substack.com/p/loop-engineering">Loop Engineering</a>"</strong> (Jun 8), arguing the leverage point is shifting from prompting agents to designing the loops that prompt them — five building blocks (automations, worktrees, skills, connectors, sub-agents) plus on-disk memory, now shipping in both Claude Code and Codex. Otherwise it's quiet: Simon Willison's only Jun 7 post was a hummingbird sighting (latest AI post remains the Jun 6 MicroPython sandbox), and O'Reilly, GitHub, and all six Substacks are unchanged. The Jun 5 Claude outage / possible cross-user data-leak still has <strong>no published postmortem or root-cause analysis</strong> as of today — the investigation appears ongoing.</p>
+  </div>
+</div>
+
+<!-- COMMUNITY (lead — today's only new substance) -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community</h2>
+    <span class="section-tag tag-community">HN &amp; Reddit</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://runtimewire.com/article/deepseek-v4-pro-beats-gpt-5-5-pro-on-precision">DeepSeek V4-Pro beats GPT-5.5 Pro on precision</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 8, 2026 — HN front page (277 pts, 126 comments)</div>
+    <div class="item-body">Today's lead new story, and it's not from a US lab. <strong>DeepSeek V4-Pro</strong> is posting frontier-class numbers as an open-weight model at a fraction of the cost: <strong>80.6% on SWE-bench Verified</strong>, <strong>90.1% on GPQA Diamond</strong> (expert scientific reasoning), and <strong>67.9% on Terminal-Bench 2.0</strong> (autonomous agentic tasks), at roughly <strong>$0.435 per million tokens</strong>. GPT-5.5 still leads the agentic benchmark (~82.7% Terminal-Bench 2.0), so the framing is "precision/capability-per-dollar" rather than a clean sweep — but an open model this close to the frontier at this price is exactly the cost-pressure story the rest of the week has been circling. (Vendor/community benchmark numbers; GPT-5.5 figures are third-party estimates.)</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://github.com/devenjarvis/lathe">Show HN: Lathe — use LLMs to learn a new domain, not skip past it</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 8, 2026 — HN front page (323 pts, 56 comments)</div>
+    <div class="item-body">A tool built around the opposite of cognitive offloading: instead of having the model hand you a finished answer, Lathe uses the LLM to <em>teach</em> you a domain so you actually retain it. It's a concrete, product-shaped response to the skill-degradation question four sources raised last week (Mollick, Muratori, Tornhill, Majors) and rhymes with Adam Tornhill's "implementation was never just typing — it's discovery and learning." Worth watching as a counter-pattern to "AI does the work for you."</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://twitter.com/rasbt/status/2063649136323252397">Do agents.md files help coding agents?</a> (Sebastian Raschka)</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 8, 2026 — HN front page (39 pts, 27 comments)</div>
+    <div class="item-body">An empirical poke at a convention everyone has adopted on faith. Raschka asks whether the now-ubiquitous <code>AGENTS.md</code> instruction file actually measurably improves coding-agent output — directly relevant to the SQLite/Ladybird open-source threads (where AGENTS.md is used to <em>reject</em> agentic contributions) and to the broader question of how much steering text genuinely changes agent behavior versus how much is cargo-culting.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://algorithmichiring.github.io/">Algorithmic Monocultures in Hiring</a></div>
+    </div>
+    <div class="item-date">Jun 8, 2026 — HN front page (99 pts, 43 comments)</div>
+    <div class="item-body">A research site on the risk that when many employers screen candidates with the same handful of AI models, identical biases get applied at scale — a systemic "monoculture" failure mode rather than isolated bias. On-theme with the recurring agent-accountability and AI-in-the-loop debates, if tangential to the coding-agent focus.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">Lighter-weight ML reads on the front page</div>
+    </div>
+    <div class="item-date">Jun 8, 2026</div>
+    <div class="item-body">Educational/tooling rather than news: <a href="https://ranpara.net/posts/perceptron-explained-from-scratch/">The Smallest Brain You Can Build: A Perceptron in Python</a> (205 pts), <a href="https://prestonbjensen.com/posts/playing-with-vision-embeddings">Playing with Vision Embeddings</a> (59 pts), and a <a href="https://github.com/markusheimerl/gpt">tiny hackable CUDA language-model implementation</a> (31 pts). No new AI <em>papers</em> ranked today — a contrast with last week's KVarN / QKV-variants / "Latent Agents" run.</div>
+  </div>
+</div>
+
+<!-- ANTHROPIC -->
+<div class="section">
+  <div class="section-header">
+    <h2>Anthropic</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new newsroom posts since Jun 3 (<a href="https://www.anthropic.com/news/services-track-partner-hub">Services Track &amp; Partner Hub</a>, <a href="https://www.anthropic.com/news/AI-enabled-cyber-threats-mitre-attack">MITRE ATT&amp;CK threat mapping</a>). The newsroom is still topped by <a href="https://www.anthropic.com/news/claude-opus-4-8">Claude Opus 4.8</a> (May 28).</div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://cybernews.com/ai-news/claude-outage-resolved-anthropic-opus-model-errors/">Jun 5 Claude outage + possible cross-user data leak — still no postmortem</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+    </div>
+    <div class="item-date">Jun 5, 2026 — investigation ongoing as of Jun 8</div>
+    <div class="item-body">The week's biggest reliability story has not yet been closed out. Friday's ~2-hour disruption (elevated errors on Opus 4.7/4.8 across <a href="https://status.claude.com/">claude.ai, the API, Claude Code, and Cowork</a>; full restoration ~18:27 UTC) is resolved, but Anthropic's investigation into social-media claims that Claude <em>returned responses meant for other users</em> appears to still be open. Anthropic's position remains: infrastructure issue, not a breach, with no confirmed evidence of leaked customer data. As of today there is <strong>no published root-cause analysis or incident report</strong> — worth tracking, since a postmortem (or its absence) is the real signal now. (Carried; no update beyond "still investigating.")</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">Carried: <a href="https://www.anthropic.com/news/confidential-draft-s1-sec">confidential S-1</a> · <a href="https://www.anthropic.com/news/series-h">$65B Series H ($965B post-money)</a> · <a href="https://www.anthropic.com/news/expanding-project-glasswing">Project Glasswing expansion</a> · Agent SDK billing change (Jun 15)</div>
+    </div>
+    <div class="item-date">Jun 1–3, 2026</div>
+    <div class="item-body">IPO track plus the Jun 15 Agent SDK billing change (workloads move off the chat-subscription pool to a separate $20–$200/month credit at API list rates). The <a href="https://www.anthropic.com/institute/recursive-self-improvement">recursive self-improvement report</a> remains the most-discussed Anthropic item on HN but is no longer new.</div>
+  </div>
+</div>
+
+<!-- OPENAI -->
+<div class="section">
+  <div class="section-header">
+    <h2>OpenAI</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new news posts since Jun 1 (<a href="https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/">GPT-5.5/5.4 &amp; Codex GA on Bedrock</a>). Recent standing items: <a href="https://help.openai.com/en/articles/20001061-lockdown-mode">Lockdown Mode</a> (now live; cuts the exfiltration leg of the Lethal Trifecta), <a href="https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/">Rosalind Biodefense</a> (May 29), <a href="https://openai.com/index/trustworthy-third-party-evaluations-foundations/">trustworthy third-party evaluations</a> (May 29), and the <a href="https://openai.com/index/openai-frontier-governance-framework/">Frontier Governance Framework</a> (May 28).</div>
+  </div>
+</div>
+
+<!-- GOOGLE -->
+<div class="section">
+  <div class="section-header">
+    <h2>Google DeepMind</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new dated posts; the blog is still topped by the May I/O batch — <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni/">Gemini Omni</a>, <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/">Gemini 3.5</a>, <a href="https://antigravity.google/blog/introducing-google-antigravity-2-0">Antigravity 2.0</a>, <a href="https://deepmind.google/blog/co-scientist-a-multi-agent-ai-partner-to-accelerate-research/">Co-Scientist</a>, plus the <a href="https://deepmind.google/blog/strengthening-singapores-ai-future-a-new-national-partnership/">Singapore national partnership</a> and the standing science series (ALS, liver fibrosis, aging, WeatherNext).</div>
+  </div>
+</div>
+
+<!-- AWS -->
+<div class="section">
+  <div class="section-header">
+    <h2>AWS</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new ML Blog posts since Jun 2. Two Jun 2 items not previously logged here: <a href="https://aws.amazon.com/blogs/machine-learning/object-detection-with-amazon-nova-2-lite/">Object detection with Amazon Nova 2 Lite</a> (Bedrock + Lambda + API Gateway walkthrough) and <a href="https://aws.amazon.com/blogs/machine-learning/how-baz-improved-its-ai-agent-code-review-accuracy-using-amazon-bedrock-agentcore/">How Baz improved its AI Agent Code Review accuracy using AgentCore</a> — another data point in the "reviewing agent output" theme. The Jun 1 AgentCore cluster (Gateway, Identity, Payments, Policy) and the Mar 31 frontier-agents GA remain the headline items.</div>
+  </div>
+</div>
+
+<!-- MICROSOFT -->
+<div class="section">
+  <div class="section-header">
+    <h2>Microsoft</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new AI posts. The Microsoft Cloud Blog's latest is thought-leadership from May 21 (<a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/21/ai-needs-more-than-intelligence-it-needs-humanity/">"AI needs more than intelligence — it needs humanity"</a>). The Jun 2 Build MAI model batch — <strong>MAI-Thinking-1 (1T MoE, 35B active)</strong> and <strong>MAI-Code-1-Flash (137B, 5B active)</strong>, with Simon Willison's corrected sizing and the "appropriately licensed data" debunk — remains the standing story.</div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; Substacks</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Addy Osmani — addyo.substack.com (Elevate)</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://addyo.substack.com/p/loop-engineering">Loop Engineering — from prompting agents to designing the systems that prompt them</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 8, 2026 — Substack (Elevate)</div>
+      <div class="item-body">Today's one genuinely fresh practitioner post. Osmani's thesis: stop being the person who prompts the agent and instead design the <em>system</em> that does — "a loop is a recursive goal where you define a purpose and the AI iterates until complete." He cites Peter Steinberger ("You should be designing loops that prompt your agents") and Anthropic's Boris Cherny ("I don't prompt Claude anymore… My job is to write loops"). The pattern is <strong>five building blocks that both Claude Code and Codex now ship</strong>: (1) <strong>automations</strong> on a schedule for discovery/triage — incl. Claude Code's <code>/loop</code> (re-run on a cadence) and <code>/goal</code> (run until a verifiable stop condition, with a <em>separate</em> model grading "done"); (2) <strong>worktrees</strong> for parallel-agent isolation; (3) <strong>skills</strong> (<code>SKILL.md</code>) to capture project knowledge; (4) <strong>plugins/connectors</strong> (MCP) so the loop acts in real tools; (5) <strong>sub-agents</strong> to split maker from checker — plus a sixth, on-disk <strong>memory</strong>. He stays pointedly skeptical: token cost varies wildly, verification is still on you, and a smooth loop accelerates comprehension debt and "cognitive surrender." Closing line: "Build the loop. But build it like someone who intends to stay the engineer, not just the person who presses go." Directly extends this week's reviewing-and-steering-agents theme, and his own prior posts (agent harness engineering, the factory model, long-running agents, adversarial code review).</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison — simonwillison.net</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new AI posts. His only Jun 7 entry was a <a href="https://simonwillison.net/2026/Jun/7/sighting-369155226/">wildlife sighting</a> (Allen's Hummingbird), and nothing new on Jun 8. Latest AI post remains <a href="https://simonwillison.net/2026/Jun/6/micropython-in-a-sandbox/">Running Python code in a sandbox with MicroPython and WASM</a> (Jun 6), followed by the same-day <a href="https://github.com/simonw/micropython-wasm/releases/tag/0.1a2">micropython-wasm 0.1a2</a> CLI release.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly Radar — oreilly.com/radar</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new articles since <a href="https://www.oreilly.com/radar/open-source-ecosystems/">Open Source Ecosystems</a> (May 29). Standing reads: <a href="https://www.oreilly.com/radar/your-ai-agent-already-forgot-half-of-what-you-told-it/">Your AI Agent Already Forgot Half of What You Told It</a>, <a href="https://www.oreilly.com/radar/who-authorized-that-the-delegation-problem-in-multi-agent-ai/">the delegation problem in multi-agent AI</a>, and the Addy Osmani Claude Code video series.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">GitHub Blog — github.blog/ai-and-ml</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new AI post since the <a href="https://github.blog/ai-and-ml/github-copilot/github-recognized-as-a-leader-in-the-gartner-magic-quadrant-for-enterprise-ai-coding-agents-for-the-third-year-in-a-row/">Gartner Leader</a> note (May 22). On-theme standing pieces: <a href="https://github.blog/ai-and-ml/github-copilot/improving-token-efficiency-in-github-agentic-workflows/">Improving token efficiency in GitHub Agentic Workflows</a> and <a href="https://github.blog/ai-and-ml/generative-ai/agent-pull-requests-are-everywhere-heres-how-to-review-them/">Agent pull requests are everywhere. Here's how to review them</a>.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Adam Tornhill — adamtornhill.substack.com</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new posts since Jun 2. Latest: <a href="https://adamtornhill.substack.com/p/why-merge-conflicts-became-the-new">Why Merge Conflicts became the new Agentic Bottleneck</a> (Jun 2) and <a href="https://adamtornhill.substack.com/p/a-blast-from-the-past-sdd-and-the">SDD and the Illusion of Known Scope</a> (May 28) — "implementation was never just typing; it's discovery and learning," which the new Lathe project (Community section) operationalizes.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Casey Muratori / Computer Enhance — computerenhance.com</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new posts since Jun 4. Latest AI-relevant: <a href="https://www.computerenhance.com/p/will-ai-make-me-worse">Will AI Make Me Worse?</a> (Jun 4, w/ Demetri Panos) — does relying on AI degrade work quality, skills, and emotional state? The standing reference for this week's skill-degradation thread.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Ethan Mollick / One Useful Thing — oneusefulthing.org</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new posts (the Substack JSON API returned empty again today). Latest known: <a href="https://www.oneusefulthing.org/p/co-existence-and-the-end-of-co-intelligence">Co-Existence and the End of Co-Intelligence</a> (Jun 4).</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Pragmatic Engineer · Jessica Talisman · Lenny</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);"><strong>Pragmatic Engineer:</strong> no new AI post; latest is <a href="https://newsletter.pragmaticengineer.com/p/kubernetes-and-retiring-at-the-top">Kelsey Hightower</a> (Jun 3, not AI-focused). Most relevant recent: <a href="https://newsletter.pragmaticengineer.com/p/ideas-slow-down-to-speed-up-when">Slow down to speed up when working with AI agents</a> (Jun 2 — "devs are generating twice as much code as 6 months ago… a problem for quality, reliability, and tech debt"). <strong>Jessica Talisman:</strong> latest remains <a href="https://jessicatalisman.substack.com/p/before-the-structure">Before the Structure</a> (Jun 1). <strong>Lenny Rachitsky:</strong> no new AI-relevant post; recent issues are a <a href="https://www.lennysnewsletter.com/p/essential-books-for-product-builderspart">book list</a> (May 26) and summit logistics, not AI.</div>
+    </div>
+  </div>
+</div>
+
+<!-- X / SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Social</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">@trq212 (Thariq, Claude Code team)</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new headline post today. His Jun 5 framing of the outage ("infrastructure, not inference"; no evidence of customer data leaked, investigating) remains the reference, alongside standing threads on the <strong>AskUserQuestion</strong> elicitation tool, the <a href="https://www.infoq.com/news/2026/06/dynamic-workflows-claude-code/">Claude Code Dynamic Workflows</a>, and "designing agents for prompt caching first."</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">@karpathy (Andrej Karpathy)</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new headline post. The <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">LLM Wiki</a> pattern (agent-maintained Markdown knowledge base, ~95% query-token reduction in one reported case) and <a href="https://github.com/karpathy/autoresearch">AutoResearch</a> (agents running single-GPU nanochat experiments autonomously) remain the live references.</div>
+    </div>
+  </div>
+</div>
+
+<!-- NOTABLE THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>Open weights are crowding the frontier — at a fraction of the price</h3>
+    <p>DeepSeek V4-Pro landing near GPT-5.5 on hard benchmarks (80.6% SWE-bench Verified, 90.1% GPQA Diamond) at ~$0.435/M tokens is the clearest signal yet that the capability gap between open and closed models is narrowing while the price gap stays enormous. It slots directly into the cost story the week has been telling — Uber's $1,500/tool cap, GitHub's token billing, Microsoft's small-active-parameter MAI models, the Agent SDK billing change. If an open model is "good enough" for most agent workloads at a tenth of the cost, the budget-pressure conversation gets a new and disruptive option.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>The skill-degradation worry is now spawning counter-tools</h3>
+    <p>Last week four sources independently asked whether leaning on AI erodes human judgment. This week the response is becoming concrete: Lathe explicitly uses LLMs to make you <em>learn</em> a domain rather than skip it, inverting the cognitive-offloading default. Pair that with Tornhill's "implementation was never just typing — it's discovery and learning" and Muratori's "Will AI Make Me Worse?", and you can see a design movement forming around preserving the learning that execution used to force.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>Reviewing and steering agent output is the quiet operational story</h3>
+    <p>Raschka's empirical "do AGENTS.md files actually help?" sits alongside AWS's "How Baz improved its AI Agent Code Review accuracy," GitHub's "Agent pull requests are everywhere — here's how to review them," and the SQLite/Ladybird use of AGENTS.md to <em>reject</em> contributions. The common thread: now that agents generate code at volume, the bottleneck and the open questions have moved to how you steer, validate, and review their output — and how much of the steering we do actually works.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>A postmortem-shaped silence at Anthropic</h3>
+    <p>Three days after the Jun 5 outage and data-leak claims, there's still no published root-cause analysis. For a provider now functioning as critical infrastructure, the absence of an incident report is itself worth tracking: it leaves the cross-user-leak question formally open and tests how transparent a soon-to-be-public company will be about reliability. Watch for whether a postmortem lands this week.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>Three quiet days — the lab pipeline is genuinely paused</h3>
+    <p>From Jun 6 through Jun 8, not one of the five tracked labs shipped anything new, and practitioner output thinned to near zero. After the dense Jun 1–3 wave (Series H/S-1, Bedrock GA, Build's MAI models, the recursive self-improvement report), the system is clearly catching its breath. The signal this stretch came almost entirely from outside the labs — an open-weight benchmark run and practitioner sense-making — which is itself a useful reminder that not every important development originates in a US frontier lab's newsroom.</p>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Sources checked:</strong> Anthropic (no new since Jun 3; Jun 5 outage still without postmortem), OpenAI (no new since Jun 1), Google DeepMind (no new dated posts), AWS ML Blog (no new since Jun 2; Nova 2 Lite + Baz code-review newly logged), Microsoft Cloud Blog (no new AI; latest May 21), Addy Osmani / Elevate (Loop Engineering, Jun 8 ✓ — new), Simon Willison (Jun 7 = sighting only; latest AI Jun 6 ✓), O'Reilly Radar (no new since May 29), GitHub Blog (no new AI since May 22), Adam Tornhill (Substack API ✓), Casey Muratori / Computer Enhance (Substack API ✓), Ethan Mollick / One Useful Thing (API empty), Gergely Orosz / Pragmatic Engineer (Substack API ✓), Jessica Talisman (Substack API ✓), Lenny Rachitsky (Substack API ✓), @trq212 (WebSearch), @karpathy (WebSearch), Hacker News (front page ✓).</p>
+  <p style="margin-top:8px;"><strong>New today:</strong> Addy Osmani's "Loop Engineering" (Substack/Elevate, Jun 8); DeepSeek V4-Pro frontier-class open-weight benchmarks at ~$0.435/M (HN, 277 pts); Lathe — "use LLMs to learn a domain, not skip it" (HN, 323 pts); Sebastian Raschka's "Do agents.md files help coding agents?" (HN); Algorithmic Monocultures in Hiring (HN). Newly logged (older): AWS Object detection with Nova 2 Lite (Jun 2), AWS "How Baz improved AI Agent Code Review with AgentCore" (Jun 2).</p>
+  <p style="margin-top:8px;"><strong>Carried over (not new):</strong> Anthropic Jun 5 outage / data-leak investigation (no postmortem yet), recursive self-improvement report, S-1 / Series H, Project Glasswing, Agent SDK billing change; OpenAI Lockdown Mode &amp; Bedrock GA; Google I/O stack; AWS AgentCore cluster; Microsoft MAI models; Karpathy LLM Wiki / AutoResearch; the week's skill-degradation and inference-cost threads.</p>
+</footer>
+
+</body>
+</html>

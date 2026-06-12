@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — June 6, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>June 6, 2026</h1>
+  <div class="meta">
+    <span>5 companies</span>
+    <span>7 practitioner blogs</span>
+    <span>6 Substacks</span>
+    <span>2 X accounts</span>
+    <span>HN / community</span>
+    <span style="color:var(--warn)">Quiet Saturday — Simon Willison drove the day</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <p>A light news day. The labs published nothing new since the Jun 1–3 wave (Anthropic's S-1, Series H, MITRE threat report, Services Track; OpenAI on Bedrock; Microsoft Build's MAI models; Google I/O). The genuinely fresh material came from <strong>Simon Willison</strong>, who posted three times: a MicroPython+WASM agent sandbox, commentary on OpenAI's now-live <strong>Lockdown Mode</strong>, and the <strong>Ladybird</strong> browser closing public pull requests over AI-generated contributions. On HN, <strong>Meta shipping facial recognition on its smart glasses</strong> was the day's notable new AI-adjacent story. Yesterday's big threads (Anthropic recursive self-improvement, the open-source vuln-discovery harness, VoidZero→Cloudflare) are still on the front page but are carried over, not new.</p>
+  </div>
+</div>
+
+<!-- ANTHROPIC -->
+<div class="section">
+  <div class="section-header">
+    <h2>Anthropic</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new posts on the newsroom since Jun 3. Latest items below carried from earlier this week. The <a href="https://www.anthropic.com/institute/recursive-self-improvement">recursive self-improvement progress report</a> remains the most-discussed AI item on HN (now 300 points / 389 comments) but is not new today.</div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.anthropic.com/news/confidential-draft-s1-sec">Confidential S-1 filed with SEC</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+    </div>
+    <div class="item-date">Jun 1, 2026</div>
+    <div class="item-body">Anthropic submitted a draft IPO filing days after announcing a <a href="https://www.anthropic.com/news/series-h">$65B Series H at a $965B post-money valuation</a> with $47B run-rate revenue. Simon Willison's run-rate trajectory: $9B (end 2025) → $14B (Feb) → $30B (Apr) → $47B (late May). IPO is imminent.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.anthropic.com/news/services-track-partner-hub">Services Track and Partner Hub of the Claude Partner Network</a></div>
+    </div>
+    <div class="item-date">Jun 3, 2026</div>
+    <div class="item-body">New partner-program track for services/SI firms plus a Partner Hub — building out an enterprise services channel ahead of the IPO.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.anthropic.com/news/AI-enabled-cyber-threats-mitre-attack">Mapping a year of AI-enabled cyber threats (MITRE ATT&amp;CK)</a></div>
+    </div>
+    <div class="item-date">Jun 3, 2026</div>
+    <div class="item-body">Findings from a year of AI-enabled cyber threat mapping. Pairs with the open-source <a href="https://github.com/anthropics/defending-code-reference-harness">defending-code vulnerability-discovery harness</a> on the defensive side.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">Agent SDK billing change effective June 15</div>
+    </div>
+    <div class="item-date">Jun 2, 2026 — reported via trade press</div>
+    <div class="item-body">From June 15, Agent SDK workloads stop drawing on the interactive-chat subscription pool and consume a separate monthly credit ($20–$200 by plan), billed at standard API list rates. Another data point in the cost-rationalization theme — covered again today by <a href="https://www.techtimes.com/articles/317625/20260602/anthropic-ends-subscription-subsidy-agents-june-15-credit-pool-replaces-flat-rate-access.htm">TechTimes</a> and migration guides.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.anthropic.com/news/claude-opus-4-8">Claude Opus 4.8</a></div>
+    </div>
+    <div class="item-date">May 28, 2026</div>
+    <div class="item-body">New Opus release with stronger coding, agentic, and professional-work performance. Simon Willison: "a modest but tangible improvement."</div>
+  </div>
+</div>
+
+<!-- OPENAI -->
+<div class="section">
+  <div class="section-header">
+    <h2>OpenAI</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://help.openai.com/en/articles/20001061-lockdown-mode">Lockdown Mode now live for ChatGPT</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 5, 2026 — surfaced via Simon Willison</div>
+    <div class="item-body">First teased in February, Lockdown Mode is now rolling out to Free, Go, Plus, Pro, and self-serve Business accounts. It limits outbound network requests to block the <em>exfiltration</em> leg of a prompt-injection attack — Willison's "Lethal Trifecta" (private data + untrusted content + exfiltration path). He calls it "really good," using deterministic controls not subvertible by the model itself — but notes its existence implies default ChatGPT does <em>not</em> robustly protect against determined exfiltration.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/">GPT-5.5, GPT-5.4, and Codex GA on Amazon Bedrock</a></div>
+    </div>
+    <div class="item-date">Jun 1, 2026</div>
+    <div class="item-body">OpenAI frontier models and Codex now generally available on Bedrock alongside Claude — AWS as a neutral multi-model cloud. No new OpenAI news posts since Jun 1.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/">Rosalind Biodefense</a></div>
+    </div>
+    <div class="item-date">May 29, 2026</div>
+    <div class="item-body">AI product for detecting, analyzing, and responding to biological threats — OpenAI's first explicitly national-security-adjacent release.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://openai.com/index/model-disproves-discrete-geometry-conjecture/">Model disproves central conjecture in discrete geometry</a></div>
+    </div>
+    <div class="item-date">May 20, 2026</div>
+    <div class="item-body">An OpenAI model disproved a long-standing mathematical conjecture — a first-class research contribution, not just assistance.</div>
+  </div>
+</div>
+
+<!-- GOOGLE -->
+<div class="section">
+  <div class="section-header">
+    <h2>Google DeepMind</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new blog posts today; the May I/O 2026 batch and the science series (ALS, liver fibrosis, aging) are unchanged. Carrying the I/O stack below for reference.</div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni/">Gemini Omni</a> · <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/">Gemini 3.5</a> · <a href="https://antigravity.google/blog/introducing-google-antigravity-2-0">Antigravity 2.0</a> · <a href="https://deepmind.google/blog/co-scientist-a-multi-agent-ai-partner-to-accelerate-research/">Co-Scientist</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+    </div>
+    <div class="item-date">May 2026 — Google I/O</div>
+    <div class="item-body">A full agentic stack: <strong>Gemini Omni</strong> ("create anything from anything"), <strong>Gemini 3.5</strong> ("frontier intelligence with action"), <strong>Antigravity 2.0</strong> (agentic dev platform), and <strong>Co-Scientist</strong> (multi-agent research). Plus <a href="https://blog.google/innovation-and-ai/technology/research/gemini-for-science-io-2026/">Gemini for Science</a>, <a href="https://deepmind.google/blog/ai-pointer/">AI Pointer</a>, <a href="https://deepmind.google/blog/how-weathernext-helped-the-national-hurricane-center-better-predict-hurricane-melissas-historic-landfall-in-jamaica/">WeatherNext in production</a>, and <a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie-expands/">Project Genie + Street View</a>.</div>
+  </div>
+</div>
+
+<!-- AWS -->
+<div class="section">
+  <div class="section-header">
+    <h2>AWS</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new ML Blog posts Jun 3–6. Latest remain the Jun 1–2 AgentCore cluster and Nova items.</div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title">Bedrock AgentCore expansion — Gateway, Identity, Payments, Policy</div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+    </div>
+    <div class="item-date">Jun 1, 2026</div>
+    <div class="item-body">A cluster covering <a href="https://aws.amazon.com/blogs/machine-learning/extending-mcp-support-for-amazon-bedrock-agentcore-gateway-2/">centralized MCP server management</a>, <a href="https://aws.amazon.com/blogs/machine-learning/reference-your-own-aws-secrets-manager-secrets-in-amazon-bedrock-agentcore-identity/">AgentCore Identity + Secrets Manager</a>, <a href="https://aws.amazon.com/blogs/machine-learning/enable-safe-agentic-payments-with-built-in-guardrails-using-amazon-bedrock-agentcore-payments/">agentic payments with guardrails</a>, and <a href="https://aws.amazon.com/blogs/machine-learning/secure-ai-agents-with-policy-and-lambda-interceptors-in-amazon-bedrock-agentcore-gateway/">policy + Lambda interceptors</a>. AWS is building a comprehensive agent operating environment.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://aws.amazon.com/blogs/machine-learning/how-baz-improved-its-ai-agent-code-review-accuracy-using-amazon-bedrock-agentcore/">Baz: improving AI code-review accuracy on AgentCore</a> · <a href="https://aws.amazon.com/blogs/machine-learning/object-detection-with-amazon-nova-2-lite/">Nova 2 Lite object detection</a></div>
+    </div>
+    <div class="item-date">Jun 2, 2026</div>
+    <div class="item-body">Customer case study (Baz Spec Review agent) plus a technical walkthrough of multimodal object detection with Amazon Nova 2 Lite via Bedrock/Lambda/API Gateway.</div>
+  </div>
+</div>
+
+<!-- MICROSOFT -->
+<div class="section">
+  <div class="section-header">
+    <h2>Microsoft</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title">Build 2026: seven new MAI models — Microsoft's own stack widens</div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New detail</span>
+    </div>
+    <div class="item-date">Jun 2–3, 2026 — Microsoft Build</div>
+    <div class="item-body">Fuller picture of the Build lineup beyond the three models noted earlier this week: <strong>MAI-Thinking-1</strong> (35B-param reasoning, 256K context, private preview on Foundry, bundled with Copilot Enterprise for architecture reviews / migration planning / incident analysis), <strong>MAI-Code-1-Flash</strong> (rolling out in the GitHub Copilot model picker in VS Code), <strong>MAI-Image-2.5</strong> + flash (text-to-image and image-to-image), <strong>MAI Transcribe 1.5</strong> (43 languages), and <strong>MAI-Voice-2</strong> + flash (15+ new languages). All built "without distillation from third-party models." <a href="https://www.cnbc.com/2026/06/02/microsoft-unveils-new-ai-models-lessen-reliance-on-openai-lower-costs.html">CNBC</a> frames it as reducing OpenAI dependence and lowering developer costs; <a href="https://news.microsoft.com/build-2026/">Build coverage</a> also surfaced Project Solara and a "Copilot super app." Simon Willison's earlier scrutiny of the "appropriately licensed" Common Crawl + proprietary-crawl training data still applies.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.microsoft.com/en-us/research/blog/magenticlite-magenticbrain-fara1-5-an-agentic-experience-optimized-for-small-models/">MagenticLite + MagenticBrain + FARA1.5 — agents on small models</a></div>
+    </div>
+    <div class="item-date">May 2026</div>
+    <div class="item-body">Microsoft Research architecture for capable agentic experiences on small models for edge/local deployment — a path to agents without frontier-scale inference cost.</div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; Substacks</span>
+  </div>
+
+  <!-- Simon Willison -->
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison — simonwillison.net ✦ Most active source today</div>
+
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/6/micropython-in-a-sandbox/">Running Python code in a sandbox with MicroPython and WASM</a></div>
+        <span class="item-badge badge-sig">⭐ Notable</span>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 6, 2026</div>
+      <div class="item-body">A ~2,000-word write-up of <a href="https://github.com/simonw/micropython-wasm">micropython-wasm</a> (alpha) — his latest attempt at a code-execution sandbox that finally has the properties he wants. He's using it for <a href="https://github.com/datasette/datasette-agent-micropython">datasette-agent-micropython</a>, a code-execution plugin for Datasette Agent. Directly relevant to the agent-sandboxing problem (cf. Anthropic's containment docs): running model-generated code safely is becoming a standard building block.</div>
+    </div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/5/openai-help-lockdown-mode/">OpenAI Lockdown Mode is live</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 5, 2026</div>
+      <div class="item-body">Willison's take on Lockdown Mode (see OpenAI section): it attacks the exfiltration leg of the Lethal Trifecta with deterministic, non-AI-evaluated controls — "this looks really good to me" — while implying default ChatGPT isn't robust against determined exfiltration attacks.</div>
+    </div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/5/andreas-kling/">Ladybird will no longer accept public pull requests</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 5, 2026</div>
+      <div class="item-body">Quoting Andreas Kling's <a href="https://ladybird.org/posts/changing-how-we-develop-ladybird/">"Changing How We Develop Ladybird"</a>: "A substantial patch used to imply substantial effort, and that effort was a reasonable proxy for good faith. That assumption no longer holds." With AI, patch size no longer signals effort or accountability — so the browser is closing public PRs. Lands squarely in the curl/SQLite maintainer-overload theme: AI breaks the trust heuristics open source ran on.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/4/ai-enthusiasts-ai-skeptics/">AI enthusiasts vs. AI skeptics — both are right</a></div>
+      </div>
+      <div class="item-date">Jun 4, 2026</div>
+      <div class="item-body">Via Charity Majors: enthusiasts see real, discontinuous capability leaps; skeptics warn that shipping code faster than engineers can read it makes withdrawals from a years-long trust account. "There is no natural feedback loop connecting enthusiasts with skeptics" — designing one is the organizational challenge.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/3/uber-caps-usage/">Uber caps AI coding tool spend at $1,500/month</a></div>
+      </div>
+      <div class="item-date">Jun 3, 2026</div>
+      <div class="item-body">Per-tool cap on Cursor, Claude Code, etc. Willison's math: ~$36K/yr for two tools ≈ 11% of the $330K median Uber engineer comp. A rational response to over-spend — and notably more sensible than "tokenmaxxing" leaderboards.</div>
+    </div>
+  </div>
+
+  <!-- O'Reilly Radar -->
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly Radar — oreilly.com/radar</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://www.oreilly.com/radar/open-source-ecosystems/">Open Source Ecosystems: when open strategy meets private tactics</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">May 29, 2026</div>
+      <div class="item-body">Ilan Strauss on the tension between companies' public open-source positioning and their actual private incentives — timely against the Ladybird and VoidZero→Cloudflare stories about who controls open infrastructure.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://www.oreilly.com/radar/your-ai-agent-already-forgot-half-of-what-you-told-it/">Your AI Agent Already Forgot Half of What You Told It</a> · <a href="https://www.oreilly.com/radar/get-a-good-return-on-your-ai-investments/">Get a Good Return on Your AI Investments (DORA)</a></div>
+      </div>
+      <div class="item-date">May 27–28, 2026</div>
+      <div class="item-body">Andrew Stellman on keeping agents from losing context mid-workflow (memory architectures, compression, checkpointing); plus Sam Newman's DORA fireside with Nathen Harvey — AI as amplifier and mirror of good and bad process. No new Radar articles since May 29.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://www.oreilly.com/radar/agent-skills/">Agent Skills</a> + Claude Code video series — Addy Osmani</div>
+      </div>
+      <div class="item-date">May 27–29, 2026</div>
+      <div class="item-body">Agent Skills explainer plus <a href="https://www.youtube.com/watch?v=o-kN3vkZcZ4">Subagents</a> and <a href="https://www.youtube.com/watch?v=jYbqdGJnAJI">Agent Teams in Claude Code</a> — effectively a Claude Code curriculum on Radar.</div>
+    </div>
+  </div>
+
+  <!-- Adam Tornhill -->
+  <div class="subsection">
+    <div class="subsection-title">Adam Tornhill — adamtornhill.substack.com</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new posts since Jun 2. Latest: <a href="https://adamtornhill.substack.com/p/why-merge-conflicts-became-the-new">Why Merge Conflicts became the new Agentic Bottleneck</a> (Jun 2) and <a href="https://adamtornhill.substack.com/p/a-blast-from-the-past-sdd-and-the">SDD and the Illusion of Known Scope</a> (May 28): "Implementation was never just typing — it's discovery and learning. Tooling changed; human problem solving didn't."</div>
+    </div>
+  </div>
+
+  <!-- Casey Muratori -->
+  <div class="subsection">
+    <div class="subsection-title">Casey Muratori / Computer Enhance — computerenhance.com</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new posts since Jun 4. Latest AI-relevant: <a href="https://www.computerenhance.com/p/will-ai-make-me-worse">Will AI Make Me Worse?</a> (Jun 4, podcast w/ Demetri Panos) — does relying on AI degrade work quality, skills, and emotional state? Casey notes Molly Rocket does not use generative AI in its content.</div>
+    </div>
+  </div>
+
+  <!-- Ethan Mollick -->
+  <div class="subsection">
+    <div class="subsection-title">Ethan Mollick / One Useful Thing — oneusefulthing.org</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new posts since Jun 4. Latest: <a href="https://www.oneusefulthing.org/p/co-existence-and-the-end-of-co-intelligence">Co-Existence and the End of Co-Intelligence</a> (Jun 4) and <a href="https://www.oneusefulthing.org/p/choosing-to-stay-human">Choosing to Stay Human</a> (May 26).</div>
+    </div>
+  </div>
+
+  <!-- Pragmatic Engineer / Jessica Talisman / Lenny -->
+  <div class="subsection">
+    <div class="subsection-title">Pragmatic Engineer · Jessica Talisman · Lenny</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);"><strong>Pragmatic Engineer:</strong> no new AI post since <a href="https://newsletter.pragmaticengineer.com/p/ideas-slow-down-to-speed-up-when">Slow down to speed up when working with AI agents</a> (Jun 2); latest issue (Jun 3, Kelsey Hightower) is not AI-focused. <strong>Jessica Talisman:</strong> latest remains <a href="https://jessicatalisman.substack.com/p/before-the-structure">Before the Structure</a> (Jun 1) — organizing principles must precede the knowledge graph; AI amplifies information-architecture problems rather than fixing them. <strong>Lenny Rachitsky:</strong> no new free AI-relevant post.</div>
+    </div>
+  </div>
+</div>
+
+<!-- X / SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Social</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">@karpathy (Andrej Karpathy)</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">AutoResearch — agents closing the full research loop</div>
+        <span class="item-badge badge-new">New detail</span>
+      </div>
+      <div class="item-body">More concrete numbers circulating on Karpathy's <a href="https://github.com/karpathy/autoresearch">AutoResearch</a>: agents that design experiments, edit training code, collect data, and tune hyperparameters/architectures for a small LLM with no human in the loop — reportedly <strong>700 experiments in 2 days, discovering 20 optimizations</strong> that improved training. A grassroots companion to the labs' "AI building AI" framing (Anthropic recursive self-improvement, AlphaEvolve, Claude Code Dynamic Workflows).</div>
+    </div>
+    <div class="item">
+      <div class="item-body">Standing themes: the "LLM Wiki" pattern (an agent compiles sources into a self-maintaining Markdown knowledge base instead of RAG over raw docs); Software 3.0 (prompts as the programming language); agentic engineering — humans direct, supervise, and orchestrate agents rather than writing most code.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">@trq212 (Thariq, Claude Code team)</div>
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://x.com/trq212/status/2027463795355095314">"Lessons from Building Claude Code: Seeing like an Agent"</a></div>
+      </div>
+      <div class="item-body">No new thread today. The standing post details how the AskUserQuestion tool was designed to improve elicitation — a tool Claude can call mid-loop (especially in plan mode) to show a modal and block until the user picks from structured options. "Designing tools for models is as much art as science." Related: <a href="https://www.infoq.com/news/2026/06/dynamic-workflows-claude-code/">Dynamic Workflows</a> (Claude writes its own orchestration scripts and parallelizes subtasks).</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community</h2>
+    <span class="section-tag tag-community">HN &amp; Reddit</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48403588">Meta ships facial recognition on its smart glasses</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 6, 2026 — 209 points / 189 comments</div>
+    <div class="item-body">The day's notable new AI-adjacent HN story. On-device facial recognition in consumer smart glasses reignited the privacy / surveillance debate — the comment thread is heavily split. A concrete instance of frontier perception models shipping into always-on wearables.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">Carry-over front-page threads (not new today)</div>
+    </div>
+    <div class="item-date">Jun 5–6, 2026</div>
+    <div class="item-body">Still ranking: <a href="https://www.anthropic.com/institute/recursive-self-improvement">Anthropic — recursive self-improvement</a> (300 pts / 389 comments), <a href="https://github.com/anthropics/defending-code-reference-harness">open-source vuln-discovery harness</a> (230 pts), <a href="https://blog.cloudflare.com/voidzero-joins-cloudflare/">VoidZero → Cloudflare</a> (553 pts / 246 comments), and <a href="https://www.ashbyhq.com/blog/engineering/ai-ashby-engineering-and-the-future">Ashby's engineering-AI position</a> (51 pts).</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">Research on the front page: KV-cache + attention</div>
+    </div>
+    <div class="item-date">Jun 6, 2026</div>
+    <div class="item-body">A <a href="https://arxiv.org/abs/2606.04032">systematic study of QKV projection variants</a> ("do transformers need three projections?", 56 pts) and Huawei's <a href="https://github.com/huawei-csl/KVarN">KVarN</a> native vLLM backend for KV-cache quantization (111 pts) — both pointing at the same pressure: cut inference cost and memory as agent workloads scale.</div>
+  </div>
+</div>
+
+<!-- NOTABLE THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>AI is dissolving open source's trust heuristics</h3>
+    <p>Ladybird closing public PRs ("a substantial patch used to imply substantial effort… that assumption no longer holds") is the sharpest statement yet of a theme that's been building through curl, SQLite, and the AI-assisted-security-report flood. Patch size, effort, and good faith used to correlate; AI severed that link. O'Reilly's "Open Source Ecosystems" (open strategy vs. private tactics) and the VoidZero→Cloudflare consolidation circle the same question from the governance side: who is actually accountable for the code, and the projects, we all depend on?</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>Prompt-injection defense is shipping as product, not just advice</h3>
+    <p>OpenAI's Lockdown Mode going live — cutting the exfiltration leg of Willison's Lethal Trifecta with deterministic, non-AI-evaluated controls — is the consumer counterpart to Anthropic's sandboxing docs and Simon's own MicroPython+WASM code sandbox. The industry is converging on the same insight: you can't fully prevent injection, so cut off exfiltration and contain execution. Defense is moving from blog-post best-practice to default platform feature.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>AI cost rationalization is now the steady-state, not the headline</h3>
+    <p>It's notable how routine this has become: Uber's $1,500/tool cap, Anthropic's Jun 15 Agent SDK credit-pool switch (covered again today), Microsoft pitching MAI models on lower developer cost, and KVarN/QKV research aimed at cheaper inference. The "experiment" framing is gone; token spend is a managed budget line and a model-design constraint.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>"AI building AI" keeps accruing concrete artifacts</h3>
+    <p>Karpathy's AutoResearch numbers (700 experiments / 2 days / 20 discovered optimizations) give the recursive-self-improvement debate a grassroots data point alongside Anthropic's Institute report, AlphaEvolve, and Claude Code's Dynamic Workflows. The framing has fully moved from demo to roadmap — and now to reproducible single-GPU tooling anyone can run.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>A genuinely quiet day — and that's information too</h3>
+    <p>No lab shipped anything new since the Jun 1–3 wave; the most active source today was one practitioner's personal blog. Weekends thin out company output, but the contrast is a useful reminder that the durable signal this week was practitioner sense-making (trust, containment, cost, skill) rather than another model launch.</p>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Sources checked:</strong> Anthropic (no new since Jun 3), OpenAI (no new posts since Jun 1; Lockdown Mode help-doc surfaced Jun 5), Google DeepMind (no new since I/O batch), AWS ML Blog (no new Jun 3–6), Microsoft (Build 2026 detail via CNBC + news.microsoft.com), Simon Willison (3 new posts Jun 5–6 ✓), O'Reilly Radar, GitHub Blog (no new AI post since May 22), Adam Tornhill (Substack API ✓), Jessica Talisman (Substack API ✓), Casey Muratori / Computer Enhance (Substack API ✓), Gergely Orosz / Pragmatic Engineer (Substack API ✓), Ethan Mollick / One Useful Thing (via search), Lenny Rachitsky, @karpathy (WebSearch), @trq212 (WebSearch), Hacker News (WebSearch + front page).</p>
+  <p style="margin-top:8px;"><strong>New today:</strong> Simon Willison — MicroPython+WASM agent sandbox (Jun 6), OpenAI Lockdown Mode commentary (Jun 5), Ladybird closing public PRs (Jun 5); HN — Meta facial recognition on smart glasses; Microsoft — fuller Build 2026 MAI lineup (Transcribe 1.5, Voice-2, Project Solara); Karpathy AutoResearch metrics; O'Reilly — "Open Source Ecosystems."</p>
+  <p style="margin-top:8px;"><strong>Carried over (not new):</strong> Anthropic recursive self-improvement report, defending-code vuln harness, S-1 / Series H, MITRE threat report; Google I/O stack; AWS AgentCore cluster; VoidZero→Cloudflare.</p>
+</footer>
+
+</body>
+</html>

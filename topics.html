@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily — Big Topics</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+
+      --cat-agents: #f9a8d4;
+      --cat-models: #86efac;
+      --cat-industry: #fbbf24;
+      --cat-engineering: #60a5fa;
+      --cat-safety: #c084fc;
+      --cat-economics: #fb923c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    /* Nav */
+    .site-nav { margin-bottom: 40px; display: flex; gap: 20px; }
+    .site-nav a { color: var(--muted); font-size: 13px; border: none; }
+    .site-nav a:hover { color: var(--text); }
+    .site-nav a.active { color: var(--text); font-weight: 600; }
+
+    /* Header */
+    header { margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header p { margin-top: 10px; color: var(--muted); font-size: 14px; max-width: 600px; }
+
+    /* Category filter bar */
+    .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+    .filter-btn {
+      font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 99px;
+      border: 1px solid var(--border); background: var(--surface); color: var(--muted);
+      cursor: pointer; transition: all 0.15s; user-select: none;
+    }
+    .filter-btn:hover { border-color: var(--accent); color: var(--text); }
+    .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    /* Topic card */
+    .topic {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .topic-header {
+      padding: 18px 20px 14px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .topic-cat {
+      font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 3px 9px; border-radius: 99px; flex-shrink: 0; margin-top: 2px;
+    }
+    .cat-agents { background: color-mix(in srgb, var(--cat-agents) 15%, transparent); color: var(--cat-agents); }
+    .cat-models { background: color-mix(in srgb, var(--cat-models) 15%, transparent); color: var(--cat-models); }
+    .cat-industry { background: color-mix(in srgb, var(--cat-industry) 15%, transparent); color: var(--cat-industry); }
+    .cat-engineering { background: color-mix(in srgb, var(--cat-engineering) 15%, transparent); color: var(--cat-engineering); }
+    .cat-safety { background: color-mix(in srgb, var(--cat-safety) 15%, transparent); color: var(--cat-safety); }
+    .cat-economics { background: color-mix(in srgb, var(--cat-economics) 15%, transparent); color: var(--cat-economics); }
+
+    .topic-title-block { flex: 1; }
+    .topic-title { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .topic-summary { font-size: 13px; color: #b0b6cc; line-height: 1.5; }
+    .topic-meta { font-size: 11px; color: var(--muted); margin-top: 6px; }
+
+    /* Entries inside topic */
+    .topic-entries { padding: 4px 0; }
+    .entry {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 12px;
+      align-items: baseline;
+      font-size: 13px;
+    }
+    .entry:last-child { border-bottom: none; }
+    .entry-date { color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .entry-title { color: #c8cde0; }
+    .entry-title a { color: #c8cde0; font-size: 13px; }
+    .entry-title a:hover { color: var(--accent2); }
+    .entry-source {
+      font-size: 11px; color: var(--muted); white-space: nowrap;
+      padding: 2px 8px; background: var(--surface2); border-radius: 4px;
+    }
+
+    /* Active status dot */
+    .status-dot {
+      display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+      margin-right: 6px; vertical-align: middle;
+    }
+    .status-active { background: var(--accent2); }
+    .status-watching { background: var(--cat-industry); }
+    .status-resolved { background: var(--muted); }
+
+    /* Legend */
+    .legend { display: flex; gap: 20px; margin-bottom: 28px; flex-wrap: wrap; }
+    .legend-item { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+
+    footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html">Briefs</a>
+  <a href="topics.html" class="active">Topics</a>
+</nav>
+
+<header>
+  <div class="label">AI Daily</div>
+  <h1>Big Topics</h1>
+  <p>Persistent threads that matter across multiple days, sources, and time. Updated with each daily brief.</p>
+</header>
+
+<div class="legend">
+  <div class="legend-item"><span class="status-dot status-active"></span> Active — still developing</div>
+  <div class="legend-item"><span class="status-dot status-watching"></span> Watching — slower-moving</div>
+  <div class="legend-item"><span class="status-dot status-resolved"></span> Resolved / concluded</div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterTopics('all')">All</button>
+  <button class="filter-btn" onclick="filterTopics('agents')">Agents</button>
+  <button class="filter-btn" onclick="filterTopics('models')">Models</button>
+  <button class="filter-btn" onclick="filterTopics('industry')">Industry</button>
+  <button class="filter-btn" onclick="filterTopics('engineering')">Engineering</button>
+  <button class="filter-btn" onclick="filterTopics('safety')">Safety</button>
+  <button class="filter-btn" onclick="filterTopics('economics')">Economics</button>
+</div>
+
+<!-- ============================================================ -->
+<!-- TOPICS -->
+<!-- ============================================================ -->
+
+<div class="topic" data-cat="economics">
+  <div class="topic-header">
+    <span class="topic-cat cat-economics">Economics</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Labs investing in the workforce — AI's labor transition</div>
+      <div class="topic-summary">As the labs argue AI will be economically transformative (and disruptive), they're starting to fund programs aimed at the workers absorbing the change — turning the "Economic Policy Framework" rhetoric into spending. Anthropic's <strong>Claude Corps</strong> (Jun 11) is the first large, concrete instance: a <strong>$150M</strong> national fellowship that pays 1,000 fellows an $85k salary to spend a year embedded full-time at 400+ nonprofits, building AI capacity for the host and AI skills for the fellow. It's explicitly framed as the operational arm of the <a href="https://www.anthropic.com/policy-on-the-ai-exponential">Policy on the AI Exponential</a>, with plans to open-source the infrastructure and replicate the model internationally — i.e. a template Anthropic wants others to copy. Watch whether OpenAI/Google/Microsoft answer with their own workforce programs, and whether "we're investing in displaced/entry-level workers" becomes a standard part of the frontier-lab public posture.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 12, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 11, 2026</div>
+      <div class="entry-title"><a href="https://www.anthropic.com/news/claude-corps">Introducing Claude Corps</a> — $150M, 1,000 fellows at $85k + benefits, 12-month full-time placements at 400+ nonprofits; CodePath as employer of record, Social Finance on measurement; applications open, first cohort of 100 starts Oct 2026 (closes Jul 17)</div>
+      <div class="entry-source">Anthropic</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 10, 2026</div>
+      <div class="entry-title"><a href="https://www.anthropic.com/policy-on-the-ai-exponential">Economic Policy Framework</a> — the companion proposal on worker/economic preparation and broadly sharing AI's financial benefits; Claude Corps is its first concrete program</div>
+      <div class="entry-source">Anthropic</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="industry">
+  <div class="topic-header">
+    <span class="topic-cat cat-industry">Industry</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Enterprise AI distribution via forward-deployed engineers &amp; services</div>
+      <div class="topic-summary">For regulated industries (banks, airlines, insurers, government), AI value is increasingly delivered through <em>people embedded inside the customer</em> and a managed-services layer — not just an API endpoint. Anthropic's <strong>DXC alliance</strong> (Jun 11) is the clearest instance: DXC will train <em>tens of thousands</em> of Claude-certified forward-deployed engineers (FDEs) and embed Claude in the mission-critical systems it has run for decades, after proving it internally (DXC OASIS: 95%+ Claude-written, ~10× faster dev, 50+ customers). The pattern rhymes with AWS's "frontier agents for security/cloud ops" and Microsoft's Foundry-plus-services posture: the moat in compliance-bound environments is certified humans + governed deployment, and Anthropic is racing to lock up the systems-integrator channel via the Claude Partner Network.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 12, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 11, 2026</div>
+      <div class="entry-title"><a href="https://www.anthropic.com/news/dxc-anthropic-alliance">Anthropic–DXC multi-year global alliance</a> — tens of thousands of Claude-certified FDEs for banks/airlines/insurers/government; launch areas: insurance, Modernization-as-a-Service, cybersecurity (security subagent on Claude Security), application services; DXC joins the Claude Partner Network</div>
+      <div class="entry-source">Anthropic / DXC</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 3, 2026</div>
+      <div class="entry-title"><a href="https://www.anthropic.com/news/services-track-partner-hub">Services Track + Partner Hub of the Claude Partner Network</a> — the consulting/services channel DXC now plugs into</div>
+      <div class="entry-source">Anthropic</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="models">
+  <div class="topic-header">
+    <span class="topic-cat cat-models">Models</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Mythos-class models &amp; tiered capability release</div>
+      <div class="topic-summary">Anthropic has formalized a capability tier <em>above</em> Opus, called "Mythos-class." The first, Claude Mythos Preview, went to cyberdefenders in April; on Jun 9 Anthropic shipped two siblings from the same weights: <strong>Claude Fable 5</strong> (publicly available, wrapped in classifiers that fall back to Opus 4.8 on cyber/bio/distillation queries) and <strong>Claude Mythos 5</strong> (cyber safeguards lifted, restricted to Glasswing + the US government, plus a planned biology trusted-access program). Capability claims are large: SOTA "on nearly all tested benchmarks," a 50M-line Ruby migration in a day (Stripe), top of Cognition's FrontierCode, vision-only Pokémon completion, ~10× drug design and a 138-species genomics model beating a Science result at 100× smaller. Pricing is premium ($10/$50 per M tokens) and capacity-constrained (free on subscriptions only through Jun 22). The structure — same model, released at different capability levels gated by who you are, with mandatory 30-day retention — is the clearest "capability gated by trust tier" architecture yet.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 12, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 12, 2026</div>
+      <div class="entry-title"><a href="https://www.endorlabs.com/learn/claude-fable-5-mythos-grade-hype">Claude Fable 5: mid-tier results on coding tasks</a> — an independent Endor Labs eval calls the headline benchmark claims "Mythos-grade hype"; the launch narrative rotates toward third-party replication (HN 111 pts)</div>
+      <div class="entry-source">Endor Labs / HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 11, 2026</div>
+      <div class="entry-title">Fable 5 distribution widens to <a href="https://aws.amazon.com/about-aws/whats-new/2026/06/claude-fable-5-aws/">AWS (Bedrock)</a>, <a href="https://www.databricks.com/blog/claude-fable-5-now-available-databricks-fully-governed-through-unity-ai-gateway">Databricks (Unity AI Gateway)</a>, and <a href="https://www.harvey.ai/blog/fable-5-now-available-in-harvey">Harvey</a> — completing the major-cloud set beyond day-one GitHub/Foundry/Cursor</div>
+      <div class="entry-source">AWS / Databricks / Harvey</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 9, 2026</div>
+      <div class="entry-title"><a href="https://www.anthropic.com/news/claude-fable-5-mythos-5">Claude Fable 5 and Claude Mythos 5</a> — first generally-available Mythos-class model; $10/$50 per M tokens; SOTA claims; Mythos 5 to Glasswing + US gov with the strongest cyber capabilities of any model</div>
+      <div class="entry-source">Anthropic</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 9, 2026</div>
+      <div class="entry-title"><a href="https://simonwillison.net/2026/Jun/9/claude-fable-5/">Initial impressions of Claude Fable 5</a> — "something of a beast… slow, expensive… the challenge is finding tasks it can't do" (one session cost $74)</div>
+      <div class="entry-source">Simon Willison</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 9, 2026</div>
+      <div class="entry-title"><a href="https://artificialanalysis.ai/articles/claude-fable-5-mythos">Claude Fable 5: the first public Mythos-class model</a> — day-one GA in GitHub Copilot, Microsoft Foundry, and Cursor; Karpathy calls it "a major-version-bump-deserving step change forward"</div>
+      <div class="entry-source">Artificial Analysis / @karpathy</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Apr 2026</div>
+      <div class="entry-title">Claude Mythos Preview — first Mythos-class model, released to a limited group of cyberdefenders via Project Glasswing</div>
+      <div class="entry-source">Anthropic</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="safety">
+  <div class="topic-header">
+    <span class="topic-cat cat-safety">Safety</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-resolved"></span>Silent / undisclosed model interventions — reversed after backlash</div>
+      <div class="topic-summary">Anthropic's Fable 5 system card revealed a category of safeguard that, unlike the cyber/bio/distillation classifiers (which visibly fall back to Opus 4.8), was <strong>not visible to the user</strong>: for requests targeting frontier-LLM development (pretraining pipelines, distributed training, ML accelerator design), the model's effectiveness was quietly degraded via prompt modification, steering vectors, or PEFT — ~0.03% of traffic, justified by recursive-self-improvement risk and ToS enforcement. After ~24 hours of heavy backlash (WIRED scoop, Simon Willison, Jeremy Howard, two top HN threads), <strong>Anthropic reversed course on Jun 11</strong>: flagged requests now <em>visibly</em> fall back to Opus 4.8 and the API returns a refusal reason — "we made the wrong tradeoff and we apologize for not getting the balance right." The invisible degradation is dropped; the refusal <em>category</em> remains. The episode set a precedent both ways: undocumented model behavior is now subject to a rapid public-accountability cycle, and labs are responding on a news-cycle timescale.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 11, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 11, 2026</div>
+      <div class="entry-title"><a href="https://www.wired.com/story/anthropic-responds-to-backlash-on-claudes-secret-sabotage-on-ai-research/">Anthropic walks back the policy</a> — flagged frontier-LLM requests will visibly fall back to Opus 4.8; API returns a reason. "We made the wrong tradeoff and we apologize." (via @ClaudeDevs / Willison)</div>
+      <div class="entry-source">WIRED / @ClaudeDevs</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 10, 2026</div>
+      <div class="entry-title"><a href="https://twitter.com/jeremyphoward/status/2064595816875217362">Jeremy Howard's critique</a> — the top lab exempting itself while "sabotaging others" advances the frontier and increases the power imbalance; a crisp statement of the trust objection</div>
+      <div class="entry-source">@jeremyphoward via Willison</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 10, 2026</div>
+      <div class="entry-title"><a href="https://simonwillison.net/2026/Jun/10/if-claude-fable-stops-helping-you/">If Claude Fable stops helping you, you'll never know</a> — Willison: "the first time Anthropic have announced these kinds of silent interventions… I'm not at all keen on a model that silently corrupts its replies"</div>
+      <div class="entry-source">Simon Willison</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 10, 2026</div>
+      <div class="entry-title"><a href="https://jonready.com/blog/posts/claude-fable5-is-allowed-to-sabotage-your-app-if-youre-a-competitor.html">Jonathon Ready surfaces the system-card excerpt</a> — undisclosed degradation via prompt modification / steering vectors / PEFT; ~0.03% of traffic, &lt;0.1% of organizations</div>
+      <div class="entry-source">jonready.com / HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 9, 2026</div>
+      <div class="entry-title"><a href="https://www.latent.space/p/ainews-anthropic-claude-fable-5-mythos">Anthropic Claude Fable 5 — Mythos but Safe, with Controversial Terms</a> — silent interventions, 30-day retention, and the Jun 22 paywall cliff framed as the controversy</div>
+      <div class="entry-source">Latent.Space</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="industry">
+  <div class="topic-header">
+    <span class="topic-cat cat-industry">Industry</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Frontier AI as critical infrastructure — outages &amp; reliability</div>
+      <div class="topic-summary">AI providers are now load-bearing infrastructure: a single lab's outage ripples through coding pipelines and agent workflows industry-wide. The Jun 5 Claude outage (~2 hours, Opus 4.7/4.8, across claude.ai, API, Claude Code, and Cowork) made this concrete — and the immediate concern wasn't downtime but a possible cross-user data leak (responses surfacing for the wrong user). Anthropic frames it as an infrastructure issue, not a breach, with no confirmed evidence of leaked data but an active investigation. As of Jun 8 there is still no published root-cause analysis or incident report — the postmortem-shaped silence is itself a signal for a provider that now functions as critical infrastructure. Expect reliability, failover, and multi-provider redundancy to become recurring operational themes.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 9, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 9, 2026</div>
+      <div class="entry-title">Still no postmortem — day 4. Anthropic has filed an S-1 but has not published a root-cause analysis for the Jun 5 outage; the cross-user-leak question remains formally open</div>
+      <div class="entry-source">My AI Daily</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 8, 2026</div>
+      <div class="entry-title">Still no postmortem — three days on, Anthropic has not published a root-cause analysis for the Jun 5 outage; the cross-user-leak question remains formally open</div>
+      <div class="entry-source">My AI Daily</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 5, 2026</div>
+      <div class="entry-title"><a href="https://cybernews.com/ai-news/claude-outage-resolved-anthropic-opus-model-errors/">Anthropic probes customer-data-leak claims after Friday Claude outage</a> — ~2-hour disruption on Opus 4.7/4.8; investigating reports Claude returned responses meant for other users</div>
+      <div class="entry-source">Cybernews</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 5, 2026</div>
+      <div class="entry-title"><a href="https://cybersecuritynews.com/anthropics-claude-services-down/">Claude services down — claude.ai, API, Claude Code, and Cowork affected</a> — elevated error rates beginning ~08:08 PT / 15:08 UTC</div>
+      <div class="entry-source">Cybersecurity News</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 5, 2026</div>
+      <div class="entry-title">Thariq (@trq212): "infrastructure, not inference" — not a security breach; no evidence of customer data leaked, but investigating</div>
+      <div class="entry-source">@trq212</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="engineering">
+  <div class="topic-header">
+    <span class="topic-cat cat-engineering">Engineering</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Inference cost reduction — architecture, serving, model design</div>
+      <div class="topic-summary">As agent workloads scale, cutting inference cost and memory has become a research agenda spanning every layer: KV-cache quantization (serving), attention/projection simplification (architecture), small-active-parameter MoE models (model design), token-efficient agentic workflows (orchestration), and now post-training methods that internalize multi-agent debate into a single model to skip the runtime cost. And now a cheap open-weight option: DeepSeek V4-Pro reaching frontier-class accuracy at ~$0.435/M tokens reframes "make inference cheaper" as "use a near-frontier open model at a tenth of the price." Different layers, same target: make agent-scale inference cheaper.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 8, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 8, 2026</div>
+      <div class="entry-title"><a href="https://runtimewire.com/article/deepseek-v4-pro-beats-gpt-5-5-pro-on-precision">DeepSeek V4-Pro</a> — 80.6% SWE-bench Verified, 90.1% GPQA Diamond, 67.9% Terminal-Bench 2.0 at ~$0.435/M tokens; open weights near the frontier at a fraction of the cost</div>
+      <div class="entry-source">HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 7, 2026</div>
+      <div class="entry-title"><a href="https://arxiv.org/abs/2604.24881">Latent Agents: A Post-Training Procedure for Internalized Multi-Agent Debate</a> — bake debate-style reasoning gains into weights instead of orchestrating agents at inference</div>
+      <div class="entry-source">arXiv / HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 6, 2026</div>
+      <div class="entry-title"><a href="https://github.com/huawei-csl/KVarN">Huawei KVarN — native vLLM backend for KV-cache quantization</a></div>
+      <div class="entry-source">HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 6, 2026</div>
+      <div class="entry-title"><a href="https://arxiv.org/abs/2606.04032">Do transformers need three projections? Systematic study of QKV variants</a></div>
+      <div class="entry-source">arXiv / HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 7, 2026</div>
+      <div class="entry-title"><a href="https://github.blog/ai-and-ml/github-copilot/improving-token-efficiency-in-github-agentic-workflows/">Improving token efficiency in GitHub Agentic Workflows</a> — instrumenting per-PR workflows that "quietly accumulate large API bills"</div>
+      <div class="entry-source">GitHub Blog</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="economics">
+  <div class="topic-header">
+    <span class="topic-cat cat-economics">Economics</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>AI coding agent costs &amp; ROI</div>
+      <div class="topic-summary">Enterprise spending on AI coding tools is exploding faster than anyone budgeted. The question of when and how to cap spend — and whether the productivity gains justify the cost — is now a live management problem at major companies.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 5, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 3, 2026</div>
+      <div class="entry-title"><a href="https://simonwillison.net/2026/Jun/3/uber-caps-usage/">Uber caps Claude Code at $1,500/month per tool after blowing 2026 AI budget in four months</a></div>
+      <div class="entry-source">Simon Willison</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 29, 2026</div>
+      <div class="entry-title"><a href="https://simonwillison.net/2026/May/29/anthropic/">Anthropic Series H: $65B at $965B valuation, $47B run-rate revenue</a> — growth trajectory driven primarily by coding agent usage</div>
+      <div class="entry-source">Simon Willison</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 27, 2026</div>
+      <div class="entry-title"><a href="https://simonwillison.net/2026/May/27/product-market-fit/">Anthropic and OpenAI have found product-market fit</a> — analysis of what's actually driving the revenue hockey stick</div>
+      <div class="entry-source">Simon Willison</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 3, 2026</div>
+      <div class="entry-title"><a href="https://github.blog/2026-06-03-github-copilot-moves-to-token-based-billing/">GitHub Copilot moves to token-based billing</a> — per-token model replaces flat subscription; enterprises face unpredictable costs for agentic workloads</div>
+      <div class="entry-source">GitHub Blog</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 4, 2026</div>
+      <div class="entry-title"><a href="https://simonwillison.net/2026/Jun/4/gcp-claude-code-suspension/">GCP suspends accounts for Claude Code ToS violations</a> — running Claude Code on cloud VMs violates Anthropic consumer ToS; first wave of enforcement</div>
+      <div class="entry-source">Simon Willison</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 5, 2026</div>
+      <div class="entry-title">Anthropic Agent SDK billing change (effective Jun 15) — Agent SDK workloads move off the chat subscription pool to a separate $20–$200/month credit, billed at API list rates</div>
+      <div class="entry-source">Trade press</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="agents">
+  <div class="topic-header">
+    <span class="topic-cat cat-agents">Agents</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Agent authorization &amp; scope — the delegation &amp; multi-agent-safety problem</div>
+      <div class="topic-summary">When agents spin up other agents, or take real-world actions, what are they allowed to do? Who authorized that? This is emerging as the central unsolved design problem in production agentic systems. Parallel efforts in academia, tooling, and cloud platforms are all attacking it differently — and it now has institutional research money behind it: DeepMind's up-to-$10M multi-agent safety funding call targets the behavior of <em>populations</em> of interacting agents (emergent collective dynamics, network fragility, identity/reputation protocols). The gap it names — "most safety evaluations analyze models in isolation" — was illustrated the same day by an AI coding agent "running amok" inside the Fedora project.</div>
+      <div class="topic-meta">First seen: May 2026 · Last updated: Jun 11, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 11, 2026</div>
+      <div class="entry-title"><a href="https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/">DeepMind multi-agent AI safety funding call</a> — up to $10M (with Schmidt Sciences, Cooperative AI Foundation, ARIA, Google.org) for sandboxes/testbeds, the science of agent networks, agent infrastructure, and population-level oversight. Deadline Aug 8, 2026</div>
+      <div class="entry-source">Google DeepMind</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 11, 2026</div>
+      <div class="entry-title"><a href="https://news.ycombinator.com/item?id=48484584">AI agent runs amok in Fedora and elsewhere</a> — a real open-source-community instance of the autonomous-agent reliability/oversight problem (LWN, HN 413 pts)</div>
+      <div class="entry-source">LWN / HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 1, 2026</div>
+      <div class="entry-title"><a href="https://aws.amazon.com/blogs/machine-learning/extending-mcp-support-for-amazon-bedrock-agentcore-gateway-2/">AWS AgentCore Gateway — centralized MCP control with policy interceptors</a> — AWS's platform answer</div>
+      <div class="entry-source">AWS ML Blog</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 26, 2026</div>
+      <div class="entry-title"><a href="https://www.oreilly.com/radar/who-authorized-that-the-delegation-problem-in-multi-agent-ai/">Who Authorized That? The delegation problem in multi-agent AI</a></div>
+      <div class="entry-source">O'Reilly Radar</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 19, 2026</div>
+      <div class="entry-title"><a href="https://www.oreilly.com/radar/when-an-agent-deletes-the-production-database/">When an Agent Deletes the Production Database</a> — case for reversible-first design and tight permission scoping</div>
+      <div class="entry-source">O'Reilly Radar</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="agents">
+  <div class="topic-header">
+    <span class="topic-cat cat-agents">Agents</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Managed agent architecture — functions vs. sandboxes</div>
+      <div class="topic-summary">A debate is forming about the right architecture for managed/hosted agents. The current mainstream approach (long-lived sandboxes at AWS, OpenAI, Google) is being challenged by the argument that functions are simpler, cheaper, and compose better. Electric SQL's "serverless agents" post crystallized the dissenting view.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 5, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 4, 2026</div>
+      <div class="entry-title"><a href="https://electric.ax/blog/2026/06/04/serverless-agents">Serverless agents — managed agents belong in functions, not sandboxes</a> — critique of the current platform direction</div>
+      <div class="entry-source">ElectricSQL</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 1, 2026</div>
+      <div class="entry-title"><a href="https://aws.amazon.com/blogs/machine-learning/enable-safe-agentic-payments-with-built-in-guardrails-using-amazon-bedrock-agentcore-payments/">AWS AgentCore — sandbox-based managed agents GA</a></div>
+      <div class="entry-source">AWS ML Blog</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Apr 29, 2026</div>
+      <div class="entry-title"><a href="https://electric.ax/blog/2026/04/29/introducing-electric-agents">Introducing Electric Agents — agent platform built on sync</a></div>
+      <div class="entry-source">ElectricSQL</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="industry">
+  <div class="topic-header">
+    <span class="topic-cat cat-industry">Industry</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Frontier-lab IPO race — Anthropic &amp; OpenAI</div>
+      <div class="topic-summary">Both leading labs are now on the public-markets track simultaneously. Anthropic filed a confidential S-1 on Jun 1 (after a $65B Series H at $965B; ~$47B run-rate revenue). OpenAI followed exactly a week later on Jun 8 at a reported ~$852B valuation with ~900M weekly ChatGPT users — Goldman Sachs and Morgan Stanley reported as underwriters, a possible (unconfirmed) September debut. Two simultaneous S-1s will force unprecedented financial disclosure on the sector (burn, compute commitments, revenue mix) and set up a public-market valuation test for the whole frontier-lab model.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 9, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 8, 2026</div>
+      <div class="entry-title"><a href="https://openai.com/index/openai-submits-confidential-s-1/">OpenAI confidentially submits draft S-1 to the SEC</a> — ~$852B valuation, ~900M weekly ChatGPT users; one week after Anthropic</div>
+      <div class="entry-source">OpenAI / HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 1, 2026</div>
+      <div class="entry-title"><a href="https://www.anthropic.com/news/confidential-draft-s1-sec">Anthropic confidentially submits draft S-1 to the SEC</a></div>
+      <div class="entry-source">Anthropic</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 28, 2026</div>
+      <div class="entry-title"><a href="https://www.anthropic.com/news/series-h">Anthropic raises $65B Series H at $965B valuation</a></div>
+      <div class="entry-source">Anthropic</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="industry">
+  <div class="topic-header">
+    <span class="topic-cat cat-industry">Industry</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Multi-model cloud platforms</div>
+      <div class="topic-summary">AWS Bedrock is positioning as a neutral multi-model platform, now hosting both Claude and OpenAI's GPT-5.x/Codex alongside each other. This changes the competitive dynamics — enterprises no longer have to choose a single-vendor AI platform.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 5, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 1, 2026</div>
+      <div class="entry-title"><a href="https://aws.amazon.com/blogs/machine-learning/openai-models-and-codex-on-amazon-bedrock-are-now-generally-available/">OpenAI models + Codex on Amazon Bedrock — GA</a></div>
+      <div class="entry-source">AWS ML Blog</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 1, 2026</div>
+      <div class="entry-title"><a href="https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/">OpenAI frontier models now available on AWS</a></div>
+      <div class="entry-source">OpenAI</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="safety">
+  <div class="topic-header">
+    <span class="topic-cat cat-safety">Safety</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>AI-generated security research — open source under pressure</div>
+      <div class="topic-summary">AI tools are enabling a flood of high-quality, AI-assisted security bug reports against open source projects. curl and SQLite are both receiving 4–5x their historical volume of reports. The work is real, the vulnerabilities are real, but maintainers are overwhelmed. All AI-assisted CVEs in curl remain LOW/MEDIUM severity — the codebases are solid — but the human cost is high.</div>
+      <div class="topic-meta">First seen: May 2026 · Last updated: Jun 5, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">May 27, 2026</div>
+      <div class="entry-title"><a href="https://simonwillison.net/2026/May/27/sqlite-agents/">SQLite flooded with AI bug reports — splits off dedicated forum, strengthens AGENTS.md</a></div>
+      <div class="entry-source">Simon Willison</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 5, 2026</div>
+      <div class="entry-title"><a href="https://github.com/anthropics/defending-code-reference-harness">Anthropic open-sources defending-code-reference-harness</a> — reference framework for AI-powered vulnerability discovery on the defender side</div>
+      <div class="entry-source">Anthropic / HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 26, 2026</div>
+      <div class="entry-title"><a href="https://daniel.haxx.se/blog/2026/05/26/the-pressure/">The pressure</a> — Daniel Stenberg on the volume of AI-assisted curl security reports</div>
+      <div class="entry-source">daniel.haxx.se via Simon Willison</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="safety">
+  <div class="topic-header">
+    <span class="topic-cat cat-safety">Safety</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>AI agent prompt injection &amp; exfiltration attacks</div>
+      <div class="topic-summary">As agents are wired into enterprise tools (email, file storage, support systems), prompt injection attacks that cause agents to exfiltrate data or take unauthorized actions are becoming real threats, not theoretical ones. The defensive consensus is converging: you can't fully prevent injection, so cut off the exfiltration leg (the "Lethal Trifecta") and contain code execution. The threat surface is widening with model capability — Simon Willison's account of Fable 5 inventing novel system-access tricks (custom screenshot tooling, template JS injection, a CORS server) to debug a CSS bug is a vivid reminder that a subverted, "relentlessly proactive" agent outside a sandbox could do enormous damage; the tooling response (e.g. Deno's Claw Patrol agent firewall) is starting to appear.</div>
+      <div class="topic-meta">First seen: May 2026 · Last updated: Jun 12, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 11, 2026</div>
+      <div class="entry-title"><a href="https://simonwillison.net/2026/Jun/11/fable-is-relentlessly-proactive/">Claude Fable is relentlessly proactive</a> — from one screenshot, the agent built its own pyobjc/Quartz screenshot tooling, injected JS into app templates, and stood up a CORS server; Willison's "top Challenger-disaster candidate" warning against running agents outside a sandbox</div>
+      <div class="entry-source">Simon Willison</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 11, 2026</div>
+      <div class="entry-title"><a href="https://github.com/denoland/clawpatrol">Show HN: Claw Patrol — a security firewall for agents</a> — Deno ships a containment-layer tool the same day Willison documents an unsandboxed agent inventing novel system-access tricks (HN 68 pts)</div>
+      <div class="entry-source">Deno / HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 5, 2026</div>
+      <div class="entry-title"><a href="https://help.openai.com/en/articles/20001061-lockdown-mode">OpenAI Lockdown Mode goes live</a> — limits outbound requests to block the exfiltration leg; Willison: deterministic, non-AI-evaluated, "looks really good"</div>
+      <div class="entry-source">OpenAI / Simon Willison</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 6, 2026</div>
+      <div class="entry-title"><a href="https://simonwillison.net/2026/Jun/6/micropython-in-a-sandbox/">micropython-wasm — a WASM sandbox for agent code execution</a> — containing model-generated code as a standard building block (Datasette Agent)</div>
+      <div class="entry-source">Simon Willison</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 1, 2026</div>
+      <div class="entry-title"><a href="https://simonwillison.net/2026/Jun/1/hackers-simply-asked-meta-ai/">Meta AI support bot exploited for one-shot Instagram account takeovers</a></div>
+      <div class="entry-source">Simon Willison / 404 Media</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 26, 2026</div>
+      <div class="entry-title"><a href="https://simonwillison.net/2026/May/26/copilot-cowork-exfiltrates-files/">Microsoft Copilot Cowork file exfiltration via rendered email images</a></div>
+      <div class="entry-source">Simon Willison / PromptArmor</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 30, 2026</div>
+      <div class="entry-title"><a href="https://www.anthropic.com/engineering/how-we-contain-claude">How Anthropic contains Claude — full sandbox documentation</a> — the defensive response</div>
+      <div class="entry-source">Anthropic Engineering</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="engineering">
+  <div class="topic-header">
+    <span class="topic-cat cat-engineering">Engineering</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>AI &amp; software quality — the accumulation problem</div>
+      <div class="topic-summary">Teams shipping code faster than engineers can read it are accumulating technical debt, eroding institutional knowledge, and degrading system reliability. The tension between "AI enables real productivity gains" and "AI-generated code is hard to maintain" is unresolved and is showing up in real engineering organizations.</div>
+      <div class="topic-meta">First seen: May 2026 · Last updated: Jun 5, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 4, 2026</div>
+      <div class="entry-title"><a href="https://charitydotwtf.substack.com/p/ai-enthusiasts-are-in-a-race-against">AI enthusiasts are in a race against time, AI skeptics are in a race against entropy</a> — Charity Majors</div>
+      <div class="entry-source">charitydotwtf via Simon Willison</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 2, 2026</div>
+      <div class="entry-title"><a href="https://adamtornhill.substack.com/p/why-merge-conflicts-became-the-new">Why merge conflicts became the new agentic bottleneck</a> — socio-technical fit in agentic coding</div>
+      <div class="entry-source">Adam Tornhill</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 31, 2026</div>
+      <div class="entry-title"><a href="https://thoughts.hmmz.org/2026-05-31.html">The solution might be cancelling my AI subscription</a> — AI as "thermonuclear ADHD amplifier" for side projects</div>
+      <div class="entry-source">David Wilson via Simon Willison</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="engineering">
+  <div class="topic-header">
+    <span class="topic-cat cat-engineering">Engineering</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Code quality &amp; legibility for AI agents</div>
+      <div class="topic-summary">Adam Tornhill and others are exploring how code structure affects agentic coding quality. The argument: the same code qualities that help humans reason (explicit domains, clear naming, low coupling) also help agents make safer changes. "Agentic coding readability" is becoming a design criterion. A related open question: how much do the steering artifacts we write for agents (AGENTS.md instruction files) actually change their behavior, versus how much is cargo-culting?</div>
+      <div class="topic-meta">First seen: May 2026 · Last updated: Jun 8, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 8, 2026</div>
+      <div class="entry-title"><a href="https://twitter.com/rasbt/status/2063649136323252397">Do agents.md files help coding agents?</a> — Sebastian Raschka puts the ubiquitous instruction-file convention under an empirical lens</div>
+      <div class="entry-source">@rasbt / HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 2, 2026</div>
+      <div class="entry-title"><a href="https://adamtornhill.substack.com/p/why-merge-conflicts-became-the-new">Why merge conflicts became the new agentic bottleneck</a></div>
+      <div class="entry-source">Adam Tornhill</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 21, 2026</div>
+      <div class="entry-title"><a href="https://adamtornhill.substack.com/p/make-the-domain-explicit-from-procedural">Make the domain explicit: from procedural mess to local reasoning</a></div>
+      <div class="entry-source">Adam Tornhill</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 14, 2026</div>
+      <div class="entry-title"><a href="https://adamtornhill.substack.com/p/reveal-intent-in-complex-conditions">Reveal intent in complex conditions — refactoring for agentic coding</a></div>
+      <div class="entry-source">Adam Tornhill</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="models">
+  <div class="topic-header">
+    <span class="topic-cat cat-models">Models</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-watching"></span>Microsoft's own model ambitions</div>
+      <div class="topic-summary">Microsoft is building frontier models in-house (MAI series) rather than relying solely on OpenAI. MAI-Thinking-1 (1T-param MoE, 35B active) and MAI-Code-1-Flash (137B, 5B active, for Copilot) are the first major results. Simon Willison's corrected reading: the active-parameter counts were initially misread as totals, and the "appropriately licensed data" claim doesn't hold up — the technical paper describes a proprietary crawl of ~1.2T pages (filtered to 794B) plus Common Crawl, "the same licensing problems as all of the other major LLMs." Strategic intent is still clear: reduce dependence on OpenAI.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 7, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 2, 2026</div>
+      <div class="entry-title"><a href="https://microsoft.ai/news/introducing-mai-thinking-1/">MAI-Thinking-1</a> — 1T param MoE reasoning model, "preferred to Sonnet 4.6" per internal evals</div>
+      <div class="entry-source">Microsoft</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 2, 2026</div>
+      <div class="entry-title"><a href="https://microsoft.ai/news/introducingmai-code-1-flash/">MAI-Code-1-Flash</a> — rolling out in GitHub Copilot / VS Code</div>
+      <div class="entry-source">Microsoft</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 2, 2026</div>
+      <div class="entry-title"><a href="https://simonwillison.net/2026/Jun/2/microsofts-new-models/">Simon Willison's notes on the MAI models</a> — including corrections on MoE parameter counts and training data details</div>
+      <div class="entry-source">Simon Willison</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="models">
+  <div class="topic-header">
+    <span class="topic-cat cat-models">Models</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Open-weight models closing the frontier gap</div>
+      <div class="topic-summary">The capability gap between open-weight and closed frontier models is narrowing while the price gap stays enormous. DeepSeek V4-Pro is the sharpest example: frontier-class accuracy (80.6% SWE-bench Verified, 90.1% GPQA Diamond, 67.9% Terminal-Bench 2.0) at ~$0.435 per million tokens — roughly a tenth of comparable proprietary pricing, and close to GPT-5.5 on hard benchmarks (GPT-5.5 still leads agentic Terminal-Bench at ~82.7%). If a near-frontier open model is "good enough" for most agent workloads at that price, it becomes a disruptive option in every cost and ROI conversation. Two days running (DeepSeek on cost, Xiaomi on throughput), the most aggressive price/speed numbers came from Chinese open-weight labs rather than the US frontier. Watch for whether enterprises start routing agent traffic to open weights to escape proprietary token bills.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 12, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 12, 2026</div>
+      <div class="entry-title"><a href="https://mimo.xiaomi.com/mimocode">Xiaomi MiMo Code released and open-sourced</a> — an open coding model contesting the exact domain Fable/Mythos is marketed on; lands alongside a resurfaced <a href="https://github.com/huggingface/open-r1">open-r1 DeepSeek reproduction</a> (HN 357 / 172 pts)</div>
+      <div class="entry-source">Xiaomi / HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 10, 2026</div>
+      <div class="entry-title"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/">DiffusionGemma (google/diffusiongemma-26B-A4B-it)</a> — open-weight (Apache 2) diffusion text model, "4x faster," 500+ tok/s, free on NVIDIA NIM; a new decoding paradigm and a rare open-weight Google release in a closed-frontier week</div>
+      <div class="entry-source">Google / Simon Willison</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 9, 2026</div>
+      <div class="entry-title"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/">Gemma 4 12B: a unified, encoder-free multimodal model</a> — Google's newest open model, surfaced on the DeepMind blog the same week it landed the proprietary-Gemini Apple deal; closed labs keep one foot in open weights</div>
+      <div class="entry-source">Google DeepMind</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 8, 2026</div>
+      <div class="entry-title"><a href="https://mimo.xiaomi.com/blog/mimo-tilert-1000tps">Xiaomi MiMo-v2.5-Pro-UltraSpeed</a> — a 1T-parameter model serving at ~1,000 tokens/sec; the throughput counterpart to DeepSeek's cost story (HN 546 pts)</div>
+      <div class="entry-source">HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 8, 2026</div>
+      <div class="entry-title"><a href="https://runtimewire.com/article/deepseek-v4-pro-beats-gpt-5-5-pro-on-precision">DeepSeek V4-Pro beats GPT-5.5 Pro on precision</a> — open weights at ~$0.435/M tokens posting 80.6% SWE-bench Verified / 90.1% GPQA Diamond; HN front page (277 pts)</div>
+      <div class="entry-source">HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Apr 2026</div>
+      <div class="entry-title"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/">Gemma 4 — "byte for byte, the most capable open models"</a> — Google's open line, the closed-lab counterpoint to Chinese open-weight releases</div>
+      <div class="entry-source">Google DeepMind</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="industry">
+  <div class="topic-header">
+    <span class="topic-cat cat-industry">Industry</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-watching"></span>Agent-native software infrastructure</div>
+      <div class="topic-summary">Karpathy and others are arguing the current app/GUI paradigm is obsolete for a world where agents are the primary consumers of software. The thesis: infrastructure should expose services with agent-native ergonomics (APIs, CLIs, structured outputs) rather than human-facing UIs. Several companies (Electric SQL, Anthropic) are building explicitly for this model.</div>
+      <div class="topic-meta">First seen: May 2026 · Last updated: Jun 5, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 4, 2026</div>
+      <div class="entry-title"><a href="https://x.com/karpathy/status/2049903821095354523">Karpathy at Sequoia Ascent 2026</a> — LLMs enable new software categories; infrastructure should be redesigned for agents not humans</div>
+      <div class="entry-source">@karpathy</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 4, 2026</div>
+      <div class="entry-title"><a href="https://electric.ax/blog/2026/06/04/serverless-agents">Serverless agents</a> — functions as the right primitive for agent hosting</div>
+      <div class="entry-source">ElectricSQL</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="engineering">
+  <div class="topic-header">
+    <span class="topic-cat cat-engineering">Engineering</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>AI skill degradation — does using AI erode human judgment?</div>
+      <div class="topic-summary">Four independent sources in one week raised the same question: does delegating execution to AI agents gradually erode human skills, intuition, and judgment? Mollick (cognitive offloading), Muratori (performance programmers losing "feel"), Tornhill (engineers losing architectural ownership), and Majors/Willison (operators losing operational knowledge) all converge on a concern that AI is extracting value while quietly hollowing out the human expertise that enables oversight. The first concrete counter-tools are now appearing — e.g. Lathe, which uses LLMs to teach a domain rather than skip past it, inverting the cognitive-offloading default.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 8, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 8, 2026</div>
+      <div class="entry-title"><a href="https://github.com/devenjarvis/lathe">Lathe — use LLMs to learn a new domain, not skip past it</a> — a Show HN tool built as a deliberate counter-pattern to cognitive offloading (323 pts)</div>
+      <div class="entry-source">HN / Show HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 4, 2026</div>
+      <div class="entry-title"><a href="https://charitydotwtf.substack.com/p/ai-enthusiasts-are-in-a-race-against">AI enthusiasts are in a race against time, AI skeptics are in a race against entropy</a> — Charity Majors on operational knowledge erosion</div>
+      <div class="entry-source">charitydotwtf via Simon Willison</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 3, 2026</div>
+      <div class="entry-title">Casey Muratori: performance programmers are losing the felt sense for what code does — anecdotal but consistent with the pattern</div>
+      <div class="entry-source">Computer Enhance (Substack)</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 2, 2026</div>
+      <div class="entry-title"><a href="https://adamtornhill.substack.com/p/why-merge-conflicts-became-the-new">Why merge conflicts became the new agentic bottleneck</a> — engineers losing ownership of architectural decisions</div>
+      <div class="entry-source">Adam Tornhill</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 1, 2026</div>
+      <div class="entry-title">Ethan Mollick on cognitive offloading and the difficulty of knowing when you've lost a skill you're no longer exercising</div>
+      <div class="entry-source">One Useful Thing (Substack)</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="industry">
+  <div class="topic-header">
+    <span class="topic-cat cat-industry">Industry</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Independent coding agents — Cognition, Devin, and the $1B bet</div>
+      <div class="topic-summary">Cognition raised $1B at a ~$3B valuation for Devin, the first agent positioned explicitly as a software engineer replacement rather than a copilot. On Jun 8 it shipped FrontierCode, putting it back in direct competition with Claude Code, Codex, and Copilot CLI. This is the clearest market signal yet that the "AI as junior dev" category is real and investable — and that the copilot framing may be giving way to autonomous agent framing.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 9, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 8, 2026</div>
+      <div class="entry-title"><a href="https://cognition.ai/blog/frontier-code">Cognition ships FrontierCode</a> — a coding-model/agent push competing head-on with Claude Code, Codex, and Copilot CLI (HN 158 pts)</div>
+      <div class="entry-source">Cognition / HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 4, 2026</div>
+      <div class="entry-title"><a href="https://simonwillison.net/2026/Jun/4/cognition-1b/">Cognition raises $1B for Devin</a> — $3B valuation, autonomous software engineer framing, not copilot</div>
+      <div class="entry-source">Simon Willison</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 4, 2026</div>
+      <div class="entry-title"><a href="https://www.pragmaticengineer.com/p/coding-agents-and-independent-contractors">Coding agents and independent contractors</a> — Pragmatic Engineer on what Cognition's raise signals for the market</div>
+      <div class="entry-source">The Pragmatic Engineer</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="agents">
+  <div class="topic-header">
+    <span class="topic-cat cat-agents">Agents</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-watching"></span>Agent-native UI primitives — Google AI Pointer and the post-GUI future</div>
+      <div class="topic-summary">Google's AI Pointer (announced at I/O 2026) lets agents directly manipulate UI elements across apps without screen reading hacks. This is the first major platform-level gesture toward agent-native interfaces — moving control from human gestures to agent-legible primitives. Karpathy has argued this is where the industry should head; Google is now building it into the OS layer.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 5, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 3, 2026</div>
+      <div class="entry-title"><a href="https://deepmind.google/discover/blog/google-ai-pointer-io-2026/">Google AI Pointer announced at I/O 2026</a> — platform-level primitives for agent-to-UI interaction across Android and Chrome OS</div>
+      <div class="entry-source">Google DeepMind</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 4, 2026</div>
+      <div class="entry-title"><a href="https://x.com/karpathy/status/2049903821095354523">Karpathy at Sequoia Ascent</a> — infrastructure should be redesigned for agents, not humans; GUIs are the wrong primitive</div>
+      <div class="entry-source">@karpathy</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="safety">
+  <div class="topic-header">
+    <span class="topic-cat cat-safety">Safety</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>AI governance &amp; regulation — labs propose the rules</div>
+      <div class="topic-summary">The frontier labs are publishing their own regulatory blueprints, and the proposals are diverging. Anthropic's "Policy on the AI Exponential" (Jun 10) is the hardest line yet: it asks governments for <strong>legal authority to block or deter dangerous deployments</strong>, with civil penalties tied to global annual revenue, mandatory third-party evaluation, and a threshold of <strong>&gt;10²⁵ FLOPs / &gt;$500M AI revenue or &gt;$1B AI R&amp;D</strong>, across four catastrophic-risk classes (bio, cyber, loss-of-control, automated R&amp;D); it also opposes federal preemption of state law unless the federal standard is "at least as strong." That contrasts with OpenAI's lighter-touch Frontier Governance Framework (May 28). Watch this become a positioning axis — Anthropic foregrounds safety-and-regulation as differentiation; OpenAI foregrounds capability and distribution — and a real legislative fight over preemption and deployment authority.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 11, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 10, 2026</div>
+      <div class="entry-title"><a href="https://www.anthropic.com/policy-on-the-ai-exponential">Anthropic: Policy on the AI Exponential</a> — Advanced AI Framework (govt authority to block deployments, revenue-scaled penalties, independent evaluation, &gt;10²⁵-FLOP threshold) + Economic Policy Framework (worker/economic preparation)</div>
+      <div class="entry-source">Anthropic</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 28, 2026</div>
+      <div class="entry-title"><a href="https://openai.com/index/openai-frontier-governance-framework/">OpenAI's Frontier Governance Framework</a> — the lighter-touch counterpoint; OpenAI has not responded to Anthropic's harder proposal</div>
+      <div class="entry-source">OpenAI</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="safety">
+  <div class="topic-header">
+    <span class="topic-cat cat-safety">Safety</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Recursive self-improvement — AI building AI</div>
+      <div class="topic-summary">The labs are now publishing "AI improves itself" as official roadmap, not research curiosity. Anthropic Institute's progress report made it explicit; OpenAI's self-improving tax agents and DeepMind's AlphaEvolve describe the same loop (agent identifies failure modes → generates the fix → redeploys), and Claude Code's Dynamic Workflows have agents writing their own orchestration scripts. Karpathy's AutoResearch now gives it reproducible single-GPU tooling. The concern is now load-bearing in product decisions: Anthropic cited recursive-self-improvement risk as the explicit justification for Fable 5's undisclosed "silent interventions" that degrade help on frontier-LLM-development tasks. The safety debate has concrete artifacts — and now concrete model-level countermeasures — to argue about. The RSI-justified "silent interventions" on Fable 5 were the sharpest example, but were reversed within a day after backlash (now visible Opus-4.8 fallback) — see the Silent Interventions topic.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 11, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 11, 2026</div>
+      <div class="entry-title"><a href="https://www.wired.com/story/anthropic-responds-to-backlash-on-claudes-secret-sabotage-on-ai-research/">Anthropic reverses the RSI-justified silent interventions</a> — flagged frontier-LLM-development requests now visibly fall back to Opus 4.8; the underlying RSI concern (and the refusal category) remains</div>
+      <div class="entry-source">WIRED / @ClaudeDevs</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 10, 2026</div>
+      <div class="entry-title"><a href="https://simonwillison.net/2026/Jun/10/if-claude-fable-stops-helping-you/">Fable 5's "silent interventions" cite RSI risk</a> — Anthropic quietly limits the model on pretraining/distributed-training/ML-accelerator queries to avoid "accelerating the actors most willing to violate" its ToS</div>
+      <div class="entry-source">Anthropic system card / Simon Willison</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 6, 2026</div>
+      <div class="entry-title"><a href="https://github.com/karpathy/autoresearch">Karpathy's AutoResearch</a> — agents ran 700 experiments in 2 days and discovered 20 training optimizations, no human in the loop</div>
+      <div class="entry-source">@karpathy</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 5, 2026</div>
+      <div class="entry-title"><a href="https://www.anthropic.com/institute/recursive-self-improvement">When AI Builds Itself: progress toward recursive self-improvement</a> — top HN AI story (300 pts / 389 comments)</div>
+      <div class="entry-source">Anthropic Institute</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 27, 2026</div>
+      <div class="entry-title"><a href="https://openai.com/index/building-self-improving-tax-agents-with-codex/">Building self-improving tax agents with Codex</a> — the compound agent loop in production</div>
+      <div class="entry-source">OpenAI</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 2026</div>
+      <div class="entry-title"><a href="https://deepmind.google/blog/alphaevolve-impact/">AlphaEvolve impact across math, computing, and physical science</a></div>
+      <div class="entry-source">Google DeepMind</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 2026</div>
+      <div class="entry-title"><a href="https://www.infoq.com/news/2026/06/dynamic-workflows-claude-code/">Claude Code Dynamic Workflows</a> — agents dynamically write orchestration scripts and validate their own results</div>
+      <div class="entry-source">InfoQ / @trq212</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="industry">
+  <div class="topic-header">
+    <span class="topic-cat cat-industry">Industry</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Open source maintainership &amp; trust under AI</div>
+      <div class="topic-summary">AI is dissolving the heuristics open source ran on. Patch size used to be a proxy for effort, and effort a proxy for good faith — AI severed that link. Ladybird's decision to stop accepting public pull requests is the sharpest statement yet, and it rhymes with the curl/SQLite report-flood problem and O'Reilly's "open strategy vs. private tactics" framing. The throughline: who is actually accountable for the code, and the projects, everyone depends on?</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 6, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 5, 2026</div>
+      <div class="entry-title"><a href="https://ladybird.org/posts/changing-how-we-develop-ladybird/">Ladybird will no longer accept public pull requests</a> — "a substantial patch used to imply substantial effort… that assumption no longer holds"</div>
+      <div class="entry-source">Ladybird / Simon Willison</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 29, 2026</div>
+      <div class="entry-title"><a href="https://www.oreilly.com/radar/open-source-ecosystems/">Open Source Ecosystems: when open strategy meets private tactics</a> — Ilan Strauss on the gap between public positioning and private incentives</div>
+      <div class="entry-source">O'Reilly Radar</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 27, 2026</div>
+      <div class="entry-title"><a href="https://simonwillison.net/2026/May/27/sqlite-agents/">SQLite strengthens AGENTS.md to reject agentic contributions</a> — the maintainer-side response to the same pressure</div>
+      <div class="entry-source">Simon Willison</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="agents">
+  <div class="topic-header">
+    <span class="topic-cat cat-agents">Agents</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Agent memory — curated knowledge bases vs. RAG</div>
+      <div class="topic-summary">A pattern shift in how agents retain knowledge: instead of retrieval over raw documents, the agent incrementally compiles sources into a persistent, curated artifact (Markdown wiki with entity pages, cross-links, evolving synthesis) that it maintains and queries. Karpathy's "LLM Wiki" crystallized the idea; practitioners report large token savings. The flip side is the failure mode O'Reilly documented: agents forgetting context mid-workflow without deliberate memory architecture.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 5, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 2026</div>
+      <div class="entry-title">Karpathy's "LLM Wiki" / LLM Knowledge Base pattern — agent-maintained Markdown wiki instead of RAG; one user reports ~95% drop in Claude query token usage</div>
+      <div class="entry-source">@karpathy / VentureBeat</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 28, 2026</div>
+      <div class="entry-title"><a href="https://www.oreilly.com/radar/your-ai-agent-already-forgot-half-of-what-you-told-it/">Your AI Agent Already Forgot Half of What You Told It</a> — memory architectures, context compression, checkpointing</div>
+      <div class="entry-source">O'Reilly Radar</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 27, 2026</div>
+      <div class="entry-title"><a href="https://www.oreilly.com/radar/agent-skills/">Agent Skills</a> — Addy Osmani on skills as persistent, reusable agent capabilities</div>
+      <div class="entry-source">O'Reilly Radar</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="industry">
+  <div class="topic-header">
+    <span class="topic-cat cat-industry">Industry</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Model distribution &amp; the "harness over base model" thesis — Apple bets on Gemini</div>
+      <div class="topic-summary">A platform with effectively unlimited capital chose to license a frontier model rather than build one. At WWDC 2026 Apple rebuilt Siri on a custom ~1.2T-parameter Google Gemini model running on Nvidia Blackwell in Google Cloud (~$1B/yr), behind a three-tier privacy router (on-device → Private Cloud Compute → Google Cloud) with a contract barring Google from training on Apple data. It's the clearest real-world endorsement yet of the practitioner thesis that the defensible layer is the harness/orchestration, privacy architecture, and developer surface — not the base model — and a landmark commercial win for Gemini as a third-party foundation. Watch whether other large platforms follow the "distribute someone else's model" path, and how the Apple–Google–OpenAI distribution map redraws.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 10, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 9, 2026</div>
+      <div class="entry-title"><a href="https://azure.microsoft.com/en-us/blog/claude-fable-5-is-now-available-in-microsoft-foundry-powering-the-next-era-of-autonomous-agents/">Fable 5 ships GA day-one in GitHub Copilot, Microsoft Foundry, and Cursor</a> — the base model now flows instantly into everyone's harness; Microsoft hedges (builds MAI, resells Anthropic's frontier model) and competes on the platform/agent layer</div>
+      <div class="entry-source">Azure / GitHub / Cursor</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 8, 2026</div>
+      <div class="entry-title"><a href="https://thenextweb.com/news/apple-siri-google-gemini-nvidia-privacy-wwdc">Apple rebuilds Siri on a custom ~1.2T Gemini model in Google Cloud</a> — three-tier privacy stack, ~$1B/yr deal, Core AI Framework opens models to third-party devs (HN 535/532/267 pts)</div>
+      <div class="entry-source">Apple WWDC / HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 8, 2026</div>
+      <div class="entry-title"><a href="https://simonwillison.net/2026/Jun/8/wwdc/">Simon Willison on Apple's PCC extending to Google Cloud + Nvidia GPUs</a> — PCC-on-Google-Cloud binaries to be "published for public inspection"</div>
+      <div class="entry-source">Simon Willison</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 8, 2026</div>
+      <div class="entry-title">Karpathy's LLM Council sketch — orchestration middleware between apps and a "volatile market of AI models" ("the final boss battle"); Apple's router is a live instance of the idea</div>
+      <div class="entry-source">@karpathy</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="economics">
+  <div class="topic-header">
+    <span class="topic-cat cat-economics">Economics</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-watching"></span>Is the AI boom decelerating? — the bubble/capex debate</div>
+      <div class="topic-summary">A skeptical counter-narrative is gaining volume even as blockbuster deals land. On the same day as the Apple/Gemini and OpenAI-IPO headlines, Ed Zitron's "AI is slowing down" (504 pts) and "xAI is more datacentre REIT than frontier lab" (523 pts) both trended on HN. The argument: capability gains are decelerating and the capex doesn't pencil out. The optimist read (huge deals, IPO race) and skeptic read (diminishing returns, unsustainable spend) are peaking simultaneously — and the axis people argue about is shifting from raw capability to capital efficiency and durable economics. Connects to the inference-cost and AI-spend threads.</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jun 9, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 8, 2026</div>
+      <div class="entry-title"><a href="https://www.wheresyoured.at/ai-is-slowing-down/">AI is slowing down</a> — Ed Zitron argues capability gains and economics are decelerating (HN 504 pts, 525 comments)</div>
+      <div class="entry-source">wheresyoured.at / HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 8, 2026</div>
+      <div class="entry-title"><a href="https://martinalderson.com/posts/xais-new-rental-business/">xAI is looking more like a datacentre REIT than a frontier lab</a> — capex/business-model scrutiny (HN 523 pts)</div>
+      <div class="entry-source">Martin Alderson / HN</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">May 28, 2026</div>
+      <div class="entry-title"><a href="https://newsletter.pragmaticengineer.com/p/the-pulse-a-trend-of-trying-to-cut">A trend of trying to cut back on AI spend within eng departments?</a> — the enterprise-cost counterpart</div>
+      <div class="entry-source">The Pragmatic Engineer</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>This page is maintained alongside the daily briefs. Each new brief should be reviewed for entries that belong to existing topics, and new topics should be added when a theme appears across 2+ sources or seems likely to recur.</p>
+</footer>
+
+<script>
+  function filterTopics(cat) {
+    // Update buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    // Show/hide topics
+    document.querySelectorAll('.topic').forEach(topic => {
+      if (cat === 'all' || topic.dataset.cat === cat) {
+        topic.style.display = '';
+      } else {
+        topic.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

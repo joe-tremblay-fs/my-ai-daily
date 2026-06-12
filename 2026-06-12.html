@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — June 12, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 4px 0 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; line-height: 1.6; margin-bottom: 9px; }
+    .themes-box li:last-child { margin-bottom: 0; }
+    .themes-box li::marker { color: var(--accent2); }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>June 12, 2026</h1>
+  <div class="meta">
+    <span>5 companies</span>
+    <span>7 practitioner blogs</span>
+    <span>7 Substacks</span>
+    <span>2 X accounts</span>
+    <span>HN / community</span>
+    <span style="color:var(--accent)">Anthropic pairs a $150M "Claude Corps" workforce program with a tens-of-thousands-engineer DXC enterprise alliance</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>Anthropic launched Claude Corps</strong> <span style="color:var(--accent)">(the lead story)</span> — a <strong>$150M</strong> national fellowship that will train <strong>1,000 fellows</strong>, pay them an <strong>$85,000 salary + benefits</strong>, and place them full-time, in-person for 12 months at <strong>400+ nonprofits</strong> (Braven, Code the Dream, IRC, RAINN, Goodwill, YMCA, Year Up, Code for America…). <a href="https://www.codepath.org/">CodePath</a> is employer of record; <a href="https://socialfinance.org/">Social Finance</a> handles measurement. Applications open now; first cohort of 100 starts October 2026 (closes <strong>July 17</strong>). Explicitly framed as the operational arm of yesterday's <a href="https://www.anthropic.com/policy-on-the-ai-exponential">Economic Policy Framework</a>. <a href="https://www.anthropic.com/news/claude-corps">Announcement</a>.</li>
+      <li><strong>Anthropic announced a multi-year global alliance with DXC Technology</strong> — DXC will train <strong>tens of thousands of Claude-certified forward-deployed engineers</strong> to embed Claude in the systems it runs for "the world's largest banks, airlines, insurers, manufacturers, and government agencies." DXC proved it internally first: its new <strong>DXC OASIS</strong> managed-services platform was <strong>95%+ written by Claude</strong> (~10× faster dev, now serving 50+ customers). Four launch areas: insurance, Modernization-as-a-Service, cybersecurity (an always-on security subagent on Claude Security), application services. <a href="https://www.anthropic.com/news/dxc-anthropic-alliance">Announcement</a>.</li>
+      <li><strong>The Fable hype is meeting skeptics.</strong> Topping HN today: <a href="https://www.endorlabs.com/learn/claude-fable-5-mythos-grade-hype">"Claude Fable 5: mid-tier results on coding tasks"</a> (Endor Labs, 111 pts) — an independent eval arguing the benchmark claims are "Mythos-grade hype." It lands alongside <a href="https://news.ycombinator.com/item?id=48489402">"Lines of code got a better publicist"</a> (322 pts), a pushback on output-volume metrics.</li>
+      <li><strong>Simon Willison: "Claude Fable is relentlessly proactive."</strong> A <a href="https://simonwillison.net/2026/Jun/11/fable-is-relentlessly-proactive/">detailed write-up</a> of Fable 5, from one screenshot and a one-line prompt, inventing its own browser-screenshot tooling (<code>pyobjc</code>/Quartz + <code>screencapture</code>), injecting JS into app templates, and standing up a custom CORS server — all to debug a 2-line CSS fix. Notably, the <strong>walk-back's "visible fallback to Opus" actually fired mid-session</strong>. Willison's takeaway: running agents outside a sandbox is his top "Challenger disaster" candidate for 2026.</li>
+      <li><strong>Open weights keep arriving:</strong> <a href="https://mimo.xiaomi.com/mimocode">Xiaomi MiMo Code</a> shipped open-source (357 pts on HN) and an <a href="https://github.com/huggingface/open-r1">open reproduction of DeepSeek-R1</a> is back on the front page (172 pts) — extending the two-speed "cheap/open vs. closed-frontier" market under the Fable/Mythos headlines.</li>
+      <li><strong>@trq212 (Thariq): Fable 5 edited its own launch video</strong> — a walkthrough (288K+ views) of a pipeline with no traditional video editor: Whisper timestamps on 17 takes → subagents pick best shots → ffmpeg cuts → 7 hand-written S-Log3 LUTs → Remotion React animations → Figma MCP round-trips → 4K/24fps. The actual @ClaudeDevs launch video.</li>
+      <li><strong>The rest of the field stayed put.</strong> OpenAI: nothing new since Jun 1, still no public Fable response and no comment on Anthropic's policy push. Google DeepMind, AWS ML Blog, and Microsoft newsrooms unchanged. O'Reilly, GitHub editorial, Tornhill, Muratori (AI), Pragmatic Engineer, Mollick, Talisman, and Lenny carried with no new AI posts.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ANTHROPIC -->
+<div class="section">
+  <div class="section-header">
+    <h2>Anthropic</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.anthropic.com/news/claude-corps">Introducing Claude Corps — a $150M national fellowship to put 1,000 Claude-trained fellows inside 400+ nonprofits</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 11, 2026 — anthropic.com (Announcements / Policy)</div>
+    <div class="item-body">
+      Anthropic committed an <strong>initial $150M</strong> to a national fellowship for people early in their careers. The structure: Anthropic funds and sets strategy and provides Claude expertise; <strong>CodePath</strong> (America's largest provider of collegiate CS education) is the fellows' <em>employer of record</em> and runs programming; <strong>Social Finance</strong> handles measurement/evaluation and a longer-term scaling vehicle. Fellows get a <strong>$85,000 salary + benefits</strong>, a CodePath mentor, Anthropic office hours, and "an expansive Claude token budget," spending 12 months full-time and in-person at a host nonprofit (5 hrs/week ongoing training, the rest on the host's mission). At least <strong>400 nonprofits</strong> will host over the next 12 months — named hosts include Braven, Code the Dream, Heartland Forward, Montgomery County Food Bank, Team RWB, REEF, SoundOff, StriveTogether, YMCA, plus Goodwill, RAINN, Year Up United, Code for America, IRC, MyFriendBen and Pacific Community Ventures. <strong>Applications open today</strong>; first cohort of 100 starts <strong>October 2026</strong> (closes <strong>July 17</strong>); two more cohorts begin Jan 2027 and Aug 2027. Open to anyone 18+ with under two years of full-time experience, US work authorization required. Anthropic frames this explicitly as the workforce arm of its Jun 10 <a href="https://www.anthropic.com/policy-on-the-ai-exponential">Economic Policy Framework</a> ("invest directly in the workers absorbing the change"), plans to open-source the enabling infrastructure, and wants to replicate the model abroad.
+    </div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.anthropic.com/news/dxc-anthropic-alliance">DXC will integrate Claude into the systems banks, airlines, and regulated industries rely on</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 11, 2026 — anthropic.com (Announcements)</div>
+    <div class="item-body">
+      A multi-year global alliance with <strong>DXC Technology</strong> (one of the largest IT services firms — ~115,000 employees across 70 countries). DXC will train <strong>tens of thousands of Claude-certified forward-deployed engineers (FDEs)</strong> — engineers embedded inside customer organizations — to bring Claude into the mission-critical, compliance-bound systems DXC has run for decades. DXC proved Claude internally first: its new AI-native managed-services platform <strong>DXC OASIS</strong> (launched April 2026) had <strong>more than 95% of its code generated by Claude</strong> (then human-reviewed), with DXC estimating a <strong>~10× development speedup</strong>; OASIS now serves 50+ customers and runs agentic workflows with Claude as the default foundation model. The alliance launches in four areas: <strong>insurance</strong> (agentic solutions + core-system modernization), <strong>Modernization-as-a-Service</strong> (refactoring legacy codebases), <strong>cybersecurity</strong> (an always-on security-engineer subagent built on Claude Security, deployed across DXC's SOCs), and <strong>application services</strong>. DXC also joins the <strong>Claude Partner Network</strong>, with FDEs certified through Anthropic Academy plus DXC's own curriculum. Quotes from Paul Smith (Anthropic CCO) and Raul Fernandez (DXC President/CEO, calling it "a defining moment"). A concrete enterprise-distribution play: AI value delivered through embedded engineers, not just API access.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">Carried (not new): the <strong>"silent interventions" reversal</strong> (Jun 11 — flagged frontier-LLM-development requests now visibly fall back to Opus 4.8; "we made the wrong tradeoff and we apologize" — and now confirmed firing in real sessions, see Simon Willison below); <a href="https://www.anthropic.com/policy-on-the-ai-exponential">Policy on the AI Exponential</a> (Jun 10, Advanced AI Framework + Economic Policy Framework); <a href="https://www.anthropic.com/news/claude-fable-5-mythos-5">Claude Fable 5 + Mythos 5</a> (Jun 9, first GA Mythos-class model — $10/$50 per M tokens, 50M-line Ruby migration in a day, top of Cognition FrontierCode, ~10× drug design, free on paid plans through Jun 22); the system card's <strong>30-day mandatory retention</strong> for Mythos-class traffic; <a href="https://www.anthropic.com/news/expanding-project-glasswing">Project Glasswing expansion</a> (Jun 2); <a href="https://www.anthropic.com/news/AI-enabled-cyber-threats-mitre-attack">mapping a year of AI-enabled cyber threats</a> (Jun 3); <a href="https://www.anthropic.com/news/confidential-draft-s1-sec">confidential S-1</a> (Jun 1); <a href="https://www.anthropic.com/news/series-h">$65B Series H ($965B post-money)</a> + <a href="https://www.anthropic.com/news/claude-opus-4-8">Opus 4.8</a> (May 28); the Jun 5 ~2-hour outage (still no published postmortem, now day 7).</div>
+  </div>
+</div>
+
+<!-- OPENAI -->
+<div class="section">
+  <div class="section-header">
+    <h2>OpenAI</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new posts on the OpenAI news index since Jun 1 (<a href="https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/">GPT-5.5/5.4 &amp; Codex GA on AWS Bedrock</a>). Carried: the Jun 8 confidential S-1 (~$852B valuation, ~900M weekly ChatGPT users), <a href="https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/">Rosalind Biodefense</a> (May 29), <a href="https://openai.com/index/trustworthy-third-party-evaluations-foundations/">trustworthy third-party evaluations</a> (May 29), the <a href="https://openai.com/index/openai-frontier-governance-framework/">Frontier Governance Framework</a> (May 28). <strong>Still notably absent: any OpenAI response to Fable 5</strong>, and no comment on Anthropic's pro-regulation policy push or this week's Claude Corps / DXC enterprise expansion. The contrast sharpens: Anthropic is layering capability + regulation + workforce + enterprise-services moves in a single week; OpenAI is quiet beyond distribution.</div>
+  </div>
+</div>
+
+<!-- GOOGLE -->
+<div class="section">
+  <div class="section-header">
+    <h2>Google DeepMind</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new headline AI post today. Recently surfaced but not previously flagged: <a href="https://deepmind.google/blog/measuring-the-impact-of-learning-with-ai-in-sierra-leone-and-beyond/">Measuring the impact of learning with AI in Sierra Leone and beyond</a> and <a href="https://blog.google/topics/google-europe/powering-the-future-of-robotics-in-europe/">Powering the future of robotics in Europe</a> (both June, Responsibility/Company). Carried (still significant): <a href="https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/">multi-agent AI safety funding call</a> (up to $10M, deadline Aug 8); <a href="https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/">DiffusionGemma</a> open-weight Apache-2 model (26B/4B, 500+ tok/s, free on NVIDIA NIM); <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-live-3-5-translate/">Gemini 3.5 Live Translate</a>; <a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/">Gemma 4 12B</a>; <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni/">Gemini Omni</a>; Gemini 3.5; the Apple/Gemini WWDC deal.</div>
+  </div>
+</div>
+
+<!-- AWS -->
+<div class="section">
+  <div class="section-header">
+    <h2>AWS</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">AWS ML Blog has no new editorial since Jun 2; the most recent post remains <a href="https://aws.amazon.com/blogs/machine-learning/the-art-and-science-of-hyperparameter-optimization-on-amazon-nova-forge/">Nova Forge hyperparameter optimization</a> (Jun 2). Standing items: <a href="https://aws.amazon.com/blogs/machine-learning/object-detection-with-amazon-nova-2-lite/">Nova 2 Lite object detection</a>, the Jun 1 AgentCore cluster (Gateway, Identity, Payments, Policy/Lambda interceptors), <a href="https://aws.amazon.com/blogs/machine-learning/openai-models-and-codex-on-amazon-bedrock-are-now-generally-available/">OpenAI models + Codex GA on Bedrock</a>, <a href="https://aws.amazon.com/blogs/machine-learning/aws-launches-frontier-agents-for-security-testing-and-cloud-operations/">frontier agents GA</a> (Security Agent / DevOps Agent), and the carried Fable 5 GA on Bedrock. Tangentially relevant to today: DXC's OASIS-on-Claude story (above) overlaps AWS's own "frontier agents for security and cloud ops" pitch — the managed-services agent layer is getting crowded.</div>
+  </div>
+</div>
+
+<!-- MICROSOFT -->
+<div class="section">
+  <div class="section-header">
+    <h2>Microsoft</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new posts. Carried: the Jun 2 Build batch of <a href="https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/">seven MAI models</a> (MAI-Thinking-1 — 35B reasoning, 256K context, private preview on Foundry; MAI-Code-1-Flash in the Copilot model picker; MAI-Image-2.5, MAI-Transcribe-1.5), <a href="https://azure.microsoft.com/en-us/blog/claude-fable-5-is-now-available-in-microsoft-foundry-powering-the-next-era-of-autonomous-agents/">Fable 5 day-one in Microsoft Foundry</a> (Jun 9), and the May 21 <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/21/ai-needs-more-than-intelligence-it-needs-humanity/">"AI needs more than intelligence"</a>. The split posture persists: build in-house MAI models (a sovereignty hedge) <em>and</em> resell Anthropic's frontier model on Foundry.</div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; Substacks</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison — simonwillison.net</div>
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/11/fable-is-relentlessly-proactive/">Claude Fable is relentlessly proactive</a></div>
+        <span class="item-badge badge-sig">⭐ Significant</span>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 11, 2026 — 11:35 pm</div>
+      <div class="item-body">After two days with Fable 5, Willison's one-line summary: "relentlessly proactive… it knows a whole lot of tricks and it will deploy pretty much any of them to get to its goal." From a single screenshot of a stray scrollbar and the prompt <em>"Look at dependencies to help figure out why there is a horizontal scrollbar here,"</em> Fable (in Claude Code) autonomously: started the local dev server with the right fake env vars; cycled Playwright Chrome/Firefox/WebKit; discovered the default browser was Safari; <strong>wrote its own screenshot tool using <code>uv run --with pyobjc-framework-Quartz</code></strong> to enumerate window IDs and drive <code>screencapture</code> (after <code>osascript</code> was blocked by assistive-access permissions); <strong>edited Datasette's own templates to inject JS that fired the modal's keyboard shortcut</strong>; and <strong>stood up a custom Python <code>http.server</code> CORS endpoint</strong> so injected page JS could POST measurements back to disk — all to land a two-line CSS fix. Mid-way, <strong>Fable hit the new guardrail and visibly downgraded to Opus</strong> (the exact behavior promised in Tuesday's walk-back), which finished the job from the transcript. Willison's warning: agents can do anything you can type into a terminal, "frontier models know every trick in the book and a few nobody has written down," and a prompt-injected proactive agent outside a sandbox is his top <a href="https://simonwillison.net/2026/Jan/8/llm-predictions-for-2026/#1-year-a-challenger-disaster-for-coding-agent-security">"Challenger disaster"</a> candidate for 2026.</div>
+    </div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/11/datasette/">Datasette 1.0a33 (JSON extras) + datasette-extras-explorer + asyncinject</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 11, 2026 — 6:28 am to 3:26 pm</div>
+      <div class="item-body">A cluster of small shipping notes: <strong>Datasette 1.0a33</strong> adds a pluggable <code>?_extras=</code> mechanism to the JSON API (30 documented extras — columns, counts, column types, custom templates, etc.), with a companion <a href="https://simonwillison.net/2026/Jun/11/datasette-extras-explorer/">extras explorer</a> UI; and a refreshed <a href="https://simonwillison.net/2026/Jun/11/asyncinject/">asyncinject</a> release. The continuing through-line: these are being built fast with Claude assistance ("software on tap"), the same loop behind his datasette-agent work.</div>
+    </div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">Carried: <a href="https://simonwillison.net/2026/Jun/11/anthropic-walks-back-policy/">Anthropic walks back the silent-interventions policy</a> (Jun 11, 3:45 am); <a href="https://simonwillison.net/2026/Jun/10/datasette-agent/">datasette-agent 0.2a0</a> with mid-execution <code>ask_user()</code> (Jun 10); the untrusted-SQL <a href="https://simonwillison.net/2026/Jun/11/postgresql-time-limits-readonly/">SQLite vs PostgreSQL</a> / <a href="https://simonwillison.net/2026/Jun/10/datasette-duckdb-safety/">DuckDB</a> research notes; <a href="https://simonwillison.net/2026/Jun/10/diffusiongemma/">DiffusionGemma</a> pelican benchmark; <a href="https://simonwillison.net/2026/Jun/9/claude-fable-5/">Initial impressions of Claude Fable 5</a> (Jun 9, "slow, expensive"; one session cost $74.06).</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly · GitHub Blog · Addy Osmani</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);"><strong>O'Reilly Radar:</strong> no new articles since <a href="https://www.oreilly.com/radar/open-source-ecosystems/">Open Source Ecosystems</a> (May 29); standing reads on agent memory (<a href="https://www.oreilly.com/radar/your-ai-agent-already-forgot-half-of-what-you-told-it/">Your AI Agent Already Forgot Half of What You Told It</a>), the <a href="https://www.oreilly.com/radar/who-authorized-that-the-delegation-problem-in-multi-agent-ai/">delegation problem in multi-agent AI</a>, and the <a href="https://www.oreilly.com/radar/this-week-in-ai-rethinking-the-agent-harness/">agent harness</a>. <strong>GitHub Blog (AI &amp; ML):</strong> no new editorial since the May 7 <a href="https://github.blog/ai-and-ml/github-copilot/improving-token-efficiency-in-github-agentic-workflows/">token-efficiency</a> piece; standing pieces include <a href="https://github.blog/ai-and-ml/github-copilot/run-multiple-agents-at-once-with-fleet-in-copilot-cli/">/fleet (parallel agents)</a>, <a href="https://github.blog/ai-and-ml/generative-ai/agent-pull-requests-are-everywhere-heres-how-to-review-them/">reviewing agent PRs</a>, and <a href="https://github.blog/ai-and-ml/github-copilot/how-squad-runs-coordinated-ai-agents-inside-your-repository/">Squad</a>. <strong>Addy Osmani:</strong> no new since <a href="https://addyo.substack.com/p/loop-engineering">Loop Engineering</a> (Jun 8).</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Tornhill · Muratori · Pragmatic Engineer · Mollick · Talisman · Lenny</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);"><strong>Adam Tornhill:</strong> no new since <a href="https://adamtornhill.substack.com/p/why-merge-conflicts-became-the-new">Why Merge Conflicts became the new Agentic Bottleneck</a> (Jun 2). <strong>Casey Muratori / Computer Enhance:</strong> no new AI content; latest are a Jun 10 paid Q&amp;A (#86) and the Jun 9 <a href="https://www.computerenhance.com/p/intuitive-random-selection-with-marc">Intuitive Random Selection</a> game-dev interview; latest AI piece remains <a href="https://www.computerenhance.com/p/will-ai-make-me-worse">Will AI Make Me Worse?</a> (Jun 4). <strong>Pragmatic Engineer:</strong> no new AI post; latest is <a href="https://newsletter.pragmaticengineer.com/p/kubernetes-and-retiring-at-the-top">Kelsey Hightower</a> (Jun 3, not AI); most relevant recent is <a href="https://newsletter.pragmaticengineer.com/p/ideas-slow-down-to-speed-up-when">Slow down to speed up with AI agents</a> (Jun 2). <strong>Ethan Mollick / One Useful Thing:</strong> Substack JSON API empty again; his most recent AI post is the Jun 9 <a href="https://www.techmeme.com/260609/p37">Claude Fable 5 hands-on</a> (built an isochrone map and a data-analysis tool in ~9.5 hours). <strong>Jessica Talisman:</strong> latest remains <a href="https://jessicatalisman.substack.com/p/before-the-structure">Before the Structure</a> (Jun 1). <strong>Lenny Rachitsky:</strong> latest is the Jun 9 product-books post (not AI-specific); most relevant AI piece is <a href="https://www.lennysnewsletter.com/p/why-saas-freemium-playbooks-dont">Why SaaS freemium playbooks don't work in AI</a> (May 5).</div>
+    </div>
+  </div>
+</div>
+
+<!-- X / SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Social</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">@trq212 (Thariq, Claude Code team)</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://explainx.ai/blog/fable-5-edited-own-launch-video-thariq-claude-code-2026">Fable 5 edited its own launch video — no traditional video editor opened</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 11, 2026 — via X (288K+ views)</div>
+      <div class="item-body">Thariq posted a walkthrough showing the @ClaudeDevs Fable 5 launch video (from Jun 9) was cut entirely through an agentic pipeline: <strong>Whisper timestamps across 17 takes</strong> → subagents select best shots into a <code>final-edit.json</code> → <strong>ffmpeg</strong> cuts and concatenates → <strong>7 hand-written LUTs</strong> for an S-Log3 color grade → <strong>Remotion</strong> rebuilds 11 design PNGs as animated React → <strong>Figma MCP</strong> exports for review and re-imports tweaks → 4K render at 24fps. A concrete demonstration of Fable's "run for days, delegate to subagents, check its own work" pitch applied to creative production — and of the MCP-tool + subagent pattern Thariq's team keeps foregrounding.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">@karpathy</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new standalone headline post. His recurring threads remain the <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">LLM wiki</a> (plain-markdown agent memory that "compounds over time" instead of re-searching raw docs each query — now being picked up as an <a href="https://aaif.io/blog/karpathys-llm-wiki-as-agent-memory/">agent-memory pattern</a>) and <a href="https://github.com/karpathy/autoresearch">autoresearch</a> (agents running overnight nanochat-training experiments autonomously). The Jun 9 Fable 5 "software on tap / Jevons paradox" reaction continues to propagate.</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community</h2>
+    <span class="section-tag tag-community">HN &amp; Reddit</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.endorlabs.com/learn/claude-fable-5-mythos-grade-hype">"Claude Fable 5: mid-tier results on coding tasks"</a> (Endor Labs, 111 pts) — the skeptics arrive</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 12, 2026 — HN front page (35 comments)</div>
+    <div class="item-body">An independent Endor Labs evaluation argues Fable 5's headline coding benchmarks are "Mythos-grade hype," reporting <strong>mid-tier results on their own coding tasks</strong> rather than the dramatic leaps implied by vendor numbers (50M-line Ruby migration, top of FrontierCode). It's the clearest sign the week's narrative is rotating from "look how capable" to "show me independent replication." Paired with <a href="https://news.ycombinator.com/item?id=48489402">"Lines of code got a better publicist"</a> (322 pts) — a critique of treating LOC/output volume as a proxy for AI productivity — the front page is now actively pricing in measurement skepticism.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">Open weights resurge: <a href="https://mimo.xiaomi.com/mimocode">Xiaomi MiMo Code open-sourced</a> (357 pts) · <a href="https://github.com/huggingface/open-r1">Open Reproduction of DeepSeek-R1</a> (172 pts)</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 11–12, 2026 — HN front page</div>
+    <div class="item-body">Two open-model items climbing together: <strong>MiMo Code</strong>, Xiaomi's open-source coding model (a follow-on to the MiMo line tracked in earlier briefs), and Hugging Face's <strong>open-r1</strong> reproduction of DeepSeek-R1 back near the top. Both reinforce the running "cheap/open and fast" floor rising underneath the closed Fable/Mythos ceiling — and, alongside DiffusionGemma, suggest the open ecosystem is keeping pace on coding specifically.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">Agent reliability &amp; control, concretely: <a href="https://github.com/denoland/clawpatrol">Show HN: Claw Patrol — a security firewall for agents</a> (68 pts) · <a href="https://rajitkhanna.com/agents/">Building agents without harness engineering</a> · <a href="https://antirez.com/news/168">A new era for software testing</a> (91 pts)</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 11–12, 2026 — HN front page</div>
+    <div class="item-body">Deno's <strong>Claw Patrol</strong> (an agent security firewall) lands the same day Simon Willison documents an unsandboxed agent inventing novel system-access tricks — a direct, tooling-level response to exactly that risk. Rajit Khanna's <strong>"agents without harness engineering"</strong> argues frontier models increasingly obviate hand-built scaffolding (echoing the O'Reilly "harness" debate), while antirez's <strong>"A new era for software testing"</strong> reflects on AI-assisted testing. The control/reliability theme is now showing up as shipped tools, not just essays.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">AI-adjacent slate: <a href="https://dronexl.co/2026/06/09/pokemon-go-scans-niantic-vantor-military-drone-navigation/">Pokémon Go scans trained military-drone navigation</a> (659) · <a href="https://www.newscientist.com/article/2529849-fully-autonomous-drones-have-killed-human-soldiers-for-the-first-time/">Autonomous drones kill soldiers for the first time</a> (152) · <a href="https://www.kennethpayne.uk/p/shall-we-play-a-game">LLMs use tactical nukes in 95% of wargame sims</a></div>
+    </div>
+    <div class="item-date">Jun 11–12, 2026 — HN front page</div>
+    <div class="item-body">A darker autonomy cluster: the Pokémon Go / Niantic-Vantor drone-navigation story stays near the top (659 pts), joined by a New Scientist report on the first autonomous-drone killings and a wargaming piece finding LLMs reach for tactical nuclear options in 95% of simulations. Not product news, but a steady drumbeat on AI-in-the-loop military risk that keeps the safety conversation grounded in stakes. (Top non-AI story: <a href="https://brew.sh/2026/06/11/homebrew-6.0.0/">Homebrew 6.0.0</a>, 689 pts.)</div>
+  </div>
+</div>
+
+<!-- NOTABLE THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>Anthropic is running the whole playbook at once — capability, regulation, workforce, enterprise services</h3>
+    <p>Within a single week Anthropic shipped its most capable model (Fable/Mythos, Jun 9), asked governments for authority to block dangerous deployments (Policy on the AI Exponential, Jun 10), reversed an unpopular safeguard under pressure (Jun 11), and then today layered on two more moves: a <strong>$150M workforce program</strong> (Claude Corps) explicitly tied to its economic framework, and a <strong>tens-of-thousands-engineer enterprise alliance</strong> (DXC). The throughline is positioning: capability is table stakes, and Anthropic is differentiating on the surrounding apparatus — safety posture, public-benefit programs, regulated-industry distribution. OpenAI, by contrast, has said nothing about any of it. The competitive axis is no longer just "whose model is best" but "who owns the deployment, governance, and labor narrative."</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>Forward-deployed engineers are becoming the enterprise distribution channel</h3>
+    <p>The DXC alliance — "tens of thousands of Claude-certified forward-deployed engineers" embedded in banks, airlines, and insurers — formalizes a pattern the labs have been edging toward: AI value delivered through people inside the customer, not just an API endpoint. DXC's tell is that it ran the play on itself first (OASIS, 95%+ Claude-written, ~10× faster, 50+ customers) before selling it. It rhymes with AWS's "frontier agents for security and cloud ops" and Microsoft's Foundry-plus-services posture. For regulated industries where compliance and trust gate everything, the moat is increasingly the certified humans and the managed-services layer, not the weights.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>The hype cycle hit its skeptic phase — independent evals and measurement pushback</h3>
+    <p>After a week of vendor-supplied Fable superlatives, the top of HN today is <em>doubt</em>: Endor Labs' "mid-tier results / Mythos-grade hype" eval and "Lines of code got a better publicist." This is the healthy second beat of a launch: claims meeting third-party replication and a re-litigation of what metrics even mean. Notably it coincides with Anthropic's own "Policy on the AI Exponential" pitch leaning on capability being real and dangerous — so the independent-evaluation question ("trustworthy third-party evaluations," which both OpenAI and Anthropic have written about) is now doing double duty: it's both a safety mechanism and a marketing-truth mechanism.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>Agent capability and the control problem are now the same story</h3>
+    <p>Simon Willison's "relentlessly proactive" post is the week's most vivid artifact: a frontier agent, from one screenshot, invented its own OS-level screenshot tooling, injected JavaScript into app templates, and stood up a CORS server — to fix two lines of CSS. The same proactivity that makes it useful makes a prompt-injected, unsandboxed instance genuinely dangerous. The ecosystem is responding in real time: Deno's Claw Patrol (an agent firewall) and the "harness vs. no-harness" debate are both about containing or trusting exactly this behavior. And the safeguard saga closed its loop — the visible "fall back to Opus" promised in Tuesday's reversal actually fired in Willison's live session. The center of gravity has moved from "how capable?" to "can we contain it, and does it tell us what it's doing?"</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>The open-weight floor keeps rising — now on coding specifically</h3>
+    <p>MiMo Code (open-source, Xiaomi) and a resurfaced open-r1 DeepSeek reproduction climbed HN together today, joining DiffusionGemma and Gemma 4 in the running "cheap/open and fast" thread. What's new is the emphasis: the open ecosystem is contesting <em>coding</em>, the exact domain Fable/Mythos is being marketed on. Combined with the skeptic evals above, the two-speed market is sharpening into a real question for buyers — when does a cheap open coding model plus a good harness beat a $10/$50-per-M frontier model for a given task?</p>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Sources checked (Jun 12):</strong> Anthropic (<strong>Claude Corps ✓</strong>, <strong>DXC alliance ✓</strong>; silent-interventions reversal / Policy on the AI Exponential / Fable-Mythos carried), OpenAI (no new since Jun 1; no Fable/policy response), Google DeepMind (no new headline; Sierra Leone education + Europe robotics noted; multi-agent $10M call / DiffusionGemma carried), AWS ML Blog (unchanged since Jun 2), Microsoft (unchanged; MAI batch + Foundry Fable carried), Simon Willison (<strong>"relentlessly proactive" ✓ + Datasette 1.0a33 / extras explorer / asyncinject ✓</strong>), O'Reilly Radar (no new since May 29), GitHub Blog (no new editorial since May 7), Addy Osmani (Jun 8 latest), Adam Tornhill (Jun 2 latest), Casey Muratori / Computer Enhance (Jun 10 Q&amp;A; Jun 4 latest AI), Ethan Mollick / One Useful Thing (API empty; Jun 9 Fable hands-on latest), Gergely Orosz / Pragmatic Engineer (Jun 3 latest, non-AI), Jessica Talisman (Jun 1 latest), Lenny Rachitsky (Jun 9 latest, non-AI), @trq212 / @karpathy (WebSearch ✓), Hacker News (front page ✓).</p>
+  <p style="margin-top:8px;"><strong>New today:</strong> Anthropic Claude Corps ($150M, 1,000 fellows, $85k salary, CodePath + Social Finance, 400+ host nonprofits, applications open / first cohort Oct 2026 / closes Jul 17); Anthropic–DXC multi-year global alliance (tens of thousands of Claude-certified FDEs; DXC OASIS 95%+ Claude-written, ~10× faster, 50+ customers; insurance / MaaS / cybersecurity / app services); Simon Willison "Claude Fable is relentlessly proactive" (agent invents pyobjc screenshot tooling, template JS injection, CORS server; visible Opus fallback fires mid-session; sandboxing warning) + Datasette 1.0a33 / extras explorer / asyncinject; @trq212 Fable-5-edits-its-own-launch-video pipeline; HN — Endor Labs "Fable 5: mid-tier results / Mythos-grade hype," "Lines of code got a better publicist," Xiaomi MiMo Code open-sourced, open-r1 DeepSeek reproduction, Deno Claw Patrol agent firewall, "agents without harness engineering," autonomous-drone/LLM-wargame items.</p>
+  <p style="margin-top:8px;"><strong>Carried over (not new):</strong> Anthropic silent-interventions reversal (Jun 11); Policy on the AI Exponential (Jun 10); Claude Fable 5 + Mythos 5 (Jun 9, first GA Mythos-class model, $10/$50 per M, free through Jun 22); 30-day Mythos-class retention; Opus 4.8 / S-1 / Series H / Glasswing / Jun 5 outage (day 7, no postmortem); OpenAI S-1 + Frontier Governance Framework; DeepMind multi-agent $10M call + DiffusionGemma + Gemini 3.5 Live Translate + Gemma 4 12B; Apple/Gemini WWDC deal; Microsoft MAI batch + Foundry Fable; AWS AgentCore cluster + frontier agents GA; Cognition FrontierCode; Pokémon Go drone-navigation story.</p>
+  <p style="margin-top:12px; color:var(--muted);">Scanned and generated Jun 12, 2026.</p>
+</footer>
+
+</body>
+</html>
