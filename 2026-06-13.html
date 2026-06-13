@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — June 13, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 4px 0 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; line-height: 1.6; margin-bottom: 9px; }
+    .themes-box li:last-child { margin-bottom: 0; }
+    .themes-box li::marker { color: var(--accent2); }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>June 13, 2026</h1>
+  <div class="meta">
+    <span>5 companies</span>
+    <span>7 practitioner blogs</span>
+    <span>7 Substacks</span>
+    <span>2 X accounts</span>
+    <span>HN / community</span>
+    <span style="color:var(--red)">The US government orders Anthropic to disable Fable 5 and Mythos 5</span>
+  </div>
+  <div class="meta" style="margin-top:6px;">
+    <span style="color:var(--muted)">Generated Jun 13, 2026 · 12:25 UTC — three Anthropic items posted after yesterday's brief (Jun 12 evening)</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>The US government recalled a frontier model.</strong> <span style="color:var(--red)">(The lead story.)</span> At <strong>5:21pm ET on Jun 12</strong>, Commerce Secretary Howard Lutnick sent Dario Amodei an <strong>export-control directive</strong> citing national-security authorities, suspending all access to <strong>Fable 5 and Mythos 5</strong> for <em>any foreign national</em> inside or outside the US — including Anthropic's own foreign-national employees. Anthropic <strong>disabled both models for all customers within hours</strong>; Opus 4.8, Sonnet, and Haiku are unaffected. Trigger: per Axios's scoop, <strong>another company claimed it jailbroke Mythos</strong>. Anthropic says the technique amounts to "ask the model to read a codebase and fix flaws," that the same capability is in GPT-5.5, and that recalling a model over a narrow jailbreak "would essentially halt all new model deployments." <a href="https://www.anthropic.com/news/fable-mythos-access">Anthropic statement</a> · <a href="https://www.axios.com/2026/06/12/anthropic-trump-mythos-fable-national-security">Axios</a> · <a href="https://www.bloomberg.com/news/articles/2026-06-13/anthropic-says-us-limits-foreign-access-to-fable-5-mythos-5">Bloomberg</a>.</li>
+      <li><strong>Anthropic + TCS</strong> — a partnership with Tata Consultancy Services (Jun 12, posted after yesterday's brief): Claude for <strong>50,000 TCS employees across 56 countries</strong>, Claude-powered products for financial services / healthcare / public sector, and TCS joins the Claude Partner Network. Concrete pilots already live (Diligenta's 22M UK policyholders; banking teams on Claude Code; TCS iON's 75M assessments/yr). The second regulated-industry services alliance in 48 hours after DXC. <a href="https://www.anthropic.com/news/tcs-anthropic-partnership">Announcement</a>.</li>
+      <li><strong>Anthropic Public Record</strong> — first wave of a national AI-attitudes survey (<strong>51,993 Americans</strong>, YouGov, Nov–Dec 2025): top hope is <strong>curing disease (48%)</strong>; top fear is <strong>job loss (64%)</strong>, then <strong>cognitive dependency (56%)</strong>; <strong>71% want government involvement</strong> in AI (bipartisan); only <strong>15% trust AI companies</strong> to make development decisions — the lowest of any institution tested. Daily AI users are markedly less worried (54% vs 70% on job loss). <a href="https://www.anthropic.com/news/anthropic-public-record">Results</a>.</li>
+      <li><strong>The rest of the field is quiet under the shockwave.</strong> OpenAI: nothing new since Jun 1 (and notably, Anthropic's own statement cites OpenAI's GPT-5.5 as having the contested cyber capability). Google DeepMind, AWS ML Blog, and Microsoft newsrooms unchanged. Simon Willison's latest remains Jun 11's "relentlessly proactive"; O'Reilly, GitHub editorial, Tornhill, Muratori, Pragmatic Engineer, Mollick, Talisman, and Lenny all carried with no new AI posts.</li>
+      <li><strong>HN's mood is the human-effort backlash, not the suspension.</strong> The #1 story (<strong>1,489 pts</strong>) is <a href="https://tombedor.dev/human-attention-and-human-effort/">"If you are asking for human attention, demonstrate human effort,"</a> joined by <a href="https://blog.miguelgrinberg.com/post/i-am-not-a-reverse-centaur">"I Am Not a Reverse Centaur"</a> (248) and <a href="https://envs.net/~volpe/blog/posts/reduce-slop.html">reducing AI-frontend slop</a> (158). A skeptical <a href="https://www.youtube.com/watch?v=zfYsSFY4l18">"I Think They [Anthropic] Are Lying to You"</a> video appeared on the front page within an hour of posting.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ANTHROPIC -->
+<div class="section">
+  <div class="section-header">
+    <h2>Anthropic</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.anthropic.com/news/fable-mythos-access">Statement on the US government directive to suspend access to Fable 5 and Mythos 5</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 12, 2026 — anthropic.com (Announcements); received 5:21pm ET</div>
+    <div class="item-body">
+      The US government, "citing national security authorities," issued an <strong>export-control directive</strong> ordering Anthropic to suspend all access to <strong>Fable 5 and Mythos 5</strong> by any foreign national — inside or outside the US, including Anthropic's foreign-national employees. To comply, Anthropic <strong>abruptly disabled both models for every customer</strong>; <strong>all other models (Opus 4.8, Sonnet, Haiku) are unaffected</strong>. Per <a href="https://www.axios.com/2026/06/12/anthropic-trump-mythos-fable-national-security">Axios</a>, Commerce Secretary <strong>Howard Lutnick</strong> wrote to Dario Amodei after <strong>another company claimed it had jailbroken Mythos</strong>, alarming the administration. Anthropic's account: the government has so far provided only verbal evidence of "a narrow, non-universal jailbreak" that "essentially consists of asking the model to read a specific codebase and fix any software flaws"; Anthropic reviewed the underlying report and says the capability is "widely available from other models (including OpenAI's <a href="https://deploymentsafety.openai.com/gpt-5-5/cybersecurity">GPT-5.5</a>)" and "used every day by the defenders who keep systems safe." Anthropic reiterates its Fable launch posture — strong safeguards, thousands of hours of red-teaming with the US government and UK AISI, no <em>universal</em> jailbreak found, a "defense in depth" strategy backed by the controversial 30-day data retention. It is complying, but <strong>disagrees</strong>: "we disagree that the finding of a narrow potential jailbreak should be cause for recalling a commercial model deployed to hundreds of millions of people… [it] would essentially halt all new model deployments for all frontier model providers." Pointedly, it ties this to its Jun 10 <a href="https://www.anthropic.com/policy-on-the-ai-exponential">Policy on the AI Exponential</a> — which argued government <em>should</em> be able to block unsafe deployments, but only "through a statutory process that is transparent, fair, clear, and grounded in technical facts. This action does not adhere to those principles." It calls the order "a misunderstanding" and is working to restore access. Widely covered: <a href="https://www.bloomberg.com/news/articles/2026-06-13/anthropic-says-us-limits-foreign-access-to-fable-5-mythos-5">Bloomberg</a>, <a href="https://www.nbcnews.com/tech/tech-news/anthropic-suspends-new-ai-models-fable-mythos-government-directive-rcna349901">NBC</a>, <a href="https://www.cnbc.com/2026/06/12/anthropic-disables-access-to-fable-5-and-mythos-5-to-comply-with-government-directive.html">CNBC</a>, <a href="https://fortune.com/2026/06/13/anthropic-disables-fable-mythos-export-controls-national-security-threat/">Fortune</a>, <a href="https://thehackernews.com/2026/06/us-orders-anthropic-to-suspend-fable-5.html">The Hacker News</a>.
+    </div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.anthropic.com/news/tcs-anthropic-partnership">TCS and Anthropic partner to bring Claude to regulated industries</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 12, 2026 — anthropic.com (Announcements)</div>
+    <div class="item-body">
+      A partnership with <strong>Tata Consultancy Services</strong>, one of the world's largest tech-services firms. TCS will provide Claude to <strong>50,000 of its own employees across 56 countries</strong>, build Claude-powered products for clients in <strong>financial services, healthcare, public sector and other regulated industries</strong>, and join the <strong>Claude Partner Network</strong>. As "customer zero," TCS is deploying Claude across its engineering, finance, legal, marketing and sales teams and standing up a dedicated practice of consultants, engineers and industry specialists. Live work already named: <strong>Diligenta</strong> (TCS's UK life-and-pensions arm) will use Claude for the experience of <strong>22M+ policyholders</strong>; TCS banking/financial-services teams will use <strong>Claude Code</strong> for engineering and IT ops; TCS engineering teams will contribute <strong>reusable skills and plugins</strong> (starting with claims adjudication and lending advisory) to the Claude Code ecosystem; and <strong>TCS iON</strong> (75M+ assessments/yr across 1,500 Indian cities) will deliver Claude training and certification. Dario Amodei calls India "our second-largest market." Coming a day after the <a href="https://www.anthropic.com/news/dxc-anthropic-alliance">DXC alliance</a>, it's the second regulated-industry forward-deployed-services deal in 48 hours.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.anthropic.com/news/anthropic-public-record">Results from the first Anthropic Public Record</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 12, 2026 — anthropic.com (Announcements)</div>
+    <div class="item-body">
+      A new national survey series on US attitudes toward AI — first wave fielded <strong>Nov–Dec 2025 with 51,993 Americans</strong> via YouGov, weighted to Census benchmarks (national MoE ±0.6pp). Headline findings: <strong>top hope is curing disease (48%)</strong>, then helping people with disabilities (36%); <strong>top fear is job loss (64%)</strong>, then <strong>cognitive dependency (56%)</strong> and misinformation (52%). <strong>71% want government involvement</strong> in regulating AI — bipartisan (79% D / 68% R / 69% I) and a majority in every state. Only <strong>15% trust AI companies</strong> to make decisions about how AI is developed — the lowest of any institution tested (below federal government at 20% and far below independent experts at 43%). Asked how to keep AI in humanity's interest, Americans chose <strong>legal liability for harm (47%)</strong> and <strong>prioritizing safety over growth (44%)</strong>. Two notable correlations: job-loss worry <em>rises</em> with education (postgrads ~10pp higher than high-school-or-less) but <em>falls</em> with hands-on use (daily AI users 54% vs non-users 70%); and cognitive dependency is so far an "anticipatory fear" — of the 56% worried, only ~1/5 would feel real disruption if AI vanished tomorrow, while educators (who report witnessing student "cognitive atrophy") are among the most worried. Explicitly framed as evidence behind the <a href="https://www.anthropic.com/policy-on-the-ai-exponential">Policy on the AI Exponential</a>.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">Carried (not new): <a href="https://www.anthropic.com/news/claude-corps">Claude Corps</a> ($150M fellowship, 1,000 fellows, $85k salary, CodePath + Social Finance, 400+ host nonprofits, applications open / first cohort Oct 2026 / closes Jul 17) and the <a href="https://www.anthropic.com/news/dxc-anthropic-alliance">DXC alliance</a> (tens of thousands of Claude-certified forward-deployed engineers; DXC OASIS 95%+ Claude-written, ~10× faster, 50+ customers) — both Jun 11; the <strong>"silent interventions" reversal</strong> (Jun 11 — flagged frontier-LLM-development requests now visibly fall back to Opus 4.8; "we made the wrong tradeoff and we apologize"); <a href="https://www.anthropic.com/policy-on-the-ai-exponential">Policy on the AI Exponential</a> (Jun 10, Advanced AI + Economic Policy Frameworks); <a href="https://www.anthropic.com/news/claude-fable-5-mythos-5">Claude Fable 5 + Mythos 5</a> (Jun 9, first GA Mythos-class model, $10/$50 per M, 30-day mandatory retention); <a href="https://www.anthropic.com/news/expanding-project-glasswing">Project Glasswing</a> (Jun 2); <a href="https://www.anthropic.com/news/AI-enabled-cyber-threats-mitre-attack">AI-enabled cyber threats / MITRE</a> (Jun 3); <a href="https://www.anthropic.com/news/confidential-draft-s1-sec">confidential S-1</a> (Jun 1); <a href="https://www.anthropic.com/news/series-h">$65B Series H ($965B post-money)</a> + <a href="https://www.anthropic.com/news/claude-opus-4-8">Opus 4.8</a> (May 28).</div>
+  </div>
+</div>
+
+<!-- OPENAI -->
+<div class="section">
+  <div class="section-header">
+    <h2>OpenAI</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new posts on the OpenAI news index since Jun 1 (<a href="https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/">GPT-5.5/5.4 &amp; Codex GA on AWS Bedrock</a>). Today's twist: OpenAI surfaces in <em>Anthropic's</em> statement — Anthropic cites <a href="https://deploymentsafety.openai.com/gpt-5-5/cybersecurity">GPT-5.5's own deployment-safety page</a> to argue the contested "read a codebase and find flaws" capability is already widely available, implying any export-control standard applied to Fable would apply to GPT-5.5 too. Still no OpenAI public response to the Fable suspension, to Anthropic's policy push, or to the DXC/TCS enterprise expansion. Carried: Jun 8 confidential S-1 (~$852B, ~900M weekly ChatGPT users), <a href="https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/">Rosalind Biodefense</a> (May 29), <a href="https://openai.com/index/trustworthy-third-party-evaluations-foundations/">trustworthy third-party evaluations</a> (May 29), <a href="https://openai.com/index/openai-frontier-governance-framework/">Frontier Governance Framework</a> (May 28).</div>
+  </div>
+</div>
+
+<!-- GOOGLE -->
+<div class="section">
+  <div class="section-header">
+    <h2>Google DeepMind</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new headline AI post today; the DeepMind blog's most recent items remain <a href="https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/">multi-agent AI safety funding</a> (up to $10M, deadline Aug 8), <a href="https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/">DiffusionGemma</a> (open-weight Apache-2, 26B/4B), <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-live-3-5-translate/">Gemini 3.5 Live Translate</a>, the Sierra Leone education study, and Europe robotics — all June. Carried: <a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/">Gemma 4 12B</a>, <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni/">Gemini Omni</a>, Gemini 3.5, the Apple/Gemini WWDC deal. Worth flagging against today's news: Google's open-weight Gemma/DiffusionGemma line is the counter-model to the closed, now-export-controlled frontier tier.</div>
+  </div>
+</div>
+
+<!-- AWS -->
+<div class="section">
+  <div class="section-header">
+    <h2>AWS</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">AWS ML Blog has no new editorial since Jun 2; most recent remains <a href="https://aws.amazon.com/blogs/machine-learning/the-art-and-science-of-hyperparameter-optimization-on-amazon-nova-forge/">Nova Forge hyperparameter optimization</a> (Jun 2). Standing items: <a href="https://aws.amazon.com/blogs/machine-learning/how-baz-improved-its-ai-agent-code-review-accuracy-using-amazon-bedrock-agentcore/">Baz code-review on AgentCore</a> and <a href="https://aws.amazon.com/blogs/machine-learning/object-detection-with-amazon-nova-2-lite/">Nova 2 Lite object detection</a> (Jun 2), the Jun 1 AgentCore cluster (Gateway, Identity, Payments, Policy/Lambda interceptors), <a href="https://aws.amazon.com/blogs/machine-learning/openai-models-and-codex-on-amazon-bedrock-are-now-generally-available/">OpenAI models + Codex GA on Bedrock</a>, and <a href="https://aws.amazon.com/blogs/machine-learning/aws-launches-frontier-agents-for-security-testing-and-cloud-operations/">frontier agents GA</a>. Note: Claude is sold via Bedrock, so today's foreign-access suspension of Fable/Mythos has downstream implications for AWS, Vertex AI, and Microsoft Foundry resellers.</div>
+  </div>
+</div>
+
+<!-- MICROSOFT -->
+<div class="section">
+  <div class="section-header">
+    <h2>Microsoft</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No confirmed new posts. Carried: the Jun 2 Build batch of <a href="https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/">seven MAI models</a> (MAI-Thinking-1, MAI-Code-1-Flash in the Copilot picker, MAI-Image-2.5, MAI-Transcribe-1.5), <a href="https://azure.microsoft.com/en-us/blog/claude-fable-5-is-now-available-in-microsoft-foundry-powering-the-next-era-of-autonomous-agents/">Fable 5 day-one in Microsoft Foundry</a> (Jun 9), and the May 21 <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/05/21/ai-needs-more-than-intelligence-it-needs-humanity/">"AI needs more than intelligence."</a> Directly affected today: Foundry's foreign-tenant access to Fable 5 falls under the same suspension — the sovereignty hedge of building in-house MAI models suddenly looks more like insurance than strategy.</div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; Substacks</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison — simonwillison.net</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new post since Jun 11's <a href="https://simonwillison.net/2026/Jun/11/fable-is-relentlessly-proactive/">"Claude Fable is relentlessly proactive"</a> (the agent that invented its own pyobjc screenshot tooling, injected JS into app templates, and stood up a CORS server to fix two lines of CSS — and visibly fell back to Opus mid-session). Given his close tracking of the Fable/Mythos safeguards saga — he wrote up the <a href="https://simonwillison.net/2026/Jun/11/anthropic-walks-back-policy/">silent-interventions reversal</a> and the <a href="https://simonwillison.net/2026/Jun/10/if-claude-fable-stops-helping-you/">system-card retention policy</a> — expect a follow-up on today's government recall. Carried: <a href="https://simonwillison.net/2026/Jun/11/datasette/">Datasette 1.0a33</a> + extras explorer + asyncinject; <a href="https://simonwillison.net/2026/Jun/10/datasette-agent/">datasette-agent 0.2a0</a> (mid-execution <code>ask_user()</code>); <a href="https://simonwillison.net/2026/Jun/10/diffusiongemma/">DiffusionGemma</a> pelican benchmark.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly · GitHub Blog · Addy Osmani</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);"><strong>O'Reilly Radar:</strong> no new articles since <a href="https://www.oreilly.com/radar/open-source-ecosystems/">Open Source Ecosystems</a> (May 29); standing reads on <a href="https://www.oreilly.com/radar/your-ai-agent-already-forgot-half-of-what-you-told-it/">agent memory</a>, the <a href="https://www.oreilly.com/radar/who-authorized-that-the-delegation-problem-in-multi-agent-ai/">delegation problem</a>, and the <a href="https://www.oreilly.com/radar/this-week-in-ai-rethinking-the-agent-harness/">agent harness</a>. <strong>GitHub Blog (AI &amp; ML):</strong> no new editorial since the May 7 <a href="https://github.blog/ai-and-ml/github-copilot/improving-token-efficiency-in-github-agentic-workflows/">token-efficiency</a> piece; featured item is now <a href="https://github.blog/ai-and-ml/github-copilot/github-recognized-as-a-leader-in-the-gartner-magic-quadrant-for-enterprise-ai-coding-agents-for-the-third-year-in-a-row/">GitHub named a Gartner MQ Leader for Enterprise AI Coding Agents (3rd year)</a> (May 22). <strong>Addy Osmani:</strong> no new since <a href="https://addyo.substack.com/p/loop-engineering">Loop Engineering</a> (Jun 8).</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Tornhill · Muratori · Pragmatic Engineer · Mollick · Talisman · Lenny</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);"><strong>Adam Tornhill:</strong> no new since <a href="https://adamtornhill.substack.com/p/why-merge-conflicts-became-the-new">Why Merge Conflicts became the new Agentic Bottleneck</a> (Jun 2). <strong>Casey Muratori / Computer Enhance:</strong> no new AI content; latest are a Jun 10 paid Q&amp;A (#86) and the Jun 9 <a href="https://www.computerenhance.com/p/intuitive-random-selection-with-marc">Intuitive Random Selection</a> game-dev piece; latest AI remains <a href="https://www.computerenhance.com/p/will-ai-make-me-worse">Will AI Make Me Worse?</a> (Jun 4). <strong>Pragmatic Engineer:</strong> no new AI post; latest is <a href="https://newsletter.pragmaticengineer.com/p/kubernetes-and-retiring-at-the-top">Kelsey Hightower</a> (Jun 3, not AI); most relevant recent is <a href="https://newsletter.pragmaticengineer.com/p/ideas-slow-down-to-speed-up-when">Slow down to speed up with AI agents</a> (Jun 2). <strong>Ethan Mollick / One Useful Thing:</strong> Substack JSON API empty again; his most recent AI post is the Jun 9 Claude Fable 5 hands-on. <strong>Jessica Talisman:</strong> latest remains <a href="https://jessicatalisman.substack.com/p/before-the-structure">Before the Structure</a> (Jun 1). <strong>Lenny Rachitsky:</strong> latest is the Jun 9 <a href="https://www.lennysnewsletter.com/p/essential-books-for-product-builderspart-611">Essential books for product builders (part 2)</a> (not AI); most relevant AI piece is <a href="https://www.lennysnewsletter.com/p/why-saas-freemium-playbooks-dont">Why SaaS freemium playbooks don't work in AI</a> (May 5).</div>
+    </div>
+  </div>
+</div>
+
+<!-- X / SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Social</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">@trq212 (Thariq, Claude Code team)</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No major new standalone post today. Carried threads remain <a href="https://x.com/trq212/status/2061907538741006796">Workflows ("the biggest upgrade to Claude Code's capabilities since skills and subagents")</a> and last week's walkthrough of <a href="https://explainx.ai/blog/fable-5-edited-own-launch-video-thariq-claude-code-2026">Fable 5 editing its own launch video</a> (Whisper → subagents → ffmpeg → hand-written LUTs → Remotion → Figma MCP). The suspension lands squarely on the model his team has been showcasing.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">@karpathy</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new headline post. His recurring threads — the <a href="https://x.com/karpathy/status/2040470801506541998">"idea file" / LLM wiki</a> (plain-markdown agent memory that compounds over time) and <a href="https://fortune.com/2026/03/17/andrej-karpathy-loop-autonomous-ai-agents-future/">autoresearch</a> (agents running overnight experiments) — continue to circulate; one month in, third parties are <a href="https://www.rdworldonline.com/is-karpathys-viral-llm-wiki-helpful-mostly-yes-one-month-in/">publishing "mostly yes" verdicts</a> on the LLM-wiki pattern.</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community</h2>
+    <span class="section-tag tag-community">HN &amp; Reddit</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://tombedor.dev/human-attention-and-human-effort/">"If you are asking for human attention, demonstrate human effort"</a> tops HN (1,489 pts)</div>
+      <span class="item-badge badge-sig">⭐ Notable</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 12–13, 2026 — HN front page (458 comments)</div>
+    <div class="item-body">By a wide margin the most-discussed item: an argument that AI-generated content asking for human review (PRs, emails, posts) owes a baseline of human effort, or it's an unfair claim on others' attention. It anchors a cluster of AI-fatigue posts: <a href="https://blog.miguelgrinberg.com/post/i-am-not-a-reverse-centaur">"I Am Not a Reverse Centaur"</a> (Miguel Grinberg, 248 pts) on refusing to become the human who merely checks an agent's output, <a href="https://envs.net/~volpe/blog/posts/reduce-slop.html">"Slightly reducing the sloppiness of AI generated front end"</a> (158 pts), and <a href="https://correresmidestino.com/dont-you-just-upload-it-to-chatgpt/">"Don't You Just Upload It to ChatGPT?"</a> (281 pts). The cultural counter-current to agent maximalism is strengthening — and connects directly to the Public Record's cognitive-dependency finding.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">Skepticism about the suspension narrative: <a href="https://www.youtube.com/watch?v=zfYsSFY4l18">"I Think They [Anthropic] Are Lying to You"</a> hits the front page</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 13, 2026 — HN front page (posted within the hour)</div>
+    <div class="item-body">A video questioning Anthropic's framing climbed onto the front page within an hour of the suspension breaking — a sign the community isn't taking either the government's "national security" claim or Anthropic's "it's a misunderstanding" framing at face value. Adjacent on the page: <a href="https://twitter.com/jsrailton/status/2064661778978533571">malware authors planting fake "nuclear and biological weapons" text in spyware</a> (281 pts) to poison AI scanners, and <a href="https://depthfirst.com/research/21-zero-days-in-ffmpeg">"Twenty One Zero-Days in FFmpeg"</a> (53 pts) — both circling the same dual-use, AI-finds-software-flaws terrain the government cited as its reason to pull Fable.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">Fable cost-engineering as a genre: <a href="https://github.com/DanMcInerney/architect-loop">/architect — "Reduce Fable tokens by 80%, Fable orchestrates/reviews, Codex builds"</a> · <a href="https://ikyle.me/blog/2026/how-to-setup-a-local-coding-agent-on-macos">How to set up a local coding agent on macOS</a> (230 pts)</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 12–13, 2026 — HN front page</div>
+    <div class="item-body">A practical thread that now reads differently after the suspension: <strong>architect-loop</strong> uses expensive Fable only to plan and review while cheaper Codex does the building (claimed ~80% token reduction), and a 230-point guide walks through running a <strong>local</strong> coding agent on macOS. With the frontier tier suddenly export-controlled and unavailable to foreign users, "use the cheap/open/local model for most of the work and reserve the frontier model for orchestration" looks less like cost-optimization and more like resilience. Also new: <a href="https://bitboard.work/">Launch HN: BitBoard</a>, a YC "analytics workspace for agents."</div>
+  </div>
+</div>
+
+<!-- NOTABLE THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>The state stepped in — a frontier model was recalled by export control</h3>
+    <p>For the first time, the US government used <strong>export-control authority to force a deployed commercial frontier model offline</strong> for all foreign access. The stated trigger — a competitor's claim of a Mythos jailbreak that amounts to "read this codebase and find its flaws" — is exactly the dual-use cyber capability the industry has been debating for a year (and that Anthropic argues is already in GPT-5.5 and used daily by defenders). Whatever the merits, the precedent is enormous: deployment of a frontier model is now contingent on government discretion, and the trigger threshold is, so far, a single narrow jailbreak demonstrated to officials. Anthropic is complying while disputing both the facts and the process.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>Anthropic's own policy is being tested against Anthropic</h3>
+    <p>Three days ago Anthropic published <a href="https://www.anthropic.com/policy-on-the-ai-exponential">Policy on the AI Exponential</a>, arguing the government <em>should</em> have authority to block or recall dangerous deployments — but "through a statutory process that is transparent, fair, clear, and grounded in technical facts." Today it argues this exact action fails that test. It's a live stress-test of the company's pro-regulation posture: having asked for a referee, it now objects to the first call. The Public Record data lands in the same frame — 71% of Americans want government involvement and only 15% trust AI companies — which cuts both ways: it's the mandate Anthropic invoked, and the skepticism it's up against.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>The enterprise-services land grab didn't pause for the crisis</h3>
+    <p>In 48 hours Anthropic announced <strong>DXC</strong> (tens of thousands of certified forward-deployed engineers) and <strong>TCS</strong> (50,000 employees, regulated-industry products, Partner Network) — the second and third major managed-services alliances of the week, both targeting banks, insurers, healthcare and the public sector. The model is consistent: deliver Claude through embedded humans and an audited services layer, not just an API. That a foreign-access export control hit on the same day underscores the bet — in regulated and cross-border industries, the moat is certified people, compliance, and distribution, and those are exactly the relationships now caught in the suspension's blast radius.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>Jailbreaks and dual-use cyber are now the regulatory fault line</h3>
+    <p>The whole episode turns on whether "ask the model to find software flaws" is a weapon or a tool. HN is circling the same question from the other side: <a href="https://depthfirst.com/research/21-zero-days-in-ffmpeg">21 zero-days found in FFmpeg</a>, <a href="https://twitter.com/jsrailton/status/2064661778978533571">malware poisoning AI scanners with fake WMD text</a>, and architect-loop pipelines that lean on frontier models for review. Anthropic's "defense in depth + 30-day retention" and its claim that no <em>universal</em> jailbreak exists are now the industry's stated safety floor — and the government just signaled that a <em>non-universal</em> one may be enough to pull a model. Every frontier provider is now exposed to the same standard.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>The human-effort backlash is the loudest grassroots signal</h3>
+    <p>While the labs and the government fight over deployment authority, HN's actual #1 story (1,489 pts) is a plea to <a href="https://tombedor.dev/human-attention-and-human-effort/">demonstrate human effort</a> before asking for human attention, flanked by "I Am Not a Reverse Centaur" and anti-slop posts. The Public Record gives this a number: job loss and <em>cognitive dependency</em> are Americans' top two fears, and educators — who report watching students' skills atrophy — are the most worried of all. The capability race and the cost/control race keep accelerating; the cultural counter-current insisting "AI should amplify a human, not replace the human's effort" is getting louder in parallel.</p>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Sources checked (Jun 13):</strong> Anthropic (<strong>Fable/Mythos suspension ✓</strong>, <strong>TCS partnership ✓</strong>, <strong>Public Record ✓</strong>; Claude Corps / DXC / policy / Fable-Mythos carried), OpenAI (no new since Jun 1; cited in Anthropic's statement; no Fable/policy response), Google DeepMind (no new headline), AWS ML Blog (unchanged since Jun 2), Microsoft (unchanged; Foundry Fable affected by suspension), Simon Willison (no new since Jun 11 "relentlessly proactive"), O'Reilly Radar (no new since May 29), GitHub Blog (no new editorial since May 7; Gartner MQ Leader featured), Addy Osmani (Jun 8 latest), Adam Tornhill (Jun 2 latest), Casey Muratori / Computer Enhance (Jun 10 Q&amp;A; Jun 4 latest AI), Ethan Mollick / One Useful Thing (API empty; Jun 9 Fable hands-on latest), Gergely Orosz / Pragmatic Engineer (Jun 3 latest, non-AI), Jessica Talisman (Jun 1 latest), Lenny Rachitsky (Jun 9 latest, non-AI), @trq212 / @karpathy (WebSearch ✓), Hacker News (front page ✓).</p>
+  <p style="margin-top:8px;"><strong>New today:</strong> US government export-control directive suspending Fable 5 &amp; Mythos 5 for all foreign nationals (received 5:21pm ET Jun 12; Anthropic disabled both for all customers; Lutnick letter to Amodei; jailbreak/national-security rationale; Anthropic complies but disputes); Anthropic–TCS partnership (50,000 employees / 56 countries, regulated-industry products, Partner Network; Diligenta 22M policyholders, TCS iON 75M assessments); first Anthropic Public Record survey (51,993 Americans — curing disease #1 hope, job loss #1 fear at 64%, cognitive dependency 56%, 71% want gov involvement, 15% trust AI companies); HN — "demonstrate human effort" (1,489 pts), "I Am Not a Reverse Centaur," "I Think They Are Lying to You" video, architect-loop Fable-token-reduction, local coding agent on macOS, FFmpeg 21 zero-days, malware poisoning AI scanners.</p>
+  <p style="margin-top:8px;"><strong>Carried (not new):</strong> Claude Corps + DXC alliance (Jun 11); silent-interventions reversal (Jun 11); Policy on the AI Exponential (Jun 10); Fable 5 + Mythos 5 launch + 30-day retention (Jun 9); Opus 4.8 / S-1 / Series H / Glasswing; OpenAI S-1 + governance frameworks; DeepMind multi-agent $10M call + DiffusionGemma + Gemma 4 + Gemini Omni/3.5; Apple/Gemini WWDC deal; Microsoft MAI batch + Foundry Fable; AWS AgentCore cluster + frontier agents GA; Simon Willison "relentlessly proactive."</p>
+  <p style="margin-top:12px; color:var(--muted);">Scanned and generated Jun 13, 2026 · 12:25 UTC. The three lead Anthropic items were all published Jun 12 after the prior day's brief (the directive arrived 5:21pm ET / 21:21 UTC Jun 12).</p>
+</footer>
+
+</body>
+</html>
