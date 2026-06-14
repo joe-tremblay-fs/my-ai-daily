@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — June 14, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 4px 0 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; line-height: 1.6; margin-bottom: 9px; }
+    .themes-box li:last-child { margin-bottom: 0; }
+    .themes-box li::marker { color: var(--accent2); }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>June 14, 2026</h1>
+  <div class="meta">
+    <span>5 companies</span>
+    <span>7 practitioner blogs</span>
+    <span>6 Substacks</span>
+    <span>2 X accounts</span>
+    <span>HN / community</span>
+    <span style="color:var(--red)">Amazon's CEO reportedly triggered the Fable/Mythos crackdown</span>
+  </div>
+  <div class="meta" style="margin-top:6px;">
+    <span style="color:var(--muted)">Generated Jun 14, 2026 · 12:08 UTC — Day 3 of the suspension; no restoration confirmed</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>The trigger has a name: Amazon's CEO.</strong> <span style="color:var(--red)">(The lead story.)</span> Per a <a href="https://www.wsj.com/tech/ai/amazon-ceos-talks-with-u-s-officials-triggered-crackdown-on-anthropic-models-dcc90578">WSJ scoop</a> (Jun 13), <strong>Andy Jassy told Treasury Secretary Scott Bessent</strong> and other officials that <strong>Amazon researchers used Fable 5 to obtain information usable in cyberattacks</strong> — which set off the export-control directive that pulled Fable 5 and Mythos 5 offline Friday. Corroborated by <a href="https://www.theinformation.com/articles/amazons-jassy-raised-concerns-anthropic-model-trump-crackdown">The Information</a> and <a href="https://www.reuters.com/business/retail-consumer/amazon-voiced-concerns-about-anthropic-ai-models-before-us-governments-crackdown-2026-06-13/">Reuters</a>. The twist: <strong>Amazon is one of Anthropic's largest investors</strong> (~$8B in, $100B AWS commitment). <a href="https://techcrunch.com/2026/06/13/amazon-ceo-reportedly-raised-anthropic-model-concerns-before-government-crackdown/">TechCrunch</a>.</li>
+      <li><strong>Dueling accounts from the White House and Anthropic.</strong> <strong>David Sacks</strong> (former AI czar, now PCAST co-chair) <a href="https://x.com/DavidSacks/status/2065853007619588171">posted</a> that "a highly credible trusted partner of both Anthropic and the USG…came forward with a jailbreak," and "The Admin asked Dario to fix the jailbreak or de-deploy the model. Dario refused." Anthropic's <a href="https://www.anthropic.com/news/fable-mythos-access">statement</a> still holds that the technique surfaced only "a small number of previously known, minor vulnerabilities" already discoverable with other public models (incl. GPT-5.5), and that the recall is disproportionate.</li>
+      <li><strong>Still dark, Day 3.</strong> Fable 5 and Mythos 5 remain suspended for all customers; Anthropic says it is "working to restore access." An <a href="https://health.aws.amazon.com/health/status">AWS status update</a> confirms Bedrock was affected — i.e., Amazon's own cloud lost the models its CEO flagged. No new posts on the <a href="https://www.anthropic.com/news">Anthropic newsroom</a> since Jun 12.</li>
+      <li><strong>The field stays quiet under the shockwave.</strong> OpenAI (nothing new since Jun 1; a "<a href="https://openai.com/form/codex-for-oss/">Codex for open source</a>" sign-up surfaced on HN), Google DeepMind, AWS ML Blog, and Microsoft all unchanged on models. Practitioner blogs, by contrast, were busy: <strong>O'Reilly Radar and the GitHub AI blog have both shipped a run of June posts</strong> (agent memory, agent cost, Copilot CLI delegation/LSP/custom agents) that earlier briefs had missed.</li>
+      <li><strong>HN's center of gravity is the Amazon story</strong> (<a href="https://news.ycombinator.com/item?id=48519092">476 pts, 350 comments</a>), flanked by a <a href="https://twitter.com/jietang/status/2065784751345287314">GLM 5.2</a> open-model release (258), a wave of "<a href="https://stephen.bochinski.dev/blog/2026/06/13/ai-coding-at-home-without-going-broke/">AI coding at home without going broke</a>" / local-LLM posts, a "<a href="https://minigames.world/en">built 80 games with Fable before it shut down</a>" Show HN, and the human-effort backlash continuing with "<a href="https://borretti.me/article/human-routers-of-machine-words">Human Routers of Machine Words</a>."</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ANTHROPIC -->
+<div class="section">
+  <div class="section-header">
+    <h2>Anthropic</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title">Amazon CEO Andy Jassy reportedly triggered the Fable/Mythos crackdown — and the "Dario refused" account</div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 13, 2026 — WSJ / The Information / Reuters / TechCrunch; Sacks via X</div>
+    <div class="item-body">
+      The big development since yesterday is <em>why</em> the government pulled the models. The <a href="https://www.wsj.com/tech/ai/amazon-ceos-talks-with-u-s-officials-triggered-crackdown-on-anthropic-models-dcc90578">Wall Street Journal</a> reports that <strong>Amazon CEO Andy Jassy told Treasury Secretary Scott Bessent and other officials that Amazon researchers had used Anthropic's Claude Fable 5 to obtain information that could be used in cyberattacks</strong>. The government then imposed the export-control ban on Fable 5 and Mythos 5. <a href="https://www.theinformation.com/articles/amazons-jassy-raised-concerns-anthropic-model-trump-crackdown">The Information</a> and <a href="https://www.reuters.com/business/retail-consumer/amazon-voiced-concerns-about-anthropic-ai-models-before-us-governments-crackdown-2026-06-13/">Reuters</a> independently report that Amazon raised model-security concerns with the administration. The conflict of interest is glaring: <strong>Amazon is one of Anthropic's largest backers</strong> (most recently <a href="https://techcrunch.com/2026/04/20/anthropic-takes-5b-from-amazon-and-pledges-100b-in-cloud-spending-in-return/">$5B more on top of earlier billions, with a $100B AWS spend commitment</a>) — i.e., the company bankrolling Anthropic's infrastructure is the one that told Washington its models were dangerous. An Amazon spokesperson said it is "not uncommon for governments to seek our counsel on potential security risks," declined to share details, and pointed to an <a href="https://health.aws.amazon.com/health/status">AWS Health status update</a> confirming AWS was itself affected by the cutoff. Separately, <strong>David Sacks</strong> — Trump's former AI czar, now co-chair of PCAST — offered a sharper version on X: "a highly credible trusted partner of both Anthropic and the USG…came forward with a jailbreak," and <strong>"The Admin asked Dario to fix the jailbreak or de-deploy the model. Dario refused."</strong> Anthropic's published <a href="https://www.anthropic.com/news/fable-mythos-access">account</a> remains that the demonstrated technique amounts to "ask the model to read a codebase and fix flaws," surfaced only previously-known minor vulnerabilities, is widely available (incl. OpenAI's GPT-5.5), and that recalling a deployed model over a narrow jailbreak is disproportionate. Coverage: <a href="https://techcrunch.com/2026/06/13/amazon-ceo-reportedly-raised-anthropic-model-concerns-before-government-crackdown/">TechCrunch</a>, <a href="https://thenextweb.com/news/amazon-jassy-triggered-anthropic-fable-mythos-crackdown">The Next Web</a>, <a href="https://seekingalpha.com/news/4603114-amazon-behind-us-crackdown-anthropic-models">Seeking Alpha</a>, <a href="https://beincrypto.com/amazon-triggered-anthropic-fable-mythos-shutdown/">BeInCrypto</a>.
+    </div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title">Fable 5 &amp; Mythos 5 still suspended on Day 3; restoration not yet confirmed; global fallout</div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+    </div>
+    <div class="item-date">Jun 12–14, 2026 — ongoing</div>
+    <div class="item-body">
+      As of this morning the two models remain offline for every customer; Anthropic continues to say it is "working to restore access as soon as possible" and calls the order a misunderstanding. The downstream blast radius is now visible: Bedrock (AWS), Vertex AI and Microsoft Foundry resellers lost the models, and <a href="https://techcrunch.com/2026/06/13/as-anthropic-suspends-access-to-new-models-india-debates-its-ai-future/">India is using the episode to debate its own AI-sovereignty future</a> (Dario Amodei had just called India "our second-largest market" in the TCS deal). The export-control framing — barring access by "any foreign national, inside or outside the US, including foreign-national Anthropic employees" — is what forced the all-customer shutoff, since Anthropic can't filter nationality in real time. No new Anthropic newsroom posts have appeared since the Jun 12 cluster (the suspension statement, the TCS partnership, and the Public Record survey).
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">Carried (not new): <a href="https://www.anthropic.com/news/tcs-anthropic-partnership">TCS partnership</a> (Claude for 50,000 TCS employees / 56 countries, regulated-industry products, Diligenta 22M policyholders, TCS iON 75M assessments) and the first <a href="https://www.anthropic.com/news/anthropic-public-record">Anthropic Public Record</a> survey (51,993 Americans — curing disease #1 hope, job loss #1 fear at 64%, cognitive dependency 56%, 71% want gov involvement, only 15% trust AI companies) — both Jun 12; <a href="https://www.anthropic.com/news/claude-corps">Claude Corps</a> + <a href="https://www.anthropic.com/news/dxc-anthropic-alliance">DXC alliance</a> (Jun 11); silent-interventions reversal (Jun 11); <a href="https://www.anthropic.com/policy-on-the-ai-exponential">Policy on the AI Exponential</a> (Jun 10); <a href="https://www.anthropic.com/news/claude-fable-5-mythos-5">Fable 5 + Mythos 5 launch</a> + 30-day mandatory retention (Jun 9); <a href="https://www.anthropic.com/news/AI-enabled-cyber-threats-mitre-attack">AI-enabled cyber threats / MITRE</a> (Jun 3); <a href="https://www.anthropic.com/news/confidential-draft-s1-sec">confidential S-1</a> (Jun 1); $65B Series H + Opus 4.8 (May 28).</div>
+  </div>
+</div>
+
+<!-- OPENAI -->
+<div class="section">
+  <div class="section-header">
+    <h2>OpenAI</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new posts on the OpenAI news index since Jun 1 (<a href="https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/">GPT-5.5/5.4 &amp; Codex GA on AWS Bedrock</a>). New on HN today: an OpenAI "<a href="https://openai.com/form/codex-for-oss/">Codex for open source</a>" application form (135 pts) — free/subsidized Codex access for OSS maintainers. Still no OpenAI public comment on the Fable/Mythos suspension, even though Anthropic's statement repeatedly cites <a href="https://deploymentsafety.openai.com/gpt-5-5/cybersecurity">GPT-5.5's own deployment-safety page</a> to argue the contested "read a codebase, find flaws" capability is already shipping in OpenAI's models — implying any export-control standard applied to Fable would apply to GPT-5.5 too. Carried: confidential S-1 (~$852B, ~900M weekly ChatGPT users), <a href="https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/">Rosalind Biodefense</a> (May 29), <a href="https://openai.com/index/trustworthy-third-party-evaluations-foundations/">third-party evaluations</a> (May 29), <a href="https://openai.com/index/openai-frontier-governance-framework/">Frontier Governance Framework</a> (May 28).</div>
+  </div>
+</div>
+
+<!-- GOOGLE -->
+<div class="section">
+  <div class="section-header">
+    <h2>Google DeepMind</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new headline AI post today; the DeepMind blog's most recent items remain <a href="https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/">multi-agent AI safety funding</a> (up to $10M, deadline Aug 8), <a href="https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/">DiffusionGemma</a> (open-weight, Apache-2, 4× faster text gen), <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-live-3-5-translate/">Gemini 3.5 Live Translate</a>, the Sierra Leone education study, and Europe robotics — all June. Carried: <a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/">Gemma 4 12B</a>, <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni/">Gemini Omni</a>, Gemini 3.5. Worth flagging against today's news: with the closed frontier tier export-controlled, Google's open-weight Gemma/DiffusionGemma line and Chinese open models like GLM 5.2 are the counter-bet customers are now actively discussing.</div>
+  </div>
+</div>
+
+<!-- AWS -->
+<div class="section">
+  <div class="section-header">
+    <h2>AWS</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">AWS ML Blog has no new editorial since Jun 2; most recent remains <a href="https://aws.amazon.com/blogs/machine-learning/the-art-and-science-of-hyperparameter-optimization-on-amazon-nova-forge/">Nova Forge hyperparameter optimization</a> (Jun 2), alongside <a href="https://aws.amazon.com/blogs/machine-learning/object-detection-with-amazon-nova-2-lite/">Nova 2 Lite object detection</a>, the AgentCore cluster (Gateway, Identity, Payments, Policy/Lambda interceptors), <a href="https://aws.amazon.com/blogs/machine-learning/openai-models-and-codex-on-amazon-bedrock-are-now-generally-available/">OpenAI models + Codex GA on Bedrock</a>, and <a href="https://aws.amazon.com/blogs/machine-learning/aws-launches-frontier-agents-for-security-testing-and-cloud-operations/">frontier agents GA</a> (security/DevOps). But AWS is no longer a bystander to the Fable story: per the WSJ scoop, Amazon's CEO triggered the crackdown, and AWS's own <a href="https://health.aws.amazon.com/health/status">status page</a> confirms Bedrock lost Fable/Mythos as a result — the rare case of a cloud provider degrading its own catalog through a complaint to the government about a portfolio company.</div>
+  </div>
+</div>
+
+<!-- MICROSOFT -->
+<div class="section">
+  <div class="section-header">
+    <h2>Microsoft</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new model or product news; the Microsoft Cloud Blog's recent posts are thought-leadership only — <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/11/the-cmo-on-the-frontier-from-ai-experimentation-to-ai-at-work/">"The CMO on the frontier"</a> (Jun 11) and <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/10/ai-amplifies-creativity-by-removing-friction/">"AI amplifies creativity by removing friction"</a> (Jun 10). Carried: the Jun 2 Build batch of <a href="https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/">seven MAI models</a> and <a href="https://azure.microsoft.com/en-us/blog/claude-fable-5-is-now-available-in-microsoft-foundry-powering-the-next-era-of-autonomous-agents/">Fable 5 day-one in Microsoft Foundry</a> (Jun 9). Directly affected: Foundry's foreign-tenant access to Fable 5 falls under the same suspension — the sovereignty hedge of building in-house MAI models continues to look more like insurance than strategy.</div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; Substacks</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison — simonwillison.net</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/13/us-government-directive-to-suspend-access/">"Well this is nuts" — Willison documents the directive and times his own Fable cutoff</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 13, 2026 — simonwillison.net</div>
+      <div class="item-body">Willison quotes Anthropic's statement at length and writes "Well this is <em>nuts</em>." He ran a <a href="https://gist.github.com/simonw/5894cfafc64a2b8aafbe834bc9c950b9">polling script</a> against the Anthropic API to capture the exact moment <code>claude-fable-5</code> stopped working: <strong>cut off at 6:59pm Pacific (9:59pm ET) Jun 12</strong>, returning a 404 directing users to Opus 4.8. He notes the demonstrated jailbreak "essentially consists of asking the model to read a specific codebase and fix any software flaws" and that the capability is available in other models including GPT-5.5.</div>
+    </div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">Also new (Jun 12): <a href="https://simonwillison.net/2026/Jun/12/openai-webrtc/">OpenAI WebRTC Audio Session, now with document context</a> — his playground rebuilt around GPT-Realtime-2, letting you paste a document and discuss it by voice; and a wry <a href="https://simonwillison.net/2026/Jun/12/andrew-singleton/">McSweeney's "AI Economics for Dummies"</a> quote on circular AI-investment accounting. Carried: <a href="https://simonwillison.net/2026/Jun/11/fable-is-relentlessly-proactive/">"Claude Fable is relentlessly proactive"</a> (Jun 11), Datasette 1.0a33, datasette-agent.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly Radar — oreilly.com/radar</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">A run of June agent-engineering pieces (earlier briefs had this source as quiet — correcting)</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 8–12, 2026 — oreilly.com/radar</div>
+      <div class="item-body">Recent articles: <a href="https://www.oreilly.com/radar/this-week-in-ai-the-next-gen-recommendation-experience/">This Week in AI: The Next-Gen Recommendation Experience</a> (Jun 12); a <a href="https://www.oreilly.com/radar/podcast/generative-ai-in-the-real-world-agentic-systems-fundamentals-with-maarten-grootendorst/">podcast on agentic-systems fundamentals with Maarten Grootendorst</a> (Jun 11); <a href="https://www.oreilly.com/radar/when-context-collapses-teaching-agents-to-detect-and-recover-from-lost-memory/">When Context Collapses: Teaching Agents to Detect and Recover from Lost Memory</a> (Andrew Stellman, Jun 11); <a href="https://www.oreilly.com/radar/the-subsidy-ended-what-tool-using-agents-actually-cost/">The Subsidy Ended: What Tool-Using Agents Actually Cost</a> (Jun 9 — argues the era of below-cost agent pricing is ending); and <a href="https://www.oreilly.com/radar/long-running-agents/">Long-Running Agents</a> (Addy Osmani, Jun 8). The agent-memory and agent-cost threads keep recurring across this source.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">GitHub Blog (AI &amp; ML) — github.blog</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Active June cadence on Copilot CLI orchestration and LLM-assisted security (earlier briefs had this as quiet — correcting)</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 9–12, 2026 — github.blog/ai-and-ml</div>
+      <div class="item-body">Recent posts: <a href="https://github.blog/ai-and-ml/how-we-made-github-copilot-cli-more-selective-about-delegation/">How we made GitHub Copilot CLI more selective about delegation</a> (Jun 12 — "better orchestration, fewer handoffs…without a single new knob"); <a href="https://github.blog/security/making-secret-scanning-more-trustworthy-reducing-false-positives-at-scale/">Making secret scanning more trustworthy</a> (Jun 11 — context-aware LLM reasoning to cut false positives); <a href="https://github.blog/ai-and-ml/github-copilot/give-github-copilot-cli-real-code-intelligence-with-language-servers/">Give Copilot CLI real code intelligence with language servers</a> (Jun 10); and <a href="https://github.blog/ai-and-ml/github-copilot/from-one-off-prompts-to-workflows-how-to-use-custom-agents-in-github-copilot-cli/">From one-off prompts to workflows: custom agents in Copilot CLI</a> (Jun 9). Theme: hardening the agent harness (delegation, code intelligence, repeatable workflows).</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Tornhill · Muratori · Pragmatic Engineer · Mollick · Talisman · Lenny</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);"><strong>Adam Tornhill:</strong> no new since <a href="https://adamtornhill.substack.com/p/why-merge-conflicts-became-the-new">Why Merge Conflicts became the new Agentic Bottleneck</a> (Jun 2). <strong>Casey Muratori / Computer Enhance:</strong> feed unreachable today (Substack JSON/proxy blocked); latest AI piece on file remains <a href="https://www.computerenhance.com/p/will-ai-make-me-worse">Will AI Make Me Worse?</a> (Jun 4). <strong>Gergely Orosz / Pragmatic Engineer:</strong> most recent is <a href="https://newsletter.pragmaticengineer.com/p/the-impact-of-ai-on-software-engineers-2026">State of the software-engineering job market in 2026 (part 2)</a> (~Jun 9 — exclusive data finding AI labs now out-attract Big Tech). <strong>Ethan Mollick / One Useful Thing:</strong> latest remains <a href="https://www.oneusefulthing.org/p/what-it-feels-like-to-work-with-mythos">What it feels like to work with Mythos</a> (Jun 9). <strong>Jessica Talisman:</strong> feed unreachable today; latest on file <a href="https://jessicatalisman.substack.com/p/before-the-structure">Before the Structure</a> (Jun 1). <strong>Lenny Rachitsky:</strong> no new AI piece; most relevant remains <a href="https://www.lennysnewsletter.com/p/why-saas-freemium-playbooks-dont">Why SaaS freemium playbooks don't work in AI</a>. <em>(Note: the six Substack JSON endpoints were blocked by the workspace network proxy today; these reflect WebSearch + last-known state.)</em></div>
+    </div>
+  </div>
+</div>
+
+<!-- X / SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Social</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">@DavidSacks (PCAST co-chair, former AI czar)</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://x.com/DavidSacks/status/2065853007619588171">"The Admin asked Dario to fix the jailbreak or de-deploy the model. Dario refused."</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 13, 2026 — x.com/DavidSacks</div>
+      <div class="item-body">The most consequential social post of the day: Sacks frames the suspension as a refusal rather than a misunderstanding, saying "a highly credible trusted partner of both Anthropic and the USG…came forward with a jailbreak" and that Anthropic declined the administration's fix-or-pull ultimatum. It directly contradicts Anthropic's "this is a misunderstanding / minor known vulnerabilities" framing and aligns with the WSJ's Amazon reporting.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">@trq212 (Thariq, Claude Code team) · @karpathy</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);"><strong>@trq212:</strong> no major new standalone post surfaced today; the model his team showcased (Fable) remains suspended. Carried threads: Workflows ("biggest upgrade to Claude Code since skills and subagents") and Fable editing its own launch video. <strong>@karpathy:</strong> no new headline post; his "idea file"/LLM-wiki agent-memory pattern and "autoresearch" overnight-experiment loop continue to circulate, with third-party write-ups still landing favorably one month on.</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community</h2>
+    <span class="section-tag tag-community">HN &amp; Reddit</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48519092">"Amazon CEO's talks with U.S. officials triggered crackdown on Anthropic models"</a> tops HN (476 pts, 350 comments)</div>
+      <span class="item-badge badge-sig">⭐ Notable</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 13–14, 2026 — HN front page</div>
+    <div class="item-body">The WSJ scoop is the day's dominant discussion. The thread centers on the investor-as-informant conflict (Amazon funds Anthropic and runs it on Bedrock, yet flagged its models to the government) and on whether "an AI that finds software flaws" is a legitimate basis for an export-control recall. It connects to two adjacent front-page items on AI misuse: a <a href="https://news.sky.com/story/derbyshire-police-officer-investigated-for-using-ai-to-create-evidence-in-multiple-cases-13553661">Derbyshire police officer investigated for using AI to "create evidence"</a> (169 pts) and <a href="https://techcrunch.com/2026/06/13/kpmg-pulls-report-on-ai-usage-due-to-apparent-hallucinations/">KPMG pulling a report over apparent AI hallucinations</a>.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">Open-model momentum: <a href="https://twitter.com/jietang/status/2065784751345287314">GLM 5.2 is out</a> (258 pts) — and the "run it locally / cheaply" wave</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 13–14, 2026 — HN front page</div>
+    <div class="item-body">With the closed frontier tier suddenly unavailable, attention is shifting to alternatives: Zhipu's <strong>GLM 5.2</strong> open release climbed to 258 points, alongside <a href="https://stephen.bochinski.dev/blog/2026/06/13/ai-coding-at-home-without-going-broke/">"AI coding at home without going broke"</a> (214 pts) and an <a href="https://imil.net/blog/posts/2026/rtx-5080-+-rtx-3090-setup-80+-tok-s-on-qwen-3.6-27b-q8/">RTX 5080 + 3090 local-LLM build hitting 80 tok/s on Qwen 3.6 27B</a> (179 pts). OpenAI's <a href="https://openai.com/form/codex-for-oss/">Codex for open source</a> (135 pts) and a <a href="https://github.com/Paca-AI/paca">Show HN for "Paca," a lightweight Jira alternative for human-AI collaboration</a> round out the build-it-yourself mood.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">Fable fallout + the human-effort backlash continues: <a href="https://minigames.world/en">"I built 80 mini-games using Fable before it was shut down"</a> · <a href="https://borretti.me/article/human-routers-of-machine-words">"Human Routers of Machine Words"</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 13–14, 2026 — HN front page</div>
+    <div class="item-body">A Show HN of 80 games "built with Fable before it was shut down" captures the developer-side disruption of the suspension. Meanwhile yesterday's grassroots theme persists: <strong>"Human Routers of Machine Words"</strong> (Fernando Borretti) extends the "reverse centaur" critique — the worry that humans are being reduced to relays that shuttle machine output around — echoing this week's "demonstrate human effort" and "I Am Not a Reverse Centaur" posts. Also notable: <a href="https://github.com/tensorzero/tensorzero">an AI OSS tool repo archived overnight after a $7.3M seed</a> (232 pts), a cautionary tale on open-source-plus-VC.</div>
+  </div>
+</div>
+
+<!-- NOTABLE THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>The backer became the informant</h3>
+    <p>The defining revelation: <strong>Anthropic's own megainvestor reportedly triggered the recall of its flagship models.</strong> Amazon — which has put billions into Anthropic and holds a $100B AWS commitment from it — is the company whose CEO told the Treasury Secretary that Fable 5 could be used to gather cyberattack information. AWS then degraded its own Bedrock catalog to comply. Whatever the security merits, this hands every cloud-provider-investor a demonstrated playbook for using national-security channels against a portfolio company's competing capability. The competitive dynamics of the model market just acquired a new, very sharp instrument.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>Two irreconcilable stories, and the facts are still contested</h3>
+    <p>Sacks says <em>"Dario refused"</em> a fix-or-pull request over a credible jailbreak; Anthropic says the technique only surfaced <em>previously-known minor vulnerabilities</em> already reachable with other public models, and that the recall is disproportionate and procedurally improper. Both can't be fully true. The public record is still thin — Anthropic says the government has so far provided only verbal evidence — so the episode is as much an information war as a policy action. Readers should hold the "national security" and the "misunderstanding" framings at arm's length until the underlying jailbreak report is actually disclosed.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>Anthropic's pro-regulation posture is being tested against Anthropic — now with a competitor's hand on the lever</h3>
+    <p>Four days ago Anthropic argued in its <a href="https://www.anthropic.com/policy-on-the-ai-exponential">Policy on the AI Exponential</a> that government <em>should</em> be able to block dangerous deployments — but only "through a statutory process that is transparent, fair, clear, and grounded in technical facts." Today's reporting suggests the actual trigger was a rival/investor's complaint routed through the Treasury Secretary, not a transparent statutory process. The company that asked for a referee is now arguing the first call was made by the other team's coach. The Public Record data (71% want government involvement; only 15% trust AI companies) is the backdrop on both sides.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>Fragility at the frontier is accelerating the open / local / cheap shift</h3>
+    <p>The clearest market signal isn't a lab announcement — it's HN's reading list. With the frontier tier export-controlled and dark for a third day, the front page filled with <strong>GLM 5.2</strong> (open weights), local-GPU LLM builds, "AI coding without going broke," and architect-loop patterns that reserve expensive models for orchestration. O'Reilly's "The Subsidy Ended" makes the same point on cost. Practitioners are visibly diversifying away from single-provider, closed-frontier dependence — both for price and, now, for resilience against a deployment that can vanish by directive overnight.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>AI-misuse stories are clustering — and feeding the trust deficit</h3>
+    <p>Alongside the suspension, the same news cycle carried a police officer investigated for using AI to fabricate evidence, KPMG retracting a report over hallucinations, and (carried) malware authors poisoning AI scanners with fake WMD text. Each is small on its own, but together they reinforce the Public Record's headline finding that institutions and the public don't yet trust how AI is being built and used. The grassroots "demonstrate human effort / don't be a human router" thread is the cultural expression of the same anxiety — even as the agent-harness work at GitHub and O'Reilly keeps pushing capability forward.</p>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Sources checked (Jun 14):</strong> Anthropic (<strong>Amazon/Jassy trigger ✓ via WSJ/Information/Reuters</strong>, <strong>Sacks "Dario refused" ✓</strong>, suspension ongoing; no new newsroom post since Jun 12), OpenAI (no new since Jun 1; Codex-for-OSS form on HN; no Fable response), Google DeepMind (no new headline), AWS ML Blog (unchanged since Jun 2; AWS status confirms Bedrock affected), Microsoft (thought-leadership only Jun 10–11; Foundry Fable affected), Simon Willison (<strong>Jun 13 directive write-up ✓</strong>, Jun 12 WebRTC tool ✓), O'Reilly Radar (<strong>active Jun 8–12 ✓</strong>), GitHub Blog AI/ML (<strong>active Jun 9–12 ✓</strong>), Adam Tornhill (Jun 2 latest), Casey Muratori / Computer Enhance (feed blocked; Jun 4 latest AI), Gergely Orosz / Pragmatic Engineer (~Jun 9 job-market part 2), Ethan Mollick / One Useful Thing (Jun 9 Mythos hands-on), Jessica Talisman (feed blocked; Jun 1 latest), Lenny Rachitsky (no new AI), @DavidSacks / @trq212 / @karpathy (WebSearch ✓), Hacker News (front page ✓).</p>
+  <p style="margin-top:8px;"><strong>New today:</strong> WSJ scoop that Amazon CEO Andy Jassy told Treasury Sec. Scott Bessent that Amazon researchers used Fable 5 for cyberattack info, triggering the export-control crackdown (corroborated by The Information, Reuters); David Sacks's "Admin asked Dario to fix or de-deploy; Dario refused" account; AWS status confirming Bedrock affected; India debating AI sovereignty in response; Simon Willison's directive write-up + Fable-cutoff timing + OpenAI WebRTC document-context tool; surfacing of O'Reilly Radar's June agent-memory/agent-cost run and the GitHub AI blog's June Copilot-CLI/security run (both missed by earlier briefs); HN — Amazon story (476 pts), GLM 5.2, local/cheap AI coding wave, "80 games built with Fable," "Human Routers of Machine Words," tensorzero repo archived post-seed; KPMG hallucination retraction; Derbyshire police AI-evidence probe; OpenAI Codex for open source.</p>
+  <p style="margin-top:8px;"><strong>Carried (not new):</strong> Fable/Mythos suspension statement, TCS partnership, Anthropic Public Record (all Jun 12); Claude Corps + DXC (Jun 11); silent-interventions reversal (Jun 11); Policy on the AI Exponential (Jun 10); Fable 5 + Mythos 5 launch + 30-day retention (Jun 9); Opus 4.8 / S-1 / Series H; OpenAI S-1 + governance frameworks; DeepMind multi-agent $10M call + DiffusionGemma + Gemma 4 + Gemini Omni/3.5; Microsoft MAI batch + Foundry Fable; AWS AgentCore cluster + frontier agents GA; Simon Willison "relentlessly proactive."</p>
+  <p style="margin-top:12px; color:var(--muted);">Scanned and generated Jun 14, 2026 · 12:08 UTC. Note: the six Substack JSON endpoints were blocked by the workspace network proxy today; those sources reflect WebSearch results and last-known state.</p>
+</footer>
+
+</body>
+</html>
