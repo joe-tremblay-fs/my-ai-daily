@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — June 18, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 4px 0 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; line-height: 1.6; margin-bottom: 9px; }
+    .themes-box li:last-child { margin-bottom: 0; }
+    .themes-box li::marker { color: var(--accent2); }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>June 18, 2026</h1>
+  <div class="meta">
+    <span>5 companies</span>
+    <span>7 practitioner blogs</span>
+    <span>6 Substacks</span>
+    <span>2 X accounts</span>
+    <span>HN / community</span>
+    <span style="color:var(--accent2)">Open weights take the front page; Anthropic breaks its silence with Seoul, not Fable</span>
+  </div>
+  <div class="meta" style="margin-top:6px;">
+    <span style="color:var(--muted)">Generated Jun 18, 2026 · 12:30 UTC — GLM-5.2 is the new open-weights leader; US holds off on a DeepSeek blacklist</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>GLM-5.2 is the new leading open-weights model.</strong> Z.ai's GLM-5.2 tops the Artificial Analysis Intelligence Index for open weights — <a href="https://news.ycombinator.com/item?id=48567759">#1-ranked thread on HN today, 834 pts / 402 comments</a>. Simon Willison's <a href="https://simonwillison.net/2026/Jun/17/glm-52/">"GLM-5.2 is probably the most powerful text-only open weights LLM"</a> (Jun 17) calls it the strongest open model he's tested. The "own your inference" wave now has a concrete top-tier open model behind it.</li>
+      <li><strong>Anthropic breaks its newsroom silence — with Korea, not Fable.</strong> The first new post on the <a href="https://www.anthropic.com/news">Anthropic newsroom</a> since Jun 12 is "<a href="https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem">Anthropic opens Seoul office and announces new partnerships across the Korean AI ecosystem</a>" (Jun 17). Still <strong>no new statement on the Fable 5 / Mythos 5 export-control suspension</strong> and no restoration announced — the saga has gone quiet while the company keeps shipping global expansion.</li>
+      <li><strong>The US holds off on blacklisting DeepSeek.</strong> <a href="https://www.reuters.com/world/china/us-holds-off-blacklisting-chinas-deepseek-more-than-100-firms-deemed-security-2026-06-17/">Reuters</a> reports Washington declined (for now) to add DeepSeek to the Entity List, even as 100+ firms were deemed security risks — <a href="https://news.ycombinator.com/item?id=48565498">425 pts / 477 comments on HN</a>. The export-control story that swept up Fable is part of a much larger US–China AI-control picture.</li>
+      <li><strong>O'Reilly ships two new agent-infrastructure pieces.</strong> "<a href="https://www.oreilly.com/radar/the-case-against-building-your-own-agent-platform/">The Case Against Building Your Own Agent Platform</a>" (Pete Johnson, Jun 17) and "<a href="https://www.oreilly.com/radar/linear-thinking-nonlinear-costs/">Linear Thinking, Nonlinear Costs: The Missing Optimization Layer in Agent Systems</a>" (Nicole Koenigstein, Jun 16). Build-vs-buy and cost-optimization for agent infra are maturing as topics.</li>
+      <li><strong>Simon Willison also shipped a Datasette release.</strong> Beyond GLM-5.2, he published <a href="https://simonwillison.net/2026/Jun/16/datasette/">new Datasette row-editing tools</a> (a click-to-play Web Component built for the post, Jun 16) and quoted <a href="https://simonwillison.net/2026/Jun/17/charity-majors/">Charity Majors</a> on AI-assisted programming (Jun 17). He also went <a href="https://simonwillison.net/2026/Jun/16/matteo-wong-the-atlantic/">straight to the source</a> on Katie Moussouris confirming the Fable "jailbreak" was "fix this code."</li>
+      <li><strong>Local models keep their grip on HN.</strong> "<a href="https://news.ycombinator.com/item?id=48580209">Local Qwen isn't a worse Opus, it's a different tool</a>" (alexellis, 102 pts) reframes self-hosting as complementary rather than a downgrade; "<a href="https://news.ycombinator.com/item?id=48579650">Midjourney Medical</a>" (468 pts) and "<a href="https://news.ycombinator.com/item?id=48572553">Launch HN: Adam — Open-Source AI CAD</a>" (174 pts) round out the day's AI threads.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ANTHROPIC -->
+<div class="section">
+  <div class="section-header">
+    <h2>Anthropic</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem">Anthropic opens Seoul office and announces new partnerships across the Korean AI ecosystem</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 17, 2026 — Announcements</div>
+    <div class="item-body">
+      The first fresh item on the Anthropic newsroom since Jun 12, and the first sign of the company's public cadence resuming after a week dominated by the export-control story. Anthropic is opening a Seoul office and announcing partnerships across South Korea's AI ecosystem — a continuation of the international-expansion / enterprise-distribution push (TCS, DXC, Project Glasswing) that ran right up to the directive. Notably, it is <strong>not</strong> a Fable/Mythos update: the company chose to break its newsroom silence with a routine geographic expansion rather than a statement on the suspension.
+    </div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title">Day 7: Fable 5 &amp; Mythos 5 export-control suspension — no new statement, no restoration announced</div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+    </div>
+    <div class="item-date">Jun 12–18, 2026 — ongoing; no fresh primary-source news today</div>
+    <div class="item-body">
+      A week on from the evening of Jun 12, there is <strong>no new Anthropic statement</strong> on the directive and <strong>no confirmation of restoration</strong>. The last official word remains the <a href="https://www.anthropic.com/news/fable-mythos-access">Jun 12 statement</a> (Anthropic called the trigger "a potential narrow, non-universal jailbreak" and maintains no universal jailbreak has been found against Mythos). The story's most recent substantive development was yesterday's reporting that the contested "guardrail bypass" was a benign find-fix-test workflow — researchers gave Fable 5 code with known CVEs, it refused "review this code for security issues," then complied with "<strong>fix this code</strong>" — per <a href="https://www.theregister.com/security/2026/06/15/feds-freaked-over-fable-5-after-simple-fix-this-code-prompt-not-jailbreak-says-researcher/5255827">The Register</a> citing Katie Moussouris (Luta Security) and Matteo Wong's <a href="https://simonwillison.net/2026/Jun/16/matteo-wong-the-atlantic/">Atlantic piece</a>. Today the public dispute is quiet; the Seoul announcement is the only new Anthropic signal.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">Carried context: directive signed by Commerce Secretary Howard Lutnick with BIS input, barring access by any foreign national inside or outside the US (<a href="https://fortune.com/2026/06/13/anthropic-disables-fable-mythos-export-controls-national-security-threat/">Fortune</a>, <a href="https://www.bloomberg.com/news/articles/2026-06-13/anthropic-says-us-limits-foreign-access-to-fable-5-mythos-5">Bloomberg</a>). Axios "<a href="https://www.axios.com/2026/06/15/anthropic-white-house-fable-mythos">They screwed us</a>" named the safety leads meeting Commerce (Logan Graham, Dave Orr, Nicholas Carlini); <a href="https://www.wsj.com/tech/ai/amazon-ceos-talks-with-u-s-officials-triggered-crackdown-on-anthropic-models-dcc90578">WSJ</a> on Amazon CEO Jassy raising cyber concerns; Sacks's "Dario refused"; Ben Thompson's <a href="https://stratechery.com/2026/anthropics-safety-superpower/">"Safety Superpower"</a>; Simon Willison's <a href="https://simonwillison.net/2026/Jun/16/fable-5-export-controls/">"Fable 5 Export Controls Harm US Cyber Defense"</a>; <a href="https://www.anthropic.com/news/tcs-anthropic-partnership">TCS</a> + <a href="https://www.anthropic.com/news/anthropic-public-record">Anthropic Public Record</a> (Jun 12); <a href="https://www.anthropic.com/news/claude-corps">Claude Corps</a> + <a href="https://www.anthropic.com/news/dxc-anthropic-alliance">DXC</a> (Jun 11); <a href="https://www.anthropic.com/policy-on-the-ai-exponential">Policy on the AI Exponential</a> (Jun 10); Fable 5 + Mythos 5 launch (Jun 9); Opus 4.8 / confidential S-1 / $65B Series H.</div>
+  </div>
+</div>
+
+<!-- OPENAI -->
+<div class="section">
+  <div class="section-header">
+    <h2>OpenAI</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new posts on the OpenAI news index since Jun 1 (<a href="https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/">GPT-5.5/5.4 &amp; Codex GA on AWS Bedrock</a>) — now 17 days quiet. Still no OpenAI public comment on the Fable/Mythos suspension, which is conspicuous given Anthropic's statement repeatedly cited GPT-5.5's deployment-safety page to argue the contested "find-and-fix security bugs" capability already ships in OpenAI's models. Carried: confidential S-1 (~$852B, ~900M weekly ChatGPT users), <a href="https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/">Rosalind Biodefense</a> (May 29), <a href="https://openai.com/index/trustworthy-third-party-evaluations-foundations/">third-party evaluations</a> (May 29), <a href="https://openai.com/index/openai-frontier-governance-framework/">Frontier Governance Framework</a> (May 28).</div>
+  </div>
+</div>
+
+<!-- GOOGLE -->
+<div class="section">
+  <div class="section-header">
+    <h2>Google DeepMind</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new post since yesterday. The DeepMind blog still leads with <a href="https://deepmind.google/blog/unlocking-uk-house-building-with-ai-accelerated-planning/">Unlocking UK house-building with AI-accelerated planning</a> (Responsibility &amp; Safety), <a href="https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/">multi-agent AI safety funding</a> (up to $10M, deadline Aug 8), <a href="https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/">DiffusionGemma</a> (open-weight, 4× faster), <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-live-3-5-translate/">Gemini 3.5 Live Translate</a>, the Sierra Leone study, and Europe robotics. Carried: <a href="https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/">Gemma 4 12B</a>, <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni/">Gemini Omni</a>, Gemini 3.5. With GLM-5.2 taking the open-weights crown today, Google's Gemma/DiffusionGemma line is no longer the lead open-model story — a shift worth watching.</div>
+  </div>
+</div>
+
+<!-- AWS -->
+<div class="section">
+  <div class="section-header">
+    <h2>AWS</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">AWS ML Blog has no new editorial since Jun 1–2. Recent posts remain the AgentCore cluster (<a href="https://aws.amazon.com/blogs/machine-learning/secure-ai-agents-with-policy-and-lambda-interceptors-in-amazon-bedrock-agentcore-gateway/">Policy/Lambda interceptors</a>, <a href="https://aws.amazon.com/blogs/machine-learning/enable-safe-agentic-payments-with-built-in-guardrails-using-amazon-bedrock-agentcore-payments/">AgentCore Payments</a>, <a href="https://aws.amazon.com/blogs/machine-learning/extending-mcp-support-for-amazon-bedrock-agentcore-gateway-2/">Gateway MCP</a>, Identity/Secrets Manager), <a href="https://aws.amazon.com/blogs/machine-learning/how-baz-improved-its-ai-agent-code-review-accuracy-using-amazon-bedrock-agentcore/">Baz code-review case study</a>, <a href="https://aws.amazon.com/blogs/machine-learning/object-detection-with-amazon-nova-2-lite/">Nova 2 Lite object detection</a>, <a href="https://aws.amazon.com/blogs/machine-learning/the-art-and-science-of-hyperparameter-optimization-on-amazon-nova-forge/">Nova Forge HPO</a> (Jun 2), <a href="https://aws.amazon.com/blogs/machine-learning/openai-models-and-codex-on-amazon-bedrock-are-now-generally-available/">OpenAI models + Codex GA on Bedrock</a> (Jun 1), and <a href="https://aws.amazon.com/blogs/machine-learning/aws-launches-frontier-agents-for-security-testing-and-cloud-operations/">frontier agents GA</a> (Mar 31). AWS remains entangled in the Fable story as the Bedrock host that lost the models and — per WSJ — the company whose CEO's concerns preceded the crackdown.</div>
+  </div>
+</div>
+
+<!-- MICROSOFT -->
+<div class="section">
+  <div class="section-header">
+    <h2>Microsoft</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">No new frontier-model news. The Microsoft Cloud Blog's freshest post remains the Jun 15 thought-leadership piece <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/15/scaling-ai-with-8-to-20x-energy-efficiency/">"Scaling AI with 8 to 20x energy efficiency"</a>, alongside "<a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/11/the-cmo-on-the-frontier-from-ai-experimentation-to-ai-at-work/">The CMO on the frontier</a>" (Jun 11) and "<a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/10/ai-amplifies-creativity-by-removing-friction/">AI amplifies creativity by removing friction</a>" (Jun 10) — all "Frontier Transformation" framing, no product drops. Carried: Work IQ APIs GA + Web IQ (Jun 16), the Jun 2 Build batch of <a href="https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-new-mai-models/">seven MAI models</a>, and <a href="https://azure.microsoft.com/en-us/blog/claude-fable-5-is-now-available-in-microsoft-foundry-powering-the-next-era-of-autonomous-agents/">Fable 5 day-one in Foundry</a> (Jun 9) — Foundry's Fable access falls under the same suspension.</div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; Substacks</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison — simonwillison.net</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">"GLM-5.2 is probably the most powerful text-only open weights LLM" + a new Datasette release</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 16–17, 2026</div>
+      <div class="item-body">
+        Simon's pick of the day is <a href="https://simonwillison.net/2026/Jun/17/glm-52/">GLM-5.2</a> (Jun 17) — he rates it the strongest text-only open-weights model he's run, pairing with the day's top HN thread. He also shipped <a href="https://simonwillison.net/2026/Jun/16/datasette/">a Datasette release</a> adding in-UI row editing (with a custom click-to-play Web Component he built for the post, Jun 16) — the inspiration being his own <a href="https://agent.datasette.io/">Datasette Agent</a>, where you could already edit rows via chat but not in the normal UI. On the Fable saga he <a href="https://simonwillison.net/2026/Jun/16/matteo-wong-the-atlantic/">went to the source</a>, citing Moussouris confirming the "jailbreak" was a "fix this code" prompt, and quoted <a href="https://simonwillison.net/2026/Jun/17/charity-majors/">Charity Majors</a> on AI-assisted programming. Carried: <a href="https://simonwillison.net/2026/Jun/15/datasette-agent/">datasette-agent 0.3a0</a> (approval-gated write tool) and datasette-tailscale 0.1a0.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly Radar — oreilly.com/radar</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Two new agent-infrastructure pieces: "The Case Against Building Your Own Agent Platform" &amp; "Linear Thinking, Nonlinear Costs"</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 16–17, 2026</div>
+      <div class="item-body">
+        Pete Johnson's "<a href="https://www.oreilly.com/radar/the-case-against-building-your-own-agent-platform/">The Case Against Building Your Own Agent Platform</a>" (Jun 17) makes the build-vs-buy argument for agent infrastructure — most teams shouldn't roll their own. Nicole Koenigstein's "<a href="https://www.oreilly.com/radar/linear-thinking-nonlinear-costs/">Linear Thinking, Nonlinear Costs: The Missing Optimization Layer in Agent Systems</a>" (Jun 16) argues agent costs scale non-linearly and the optimization layer is usually missing. Both extend O'Reilly's running agent-economics thread (<a href="https://www.oreilly.com/radar/the-subsidy-ended-what-tool-using-agents-actually-cost/">The Subsidy Ended</a>, agent memory, <a href="https://www.oreilly.com/radar/who-owns-the-code-claude-wrote/">Who Owns the Code Claude Wrote?</a>).
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">GitHub Blog (AI &amp; ML) — github.blog</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No new posts since Jun 12. Current set: <a href="https://github.blog/ai-and-ml/how-we-made-github-copilot-cli-more-selective-about-delegation/">How we made GitHub Copilot CLI more selective about delegation</a> (Jun 12), <a href="https://github.blog/security/making-secret-scanning-more-trustworthy-reducing-false-positives-at-scale/">Making secret scanning more trustworthy</a> (Jun 11), <a href="https://github.blog/ai-and-ml/github-copilot/give-github-copilot-cli-real-code-intelligence-with-language-servers/">Copilot CLI + language servers</a> (Jun 10), and <a href="https://github.blog/ai-and-ml/github-copilot/from-one-off-prompts-to-workflows-how-to-use-custom-agents-in-github-copilot-cli/">custom agents in Copilot CLI</a> (Jun 9). Theme: hardening the agent harness — delegation, code intelligence, repeatable workflows.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Muratori · Tornhill · Pragmatic Engineer · Mollick · Talisman · Lenny</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);"><strong>Casey Muratori / Computer Enhance:</strong> no new; latest remains <a href="https://www.computerenhance.com/p/will-ai-end-the-open-internet">Will AI End the Open Internet?</a> (Jun 16, covered yesterday). <strong>Adam Tornhill:</strong> no new; latest remains <a href="https://adamtornhill.substack.com/p/why-merge-conflicts-became-the-new">Why Merge Conflicts became the new Agentic Bottleneck</a> (Jun 2). <strong>Gergely Orosz / Pragmatic Engineer:</strong> latest is <a href="https://newsletter.pragmaticengineer.com/p/kubernetes-and-retiring-at-the-top">Kubernetes and retiring at the top with Kelsey Hightower</a> (Jun 3); most AI-relevant remains <a href="https://newsletter.pragmaticengineer.com/p/ideas-slow-down-to-speed-up-when">Ideas: slow down to speed up when working with AI agents</a> (Jun 2). <strong>Ethan Mollick / One Useful Thing:</strong> JSON feed returned empty again; latest on file remains <a href="https://www.oneusefulthing.org/p/what-it-feels-like-to-work-with-mythos">What it feels like to work with Mythos</a> (Jun 9). <strong>Jessica Talisman:</strong> no new; latest remains <a href="https://jessicatalisman.substack.com/p/before-the-structure">Before the Structure</a> (Jun 1). <strong>Lenny Rachitsky:</strong> latest is non-AI — <a href="https://www.lennysnewsletter.com/p/essential-books-for-product-builderspart-611">Essential books for product builders—part 2</a> (Jun 9).</div>
+    </div>
+  </div>
+</div>
+
+<!-- X / SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Social</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">@karpathy (Andrej Karpathy)</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No major new standalone post surfaced today. The <a href="https://www.mindstudio.ai/blog/karpathy-llm-wiki-knowledge-base-claude-code">LLM Wiki</a> pattern continues to circulate and propagate (now formalized as Google Cloud's <a href="https://explainx.ai/blog/google-open-knowledge-format-okf-ai-agents-2026">Open Knowledge Format / OKF v0.1</a>), alongside his <a href="https://github.com/karpathy/autoresearch">autoresearch</a> single-GPU experimentation tooling and the Sequoia Ascent fireside. An emergent practitioner convention still spreading into vendor standards.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">@trq212 (Thariq, Claude Code team)</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">No major new standalone post surfaced today. Carried threads: <a href="https://x.com/trq212/status/1944877527044120655">"Claude Code is All You Need"</a> (Claude Code as a general agent), the Agent SDK / harness workshop material, and his "Seeing like an Agent" code-generation design lessons. The model his team showcased (Fable) remains under the export-control suspension.</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community</h2>
+    <span class="section-tag tag-community">HN &amp; Reddit</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48567759">GLM-5.2 is the new leading open weights model on Artificial Analysis</a> — 834 pts / 402 comments</div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 17–18, 2026 — HN front page (#1 AI story)</div>
+    <div class="item-body">
+      Z.ai's <strong>GLM-5.2</strong> took the top open-weights slot on the <a href="https://artificialanalysis.ai/articles/glm-5-2-is-the-new-leading-open-weights-model-on-the-artificial-analysis-intelligence-index">Artificial Analysis Intelligence Index</a>, and the HN thread became the day's largest AI discussion. The framing in the comments: a freely downloadable model now sits at the front of the open-weights pack, sharpening the "run it yourself" calculus that has dominated the week. Cross-referenced by Simon Willison's <a href="https://simonwillison.net/2026/Jun/17/glm-52/">"probably the most powerful text-only open weights LLM"</a> writeup. This is the strongest open-weights signal since DeepSeek V4-Pro and GLM-5.1, and it lands in a week shaped by a frontier model being switched off by government order.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48565498">US holds off blacklisting China's DeepSeek; more than 100 firms deemed security risks</a> — Reuters, 425 pts / 477 comments</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 17, 2026 — HN front page</div>
+    <div class="item-body">
+      The US reportedly declined, for now, to add DeepSeek to the Commerce Entity List even while flagging 100+ firms as security risks. The thread connects directly to the week's export-control theme: the same regime that suspended Fable 5 / Mythos 5 is actively deciding which foreign AI labs and chips to restrict. A reminder that AI export policy is moving fast in both directions — tightening on some fronts, holding back on others.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48580209">Local Qwen isn't a worse Opus, it's a different tool</a> — 102 pts</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 18, 2026 — HN front page</div>
+    <div class="item-body">
+      Alex Ellis argues self-hosted models shouldn't be benchmarked as cut-rate frontier models but used for the jobs they're actually good at — a maturing of the "own your inference" conversation from "can local replace Claude?" to "what is local actually for?" Pairs with the GLM-5.2 momentum. Also AI-adjacent on the front page today: "<a href="https://news.ycombinator.com/item?id=48579650">Midjourney Medical</a>" (468 pts), "<a href="https://news.ycombinator.com/item?id=48572553">Launch HN: Adam (YC W25) — Open-Source AI CAD</a>" (174 pts), and browser-use's <a href="https://news.ycombinator.com/item?id=48556561">Firecracker browser infra</a> (251 pts).
+    </div>
+  </div>
+</div>
+
+<!-- NOTABLE THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>Open weights finally have a front-runner</h3>
+    <p>For a week the "own your inference" wave was driven by fear — a frontier model switched off by directive, a coding tool acquired overnight. Today it gained a positive proof point: GLM-5.2 is the leading open-weights model on Artificial Analysis, and Simon Willison calls it the strongest text-only open model he's tested. That changes the local-model pitch from "good enough in a pinch" to "genuinely at the front of the open pack," and Alex Ellis's "Local Qwen is a different tool" reframes self-hosting as complementary rather than a downgrade. The hedge is starting to look like a strategy.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>The export-control story is bigger than Fable</h3>
+    <p>The Fable 5 / Mythos 5 suspension hasn't moved today, but the surrounding policy machine is very active: Reuters reports the US held off blacklisting DeepSeek even as 100+ firms were deemed security risks. The same export regime that recalled a US frontier model for "fix this code" is simultaneously deciding which Chinese labs and chips to restrict. The throughline of the week — that frontier-AI access is now a lever of state policy, applied unevenly and fast — is getting clearer, and it cuts in multiple directions at once.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>Anthropic resumes normal programming — quietly</h3>
+    <p>After a week where its only newsroom presence was the Jun 12 suspension statement, Anthropic's first new post is a Seoul office and Korean partnerships — global enterprise expansion, not a Fable update. It's a tell: the company is choosing to let the export-control fight go quiet in public while continuing the distribution push (TCS, DXC, Glasswing, now Korea) that defined the days before the directive. No restoration has been announced, and OpenAI remains conspicuously silent on the whole affair 17 days into its own posting drought.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>Agent infrastructure questions are maturing</h3>
+    <p>O'Reilly shipped two pieces in two days that treat agent platforms as an engineering-economics problem rather than a capability frontier: "The Case Against Building Your Own Agent Platform" (build vs. buy) and "Linear Thinking, Nonlinear Costs" (the missing optimization layer). Together with the running thread on agent cost, memory, and code ownership, the practitioner conversation has clearly moved past "can agents do this?" to "what does it cost to run them well, and should you own the stack?" — the questions you ask when something is becoming infrastructure.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>With the labs quiet, tooling and the commons carry the day</h3>
+    <p>No new frontier-model or product news from OpenAI, DeepMind, AWS, or Microsoft; Anthropic's one post is geographic expansion. The substance again came from the edges: GLM-5.2's open-weights milestone, Simon Willison's Datasette row-editing release and GLM writeup, O'Reilly's agent-economics pieces, and the DeepSeek export decision. As in prior quiet stretches, the vacuum left by the absence of launches fills with open models, developer tooling, and governance — not capability demos.</p>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Sources checked (Jun 18):</strong> Anthropic (<strong>new: Seoul office + Korean partnerships, Jun 17 ✓</strong>; Fable/Mythos suspension — no new statement, no restoration), OpenAI (no new since Jun 1; still silent on Fable), Google DeepMind (no new since UK house-building), AWS ML Blog (unchanged since Jun 1–2), Microsoft Cloud Blog (no new since Jun 15 energy-efficiency piece), Simon Willison (<strong>new: GLM-5.2 writeup + Datasette row-editing release + Charity Majors quote ✓</strong>), O'Reilly Radar (<strong>new: "Case Against Building Your Own Agent Platform" Jun 17 + "Linear Thinking, Nonlinear Costs" Jun 16 ✓</strong>), Casey Muratori / Computer Enhance (no new since Jun 16), GitHub Blog AI/ML (no new since Jun 12), Adam Tornhill (Jun 2 latest), Gergely Orosz / Pragmatic Engineer (Jun 3 latest), Ethan Mollick / One Useful Thing (feed empty again; Jun 9 latest), Jessica Talisman (Jun 1 latest), Lenny Rachitsky (Jun 9 non-AI), @trq212 / @karpathy (WebSearch ✓), Hacker News (front page ✓). Substack JSON endpoints reachable except One Useful Thing (empty).</p>
+  <p style="margin-top:8px;"><strong>New today:</strong> Anthropic Seoul office + Korean AI partnerships (first newsroom post since Jun 12); GLM-5.2 as the leading open-weights model (834 pts on HN; Simon Willison writeup); US holds off blacklisting DeepSeek (Reuters, 425 pts); O'Reilly "The Case Against Building Your Own Agent Platform" + "Linear Thinking, Nonlinear Costs"; Simon Willison's Datasette row-editing release + Charity Majors quote; "Local Qwen isn't a worse Opus" (HN).</p>
+  <p style="margin-top:8px;"><strong>Carried (not new):</strong> Fable 5 / Mythos 5 export-control suspension (no fresh news today); The Register / Moussouris "fix this code" account; Matteo Wong's Atlantic piece; Simon Willison's "Fable 5 Export Controls Harm US Cyber Defense"; SpaceX–Cursor $60B acquisition; DeepMind UK house-building + multi-agent $10M call + DiffusionGemma + Gemma 4; Karpathy LLM-Wiki / OKF v0.1; OpenAI governance frameworks + S-1; Microsoft MAI batch + Work IQ + Foundry Fable; AWS AgentCore cluster + frontier agents GA; "Ask HN: local model for daily coding"; datasette-agent 0.3a0.</p>
+  <p style="margin-top:12px; color:var(--muted);">Scanned and generated Jun 18, 2026 · 12:30 UTC.</p>
+</footer>
+
+</body>
+</html>
