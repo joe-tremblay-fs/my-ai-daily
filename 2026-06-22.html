@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — June 22, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; margin-bottom: 10px; line-height: 1.6; }
+    .themes-box li:last-child { margin-bottom: 0; }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>June 22, 2026</h1>
+  <div class="meta">
+    <span>5 companies</span>
+    <span>7 practitioner blogs</span>
+    <span>6 Substacks</span>
+    <span>2 X accounts</span>
+    <span>HN / community</span>
+    <span style="color:var(--accent2)">Quiet weekend: Simon Willison ships sqlite-utils 4.0; the labs go dark</span>
+  </div>
+  <div class="meta" style="margin-top:6px;">
+    <span style="color:var(--muted)">Generated Jun 22, 2026 · 12:05 UTC — first scan after the weekend (last brief Jun 19). No new posts from Anthropic, OpenAI, AWS, or DeepMind; Fable suspension reaches Day 11</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>Simon Willison ships sqlite-utils 4.0rc1.</strong> <a href="https://simonwillison.net/2026/Jun/21/sqlite-utils-40rc1/">The release</a> (Jun 21, 975-word annotated notes) adds <strong>schema migrations and nested transactions</strong> to his widely used Python library and CLI for SQLite — the first major version bump of the tool, and the foundation his Datasette ecosystem builds on.</li>
+      <li><strong>Cloudflare ships "temporary accounts" for AI agents.</strong> Via Simon Willison: <a href="https://blog.cloudflare.com/temporary-accounts/">Temporary Cloudflare Accounts</a> let you run <code>npx wrangler deploy --temporary</code> to deploy an ephemeral Workers project that lives 60 minutes <em>without creating an account</em>. Simon had <strong>GPT-5.5 xhigh in Codex Desktop</strong> build and deploy a redirect-resolver test app to confirm it works. He notes the "for AI agents" framing is mostly marketing — it's useful for everyone.</li>
+      <li><strong>The MCP-as-auth-gateway argument gains a sharp formulation.</strong> Simon quotes HN commenter <a href="https://news.ycombinator.com/item?id=48592163#48593190">Sean Lynch</a> (Jun 19, after Friday's brief): "The real valuable capability MCP offers over skills/CLI is isolating the auth flow outside of the agent's context window… Maybe the idealized form of MCP is just an auth gateway for the API and nothing else. That'd still be a win." A direct response to last week's "Zero-Touch OAuth for MCP" thread.</li>
+      <li><strong>New on the HN front page.</strong> <a href="https://news.ycombinator.com/item?id=48583928">"I found 10k GitHub repositories distributing Trojan malware"</a> (695 pts / 161 comments) tops the page; plus <a href="https://news.ycombinator.com/item?id=48588755">"The Token Compression Illusion: Why I'm Skeptical of RTK"</a> (85 pts / 90 comments) and the <a href="https://news.ycombinator.com/item?id=48573268">Agentic Resource Discovery Specification</a> (55 pts).</li>
+      <li><strong>The major labs are silent.</strong> No new posts from <strong>Anthropic</strong> (newsroom still on the Jun 17 Seoul office), <strong>OpenAI</strong> (news index unchanged since Jun 1 — now 21 days), <strong>AWS ML</strong> (Jun 2), or <strong>Google DeepMind</strong> (same June lineup, led by "Securing the future of AI agents"). Microsoft's most recent is a Jun 18 thought-leadership piece.</li>
+      <li><strong>Fable 5 / Mythos 5 suspension reaches Day 11 with no movement.</strong> No new Anthropic statement and no restoration over the weekend. The last official word is still the <a href="https://www.anthropic.com/news/fable-mythos-access">Jun 12 statement</a>.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; newsletters</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/21/sqlite-utils-40rc1/">sqlite-utils 4.0rc1 adds migrations and nested transactions</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 21, 2026 · 11:35 pm — 975-word annotated release notes</div>
+      <div class="item-body">
+        The first release candidate for <strong>sqlite-utils 4.0</strong> (<a href="https://github.com/simonw/sqlite-utils/releases/tag/4.0rc1">4.0rc1 on GitHub</a>) — Simon's combined Python library and CLI for working with SQLite. The headline additions are <strong>schema migrations</strong> and <strong>nested transactions</strong>, on top of its existing higher-level operations (complex table transformations, automatic table creation from JSON, etc.). sqlite-utils underpins much of Simon's tooling, including Datasette and the datasette-agent work he's been shipping all month, so a 4.0 is a meaningful foundation update rather than a routine patch.
+      </div>
+    </div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/21/temporary-cloudflare-accounts/">Temporary Cloudflare Accounts for AI agents</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 21, 2026 · 10:01 pm — link + commentary (via Cloudflare blog)</div>
+      <div class="item-body">
+        Cloudflare now lets you run <code>npx wrangler deploy --temporary</code> to deploy a Workers project to a <strong>new, ephemeral account that stays live for 60 minutes</strong> with no signup; a claim link lets you take ownership permanently. Simon tested it by having <strong>GPT-5.5 xhigh in Codex Desktop</strong> build a small HTTP-redirect-resolver app and deploy it — the temporary deployment "worked as advertised." His read: the "for AI agents" framing is the usual unnecessary AI hook; the feature is genuinely useful for any developer who wants throwaway deploys. A small but concrete data point in the agent-friendly-infrastructure trend (cf. Zero-Touch OAuth for MCP, AgentCore payments).
+      </div>
+    </div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/19/sean-lynch/">Quoting Sean Lynch: "the idealized form of MCP is just an auth gateway"</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 19, 2026 · 10:45 pm — posted after Friday's brief</div>
+      <div class="item-body">
+        Simon highlights an <a href="https://news.ycombinator.com/item?id=48592163#48593190">HN comment by Sean Lynch</a> arguing that MCP's real edge over skills/CLI tools is <strong>isolating the auth flow outside the agent's context window — and potentially out of the harness entirely</strong>: "Maybe the idealized form of MCP is just an auth gateway for the API and nothing else. That'd still be a win." It crystallizes a debate that's been building for weeks — whether MCP's value is tool-calling or simply credential handling — and lands directly on top of last week's "Zero-Touch OAuth for MCP" thread. Tagged by Simon under model-context-protocol, skills, and llms.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly Radar · GitHub · others</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>No new posts since Friday.</strong> O'Reilly Radar's most recent remain <a href="https://www.oreilly.com/radar/this-week-in-ai-fable-5-the-clone-wave-and-ubers-ai-reality-check/">"This Week in AI: Fable 5, the Clone Wave, and Uber's AI Reality Check"</a> and <a href="https://www.oreilly.com/radar/kubernetes-in-the-age-of-ai/">"Kubernetes in the Age of AI"</a> (both Jun 18). The <strong>GitHub Blog</strong> AI &amp; ML feed is unchanged since <a href="https://github.blog/ai-and-ml/how-we-made-github-copilot-cli-more-selective-about-delegation/">"How we made GitHub Copilot CLI more selective about delegation"</a> (Jun 12). Substacks: <strong>Pragmatic Engineer</strong> last posted Jun 3 (Kelsey Hightower interview), <strong>One Useful Thing</strong> / <strong>Computer&nbsp;Enhance</strong> (Jun 16, "Will AI End the Open Internet?"), <strong>Adam Tornhill</strong> (Jun 2), <strong>Lenny</strong> (Jun 9), and <strong>Jessica Talisman</strong> (Jun 1) all unchanged.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPANIES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Companies</h2>
+    <span class="section-tag tag-company">Anthropic · OpenAI · Google · AWS · Microsoft</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title">Day 11: Fable 5 &amp; Mythos 5 export-control suspension — still no statement, still no restoration</div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+    </div>
+    <div class="item-date">Jun 12–22, 2026 — ongoing; no new primary-source news over the weekend</div>
+    <div class="item-body">
+      Eleven days in, there is still <strong>no new Anthropic statement</strong> and <strong>no confirmation of restoration</strong>. The last official word remains the <a href="https://www.anthropic.com/news/fable-mythos-access">Jun 12 statement</a>, and the newsroom's most recent item is still the Jun 17 <a href="https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem">Seoul office + Korean partnerships</a> post. No fresh developments surfaced across the weekend on any tracked source. Background, unchanged: the contested "guardrail bypass" was a benign find-fix-test workflow (Fable 5 refused "review this code for security issues," then complied with "fix this code"), per <a href="https://www.theregister.com/security/2026/06/15/feds-freaked-over-fable-5-after-simple-fix-this-code-prompt-not-jailbreak-says-researcher/5255827">The Register</a> citing Katie Moussouris.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>OpenAI</strong> — news index unchanged since <a href="https://openai.com/index/openai-frontier-models-and-codex-are-now-available-on-aws/">"OpenAI frontier models and Codex are now available on AWS"</a> (Jun 1); now 21 days quiet, and still no public comment on the Fable affair. <strong>AWS ML Blog</strong> — most recent is <a href="https://aws.amazon.com/blogs/machine-learning/aws-launches-frontier-agents-for-security-testing-and-cloud-operations/">frontier agents for security testing &amp; cloud ops</a> (GA, Mar 31) and a cluster of Bedrock AgentCore how-tos through Jun 1–2; nothing new. <strong>Google DeepMind</strong> — blog still led by <a href="https://deepmind.google/blog/securing-the-future-of-ai-agents/">"Securing the future of AI agents"</a> with the same June lineup (DiffusionGemma, Gemma 4 12B, Gemini 3.5 Live Translate, multi-agent safety funding, UK planning, Sierra Leone study); no new post. <strong>Microsoft Cloud Blog</strong> — most recent is the Jun 18 thought-leadership piece <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/18/4-paths-to-frontier-transformation-from-ai-experimentation-to-real-business-value/">"4 paths to Frontier Transformation"</a>, following Jun 15's "Scaling AI with 8 to 20x energy efficiency" — marketing/strategy framing, no product news.
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Practitioner accounts</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      No clearly dated new posts surfaced from <strong>@trq212</strong> (Thariq Shihipar, Anthropic) or <strong>@karpathy</strong> (Andrej Karpathy) in the last few days via search. Karpathy's recurring threads remain the <strong>LLM Wiki</strong> pattern (curated markdown knowledge bases over RAG) and his <strong>vibe coding vs. agentic engineering</strong> framing (spec design → diff review → eval loops); Thariq's remain "Claude Code as a general agent" and the Claude Agent SDK. Search results were dominated by evergreen explainers rather than fresh activity — treat as no confirmed new posts this scan.
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community / Hacker News</h2>
+    <span class="section-tag tag-community">Front page</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48583928">I found 10k GitHub repositories distributing Trojan malware — 695 pts / 161 comments</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 2026 — orchidfiles.com</div>
+    <div class="item-body">
+      The day's top story: a researcher reports finding roughly <strong>10,000 GitHub repositories distributing Trojan malware</strong>. Not strictly an LLM story, but it sits squarely in the supply-chain-security thread that AI-generated code and agentic PRs keep feeding — and pairs with the standing concern about agents pulling untrusted code and dependencies.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48588755">The Token Compression Illusion: Why I'm Skeptical of RTK — 85 pts / 90 comments</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 2026 — mroczek.dev</div>
+    <div class="item-body">
+      A skeptical look at "RTK"-style token-compression schemes for LLM context, arguing the claimed savings are largely illusory once you account for how models actually consume the compressed representation. Feeds the running inference-cost / context-engineering debate. (Carried from late last week, still active on the front page.)
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48573268">Agentic Resource Discovery Specification — 55 pts / 15 comments</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 2026 — agenticresourcediscovery.org</div>
+    <div class="item-body">
+      A proposed spec for how agents discover and negotiate access to resources — another entry in the fast-multiplying set of agent-interop standards (alongside MCP, Google Cloud's Open Knowledge Format, and the various OAuth-for-MCP proposals). Early and low-traffic, but worth watching as the "standards land grab" around agents continues.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      Still on the front page from last week: <a href="https://news.ycombinator.com/item?id=48592163">"Zero-Touch OAuth for MCP"</a> (127 pts / 56 comments), <a href="https://news.ycombinator.com/item?id=48591348">"Show HN: Are You in the Weights?"</a> (220 pts / 132 comments), <a href="https://news.ycombinator.com/item?id=48586299">"Launch HN: TesterArmy — agents that test web and mobile apps"</a> (108 pts), <a href="https://news.ycombinator.com/item?id=48593731">Simon Willison's "Datasette Apps"</a> (37 pts), and <a href="https://news.ycombinator.com/item?id=48578913">"Noam Shazeer Joins OpenAI"</a> (300 pts / 291 comments). The HN front page is largely a weekend carryover this scan.
+    </div>
+  </div>
+</div>
+
+<!-- THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>Cross-cutting observations</h3>
+    <ul>
+      <li><strong>A genuinely quiet weekend.</strong> Four of the five tracked labs (Anthropic, OpenAI, AWS, DeepMind) published nothing new since Friday, and OpenAI's news index has now been static for three weeks. After a fortnight of Fable-5 drama and the Shazeer hire, the news flow has reset to practitioner tooling — a useful reminder that the daily cadence of "big lab announcements" is lumpy, not constant.</li>
+      <li><strong>MCP's identity crisis: tool protocol or auth gateway?</strong> Sean Lynch's quote (via Willison) reframes the most valuable thing MCP does as moving credentials out of the agent's context window — echoing last week's "Zero-Touch OAuth for MCP," AWS AgentCore Gateway's inbound OAuth, and the new Agentic Resource Discovery spec. The center of gravity in agent infrastructure is shifting from "what tools can the model call?" to "how does the model authenticate safely without leaking secrets?"</li>
+      <li><strong>Infrastructure is quietly becoming agent-shaped.</strong> Cloudflare's no-signup, 60-minute "temporary accounts" are pitched at agents but useful to everyone — the same pattern Willison flags repeatedly. The practical effect is that ephemeral, low-friction, credential-light deploy paths are becoming table stakes, whether or not the "for AI agents" label sticks.</li>
+      <li><strong>The token-cost debate keeps surfacing skeptics.</strong> "The Token Compression Illusion" continues the thread that ran through O'Reilly's "The Subsidy Ended" and "Linear Thinking, Nonlinear Costs": as agent workloads scale, every claimed efficiency trick gets adversarial scrutiny, and the burden of proof is rising.</li>
+      <li><strong>Open-source supply chain remains the soft underbelly.</strong> 10k Trojan-laden GitHub repos topping HN, alongside the standing "AI repos under pressure" thread, underscores that as more code (and more dependency installs) is generated and executed by agents, the trust boundary around public package and repo ecosystems is where the risk concentrates.</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <strong>Sources checked (Jun 22, 2026):</strong><br>
+  <em>Companies</em> — Anthropic News (latest: Jun 17 Seoul office), OpenAI News (latest: Jun 1), Google DeepMind Blog (latest June lineup, led by "Securing the future of AI agents"), AWS Machine Learning Blog (latest: Jun 1–2), Microsoft Cloud Blog (latest: Jun 18 "4 paths to Frontier Transformation").<br>
+  <em>Practitioners</em> — Simon Willison (3 new posts: sqlite-utils 4.0rc1, Temporary Cloudflare Accounts, Sean Lynch quote), O'Reilly Radar (latest: Jun 18), GitHub Blog AI &amp; ML (latest: Jun 12).<br>
+  <em>Substacks</em> — Adam Tornhill (Jun 2), Computer Enhance (Jun 16), One Useful Thing (no recent posts returned), Pragmatic Engineer (Jun 3), Lenny's Newsletter (Jun 9), Jessica Talisman (Jun 1) — none new since the last brief.<br>
+  <em>X / Social</em> — @trq212, @karpathy (no confirmed new posts this scan).<br>
+  <em>Community</em> — Hacker News front page (new: 10k Trojan repos, Token Compression Illusion, Agentic Resource Discovery; carryover: Shazeer, Zero-Touch OAuth for MCP, Are You in the Weights?, TesterArmy, Datasette Apps).<br><br>
+  Generated by My AI Daily · Items marked <span style="color:var(--accent2)">New</span> were not in the Jun 19 brief.
+</footer>
+
+</body>
+</html>
