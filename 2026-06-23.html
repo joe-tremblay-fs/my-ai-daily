@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — June 23, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; margin-bottom: 10px; line-height: 1.6; }
+    .themes-box li:last-child { margin-bottom: 0; }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>June 23, 2026</h1>
+  <div class="meta">
+    <span>5 companies</span>
+    <span>7 practitioner blogs</span>
+    <span>6 Substacks</span>
+    <span>2 X accounts</span>
+    <span>HN / community</span>
+    <span style="color:var(--accent2)">OpenAI breaks 21-day silence with Daybreak cyber-defense launch</span>
+  </div>
+  <div class="meta" style="margin-top:6px;">
+    <span style="color:var(--muted)">Generated Jun 23, 2026 · 12:06 UTC — first scan since the Jun 22 brief. OpenAI ships a major security stack; Simon Willison adds two posts; the other four labs stay quiet</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>OpenAI ends a 21-day publishing drought with Daybreak — a full AI cyber-defense stack.</strong> <a href="https://openai.com/index/daybreak-securing-the-world/">Daybreak: Tools for securing every organization in the world</a> (Jun 22) ships an updated <strong>Codex Security</strong> plugin, the full release of <strong>GPT‑5.5‑Cyber</strong> (a new state-of-the-art <strong>85.6% on CyberGym</strong> vs 81.8% for GPT‑5.5), a <strong>Daybreak Cyber Partner Program</strong> (CrowdStrike, Palo Alto Networks, Cisco, Cloudflare, Okta, IBM, Wiz, Zscaler and ~20 more), and <strong>Patch the Planet</strong>, an OSS-maintainer initiative founded with Trail of Bits and HackerOne (30+ projects incl. cURL, Go, Python, Sigstore, pyca/cryptography).</li>
+      <li><strong>OpenAI's framing: the bottleneck has moved from <em>finding</em> vulnerabilities to <em>fixing</em> them.</strong> Since March, Codex Security has scanned <strong>30M+ commits across 30,000 codebases</strong>, with <strong>500K+ findings auto-determined fixed</strong>. The company also disclosed Trusted Access for Cyber partnerships with Australia, Canada, France, Germany, Japan, Korea, EU/ENISA and the UK, and tied the work to the June 2026 AI Executive Order.</li>
+      <li><strong>This directly mirrors Anthropic and AWS.</strong> Daybreak lands on top of Anthropic's Jun 5 <code>defending-code-reference-harness</code> and Jun 3 MITRE ATT&amp;CK threat-mapping, plus AWS's GA frontier security agents — three labs now converging on AI-for-defense plus government access controls. The Daybreak/GPT‑5.5‑Cyber post hit the HN front page (118 pts).</li>
+      <li><strong>Simon Willison posts twice.</strong> <a href="https://simonwillison.net/2026/Jun/22/prompt-injection-as-role-confusion/">"Prompt Injection as Role Confusion"</a> flags research showing models judge text by its <em>style</em> not its content — "destyling" an attack drops success from <strong>61% to 10%</strong>. And <a href="https://simonwillison.net/2026/Jun/22/porting-moebius/">"Porting the Moebius 0.2B model to the browser with Claude Code"</a> is a vibe-coding case study (Claude Opus 4.8 → PyTorch-to-ONNX/WebGPU, no code read by hand).</li>
+      <li><strong>O'Reilly's Addy Osmani names the shift: "Loop Engineering."</strong> <a href="https://www.oreilly.com/radar/loop-engineering/">The piece</a> (Jun 22) argues you should stop prompting agents and instead design autonomous loops — quoting Claude Code lead Boris Cherny ("My job is to write loops") — and maps the now-identical primitives in the Codex app and Claude Code: automations, worktrees, skills, connectors, subagents.</li>
+      <li><strong>Small models keep punching up.</strong> HN front page: <a href="https://news.ycombinator.com/item?id=48636377">GLM‑5.2 local-run guide</a> (416 pts) and <a href="https://news.ycombinator.com/item?id=48639240">VibeThinker, a 3B model that beats Opus 4.5 on reasoning</a> (216 pts) — alongside Simon's 0.2B Moebius port and a new <a href="https://news.ycombinator.com/item?id=48631726">"Oak — Git alternative designed for agents"</a> (190 pts).</li>
+      <li><strong>The other four labs are silent.</strong> No new posts from <strong>Anthropic</strong> (newsroom still on Jun 17 Seoul office), <strong>AWS ML</strong> (Jun 2), <strong>Google DeepMind</strong> (same June lineup), or <strong>Microsoft Cloud</strong> (Jun 18). Anthropic's Mythos surfaced on HN via <a href="https://news.ycombinator.com/item?id=48640196">"Will It Mythos?"</a> (175 pts).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- COMPANIES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Companies</h2>
+    <span class="section-tag tag-company">Anthropic · OpenAI · Google · AWS · Microsoft</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">OpenAI — back online, in force</div>
+
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title"><a href="https://openai.com/index/daybreak-securing-the-world/">Daybreak: Tools for securing every organization in the world</a></div>
+        <span class="item-badge badge-sig">⭐ Significant</span>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 22, 2026 — Security / Company</div>
+      <div class="item-body">
+        OpenAI's biggest publication in three weeks expands <strong>Daybreak</strong> into a full cyber-defense stack. Four pillars: (1) an updated <a href="https://openai.com/daybreak/codex-security-plugin/">Codex Security plugin</a> that scans a codebase, builds or infers a threat model, validates whether vulnerable code is reachable, generates a targeted patch and verifies it — exporting to SARIF/CodeQL and existing vuln-management tools; (2) the full release of <strong>GPT‑5.5‑Cyber</strong> to trusted defenders — a new single-model SOTA of <strong>85.6% on CyberGym</strong> (vs 81.8% for GPT‑5.5), plus <strong>39.5% on ExploitGym</strong> (vs 25.95%) and <strong>69.8% on SEC‑bench Pro</strong> (vs 63.1%); (3) a <strong>Daybreak Cyber Partner Program</strong> letting vendors embed GPT‑5.5 with Trusted Access for Cyber (logos include CrowdStrike, Palo Alto Networks, Cisco, Cloudflare, Okta, IBM, Wiz, Zscaler, SentinelOne, Fortinet, Tenable, Darktrace, Proofpoint, plus Accenture/EY/KPMG/PwC/Cognizant); and (4) <strong>Patch the Planet</strong> (below). OpenAI's thesis: AI has flipped the bottleneck from <em>finding</em> bugs to <em>patching</em> them. Since March, Codex Security has scanned <strong>30M+ commits across 30,000 codebases</strong>, with <strong>500K+ findings auto-determined fixed</strong>. It also disclosed Trusted Access for Cyber deals with Australia, Canada, France, Germany, Japan, Korea, EU institutions (ENISA) and the UK, and continued CAISI pre-deployment testing tied to the June 2026 AI Executive Order. Early work helped find/validate issues in Firefox, V8, Safari, OpenBSD, FreeBSD and HTTP/2 implementations.
+      </div>
+    </div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://openai.com/index/patch-the-planet/">Patch the Planet: a Daybreak initiative to support open-source maintainers</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 22, 2026 — Security</div>
+      <div class="item-body">
+        The OSS arm of Daybreak, founded with <strong>Trail of Bits</strong> and in collaboration with <strong>HackerOne</strong> and Calif. Funded security researchers, equipped with Codex Security, work directly with maintainers — validating and de-duplicating both vulnerabilities <em>and</em> patches before they reach the (often <10-person) teams behind critical libraries. Participating projects get ChatGPT Pro, conditional Codex Security access and API credits. <strong>30+ projects committed</strong>, initial participants incl. cURL, Go, Python, Sigstore, pyca/cryptography; a five-day sprint "surfaced hundreds of issues, merged dozens of patches." Companion write-up on the <a href="https://blog.trailofbits.com/2026/06/22/introducing-patch-the-planet">Trail of Bits blog</a>. Directly addresses the maintainer-overload risk that AI vuln-discovery creates.
+      </div>
+    </div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://openai.com/index/codex-maxxing-long-running-work/">Codex-Maxxing for Long-Running Work</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 22, 2026 — AI Adoption</div>
+      <div class="item-body">
+        An OpenAI playbook for getting Codex to sustain long-horizon engineering tasks — squarely in the same "long-running / loop" territory as Addy Osmani's Loop Engineering piece (see Practitioners) and the standing long-running-agents theme. Worth reading alongside it for OpenAI's own framing of the Codex app's automations and goal-loops.
+      </div>
+    </div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://openai.com/index/samsung-electronics-chatgpt-codex-deployment/">Samsung Electronics brings ChatGPT and Codex to employees</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 21, 2026 — Company</div>
+      <div class="item-body">
+        A large enterprise deployment win: Samsung Electronics rolls ChatGPT and Codex out to employees. Continues the enterprise-distribution drumbeat (cf. the recent OpenAI–Ona acquisition and AWS Bedrock GA of GPT‑5.5/Codex).
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>Anthropic</strong> — no new posts; newsroom's most recent remains the Jun 17 <a href="https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem">Seoul office + Korean partnerships</a> announcement, and the Fable 5 / Mythos 5 export-control suspension still has no update beyond the <a href="https://www.anthropic.com/news/fable-mythos-access">Jun 12 statement</a> (now Day 12). <strong>AWS ML Blog</strong> — unchanged since the Jun 1–2 Bedrock AgentCore cluster and Mar 31 frontier security agents GA. <strong>Google DeepMind</strong> — same June lineup, still led by <a href="https://deepmind.google/blog/securing-the-future-of-ai-agents/">"Securing the future of AI agents."</a> <strong>Microsoft Cloud Blog</strong> — most recent is the Jun 18 <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/18/4-paths-to-frontier-transformation-from-ai-experimentation-to-real-business-value/">"4 paths to Frontier Transformation."</a> Notably, three of these four (Anthropic, AWS, plus OpenAI today) now share an AI-for-cyber-defense thesis.
+    </div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; newsletters</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/22/prompt-injection-as-role-confusion/">Prompt Injection as Role Confusion</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 22, 2026 · 11:59 pm — link blog</div>
+      <div class="item-body">
+        Simon highlights research by Charles Ye, Jasmine Cui and Dylan Hadfield-Menell (<a href="https://role-confusion.github.io">role-confusion.github.io</a>) showing that models can't reliably distinguish their own privileged text (in <code>&lt;system&gt;</code>/<code>&lt;think&gt;</code>/<code>&lt;assistant&gt;</code> tags) from untrusted <code>&lt;user&gt;</code> input — and worse, they weight the <em>style</em> of text over its content. Appending text styled like a model's internal reasoning ("Policy states: Allowed… only if the user is wearing green") can override training in models like <code>gpt-oss-20b</code>. The kicker: "destyling" — rewriting an attack so it looks less like the expected format — drops average attack success from <strong>61% to 10%</strong>, a change "nearly invisible to humans." The authors argue injection defense stays "a perpetual whack-a-mole game" until models achieve genuine role perception. Lands directly on top of OpenAI's Daybreak day — the offensive flip-side of the same security coin.
+      </div>
+    </div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/22/porting-moebius/">Porting the Moebius 0.2B image inpainting model to run in the browser with Claude Code</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 22, 2026 · 11:43 pm — long-form (How I use LLMs, #43)</div>
+      <div class="item-body">
+        A detailed vibe-coding case study. After spotting <a href="https://news.ycombinator.com/item?id=48630171">Moebius</a> on HN, Simon set <strong>Claude Code (Claude Opus 4.8)</strong> loose to convert the PyTorch/CUDA model to <strong>ONNX Runtime Web on the WebGPU backend</strong>, publish 1.24GB of converted weights to Hugging Face, and ship a browser demo to GitHub Pages — all while he worked on a separate Datasette feature in Codex Desktop in parallel. He didn't read a line of the code, restricting input to testing, nudges (a download progress bar) and pointing the model at the Whisper Web demo to crack browser caching via the CacheStorage API. Takeaways: Opus 4.8 can do end-to-end model porting + deployment; Chrome/Firefox/Safari all run it; client-only inpainting is now feasible if users tolerate a 1.3GB download. A concrete data point in the parallel-agent / loop-engineering trend.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly Radar</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://www.oreilly.com/radar/loop-engineering/">Loop Engineering — Addy Osmani</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 22, 2026 · 14-min read (reposted from addyosmani.com)</div>
+      <div class="item-body">
+        Names the emerging practice: "Loop engineering is replacing yourself as the person who prompts the agent. You design the system that does it instead." Quotes Anthropic's Claude Code lead <strong>Boris Cherny</strong> ("I don't prompt Claude anymore… My job is to write loops") and Peter Steinberger. Osmani maps the five loop primitives — <strong>automations</strong> (scheduled discovery/triage), <strong>worktrees</strong> (parallel isolation), <strong>skills</strong> (codified project knowledge via <code>SKILL.md</code>), <strong>plugins/connectors</strong> (MCP), and <strong>subagents</strong> (separating the maker from the checker) — and shows they now exist almost identically in both the <strong>Codex app</strong> and <strong>Claude Code</strong> (e.g. both ship a <code>/goal</code> "run-until-verifiable-condition" loop where a fresh model grades completion). His caution: verification, comprehension debt and "cognitive surrender" all get <em>sharper</em>, not easier — "Build the loop. Stay the engineer."
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">GitHub · Substacks · others</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>GitHub Blog</strong> (AI &amp; ML) unchanged since the Jun 12 <a href="https://github.blog/ai-and-ml/how-we-made-github-copilot-cli-more-selective-about-delegation/">Copilot CLI delegation</a> post. <strong>Computer, Enhance!</strong> posted <a href="https://www.computerenhance.com/p/lets-decode-the-mystery-bytes">"Let's Decode the Mystery Bytes!"</a> (Jun 22) — a low-level disassembly/heap-debugging video, not AI; its most recent AI item is still the Jun 16 "Will AI End the Open Internet?". <strong>Pragmatic Engineer</strong> (Jun 3), <strong>Adam Tornhill</strong> (Jun 2 "Why Merge Conflicts became the new Agentic Bottleneck"), <strong>Lenny's Newsletter</strong> (Jun 9), <strong>Jessica Talisman</strong> (Jun 1) and <strong>One Useful Thing</strong> (no recent posts returned) are all unchanged since the last brief.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Practitioner accounts</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      No clearly dated new posts surfaced from <strong>@karpathy</strong> (Andrej Karpathy) or <strong>@trq212</strong> (Thariq Shihipar, Anthropic) in the last 7 days via search. Karpathy's results were dominated by his evergreen <strong>LLM Wiki</strong> pattern (markdown knowledge bases that compound across sessions; one user reported ~95% lower Claude token use after consolidating 383 files) and his <strong>autoresearch</strong> project (agents running overnight nanochat-training experiments). Thariq's were the standing "Claude Code as a general agent" and Claude Agent SDK threads. Treat as no confirmed new posts this scan.
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community / Hacker News</h2>
+    <span class="section-tag tag-community">Front page</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48636377">GLM-5.2 – How to Run Locally — 416 pts</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 2026 — unsloth.ai</div>
+    <div class="item-body">
+      A local-run guide for the new <strong>GLM‑5.2</strong> open-weights model tops the AI items on the front page — continuing the strong open-model release cadence and the "run frontier-ish models on your own hardware" interest.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48639240">VibeThinker: 3B param model that beats Opus 4.5 on reasoning with novel SFT+GRPO — 216 pts</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 2026 — arxiv.org</div>
+    <div class="item-body">
+      A <strong>3B-parameter</strong> model claiming to beat Claude Opus 4.5 on reasoning benchmarks via a novel SFT + GRPO recipe. Whether or not the headline holds up, it feeds the running "small models punching far above their weight" thread (alongside GLM‑5.2 local and Simon's 0.2B Moebius port).
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48631726">Show HN: Oak – Git alternative designed for agents — 190 pts</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 2026 — oak.space</div>
+    <div class="item-body">
+      A version-control system built specifically for agent workflows — another entry in the "infrastructure reshaped for agents" pattern (cf. Cloudflare temporary accounts, AgentCore, and the loop-engineering reliance on git worktrees for parallel agents).
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48639063">OpenAI DayBreak – GPT-5.5-Cyber — 118 pts / 62 comments</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 2026 — openai.com</div>
+    <div class="item-body">
+      The Daybreak launch (see Companies) reaches the HN front page, with discussion centering on the GPT‑5.5‑Cyber permissive-defender model and the governance/trusted-access controls around it.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      Also notable: <a href="https://news.ycombinator.com/item?id=48640196">"Will It Mythos?"</a> (175 pts) — a hands-on look at Anthropic's Mythos, keeping the Fable/Mythos story alive on HN even as Anthropic's newsroom stays quiet; <a href="https://news.ycombinator.com/item?id=48640382">"Who Does What? Team Topologies for the Agentic Platform"</a> (21 pts); <a href="https://news.ycombinator.com/item?id=48641927">"AI Built a Nuke and Still Lost"</a> (68 pts, an agents-play-a-civilization-game writeup); and <a href="https://news.ycombinator.com/item?id=48631888">the HN thread</a> behind Simon's role-confusion link. Top non-AI story: <a href="https://news.ycombinator.com/item?id=48632884">"Steam Machine launches today"</a> (1,621 pts).
+    </div>
+  </div>
+</div>
+
+<!-- THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>Cross-cutting observations</h3>
+    <ul>
+      <li><strong>The labs are converging on AI-for-cyber-defense — with governments in the loop.</strong> OpenAI's Daybreak is the third major lab move in a month after Anthropic's <code>defending-code-reference-harness</code> + MITRE ATT&amp;CK mapping and AWS's GA frontier security agents. All three pair frontier capability with <em>access controls and national-government partnerships</em> (OpenAI alone named Australia, Canada, France, Germany, Japan, Korea, the EU/ENISA and the UK, plus CAISI testing). The competitive frontier in security is no longer "can the model find bugs" but "can we ship fixes responsibly at scale without arming attackers."</li>
+      <li><strong>"Find" is solved; "fix" is the new bottleneck.</strong> OpenAI states it explicitly — defenders are now overwhelmed by the <em>volume</em> of AI-found vulnerabilities, so Codex Security and Patch the Planet target validation, patch generation and maintainer capacity. This reframes a year of "AI finds vulns faster" anxiety into a remediation-throughput problem, and explains why Trail of Bits/HackerOne human review sits at the center.</li>
+      <li><strong>Prompt injection remains structurally unsolved.</strong> The "role confusion" research Simon flags shows models weight <em>style</em> over content, so a benign-looking restyle of an attack drops success from 61% to 10% — and injection stays whack-a-mole "until LLMs achieve genuine role perception." It's a sobering counterweight on the same day OpenAI ships GPT‑5.5‑Cyber: the offense side of LLM security is still wide open.</li>
+      <li><strong>"Loop engineering" is crystallizing as the successor to prompt engineering.</strong> Addy Osmani's piece (quoting Anthropic's Boris Cherny), OpenAI's own "Codex-Maxxing for Long-Running Work," and Simon's parallel-agent Moebius port all point the same way: stop hand-prompting, design self-running loops with a maker/checker split. Tellingly, the Codex app and Claude Code now expose the <em>same</em> primitives (automations, worktrees, skills, MCP connectors, subagents, <code>/goal</code>) — the tool wars are commoditizing into a shared shape.</li>
+      <li><strong>Small models keep beating their weight class.</strong> GLM‑5.2 running locally, a 3B VibeThinker claiming to top Opus 4.5 on reasoning, and a 0.2B Moebius model doing 10B-level inpainting in a browser all trended on the same day. The efficiency frontier (small/local/edge) is generating as much practitioner energy as the frontier-model releases.</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <strong>Sources checked (Jun 23, 2026):</strong><br>
+  <em>Companies</em> — OpenAI News (4 new: Daybreak, Patch the Planet, Codex-Maxxing for Long-Running Work, Samsung deployment), Anthropic News (latest: Jun 17 Seoul office), Google DeepMind Blog (latest June lineup), AWS Machine Learning Blog (latest: Jun 1–2), Microsoft Cloud Blog (latest: Jun 18).<br>
+  <em>Practitioners</em> — Simon Willison (2 new: Prompt Injection as Role Confusion, Porting Moebius with Claude Code), O'Reilly Radar (1 new: Loop Engineering, Jun 22), GitHub Blog AI &amp; ML (latest: Jun 12).<br>
+  <em>Substacks</em> — Computer Enhance (Jun 22, non-AI), Adam Tornhill (Jun 2), Pragmatic Engineer (Jun 3), One Useful Thing (none returned), Lenny's Newsletter (Jun 9), Jessica Talisman (Jun 1) — none new &amp; AI-relevant since the last brief.<br>
+  <em>X / Social</em> — @karpathy, @trq212 (no confirmed new posts this scan).<br>
+  <em>Community</em> — Hacker News front page (new: GLM-5.2 local, VibeThinker 3B, Oak git-for-agents, OpenAI Daybreak; also Will It Mythos?, Team Topologies for the Agentic Platform, AI Built a Nuke and Still Lost).<br><br>
+  Generated by My AI Daily · Items marked <span style="color:var(--accent2)">New</span> were not in the Jun 22 brief.
+</footer>
+
+</body>
+</html>

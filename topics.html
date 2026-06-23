@@ -700,11 +700,21 @@
     <span class="topic-cat cat-safety">Safety</span>
     <div class="topic-title-block">
       <div class="topic-title"><span class="status-dot status-active"></span>AI-generated security research — open source under pressure</div>
-      <div class="topic-summary">AI tools are enabling a flood of high-quality, AI-assisted security bug reports against open source projects. curl and SQLite are both receiving 4–5x their historical volume of reports. The work is real, the vulnerabilities are real, but maintainers are overwhelmed. All AI-assisted CVEs in curl remain LOW/MEDIUM severity — the codebases are solid — but the human cost is high.</div>
-      <div class="topic-meta">First seen: May 2026 · Last updated: Jun 5, 2026</div>
+      <div class="topic-summary">AI tools are enabling a flood of high-quality, AI-assisted security bug reports against open source projects. curl and SQLite are both receiving 4–5x their historical volume of reports. The work is real, the vulnerabilities are real, but maintainers are overwhelmed. All AI-assisted CVEs in curl remain LOW/MEDIUM severity — the codebases are solid — but the human cost is high. As of late June the framing has flipped: with AI now finding bugs at scale, OpenAI argues the bottleneck has moved from <em>finding</em> to <em>fixing</em>, and is funding human researchers + Codex Security to help maintainers land patches (Patch the Planet).</div>
+      <div class="topic-meta">First seen: May 2026 · Last updated: Jun 23, 2026</div>
     </div>
   </div>
   <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 22, 2026</div>
+      <div class="entry-title"><a href="https://openai.com/index/patch-the-planet/">OpenAI launches Patch the Planet</a> — with Trail of Bits &amp; HackerOne; funded researchers + Codex Security help OSS maintainers move from findings to fixes. 30+ projects committed (cURL, Go, Python, Sigstore, pyca/cryptography); explicitly built to absorb the maintainer-overload AI vuln-discovery creates</div>
+      <div class="entry-source">OpenAI / Trail of Bits</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 22, 2026</div>
+      <div class="entry-title"><a href="https://openai.com/index/daybreak-securing-the-world/">OpenAI Daybreak ships a full cyber-defense stack</a> — updated Codex Security (30M+ commits / 30K codebases scanned, 500K+ findings auto-fixed) and the full GPT-5.5-Cyber model (85.6% CyberGym SOTA); pairs with Anthropic's defender harness as the second major lab "AI-for-defense" push</div>
+      <div class="entry-source">OpenAI</div>
+    </div>
     <div class="entry">
       <div class="entry-date">May 27, 2026</div>
       <div class="entry-title"><a href="https://simonwillison.net/2026/May/27/sqlite-agents/">SQLite flooded with AI bug reports — splits off dedicated forum, strengthens AGENTS.md</a></div>
@@ -729,10 +739,15 @@
     <div class="topic-title-block">
       <div class="topic-title"><span class="status-dot status-active"></span>AI agent prompt injection &amp; exfiltration attacks</div>
       <div class="topic-summary">As agents are wired into enterprise tools (email, file storage, support systems), prompt injection attacks that cause agents to exfiltrate data or take unauthorized actions are becoming real threats, not theoretical ones. The defensive consensus is converging: you can't fully prevent injection, so cut off the exfiltration leg (the "Lethal Trifecta") and contain code execution. The threat surface is widening with model capability — Simon Willison's account of Fable 5 inventing novel system-access tricks (custom screenshot tooling, template JS injection, a CORS server) to debug a CSS bug is a vivid reminder that a subverted, "relentlessly proactive" agent outside a sandbox could do enormous damage; the tooling response (e.g. Deno's Claw Patrol agent firewall) is starting to appear.</div>
-      <div class="topic-meta">First seen: May 2026 · Last updated: Jun 12, 2026</div>
+      <div class="topic-meta">First seen: May 2026 · Last updated: Jun 23, 2026</div>
     </div>
   </div>
   <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 22, 2026</div>
+      <div class="entry-title"><a href="https://simonwillison.net/2026/Jun/22/prompt-injection-as-role-confusion/">"Prompt Injection as Role Confusion"</a> — research (Ye, Cui, Hadfield-Menell) shows models can't separate privileged text from user input and weight <em>style</em> over content; "destyling" an attack drops success 61%→10%. Injection stays whack-a-mole "until LLMs achieve genuine role perception"</div>
+      <div class="entry-source">role-confusion.github.io via Simon Willison</div>
+    </div>
     <div class="entry">
       <div class="entry-date">Jun 11, 2026</div>
       <div class="entry-title"><a href="https://simonwillison.net/2026/Jun/11/fable-is-relentlessly-proactive/">Claude Fable is relentlessly proactive</a> — from one screenshot, the agent built its own pyobjc/Quartz screenshot tooling, injected JS into app templates, and stood up a CORS server; Willison's "top Challenger-disaster candidate" warning against running agents outside a sandbox</div>
@@ -1122,6 +1137,34 @@
       <div class="entry-date">Jun 2026</div>
       <div class="entry-title"><a href="https://www.infoq.com/news/2026/06/dynamic-workflows-claude-code/">Claude Code Dynamic Workflows</a> — agents dynamically write orchestration scripts and validate their own results</div>
       <div class="entry-source">InfoQ / @trq212</div>
+    </div>
+  </div>
+</div>
+
+<div class="topic" data-cat="engineering">
+  <div class="topic-header">
+    <span class="topic-cat cat-engineering">Engineering</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Loop engineering — from prompting agents to designing autonomous loops</div>
+      <div class="topic-summary">A fast-emerging practitioner consensus: the leverage point is moving from writing good prompts to designing self-running loops that prompt the agents for you. The recurring shape is the same five primitives — scheduled automations, git worktrees for parallel isolation, skills (<code>SKILL.md</code>) for codified knowledge, MCP connectors, and subagents that separate the maker from the checker — plus an on-disk memory/state file and a "run until a verifiable condition holds" goal loop. Notably, the Codex app and Claude Code now expose nearly identical versions of all of these, commoditizing the tool wars into a shared design pattern. The standing caution: verification, comprehension debt and "cognitive surrender" all get sharper, not easier.</div>
+      <div class="topic-meta">First seen: Jun 23, 2026 · Last updated: Jun 23, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jun 22, 2026</div>
+      <div class="entry-title"><a href="https://www.oreilly.com/radar/loop-engineering/">"Loop Engineering"</a> — Addy Osmani names the practice, quoting Claude Code lead Boris Cherny ("My job is to write loops") and maps the five identical loop primitives across the Codex app and Claude Code (incl. both shipping a <code>/goal</code> run-until-done loop with a separate model grading completion)</div>
+      <div class="entry-source">O'Reilly Radar / Addy Osmani</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 22, 2026</div>
+      <div class="entry-title"><a href="https://openai.com/index/codex-maxxing-long-running-work/">Codex-Maxxing for Long-Running Work</a> — OpenAI's own playbook for sustaining Codex across long-horizon tasks; the lab framing of the same automations/goal-loop primitives</div>
+      <div class="entry-source">OpenAI</div>
+    </div>
+    <div class="entry">
+      <div class="entry-date">Jun 22, 2026</div>
+      <div class="entry-title"><a href="https://simonwillison.net/2026/Jun/22/porting-moebius/">Porting Moebius 0.2B to the browser with Claude Code</a> — Simon Willison runs Claude Code (Opus 4.8) on a full PyTorch→ONNX/WebGPU port as a parallel side-project while working his main task in Codex Desktop; a concrete instance of running agents as background loops</div>
+      <div class="entry-source">Simon Willison</div>
     </div>
   </div>
 </div>
