@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — June 24, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; margin-bottom: 10px; line-height: 1.6; }
+    .themes-box li:last-child { margin-bottom: 0; }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>June 24, 2026</h1>
+  <div class="meta">
+    <span>5 companies</span>
+    <span>7 practitioner blogs</span>
+    <span>6 Substacks</span>
+    <span>2 X accounts</span>
+    <span>HN / community</span>
+    <span style="color:var(--accent2)">Anthropic ships Claude Tag; the vuln-report debate turns on the labs</span>
+  </div>
+  <div class="meta" style="margin-top:6px;">
+    <span style="color:var(--muted)">Generated Jun 24, 2026 · 12:35 UTC — first scan since the Jun 23 brief. Anthropic launches Claude Tag; OpenAI keeps shipping science wins; a maintainer pushback to AI-scaled vuln discovery tops Hacker News. The other labs are quiet.</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>Anthropic launches Claude Tag — agents move into the team chat surface.</strong> <a href="https://www.anthropic.com/news/introducing-claude-tag">Introducing Claude Tag</a> (Jun 23, Product) lets teams <code>@</code>-mention Claude as a member of a workspace (e.g. Slack), with access to the channels and tools you grant it, and delegate tasks in-thread. Anthropic's lead Thariq Shihipar called it "an incredible new form factor for agents" in a best-practices <a href="https://x.com/trq212/status/2069474335656694003">X thread</a>.</li>
+      <li><strong>OpenAI keeps the science wins coming.</strong> <a href="https://openai.com/index/gpt-5-immunology-mystery/">How GPT-5 helped immunologist Derya Unutmaz solve a 3-year-old mystery</a> (Jun 23, Applied AI) is the newest in a run that includes the Jun 17 near-autonomous AI chemist and Jun 18 rare-disease diagnosis — concrete "AI as research collaborator" case studies, not demos.</li>
+      <li><strong>The maintainer backlash to AI-scaled vuln discovery hits the HN front page.</strong> Go-cryptography maintainer Filippo Valsorda's <a href="https://words.filippo.io/vuln-reports/">"Vulnerability reports are not special anymore"</a> (226 pts, 121 comments) argues the embargo/CVE/coordinated-disclosure machinery built for scarce, high-signal reports no longer fits a world where reports are cheap and abundant — the exact maintainer-overload problem OpenAI's Jun 22 Patch the Planet was pitched to solve.</li>
+      <li><strong>Simon Willison posts two browser-database experiments — both vibe-coded.</strong> A <a href="https://simonwillison.net/2026/Jun/23/datasette/">Datasette create/alter-table demo</a> and an <a href="https://simonwillison.net/2026/Jun/23/opfs-pyodide/">OPFS + Pyodide test harness</a> (built with Claude Code for web) probing whether Datasette Lite can edit persistent SQLite files on disk via the browser's Origin Private File System.</li>
+      <li><strong>"World models for agents" surfaces as a research thread.</strong> HN's <a href="https://news.ycombinator.com/item?id=48654351">Qwen-AgentWorld: Language World Models for General Agents</a> (70 pts) lands alongside DeepMind's standing SIMA 2 / Genie 3 line — agents that learn an internal model of their environment, not just react to it.</li>
+      <li><strong>Lenny's Newsletter returns to the AI-and-work-psychology beat.</strong> <a href="https://www.lennysnewsletter.com/p/the-new-inner-game-your-unfair-advantage">"The new inner game: Your unfair advantage in the age of AI"</a> (Jun 23) — the first new Lenny post since Jun 9, framing mindset/judgment as the durable edge as execution gets commoditized.</li>
+      <li><strong>The big three clouds are quiet.</strong> No new posts from <strong>Google DeepMind</strong> (same June lineup), <strong>AWS ML</strong> (Jun 1–2 cluster), or <strong>Microsoft Cloud</strong> (Jun 18). GitHub's AI blog is unchanged since Jun 12.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- COMPANIES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Companies</h2>
+    <span class="section-tag tag-company">Anthropic · OpenAI · Google · AWS · Microsoft</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Anthropic</div>
+
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title"><a href="https://www.anthropic.com/news/introducing-claude-tag">Introducing Claude Tag</a></div>
+        <span class="item-badge badge-sig">⭐ Significant</span>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 23, 2026 — Product</div>
+      <div class="item-body">
+        Anthropic's first newsroom post since the Jun 17 Seoul announcement, and a notable product move: <strong>Claude Tag</strong> (also branded <strong>@Claude</strong>) lets teams add Claude as a member of a collaboration workspace — Slack is the lead surface — and <code>@</code>-mention it to delegate work. Claude gets scoped access to the channels and the tools/connectors you choose, and works in-thread alongside the team. It's the agent-as-coworker form factor rather than agent-as-IDE: the work comes to where the team already talks, instead of the team going to a separate agent console. Pairs with the broader "agents need a delegation surface" trend and with Microsoft's Agent 365 / Copilot agents-at-work positioning. See also Thariq Shihipar's launch <a href="https://x.com/trq212/status/2069474335656694003">thread</a> in X/Social below.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        Otherwise unchanged: the Fable 5 / Mythos 5 export-control suspension still has no update beyond the <a href="https://www.anthropic.com/news/fable-mythos-access">Jun 12 statement</a> (now Day 13), and the Jun 17 <a href="https://www.anthropic.com/news/seoul-office-partnerships-korean-ai-ecosystem">Seoul office + Korean partnerships</a> post remains the prior most-recent item.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">OpenAI</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://openai.com/index/gpt-5-immunology-mystery/">How GPT-5 helped immunologist Derya Unutmaz solve a 3-year-old mystery</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 23, 2026 — Applied AI</div>
+      <div class="item-body">
+        An applied-science case study: immunologist Derya Unutmaz used GPT-5 to crack a research problem that had stalled for three years. It's the latest beat in OpenAI's steady "AI as research collaborator" cadence — following the Jun 17 <a href="https://openai.com/index/ai-chemist-improves-reaction/">near-autonomous AI chemist</a> (Molecule One) and the Jun 18 <a href="https://openai.com/index/diagnose-rare-childhood-diseases/">rare-genetic-disease diagnosis</a> work with Boston Children's. After the Jun 22 Daybreak security blitz, OpenAI is back to publishing roughly one applied-AI story per day. (Daybreak, Patch the Planet, Codex-Maxxing and the Samsung deployment were all covered in the Jun 23 brief.)
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>Google DeepMind</strong> — no change; the blog still leads with <a href="https://deepmind.google/blog/securing-the-future-of-ai-agents/">"Securing the future of AI agents"</a> over the same June lineup (UK house-building, multi-agent safety, DiffusionGemma, Gemini 3.5 Live Translate, Gemma 4 12B). <strong>AWS ML Blog</strong> — unchanged since the Jun 1–2 Bedrock AgentCore cluster and Mar 31 frontier security agents GA. <strong>Microsoft Cloud Blog</strong> — most recent remains the Jun 18 <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/18/4-paths-to-frontier-transformation-from-ai-experimentation-to-real-business-value/">"4 paths to Frontier Transformation"</a> (page last modified Jun 18).
+    </div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; newsletters</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/23/opfs-pyodide/">OPFS + Pyodide test harness</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 23, 2026 · 6:58 pm — tool / link blog</div>
+      <div class="item-body">
+        Simon is exploring whether <a href="https://lite.datasette.io/">Datasette Lite</a> — Datasette running fully in-browser via Pyodide + WebAssembly — could edit <em>persistent</em> SQLite files stored on the user's own computer. The answer hinges on the <a href="https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system">Origin Private File System</a> (OPFS), so he had <strong>Claude Code for web</strong> build a playground UI to test OPFS behavior across browsers. A small but concrete step toward a browser-only Datasette that can write back to local files — and another data point in his running "I don't hand-write this code anymore" workflow.
+      </div>
+    </div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/23/datasette/">Datasette create / alter table demo</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 23, 2026 · 9:34 pm — link blog</div>
+      <div class="item-body">
+        A short companion post showing a Datasette UI for creating and altering tables (with a screen-capture demo). Minor on its own, but it's part of the steady Datasette-agent / browser-SQLite thread Simon has been building all month. No posts yet for Jun 24.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Lenny's Newsletter</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://www.lennysnewsletter.com/p/the-new-inner-game-your-unfair-advantage">The new inner game: Your unfair advantage in the age of AI</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 23, 2026 — free post</div>
+      <div class="item-body">
+        Lenny's first new post since Jun 9 (the prior two were a non-AI "essential books" pair). Riffing on Tim Gallwey's <em>Inner Game</em>, the argument is that as AI commoditizes execution, the durable edge shifts to the "inner game" — judgment, self-awareness, taste and the ability to direct work rather than perform it. Sits squarely on the recurring skill/judgment-in-the-age-of-AI theme (cf. Casey Muratori's "Will AI Make Me Worse?" and Adam Tornhill's writing-is-learning piece).
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly · GitHub · other Substacks</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>O'Reilly Radar</strong> — no new post since Addy Osmani's Jun 22 <a href="https://www.oreilly.com/radar/loop-engineering/">Loop Engineering</a> (covered Jun 23). <strong>GitHub Blog</strong> (AI &amp; ML) — unchanged since the Jun 12 <a href="https://github.blog/ai-and-ml/how-we-made-github-copilot-cli-more-selective-about-delegation/">Copilot CLI delegation</a> post. <strong>Pragmatic Engineer</strong> (Jun 3 Kelsey Hightower / Kubernetes episode), <strong>Adam Tornhill</strong> (Jun 2 "Why Merge Conflicts became the new Agentic Bottleneck"), <strong>Computer, Enhance!</strong> (Jun 22 "Let's Decode the Mystery Bytes!", non-AI), <strong>Jessica Talisman</strong> (Jun 1 "Before the Structure") and <strong>One Useful Thing</strong> (API still returning no posts) are all unchanged since the last brief.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Practitioner accounts</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://x.com/trq212/status/2069474335656694003">Thariq Shihipar (@trq212) on Claude Tag</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 2026 — Anthropic</div>
+    <div class="item-body">
+      Tied to today's launch, Thariq posted a best-practices thread: "Claude Tag is an incredible new form factor for agents, so I think it's going to take some time to figure out the best practices, but these are some of my favorites." Frames Claude Tag as Claude joining Slack as a team member with scoped channel/tool access — the practitioner-side context for the product post above, and consistent with his standing "Claude Code as a general agent" thesis.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>@karpathy</strong> — no clearly dated new post surfaced this scan; results remain dominated by the evergreen <strong>LLM Wiki</strong> pattern (agents maintaining a persistent markdown knowledge base instead of RAG over raw docs) and the <strong>autoresearch</strong> project (an agent running overnight nanochat-training experiments). Treat as no confirmed new posts.
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community / Hacker News</h2>
+    <span class="section-tag tag-community">Front page</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48653216">Vulnerability reports are not special anymore — 226 pts / 121 comments</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 2026 — words.filippo.io</div>
+    <div class="item-body">
+      Go-cryptography maintainer <strong>Filippo Valsorda</strong> argues that the elaborate machinery built around vulnerability reports — private embargoes, CVE reservations, coordinated disclosure, "drop everything" urgency — was designed for a world where a credible vuln report was rare and high-signal. With AI making reports cheap and abundant (and often low-quality), he contends maintainers should stop treating every report as special and instead triage them like ordinary bugs. Lands directly on top of OpenAI's Jun 22 <a href="https://openai.com/index/patch-the-planet/">Patch the Planet</a> (founded precisely to absorb AI-found-vuln overload before it reaches small maintainer teams): two sides of the same problem surfacing 24 hours apart.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48654351">Qwen-AgentWorld: Language World Models for General Agents — 70 pts</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 2026 — arxiv.org</div>
+    <div class="item-body">
+      A new arXiv paper from the Qwen team on language-based "world models" for general agents — giving an agent an internal predictive model of its environment rather than purely reactive tool calls. Fits alongside DeepMind's SIMA 2 / Genie 3 line and the broader push toward agents that plan against a learned model of the world.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48654274">DiffusionBench: Towards Holistic Evaluation of Generative Diffusion Transformers — 31 pts</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 2026 — github.com</div>
+    <div class="item-body">
+      A new open benchmark for evaluating generative diffusion transformers — part of the steady stream of evaluation-infrastructure projects (cf. yesterday's small-model benchmark debates) trying to make model comparison less of a vibes exercise.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      Also on the front page: <a href="https://news.ycombinator.com/item?id=48649011">"Fired by Google for creating the Google Workspace CLI"</a> (466 pts, 286 comments) — a developer-tooling/employment story drawing heavy discussion, tangential to AI; and a non-AI cluster led by <a href="https://news.ycombinator.com/item?id=48648619">FUTO Swipe</a> (487 pts), <a href="https://news.ycombinator.com/item?id=48649435">Jerry's Map</a> (441 pts) and a <a href="https://news.ycombinator.com/item?id=48653575">Meta employee-tracking pause</a> (210 pts).
+    </div>
+  </div>
+</div>
+
+<!-- THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>Cross-cutting observations</h3>
+    <ul>
+      <li><strong>Agents are colonizing the collaboration surface.</strong> Claude Tag puts Claude inside the team chat as an <code>@</code>-mentionable member with scoped tools — the same shape as Microsoft's Agent 365 / Copilot-agents-at-work and Slack-native assistants. The competitive question is shifting from "how capable is the agent" to "where does the agent live, and how little context-switching does it cost the human." Delegation-by-mention is becoming the default UX.</li>
+      <li><strong>The vuln-disclosure system is buckling under AI abundance — and it's now a public argument.</strong> Filippo Valsorda's "vuln reports are not special anymore" is the maintainer-side counterpart to OpenAI's Patch the Planet from the day before. One side builds tooling and funded researchers to absorb the flood; the other argues the right move is to <em>downgrade</em> the ceremony around reports entirely. Both agree the premise — AI made finding/reporting cheap, so the bottleneck and the social norms have moved.</li>
+      <li><strong>"AI as research collaborator" is accumulating real case studies, fast.</strong> OpenAI alone has shipped the GPT-5 immunology mystery (Jun 23), the near-autonomous AI chemist (Jun 17) and rare-disease diagnosis (Jun 18) in a week — concrete, named-scientist results rather than benchmark claims. This is the quiet through-line beneath the security headlines.</li>
+      <li><strong>World models are re-emerging as an agent research frontier.</strong> Qwen-AgentWorld's "language world models for general agents" alongside DeepMind's SIMA 2 / Genie 3 suggests the field is circling back to giving agents an internal predictive model of their environment — a different bet than ever-larger reactive tool-callers.</li>
+      <li><strong>The judgment-not-execution thesis keeps recurring.</strong> Lenny's "new inner game" joins Casey Muratori, Adam Tornhill and Ethan Mollick in arguing that as AI commoditizes the doing, the durable human edge is taste, judgment and direction. It's now a near-weekly refrain across unrelated newsletters — a sign it's becoming consensus framing rather than a contrarian take.</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <strong>Sources checked (Jun 24, 2026):</strong><br>
+  <em>Companies</em> — Anthropic News (1 new: Claude Tag, Jun 23), OpenAI News (1 new: GPT-5 immunology mystery, Jun 23; Daybreak cluster covered Jun 23), Google DeepMind Blog (no change, same June lineup), AWS Machine Learning Blog (no change since Jun 1–2), Microsoft Cloud Blog (no change since Jun 18).<br>
+  <em>Practitioners</em> — Simon Willison (2 new: OPFS + Pyodide harness, Datasette create/alter demo, both Jun 23), Lenny's Newsletter (1 new: "The new inner game," Jun 23), O'Reilly Radar (no change since Jun 22), GitHub Blog AI &amp; ML (no change since Jun 12).<br>
+  <em>Substacks</em> — Pragmatic Engineer (Jun 3), Adam Tornhill (Jun 2), Computer Enhance (Jun 22, non-AI), Jessica Talisman (Jun 1), One Useful Thing (API returned no posts) — none new &amp; AI-relevant since the last brief.<br>
+  <em>X / Social</em> — @trq212 (1 new: Claude Tag launch thread), @karpathy (no confirmed new posts this scan).<br>
+  <em>Community</em> — Hacker News front page (new: Vulnerability reports are not special anymore, Qwen-AgentWorld, DiffusionBench; also Fired by Google for the Workspace CLI).<br><br>
+  Generated by My AI Daily · Items marked <span style="color:var(--accent2)">New</span> were not in the Jun 23 brief.
+</footer>
+
+</body>
+</html>
