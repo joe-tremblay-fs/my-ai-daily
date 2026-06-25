@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — June 25, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; margin-bottom: 10px; line-height: 1.6; }
+    .themes-box li:last-child { margin-bottom: 0; }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>June 25, 2026</h1>
+  <div class="meta">
+    <span>5 companies</span>
+    <span>7 practitioner blogs</span>
+    <span>6 Substacks</span>
+    <span>2 X accounts</span>
+    <span>HN / community</span>
+    <span style="color:var(--accent2)">Custom silicon and an IP fight headline a busy day</span>
+  </div>
+  <div class="meta" style="margin-top:6px;">
+    <span style="color:var(--muted)">Generated Jun 25, 2026 · 13:00 UTC — OpenAI unveils its first custom chip with Broadcom, Anthropic accuses Alibaba of illicitly extracting Claude's capabilities, and Google ships computer use in Gemini 3.5 Flash. Open-weights models dominate Hacker News.</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>OpenAI unveils its first custom AI chip, built with Broadcom.</strong> <a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/">OpenAI and Broadcom unveil LLM-optimized inference chip</a> (Jun 24, Company) — codenamed "Jalapeño" — is OpenAI's first in-house silicon, optimized for inference. It topped Hacker News (<a href="https://news.ycombinator.com/item?id=48663324">655 pts, 370 comments</a> via TechCrunch). Joins Google's TPUs, Amazon's Trainium and Microsoft's Maia as labs vertically integrate to reduce NVIDIA dependence.</li>
+      <li><strong>Anthropic accuses Alibaba of illicitly extracting Claude's model capabilities.</strong> A <a href="https://www.reuters.com/world/china/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities-2026-06-24/">Reuters report</a> (Jun 24) — HN #2 at <a href="https://news.ycombinator.com/item?id=48664814">318 pts / 543 comments</a> — has Anthropic alleging a competitor extracted ("distilled") capabilities from Claude in violation of its terms. The model-capability-theft dispute that previously played out as rumor is now a named accusation against a major lab.</li>
+      <li><strong>Google ships computer use in Gemini 3.5 Flash.</strong> <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/">Introducing computer use in Gemini 3.5 Flash</a> brings screen-controlling agent capability to Google's fast/cheap tier (HN <a href="https://news.ycombinator.com/item?id=48662999">207 pts</a>). Computer-use agents move down-market from frontier models.</li>
+      <li><strong>Open-weights models own the HN front page.</strong> <a href="https://news.ycombinator.com/item?id=48639840">"GLM-5.2 is a step change for open agents"</a> (202 pts), <a href="https://news.ycombinator.com/item?id=48668255">"The Unbearable Cheapness of Open Weight Models"</a> (Jun 25), and <a href="https://news.ycombinator.com/item?id=48646659">Krea 2, a SOTA open-weights 12B image model</a> (369 pts) all landed together — the open ecosystem closing the capability gap and collapsing in price.</li>
+      <li><strong>Simon Willison turns MDN's browser-compat data into a queryable SQLite DB — fully vibe-coded.</strong> <a href="https://simonwillison.net/2026/Jun/24/browser-compat-db/">simonw/browser-compat-db</a> (Jun 24) uses Claude Code for web (Opus 4.8) and Codex Desktop (GPT-5.5) to build and CDN-host a ~66MB SQLite database explorable in Datasette Lite.</li>
+      <li><strong>AI "slop" keeps colliding with real systems.</strong> Greptile's <a href="https://news.ycombinator.com/item?id=48660579">"PR spam today looks like email spam in the early 2000s"</a> (208 pts) and the Tom MacWright "accidental anonymity" essay Simon quoted (LLM-written job applications) extend the maintainer/vuln-report-overload theme into hiring and code review.</li>
+      <li><strong>The rest of the field is quiet.</strong> No new posts from <strong>AWS ML</strong> (still the Jun 1–2 AgentCore cluster), <strong>Microsoft Cloud</strong> (Jun 18), <strong>GitHub's AI blog</strong> (Jun 12) or <strong>O'Reilly Radar</strong> (Jun 22 Loop Engineering). Anthropic's newsroom has shipped nothing new since Claude Tag (Jun 23).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- COMPANIES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Companies</h2>
+    <span class="section-tag tag-company">Anthropic · OpenAI · Google · AWS · Microsoft</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">OpenAI</div>
+
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title"><a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/">OpenAI and Broadcom unveil LLM-optimized inference chip ("Jalapeño")</a></div>
+        <span class="item-badge badge-sig">⭐ Significant</span>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 24, 2026 — Company</div>
+      <div class="item-body">
+        OpenAI's first custom silicon, co-designed with Broadcom and optimized specifically for inference rather than training. It was the day's top tech story on Hacker News (<a href="https://news.ycombinator.com/item?id=48663324">655 points, 370 comments</a>, via TechCrunch). The strategic read is vertical integration: like Google (TPU), Amazon (Trainium/Inferentia) and Microsoft (Maia) before it, OpenAI is building its own accelerators to control cost-per-token and reduce dependence on NVIDIA GPUs as inference demand scales. It also gives Broadcom a marquee second hyperscale-grade custom-silicon customer. Pairs with the broader cost-rationalization theme that has run through this brief all month — owning the chip is the deepest version of controlling the bill.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        OpenAI's applied-science cadence continues underneath the chip news: the Jun 23 <a href="https://openai.com/index/gpt-5-immunology-mystery/">GPT-5 immunology mystery</a> remains the most recent Applied-AI post (covered Jun 24), following the Jun 22 Daybreak / Patch the Planet security blitz.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Anthropic</div>
+
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title"><a href="https://www.reuters.com/world/china/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities-2026-06-24/">Anthropic says Alibaba illicitly extracted Claude's model capabilities</a></div>
+        <span class="item-badge badge-sig">⭐ Significant</span>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 24, 2026 — Reuters</div>
+      <div class="item-body">
+        Not a newsroom post, but the day's biggest Anthropic story: Anthropic alleges that Alibaba illicitly extracted ("distilled") capabilities from Claude in violation of its terms of service. The HN thread ran hot (<a href="https://news.ycombinator.com/item?id=48664814">318 points, 543 comments</a>), with debate over whether model "extraction"/distillation is detectable or enforceable. The accusation moves the long-rumored model-capability-theft concern into a named, public dispute between two major labs — and lands the same week as the US export-control action on Fable 5 / Mythos 5, sharpening the geopolitics-of-models story.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        Anthropic's <a href="https://www.anthropic.com/news">newsroom</a> is unchanged since the Jun 23 <a href="https://www.anthropic.com/news/introducing-claude-tag">Claude Tag</a> launch (covered Jun 24). The Fable 5 / Mythos 5 export-control suspension still sits at the <a href="https://www.anthropic.com/news/fable-mythos-access">Jun 12 statement</a> (now Day 13) with no public update.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Google DeepMind</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/">Introducing computer use in Gemini 3.5 Flash</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 2026 — Models</div>
+      <div class="item-body">
+        Google brings computer-use (screen-perceiving, click/type-acting) agent capability to Gemini 3.5 <em>Flash</em> — its fast, low-cost tier rather than a flagship. HN gave it <a href="https://news.ycombinator.com/item?id=48662999">207 points / 129 comments</a>. The significance is the move down-market: computer-use agents, until recently a frontier-model showcase (Claude's computer use, OpenAI's operator-style tools), are becoming cheap enough to run at scale. Fits Google's standing breadth-over-depth pattern and its SIMA 2 / Genie 3 agent line.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        Otherwise the DeepMind blog is unchanged: <a href="https://deepmind.google/blog/securing-the-future-of-ai-agents/">Securing the future of AI agents</a> still leads the same June lineup (UK house-building, multi-agent safety, DiffusionGemma, Gemini 3.5 Live Translate, Gemma 4 12B, Gemini Omni).
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">AWS · Microsoft</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>AWS Machine Learning Blog</strong> — no change; most recent remains the Jun 1–2 Bedrock AgentCore cluster (Gateway/Identity/Payments/Policy, the Baz code-review case study, Nova 2 Lite object detection, Nova Forge tuning) and the Mar 31 frontier security/DevOps agents GA. <strong>Microsoft Cloud Blog</strong> — no new post surfaced this scan; most recent remains the Jun 18 <a href="https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/18/4-paths-to-frontier-transformation-from-ai-experimentation-to-real-business-value/">"4 paths to Frontier Transformation."</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; newsletters</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/24/browser-compat-db/">simonw/browser-compat-db — MDN's compat data as a queryable SQLite DB</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 24, 2026 · 11:59 pm — project / link blog</div>
+      <div class="item-body">
+        Prompted by Mozilla's new <a href="https://developer.mozilla.org/en-US/blog/introducing-mdn-mcp-server/">MDN MCP service</a>, Simon converted the <a href="https://github.com/mdn/browser-compat-data">mdn/browser-compat-data</a> repo into a ~66MB SQLite database. The build script was generated by <strong>Claude Code for web (Opus 4.8)</strong>; a <strong>Codex Desktop (GPT-5.5)</strong>-built GitHub Actions workflow rebuilds the DB and force-pushes it to an orphan <code>db</code> branch so it's served with open CORS headers and explorable directly in <a href="https://lite.datasette.io/">Datasette Lite</a>. Another concrete entry in his running "I no longer hand-write this glue code" workflow, and a continuation of the month-long browser-SQLite / Datasette-agent thread.
+      </div>
+    </div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/24/tom-macwright/">Quoting Tom MacWright — "Accidental anonymity"</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 24, 2026 · 6:13 pm — quote</div>
+      <div class="item-body">
+        Simon highlights <a href="https://macwright.com/2026/06/24/accidental-anonymity.html">Tom MacWright</a> on a hiring-side effect of LLMs: applications "clearly cowritten by an LLM, link to an LLM-generated portfolio site, which then links to LLM-generated GitHub projects, with purely LLM-generated commit messages." MacWright's point: the perfected, generated résumé "tells me nothing about this person." A direct hiring-world parallel to the AI-slop / signal-collapse problem (cf. Greptile's PR-spam piece below and Valsorda on vuln reports).
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        No AI posts yet for Jun 25 (only a Monterey Bay wildlife sighting). The Jun 23 <a href="https://simonwillison.net/2026/Jun/23/datasette/">Datasette 1.0a35 create/alter-table release</a> and <a href="https://simonwillison.net/2026/Jun/23/opfs-pyodide/">OPFS + Pyodide harness</a> were covered Jun 24.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">The Pragmatic Engineer (Gergely Orosz)</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://newsletter.pragmaticengineer.com/p/slow-down-to-speed-up">Slow down to speed up: so much has changed in 6 months' time</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 23, 2026</div>
+      <div class="item-body">
+        A revisit of Orosz's "slow down to speed up" argument for working with AI agents, updated for how much faster code is now being generated than six months ago — and why deliberate pacing, review and verification remain the rational response to ballooning output. Sits alongside O'Reilly's "verification tax" framing and the broader judgment-over-velocity theme. (The Jun 24 issue, <a href="https://newsletter.pragmaticengineer.com/p/tech-interviews-with-neetcode">"Tech interviews with NeetCode,"</a> is a non-AI interviewing episode; the Jun 18 <a href="https://newsletter.pragmaticengineer.com/p/the-pulse-big-implications-of-us">Pulse</a> on the US banning Anthropic's Fable model is policy-adjacent.)
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly · GitHub · Substacks</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>O'Reilly Radar</strong> — no new post since Addy Osmani's Jun 22 <a href="https://www.oreilly.com/radar/loop-engineering/">Loop Engineering</a> (covered Jun 23). <strong>GitHub Blog (AI &amp; ML)</strong> — unchanged since the Jun 12 <a href="https://github.blog/ai-and-ml/how-we-made-github-copilot-cli-more-selective-about-delegation/">Copilot CLI delegation</a> post. <strong>Substacks:</strong> <strong>Adam Tornhill</strong> (Jun 2 "Why Merge Conflicts became the new Agentic Bottleneck"), <strong>Computer, Enhance!</strong> (Jun 22 "Let's Decode the Mystery Bytes," non-AI), <strong>Jessica Talisman</strong> (Jun 1 "Before the Structure"), <strong>Lenny's Newsletter</strong> (Jun 23 "The new inner game," covered Jun 24) and <strong>One Useful Thing</strong> (API still returning no posts) are all unchanged and not new since the last brief.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Practitioner accounts</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>@karpathy</strong> — no clearly dated new post this scan; results remain dominated by the evergreen <strong>LLM Wiki</strong> pattern (agents maintaining a persistent markdown knowledge base instead of RAG over raw docs) and the <strong>autoresearch</strong> project (an agent running overnight nanochat-training experiments). Treat as no confirmed new posts. <strong>@trq212 (Thariq Shihipar)</strong> — no new thread since the Jun 23 <a href="https://x.com/trq212/status/2069474335656694003">Claude Tag best-practices thread</a> (covered Jun 24).
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community / Hacker News</h2>
+    <span class="section-tag tag-community">Front page</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48663324">OpenAI unveils its first custom chip, built by Broadcom — 655 pts / 370 comments</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 24, 2026 — techcrunch.com</div>
+    <div class="item-body">
+      The day's top story (see OpenAI section above). HN discussion centered on whether custom inference silicon meaningfully changes OpenAI's cost structure and NVIDIA exposure, and on Broadcom's growing role as the go-to custom-accelerator partner for hyperscalers.
+    </div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48664814">Anthropic says Alibaba illicitly extracted Claude AI model capabilities — 318 pts / 543 comments</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 24, 2026 — reuters.com</div>
+    <div class="item-body">
+      Heavily debated thread on whether model "extraction"/distillation is technically detectable, legally enforceable, or simply how the frontier now competes. See Anthropic section above.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48639840">GLM-5.2 is a step change for open agents — 202 pts / 111 comments</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 2026 — interconnects.ai</div>
+    <div class="item-body">
+      Nathan Lambert's Interconnects argues GLM-5.2 is a genuine jump in open-weight agentic capability, narrowing the gap to closed frontier models for tool-use and long-horizon agent tasks. Part of a strong open-weights day on HN.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48668255">The Unbearable Cheapness of Open Weight Models — Jun 25</a> · <a href="https://news.ycombinator.com/item?id=48646659">Krea 2: SOTA open-weights 12B image model — 369 pts</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 24–25, 2026 — jamesoclaire.com / krea.ai</div>
+    <div class="item-body">
+      Two more signals of open-weights momentum: an essay on how cheaply open models can now be run (and what that does to API-pricing economics), and Krea's technical report for a state-of-the-art open-weights 12B text-to-image model. Alongside GLM-5.2, the open ecosystem is both catching up on quality and collapsing on price.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48660579">"PR spam today looks like email spam in the early 2000s" — 208 pts / 121 comments</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 2026 — greptile.com</div>
+    <div class="item-body">
+      Greptile argues AI-generated pull requests are flooding open-source repos the way spam flooded inboxes two decades ago — high volume, low signal, expensive to triage. The code-review counterpart to Filippo Valsorda's "vuln reports are not special anymore" (Jun 23 brief) and Tom MacWright's "accidental anonymity" (above): cheap AI output is overwhelming human review channels across the board.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48659798">Qualcomm to acquire Modular — 187 pts</a> · <a href="https://news.ycombinator.com/item?id=48660711">RubyLLM (377 pts)</a> · <a href="https://news.ycombinator.com/item?id=48660178">NVIDIA near-zero-water cooling (290 pts)</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 24, 2026 — reuters / rubyllm.com / nvidia.com</div>
+    <div class="item-body">
+      Qualcomm is acquiring <strong>Modular</strong> (the Mojo language / MAX inference-engine company founded by Chris Lattner), a notable consolidation in the AI-compiler/inference-runtime layer. <strong>RubyLLM</strong> (a unified Ruby client for all major AI providers) and NVIDIA's <strong>45°C liquid-cooling design</strong> that cuts data-center water use to near zero round out an infrastructure-heavy front page.
+    </div>
+  </div>
+</div>
+
+<!-- THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>Cross-cutting observations</h3>
+    <ul>
+      <li><strong>The custom-silicon race goes all-in.</strong> OpenAI's Broadcom "Jalapeño" inference chip is the deepest possible move in the cost-rationalization story that's run through this brief for weeks: when you can't cap the token bill, you build the chip. With Google (TPU), Amazon (Trainium), Microsoft (Maia) and now OpenAI all designing accelerators — and Qualcomm buying Modular's inference stack — the inference layer is consolidating into vertically integrated silicon-plus-model plays, with NVIDIA the common dependency everyone is trying to dilute.</li>
+      <li><strong>Model capability is now something you can be accused of stealing.</strong> Anthropic's public charge that Alibaba "illicitly extracted" Claude's capabilities turns the long-running distillation/extraction debate into a named legal-and-geopolitical dispute. Combined with the US export-control action on Fable 5 / Mythos 5, the frontier is increasingly governed by who can access, copy, or be denied a model — not just who can build one.</li>
+      <li><strong>Open weights are catching up and getting cheap — fast.</strong> GLM-5.2 as "a step change for open agents," the "unbearable cheapness of open weight models," and Krea 2's SOTA open image model all landed on the same HN front page. The pressure runs straight into the closed-model API-pricing economics that the custom-silicon push is meant to defend.</li>
+      <li><strong>Cheap AI output keeps overwhelming human review channels.</strong> Greptile's "PR spam," Tom MacWright's LLM-generated job applications, medical students mass-producing misleading studies, and (from the Jun 23 brief) Valsorda's vuln-report fatigue are the same phenomenon in four domains: when generating plausible artifacts becomes free, the bottleneck and the trust signals move to whoever has to read them.</li>
+      <li><strong>Computer-use agents are commoditizing.</strong> Gemini 3.5 <em>Flash</em> — Google's cheap tier — now drives the screen directly. A capability that was a frontier-model showcase a few months ago is becoming a default, low-cost primitive, which is what makes the agent-as-coworker (Claude Tag) and agent-in-the-GUI patterns economically plausible at scale.</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <strong>Sources checked (Jun 25, 2026):</strong><br>
+  <em>Companies</em> — OpenAI News (1 new: Broadcom "Jalapeño" inference chip, Jun 24; immunology mystery covered Jun 24), Anthropic News (no new newsroom post since Claude Tag Jun 23; new external story: Alibaba extraction accusation via Reuters, Jun 24), Google DeepMind / blog.google (1 new: computer use in Gemini 3.5 Flash), AWS Machine Learning Blog (no change since Jun 1–2), Microsoft Cloud Blog (no change since Jun 18).<br>
+  <em>Practitioners</em> — Simon Willison (2 new: browser-compat-db, Tom MacWright "accidental anonymity" quote, both Jun 24), Pragmatic Engineer (1 new &amp; AI-relevant: "Slow down to speed up," Jun 23; Jun 24 NeetCode episode non-AI), O'Reilly Radar (no change since Jun 22), GitHub Blog AI &amp; ML (no change since Jun 12).<br>
+  <em>Substacks (JSON API)</em> — Adam Tornhill (Jun 2), Computer Enhance (Jun 22, non-AI), Jessica Talisman (Jun 1), Lenny's Newsletter (Jun 23, covered), One Useful Thing (API returned no posts) — none new &amp; AI-relevant since the last brief.<br>
+  <em>X / Social</em> — @karpathy (no confirmed new posts), @trq212 (no new thread since Claude Tag).<br>
+  <em>Community</em> — Hacker News front page (new: OpenAI/Broadcom chip, Anthropic vs Alibaba, computer use in Gemini 3.5 Flash, GLM-5.2, Unbearable Cheapness of Open Weight Models, Krea 2, Greptile PR-spam, Qualcomm/Modular, RubyLLM, NVIDIA cooling).<br><br>
+  Generated by My AI Daily · Items marked <span style="color:var(--accent2)">New</span> were not in the Jun 24 brief.
+</footer>
+
+</body>
+</html>
