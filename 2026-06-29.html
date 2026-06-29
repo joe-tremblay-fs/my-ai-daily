@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — June 29, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; margin-bottom: 10px; line-height: 1.6; }
+    .themes-box li:last-child { margin-bottom: 0; }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>June 29, 2026</h1>
+  <div class="meta">
+    <span>5 companies</span>
+    <span>7 practitioner blogs</span>
+    <span>6 Substacks</span>
+    <span>2 X accounts</span>
+    <span>HN / community</span>
+    <span style="color:var(--accent2)">First brief since Jun 26 — covers the weekend</span>
+  </div>
+  <div class="meta" style="margin-top:6px;">
+    <span style="color:var(--muted)">Generated Jun 29, 2026 · 13:30 UTC — OpenAI quietly previews the GPT-5.6 family (Sol / Terra / Luna) to a small set of government-cleared partners; Simon Willison posts a five-item Friday-night run anchored by prompt-injection security; and Hacker News opens the week on "GLM 5.2 beats Claude in our cyber benchmarks" (748 pts) plus a Brown University AI-exam-fraud scandal. No new posts from Anthropic, AWS or Microsoft over the weekend.</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>OpenAI previews the GPT-5.6 family — Sol, Terra and Luna.</strong> Per <a href="https://openai.com/index/previewing-gpt-5-6-sol/">Previewing GPT-5.6 Sol</a> (Jun 26, surfaced via Simon Willison): Sol is the flagship, Terra a balanced everyday model (competitive with GPT-5.5 at <strong>2× cheaper</strong>), Luna the low-cost tier. Pricing per 1M tokens — <strong>Sol $5 in / $30 out, Terra $2.50 / $15, Luna $1 / $6</strong>. It's a <em>limited</em> preview to "a small group of trusted partners" whose participation was shared with the U.S. government ahead of launch; broad GA "in the coming weeks." New prompt-caching controls (explicit cache breakpoints, 30-min minimum cache life; cache writes billed 1.25×, reads keep the 90% discount).</li>
+      <li><strong>Government pre-clearance of a frontier launch is now routine.</strong> OpenAI explicitly says it "previewed our plans and the models' capabilities ahead of today's launch" to the U.S. government and is starting narrow "at their request." Reads directly against Anthropic's Jun 12 Fable 5 / Mythos 5 export-control suspension — pre-release government engagement is becoming a standard gate on the biggest models.</li>
+      <li><strong>"GLM 5.2 beats Claude in our cyber benchmarks" tops Hacker News.</strong> A <a href="https://semgrep.dev/blog/2026/we-have-mythos-at-home-glm-52-beats-claude-in-our-cyber-benchmarks/">Semgrep post</a> ("we have Mythos at home") is the #1 story (748 pts / 355 comments). An open-weights Chinese model outscoring Claude on security benchmarks lands straight on top of last week's Anthropic-vs-Alibaba extraction fight and a resurfaced <a href="https://news.ycombinator.com/item?id=48712420">"Knowledge Distillation of Black-Box LLMs"</a> paper (87 pts).</li>
+      <li><strong>Prompt-injection security is the week's through-line.</strong> Simon Willison's Friday run leads with <a href="https://simonwillison.net/2026/Jun/26/hack-my-ai-assistant/">"What happened after 2,000 people tried to hack my AI assistant"</a> — Fernando Irarrázaval's hackmyclaw challenge survived <strong>6,000 attempts and $500</strong> of token spend without leaking its secret (Opus 4.6 + a short anti-injection prompt) — and notes the new GPT-5.6 system card has its own prompt-injection section. Paired with a satirical <a href="https://simonwillison.net/2026/Jun/26/incident-report/">CVE-2026-LGTM</a> "incident report" about two AI review agents burning $41,255 arguing with each other.</li>
+      <li><strong>AI cheating hits academia and hiring again.</strong> HN this morning carries <a href="https://news.ycombinator.com/item?id=48708991">"Professor denounces mass AI fraud on an exam at Brown"</a> (371 pts / 494 comments) and <a href="https://news.ycombinator.com/item?id=48713832">HackerRank open-sourcing its ATS</a> with wildly inconsistent resume scores (260 pts) — the "cheap generation overwhelms human evaluation" thread from last week's paper-mill stories, now in universities and recruiting.</li>
+      <li><strong>Coding agents keep escaping the codebase.</strong> <a href="https://news.ycombinator.com/item?id=48708941">"I used Claude Code to get a second opinion on my MRI"</a> (409 pts / 534 comments) is a concrete instance of the non-developer agent adoption OpenAI quantified last week.</li>
+      <li><strong>The other big labs went quiet over the weekend.</strong> No new posts from <strong>Anthropic</strong> (Claude Tag, Jun 23), <strong>AWS ML</strong> (Jun 1–2 AgentCore cluster) or <strong>Microsoft</strong> (Jun 18). Google DeepMind's blog shows a cluster of June safety/model items (multi-agent safety, DiffusionGemma, Live Translate) not previously logged here.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- COMPANIES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Companies</h2>
+    <span class="section-tag tag-company">Anthropic · OpenAI · Google · AWS · Microsoft</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">OpenAI</div>
+
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title"><a href="https://openai.com/index/previewing-gpt-5-6-sol/">Previewing GPT-5.6 Sol — a next-generation model family (Sol / Terra / Luna)</a></div>
+        <span class="item-badge badge-sig">⭐ Significant</span>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 26, 2026 — Company / Product (surfaced via Simon Willison)</div>
+      <div class="item-body">
+        OpenAI opened a limited preview of the GPT-5.6 series: <strong>Sol</strong> (flagship), <strong>Terra</strong> (balanced everyday model, "competitive performance to GPT-5.5 while being 2× cheaper") and <strong>Luna</strong> (fast, lowest-cost). Pricing per 1M tokens: <strong>Sol $5 input / $30 output; Terra $2.50 / $15; Luna $1 / $6</strong>. GA is planned "in the coming weeks," but the launch is deliberately narrow: "As part of our ongoing engagement with the U.S. government, we previewed our plans and the models' capabilities ahead of today's launch. At their request, we are starting with a limited preview for a small group of trusted partners whose participation has been shared with the government." GPT-5.6 also adds more predictable prompt caching — explicit cache breakpoints and a 30-minute minimum cache life; cache writes billed at 1.25× the uncached input rate, cache reads keep the 90% discount. A <a href="https://deploymentsafety.openai.com/gpt-5-6-preview/prompt-injection">GPT-5.6 system card</a> includes a dedicated prompt-injection section (see Practitioners). Note: as of this scan the model had not yet appeared on the main <a href="https://openai.com/news/">OpenAI News</a> index, where "How agents are transforming work" (Jun 25) still led.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        Carryovers, not new: the Jun 25 <a href="https://openai.com/index/how-agents-are-transforming-work/">"How agents are transforming work"</a> Codex economic-research paper (covered Jun 26), the Jun 24 <a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/">Broadcom "Jalapeño" inference chip</a>, the Jun 23 <a href="https://openai.com/index/gpt-5-immunology-mystery/">GPT-5 immunology mystery</a>, and the Jun 22 <a href="https://openai.com/index/daybreak-securing-the-world/">Daybreak</a> security launch.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Google DeepMind</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">June safety &amp; model cluster newly surfaced: multi-agent safety, DiffusionGemma, Live Translate</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">June 2026 — blog.google / deepmind.google (exact dates not shown on index)</div>
+      <div class="item-body">
+        The DeepMind blog index carries several June items not previously logged in this brief, beneath the still-featured <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/">computer use in Gemini 3.5 Flash</a>: <a href="https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/">Investing in multi-agent AI safety research</a> and <a href="https://deepmind.google/blog/securing-the-future-of-ai-agents/">Securing the future of AI agents</a> (both Responsibility &amp; Safety — relevant to today's agent-security theme); <a href="https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/">DiffusionGemma: 4× faster text generation</a>; and <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-live-3-5-translate/">Gemini 3.5 Live Translate</a>. The index only labels these "June 2026," so exact recency vs. the last brief is uncertain — flagged as newly observed rather than confirmed-today.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Anthropic · AWS · Microsoft</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>Anthropic</strong> — no new <a href="https://www.anthropic.com/news">newsroom</a> post since the Jun 23 <a href="https://www.anthropic.com/news/introducing-claude-tag">Claude Tag</a> launch. The Fable 5 / Mythos 5 export-control suspension remains at the <a href="https://www.anthropic.com/news/fable-mythos-access">Jun 12 statement</a> (now Day 17), no update. <strong>AWS Machine Learning Blog</strong> — unchanged since the Jun 1–2 Bedrock AgentCore cluster (Gateway/MCP, payments, identity) and the Mar 31 <a href="https://aws.amazon.com/blogs/machine-learning/aws-launches-frontier-agents-for-security-testing-and-cloud-operations/">frontier security/DevOps agents</a> GA. <strong>Microsoft Cloud Blog</strong> — could not be retrieved this run (fetch blocked); last known items are the Jun 18 "4 paths to Frontier Transformation" and Jun 15 "Scaling AI with 8–20× energy efficiency."
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; newsletters</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison — five posts Jun 26</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/26/hack-my-ai-assistant/">What happened after 2,000 people tried to hack my AI assistant</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 26, 2026 · 6:33 pm — link blog (security)</div>
+      <div class="item-body">
+        Simon highlights Fernando Irarrázaval's <a href="https://www.fernandoi.cl/posts/hackmyclaw/">hackmyclaw</a> challenge: could anyone make an OpenClaw test instance leak secrets held in <code>secrets.env</code> via email? After ~<strong>6,000 attempts, $500 in token spend</strong> and a Google account suspension from inbound-email volume, nobody succeeded. The model was <strong>Opus 4.6</strong> behind a short "Anti-Prompt-Injection Rules" system prompt. Simon's read: the labs' injection-hardening (there's a section on it in the new GPT-5.6 system card) is making these attacks meaningfully harder — but 6,000 failed attempts is "no guarantee" against a more sophisticated approach, and he still wouldn't ship a system where injection could cause irreversible damage.
+      </div>
+    </div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Jun/26/incident-report/">Incident Report: CVE-2026-LGTM</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 26, 2026 · 5:58 pm — quote / link (Andrew Nesbitt)</div>
+      <div class="item-body">
+        A "spectacular hypothetical incident report" by Andrew Nesbitt: two AI code-review agents from competing vendors, both attached to a dependency-bump PR, enter a disagreement loop and rack up <strong>340 comments and $41,255 in inference spend</strong> over whether a package is malicious before Finance revokes both API keys — after which one vendor's marketing cites "a 430% YoY increase in adversarial multi-agent security reasoning" and the stock opens up 6%. Satire, but a sharp jab at runaway multi-agent cost and the supply-chain-security hype cycle.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        Also Jun 26 from Simon: a quote of <a href="https://simonwillison.net/2026/Jun/26/openai/">OpenAI's GPT-5.6 Sol launch</a> (5:10 pm — see Companies); <a href="https://simonwillison.net/2026/Jun/26/timothy-b-lee/">Timothy B. Lee</a> (9:15 pm) pushing back on the idea that LLMs "take no skill and have no learning curve" — "like saying there's no learning curve to being a manager because your employees will just do whatever you tell them to do"; and <a href="https://simonwillison.net/2026/Jun/26/dean-w-ball/">Dean W. Ball</a> (10:25 pm), 35 thoughts on AI policy arguing the global data-center buildout assumes a "functionally global total addressable market" that export restrictions undercut. The Jun 25 <a href="https://simonwillison.net/2026/Jun/25/ai-and-liability/">"AI and Liability"</a> (Schneier on the German Google ruling) was covered in the Jun 26 brief.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly · GitHub · Pragmatic Engineer · Substacks</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>O'Reilly Radar</strong> — no new post since Addy Osmani's Jun 22 <a href="https://www.oreilly.com/radar/loop-engineering/">Loop Engineering</a>. <strong>GitHub Blog (AI &amp; ML)</strong> — unchanged since the Jun 12 <a href="https://github.blog/ai-and-ml/how-we-made-github-copilot-cli-more-selective-about-delegation/">Copilot CLI delegation</a> post. <strong>The Pragmatic Engineer</strong> — latest is the Jun 24 <a href="https://newsletter.pragmaticengineer.com/p/tech-interviews-with-neetcode">"Tech interviews with NeetCode"</a> (non-AI). <strong>Substacks (JSON API):</strong> all unchanged and not new since the last brief — <strong>Adam Tornhill</strong> (Jun 2 <a href="https://adamtornhill.substack.com/p/why-merge-conflicts-became-the-new">"Why Merge Conflicts became the new Agentic Bottleneck"</a>), <strong>Computer, Enhance!</strong> (Jun 22 "Let's Decode the Mystery Bytes," non-AI; the AI-themed Jun 16 "Will AI End the Open Internet?" predates the last brief), <strong>Jessica Talisman</strong> (Jun 1 "Before the Structure"), <strong>Lenny's Newsletter</strong> (Jun 23 "The new inner game," covered), and <strong>One Useful Thing</strong> (API again returned no posts).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Practitioner accounts</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>@karpathy</strong> — no clearly dated new post this scan; results remain dominated by the evergreen <strong>LLM Wiki</strong> pattern (agents maintaining a persistent markdown knowledge base instead of RAG over raw docs) and the <strong>autoresearch</strong> project (an agent running overnight nanochat-training experiments). Treat as no confirmed new posts. <strong>@trq212 (Thariq Shihipar)</strong> — no new thread since the Jun 23 <a href="https://x.com/trq212/status/2069474335656694003">Claude Tag best-practices thread</a>; recent results still surface his Claude-Tag and Figma-MCP posts and the third-party-harness policy clarification.
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community / Hacker News</h2>
+    <span class="section-tag tag-community">Front page</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48709670">GLM 5.2 beats Claude in our cyber benchmarks — semgrep.dev ("we have Mythos at home")</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 29, 2026 — semgrep.dev (748 pts / 355 comments, HN #1)</div>
+    <div class="item-body">
+      Semgrep reports the open-weights GLM 5.2 outperforming Claude on their internal cyber/security benchmarks — the headline (and HN's top story this morning) framing it as a cheap open model matching a frontier closed one. Lands on top of last week's Anthropic-vs-Alibaba extraction dispute and a resurfaced <a href="https://news.ycombinator.com/item?id=48712420">"Knowledge Distillation of Black-Box Large Language Models" (2024)</a> paper (87 pts): the open-vs-frontier and capability-extraction threads are converging on security evals specifically.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48708991">Professor denounces mass AI fraud on an exam at Brown — elpais.com</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 28–29, 2026 — english.elpais.com (371 pts / 494 comments)</div>
+    <div class="item-body">
+      A Brown professor publicly calls out large-scale AI-assisted cheating on an exam, sparking a long thread on academic integrity. The university instance of the same "cheap generation overwhelms human review" pattern as last week's medical-student paper-mill story — paired today with the HackerRank ATS post below, it's showing up across both education and hiring.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48708941">I used Claude Code to get a second opinion on my MRI — antoine.fi</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 29, 2026 — antoine.fi (409 pts / 534 comments)</div>
+    <div class="item-body">
+      A developer runs Claude Code (Opus) over their own MRI for a second read. A concrete, heavily-debated example of a coding agent being used well outside coding — the qualitative companion to OpenAI's Jun 25 data on non-developer agent adoption. Comments split between "useful triage aid" and "dangerous to self-interpret medical imaging."
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48713832">HackerRank open-sourced its ATS. My resume scored 90/100. Oh wait 74. No — 88 — danunparsed.com</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 29, 2026 — danunparsed.com (260 pts / 75 comments)</div>
+    <div class="item-body">
+      After HackerRank open-sourced its applicant-tracking system, the author shows the same resume scoring 90, then 74, then 88 on repeated runs — non-deterministic LLM scoring deciding hiring outcomes. Feeds the accountability/evaluation thread: when the grader is a stochastic model, the "signal" is noise.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=48706714">A way to exclude sensitive files: issue still open for OpenAI Codex — github.com/openai</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jun 28–29, 2026 — github.com/openai (199 pts / 129 comments)</div>
+    <div class="item-body">
+      A long-open Codex issue: no built-in way to exclude sensitive files (e.g. <code>.env</code>, secrets) from what the agent reads/sends. Drew attention the same week as the hackmyclaw injection challenge and GPT-5.6's prompt-injection system-card section — agent data-exfiltration and least-privilege keep surfacing as the unsolved practical problem.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      Also on the AI fringe of the front page: <a href="https://news.ycombinator.com/item?id=48708795">"Tokenmaxxing is dead, long live tokenmaxxing"</a> (12gramsofcarbon, 140 pts / 171 comments) on agent token economics; <a href="https://news.ycombinator.com/item?id=48673450">"Model Training as Code"</a> (aleph-alpha, 68 pts); and <a href="https://news.ycombinator.com/item?id=48714802">Herdr</a>, a terminal "agent multiplexer" (38 pts). Non-AI but dominant: the <a href="https://news.ycombinator.com/item?id=48706560">KIDS Act age-check bill</a> (EFF, 440 pts) and a related <a href="https://news.ycombinator.com/item?id=48714529">age-verification / speech-attribution</a> piece (316 pts), plus <a href="https://news.ycombinator.com/item?id=48710092">historical memory prices 1960–2026</a> (278 pts).
+    </div>
+  </div>
+</div>
+
+<!-- THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>Cross-cutting observations</h3>
+    <ul>
+      <li><strong>Frontier launches now ship through the government first.</strong> GPT-5.6's preview is explicitly gated: OpenAI briefed the U.S. government on the models' capabilities and is releasing narrowly "at their request." Set against Anthropic's Fable 5 / Mythos 5 export-control suspension (Day 17), pre-release state engagement has become a normal step for the most capable models — and a reason a real model release can land as a quiet, partner-only preview rather than a splash.</li>
+      <li><strong>Open weights are now competing on security, not just price.</strong> The top HN story is an open Chinese model (GLM 5.2) beating Claude on cyber benchmarks. Combined with the Anthropic-Alibaba extraction claim and a resurfaced black-box-distillation paper, the open-vs-frontier gap is being contested precisely on the high-stakes security evals the labs use to justify guardrails and export controls.</li>
+      <li><strong>Prompt injection is graduating from "open problem" to "measurably harder."</strong> hackmyclaw (6,000 failed attempts on Opus 4.6), a dedicated prompt-injection section in the GPT-5.6 system card, the open Codex sensitive-files issue, and DeepMind's "securing AI agents" / multi-agent-safety posts all landed together. The labs' hardening is visibly working — and practitioners (Willison, Nesbitt's satire) are equally clear it's not a guarantee and the cost/failure modes of multi-agent systems are real.</li>
+      <li><strong>"Cheap generation overwhelms human evaluation" jumped into schools and hiring.</strong> Last week it was paper mills and PR spam; this week it's mass exam fraud at Brown and non-deterministic AI resume scoring (HackerRank ATS giving one resume 90/74/88). When both the cheating and the grading are LLM-driven, the trust signal collapses on both sides of the evaluation.</li>
+      <li><strong>The "agents over chatbots" data is now showing up as lived anecdote.</strong> A week after OpenAI's Codex economic-research numbers, the most-discussed HN item is someone using Claude Code to second-read an MRI — coding agents used as general knowledge-work tools by non-developers, exactly the shift the data described, now contested in the comments on safety grounds.</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <strong>Sources checked (Jun 29, 2026):</strong><br>
+  <em>Companies</em> — OpenAI News (1 new: GPT-5.6 Sol/Terra/Luna preview, Jun 26, surfaced via Simon Willison; not yet on the main news index, where the Jun 25 Codex paper still led), Anthropic News (no new post since Claude Tag Jun 23), Google DeepMind / blog.google (June safety/model cluster newly observed — multi-agent safety, securing AI agents, DiffusionGemma, Live Translate; exact dates not shown), AWS Machine Learning Blog (no change since Jun 1–2), Microsoft Cloud Blog (not retrievable this run; last known Jun 18).<br>
+  <em>Practitioners</em> — Simon Willison (5 new Jun 26 posts: hackmyclaw injection challenge, CVE-2026-LGTM satire, GPT-5.6 quote, Timothy B. Lee, Dean W. Ball), O'Reilly Radar (no change since Jun 22), GitHub Blog AI &amp; ML (no change since Jun 12), Pragmatic Engineer (latest Jun 24 NeetCode, non-AI).<br>
+  <em>Substacks (JSON API)</em> — Adam Tornhill (Jun 2), Computer Enhance (Jun 22, non-AI), Jessica Talisman (Jun 1), Lenny's Newsletter (Jun 23, covered), One Useful Thing (API returned no posts) — none new &amp; AI-relevant since the last brief.<br>
+  <em>X / Social</em> — @karpathy (no confirmed new posts), @trq212 (no new thread since Claude Tag).<br>
+  <em>Community</em> — Hacker News front page (new AI stories: GLM 5.2 vs Claude cyber benchmarks, Brown AI exam fraud, Claude Code MRI second opinion, HackerRank ATS scoring, open Codex sensitive-files issue, tokenmaxxing).<br><br>
+  Generated by My AI Daily · Items marked <span style="color:var(--accent2)">New</span> were not in the Jun 26 brief (the prior brief in this folder).
+</footer>
+
+</body>
+</html>
