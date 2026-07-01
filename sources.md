@@ -2,6 +2,7 @@
 
 ## Major AI Company News
 - Anthropic: https://www.anthropic.com/news
+- Anthropic Research: https://www.anthropic.com/research
 - Google DeepMind: https://deepmind.google/discover/blog/
 - Google AI Blog: https://blog.google/technology/ai/
 - AWS ML Blog: https://aws.amazon.com/blogs/machine-learning/
@@ -13,6 +14,8 @@
 - Hugging Face Blog: https://huggingface.co/blog
 - The Batch (DeepLearning.AI): https://www.deeplearning.ai/the-batch/
 - ArXiv CS.AI: https://arxiv.org/list/cs.AI/recent
+- The Rundown AI: https://www.therundown.ai/ (daily AI news digest; JS-heavy — may need RSS:
+  https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml)
 
 ## Practitioner Blogs & Newsletters
 
