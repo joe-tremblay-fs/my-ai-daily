@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — July 2, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; margin-bottom: 10px; line-height: 1.6; }
+    .themes-box li:last-child { margin-bottom: 0; }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>July 2, 2026</h1>
+  <div class="meta">
+    <span>5 companies</span>
+    <span>7 practitioner blogs</span>
+    <span>6 Substacks</span>
+    <span>2 X accounts</span>
+    <span>HN / community</span>
+  </div>
+  <div class="meta" style="margin-top:6px;">
+    <span style="color:var(--muted)">Generated Jul 2, 2026 · 13:13 UTC — A quiet consolidation day after Anthropic's Jul 1 blitz. No new posts from Anthropic, OpenAI, or Google's blogs since Jun 30. The <strong>Fable 5 / Mythos 5 restoration</strong> reverberated in mainstream press (Al Jazeera, The Hacker News). <strong>Microsoft</strong> made <strong>Microsoft 365 Business with Copilot</strong> permanent SKUs (effective Jul 1). <strong>Gemini 3.5 Pro</strong> is reportedly "cleared for a July launch" but remains in limited preview. Simon Willison posted only a wildlife sighting.</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>No new blog/news posts from Anthropic, OpenAI, or Google.</strong> All three company newsrooms are unchanged since Jun 30 (Anthropic: Sonnet 5, Redeploying Fable 5, Claude Science; OpenAI: GeneBench-Pro, Core dump epidemiology). Today is the digestion phase of Anthropic's biggest news day.</li>
+      <li><strong>Fable 5 / Mythos 5 restoration hits mainstream press.</strong> <a href="https://www.aljazeera.com/economy/2026/7/1/us-lifts-restrictions-on-powerful-ai-models-fable-mythos-anthropic-says">Al Jazeera</a> and <a href="https://thehackernews.com/2026/07/anthropic-restores-claude-fable-5-after.html">The Hacker News</a> covered the US lifting export controls on Fable 5 and Mythos 5 (Jun 30) and Anthropic restoring global access (Jul 1) — the story this brief has tracked since Jun 12 now breaking outside the AI-native press.</li>
+      <li><strong>Microsoft 365 Business with Copilot becomes permanent (Jul 1).</strong> Microsoft 365 Business Standard/Premium with Copilot converted from promo to permanent SKUs, alongside a <strong>global pricing update effective Jul 1, 2026</strong> — Copilot moving decisively downmarket to SMBs.</li>
+      <li><strong>Gemini 3.5 Pro "cleared for a July launch."</strong> Reporting (TechTimes, Jun 29) says Google's frontier model — <strong>2M-token context, Deep Think reasoning</strong> — is cleared to ship in July but, as of the latest checks, remains in limited preview for select Vertex AI customers. Still not launched.</li>
+      <li><strong>Claude Code changelog updates.</strong> Recent Claude Code updates add <strong>org-configured model restrictions</strong>, mouse-click support for select menus, and fixes for structured output and remote MCP tool calls.</li>
+      <li><strong>Practitioners quiet.</strong> Simon Willison's only Jul 1 post is a wildlife "Sighting" (harbor seal, brown pelican, willet) — no new AI writing since the Jun 30 Sonnet 5 / Nano Banana 2 Lite run. No confirmed new posts from @karpathy or @trq212, Ethan Mollick, or the Pragmatic Engineer.</li>
+      <li><strong>No new model drops.</strong> Model-release trackers show nothing new on Jul 1–2; Sonnet 5 (Jun 30) remains the latest major release. Open-weights attention stays on the Qwen 3.6 / DeepSeek V4 / Gemma 4 trio.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- COMPANIES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Companies</h2>
+    <span class="section-tag tag-company">Anthropic · OpenAI · Google · AWS · Microsoft</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Anthropic — no new posts; Jul 1 restoration draws press</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Fable 5 / Mythos 5 restoration covered in mainstream press</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 1, 2026 — Al Jazeera, The Hacker News</div>
+      <div class="item-body">
+        No new posts on the Anthropic newsroom since the three Jun 30 items (Sonnet 5, <a href="https://www.anthropic.com/news/redeploying-fable-5">Redeploying Fable 5</a>, Claude Science), all covered in yesterday's brief. What's new is the reach: <a href="https://www.aljazeera.com/economy/2026/7/1/us-lifts-restrictions-on-powerful-ai-models-fable-mythos-anthropic-says">Al Jazeera</a> reported the US lifting restrictions on Fable and Mythos, and <a href="https://thehackernews.com/2026/07/anthropic-restores-claude-fable-5-after.html">The Hacker News</a> framed it as "after U.S. lifts jailbreak-linked export controls." Fable 5 returned globally Jul 1 (included up to 50% of weekly usage limits for Pro/Max/Team and select Enterprise through Jul 7, then via usage credits).
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title">Claude Code updates + Claude Science program details</div>
+      </div>
+      <div class="item-date">Late Jun / early Jul 2026 — changelog &amp; program page</div>
+      <div class="item-body">
+        Recent Claude Code changelog entries add <strong>org-configured model restrictions</strong>, mouse-click support for select menus, and fixes for structured output and remote MCP tool calls. Separately, the <a href="https://www.anthropic.com/news/claude-science-ai-workbench">Claude Science</a> "AI for Science" program (announced Jun 30) will support up to <strong>50 projects with up to $30,000 in credits each</strong>; applications are open through <strong>Jul 15</strong>, awards by Jul 31, projects running Sep 1–Dec 1.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">OpenAI — no new posts</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        The OpenAI newsroom is unchanged since the two Jun 30 posts, <a href="https://openai.com/index/introducing-genebench-pro/">GeneBench-Pro</a> (Research) and <a href="https://openai.com/index/core-dump-epidemiology-data-infrastructure-bug/">Core dump epidemiology</a> (Engineering), both covered yesterday. Prior context stands: the Jun 28 <a href="https://openai.com/index/hp-frontier-partnership/">HP enterprise case study</a>, Jun 26 <a href="https://openai.com/index/previewing-gpt-5-6-sol/">GPT-5.6 Sol preview</a> (still export-hold-locked per earlier reporting), and Jun 24 <a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/">Broadcom "Jalapeño" inference chip</a>.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Google — no new post; Gemini 3.5 Pro still in preview</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Gemini 3.5 Pro reportedly "cleared for July launch" — not yet shipped</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jun 29, 2026 — TechTimes / trade reporting</div>
+      <div class="item-body">
+        Google's frontier model — a <strong>2M-token context window</strong> (double Opus 4.8) and a <strong>Deep Think</strong> reasoning mode — was reported "cleared for a July launch," but as of the latest checks it <strong>remains in limited preview</strong> for select Vertex AI enterprise customers and Google has not committed to a date. The delay (originally expected June) has been attributed to refinements in coding, token efficiency, and long-task performance. No new post on the DeepMind blog or blog.google since <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-flash-nano-banana-2-lite/">Nano Banana 2 Lite / Gemini Omni Flash</a> (Jun 30, covered).
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Microsoft — Copilot goes permanent for SMBs</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Microsoft 365 Business with Copilot becomes a permanent SKU (Jul 1)</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 1, 2026 — Microsoft 365 blog / Partner Center</div>
+      <div class="item-body">
+        Effective Jul 1, <strong>Microsoft 365 Business Standard with Copilot</strong> and <strong>Business Premium with Copilot</strong> convert from promotion to permanent SKUs, giving partners an "always-on" way to sell Copilot to small and mid-sized businesses. A <strong>global pricing update also took effect Jul 1</strong> across all purchasing channels, and the "Microsoft Copilot" specialization is being renamed the "Microsoft 365 Copilot" specialization. Continues the SMB-adoption push flagged in the Jun 29 Agent Confidence Index cluster.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">AWS — unchanged</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>AWS Machine Learning Blog</strong> — no new posts; the newest AI item remains the <a href="https://aws.amazon.com/blogs/machine-learning/new-in-amazon-bedrock-agentcore-build-agents-with-broader-knowledge-and-continuous-learning/">Jun 17 AgentCore expansion</a> (managed harness GA, Bedrock Managed Knowledge Base, Web Search, Guardrails integration, recommendations/A-B testing). Amazon remains central to Anthropic's Fable/jailbreak-framework storyline from Jun 30.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; newsletters</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison — no new AI post (Jul 1 sighting only)</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        Simon's only Jul 1 entry is a <a href="https://simonwillison.net/2026/Jul/1/sighting-377043228/">wildlife "Sighting"</a> (Pacific harbor seal, California brown pelican, willet — Monterey Bay). No new AI writing since the Jun 30 run covered yesterday: <a href="https://simonwillison.net/2026/Jun/30/claude-sonnet-5/">What's new in Claude Sonnet 5</a> (the ~30% more-tokens tokenizer catch), <a href="https://simonwillison.net/2026/Jun/30/shot-scraper-video/">shot-scraper video</a>, <a href="https://simonwillison.net/2026/Jun/30/nano-banana-2-lite/">Nano Banana 2 Lite</a>, and <a href="https://simonwillison.net/2026/Jun/30/the-ai-compass/">The AI Compass</a>.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Substacks &amp; other blogs — quiet</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>One Useful Thing (Ethan Mollick)</strong> — no confirmed new post; his Fable/Mythos hands-on pieces (<a href="https://www.oneusefulthing.org/p/what-it-feels-like-to-work-with-mythos">"What it feels like to work with Mythos"</a> and the Fable 5 9.5-hour build) are from early-mid June. <strong>The Pragmatic Engineer</strong> — latest is the late-June "State of the software engineering job market in 2026, part 2" (data point: AI labs now more attractive to engineers than Big Tech). <strong>Lenny's Newsletter</strong> — no new AI post since the Jun 30 "How top PMs increase their leverage with AI" (covered). <strong>Adam Tornhill</strong>, <strong>Computer, Enhance!</strong>, <strong>Jessica Talisman</strong>, <strong>Addy Osmani</strong>, <strong>jxnl</strong> — unchanged. (Substack JSON APIs were unreachable from the sandbox this run; checked via web search.) <strong>O'Reilly Radar</strong> and <strong>GitHub Blog</strong> — unchanged.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Practitioner accounts</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>@karpathy</strong> — no confirmed new post; results remain dominated by the evergreen <strong>LLM Wiki</strong> pattern (a self-maintaining markdown knowledge base an agent ingests and rewrites) and his <strong>Sequoia Ascent 2026</strong> framing ("LLMs are a new programmable layer; the programmer is an orchestrator of agents"). <strong>@trq212 (Thariq Shihipar)</strong> — no clearly dated new thread; the Jun 23 Claude Tag best-practices thread and the OAuth / third-party-harness Terms-of-Service posts still surface. Treat both accounts as no confirmed new posts.
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community / Hacker News</h2>
+    <span class="section-tag tag-community">Front page</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>The HN front page could not be fetched directly this run</strong> (retrieval restrictions), so today's exact point totals aren't confirmed. Across searches, the AI stories still circulating are yesterday's: the <a href="https://news.ycombinator.com/item?id=48736605">Claude Sonnet 5</a> launch, the <a href="https://news.ycombinator.com/item?id=48734373">"Claude Code is steganographically marking requests"</a> discussion, and <a href="https://news.ycombinator.com/item?id=48735444">Nano Banana 2 Lite</a> — no new AI headline surfaced for Jul 2. Ambient community themes: AI coding agents (Claude Code vs. Codex), security/trust in the agent runtime, and open-weights alternatives (Qwen 3.6 / DeepSeek V4 / Gemma 4).
+    </div>
+  </div>
+</div>
+
+<!-- THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>Cross-cutting observations</h3>
+    <ul>
+      <li><strong>The digestion day.</strong> After the single busiest news day this brief has logged (Anthropic's Jun 30 Sonnet 5 + Fable 5 restoration + Claude Science + jailbreak framework, all live Jul 1), Jul 2 is nearly silent on primary sources. The action moved to secondary coverage — mainstream outlets like Al Jazeera picking up the export-control reversal — and to changelog-level polish (Claude Code org model restrictions, MCP fixes).</li>
+      <li><strong>"Cleared to ship" is now a recurring gating stage.</strong> Gemini 3.5 Pro being "cleared for a July launch" but still in preview echoes the Fable 5 (18-day suspension) and GPT-5.6 Sol (still locked) pattern: frontier models increasingly pass through a testing/clearance checkpoint before public release. The vocabulary of "cleared," "restored," and "locked" is becoming standard for frontier launches.</li>
+      <li><strong>Copilot moves downmarket as the frontier moves up.</strong> While labs jockey at the 2M-context frontier, Microsoft is productizing AI for the mass SMB market — Microsoft 365 Business with Copilot as permanent SKUs plus a global price change. The commercialization layer is maturing independently of the capability race.</li>
+      <li><strong>The tokenizer-cost asterisk persists.</strong> Sonnet 5's headline pricing masks a ~30% real increase from its new tokenizer (Simon Willison's finding, ≈1.4× for English), with the intro discount ($2/$10 through Aug 31) engineered to make the switch roughly cost-neutral. As Gemini 3.5 Pro (2M context) nears launch, "read the tokenizer fine print" remains the practical takeaway for anyone budgeting model spend.</li>
+      <li><strong>Agent-runtime trust is still simmering.</strong> No new HN blow-up today, but the Jul 1 "Claude Code steganographic marking" story and the OAuth/third-party-harness enforcement thread haven't resolved — and Anthropic's new Claude Code "org-configured model restrictions" land in exactly that governance-of-the-agent space.</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <strong>Sources checked (Jul 2, 2026):</strong><br>
+  <em>Companies</em> — Anthropic News (no new posts since Jun 30; Fable 5 restoration covered by Al Jazeera &amp; The Hacker News; Claude Code changelog + Claude Science program details), OpenAI News (no new posts since Jun 30 GeneBench-Pro / Core dump epidemiology), Google DeepMind / blog.google (no new post since Jun 30 Nano Banana 2 Lite; Gemini 3.5 Pro "cleared for July" but still in preview), AWS Machine Learning Blog (unchanged since Jun 17 AgentCore), Microsoft (new: Microsoft 365 Business with Copilot permanent SKUs + global pricing update, effective Jul 1).<br>
+  <em>Practitioners</em> — Simon Willison (no new AI post; Jul 1 wildlife sighting only), O'Reilly Radar (unchanged), GitHub Blog (unchanged), Hugging Face / The Batch (no new item surfaced).<br>
+  <em>Substacks</em> — JSON APIs unreachable from sandbox this run; checked via web search. One Useful Thing (no confirmed new post; Mythos/Fable pieces early-mid June), Pragmatic Engineer (late-June job-market part 2), Lenny's Newsletter (no new since Jun 30), Adam Tornhill / Computer Enhance / Jessica Talisman / Addy Osmani / jxnl (unchanged).<br>
+  <em>X / Social</em> — @karpathy (no confirmed new; LLM Wiki + Sequoia Ascent evergreen), @trq212 (no new thread; OAuth/Claude Tag threads still surfacing).<br>
+  <em>Community</em> — Hacker News front page not directly fetchable this run; no new AI headline surfaced beyond yesterday's Sonnet 5 / Claude Code marking / Nano Banana 2 Lite.<br><br>
+  Generated by My AI Daily · Items marked <span style="color:var(--accent2)">New</span> were not in the Jul 1 brief (the prior brief in this folder).
+</footer>
+
+</body>
+</html>
