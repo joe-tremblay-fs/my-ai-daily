@@ -27,11 +27,9 @@
 - Hamel Husain: https://hamel.dev/
 - Eugene Yan: https://eugeneyan.com/
 - Jason Liu (jxnl): https://jxnl.co/writing/
-  - Also Substack: https://jxnl.substack.com/api/v1/posts?limit=5
 - Addy Osmani: https://addyosmani.com/blog/
-  - Substack API feed: https://addyo.substack.com/api/v1/posts?limit=5
 - Swyx / Shawn Wang: https://www.swyx.io/
-  - Latent Space: https://www.latent.space/
+- Latent Space: https://www.latent.space/
 - Lilian Weng (OpenAI): https://lilianweng.github.io/
 - LangChain Blog: https://blog.langchain.dev/
 - Anthropic Engineering: https://www.anthropic.com/engineering
@@ -39,26 +37,16 @@
 
 ### Substacks
 - Adam Tornhill: https://adamtornhill.substack.com/
-  - API feed: https://adamtornhill.substack.com/api/v1/posts?limit=5
 - Jessica Talisman: https://jessicatalisman.substack.com/
-  - API feed: https://jessicatalisman.substack.com/api/v1/posts?limit=5
 - Computer Enhance / Casey Muratori: https://www.computerenhance.com/
-  - API feed: https://computerenhance.substack.com/api/v1/posts?limit=5
 - Ethan Mollick (One Useful Thing): https://www.oneusefulthing.org/
-  - API feed: https://www.oneusefulthing.org/api/v1/posts?limit=5
 - The Pragmatic Engineer / Gergely Orosz: https://newsletter.pragmaticengineer.com/
-  - API feed: https://newsletter.pragmaticengineer.com/api/v1/posts?limit=5
 - Lenny Rachitsky: https://www.lennysnewsletter.com/
-  - API feed: https://www.lennysnewsletter.com/api/v1/posts?limit=5
+- Jason Liu: https://jxnl.substack.com/
+- Addy Osmani: https://addyo.substack.com/
 
 ### Business & Strategy
 - Stratechery / Ben Thompson: https://stratechery.com/ (paywalled; check for free posts)
-
-## Notes: Fetch Strategy
-- Substack pages require JavaScript and can't be fetched as HTML.
-  Use the /api/v1/posts?limit=N endpoint instead — returns full JSON with titles, dates, descriptions, and body HTML.
-  Pattern: https://[subdomain].substack.com/api/v1/posts?limit=5
-- X/Twitter accounts can't be fetched directly. Use WebSearch for recent notable posts.
 
 ## Community Discussions
 - Hacker News: https://news.ycombinator.com
