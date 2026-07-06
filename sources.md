@@ -37,7 +37,7 @@
 - Anthropic Engineering: https://www.anthropic.com/engineering
 - SageOx: https://sageox.ai/blog
 
-### Substacks (use /api/v1/posts?limit=5 endpoint, NOT the HTML page)
+### Substacks
 - Adam Tornhill: https://adamtornhill.substack.com/
   - API feed: https://adamtornhill.substack.com/api/v1/posts?limit=5
 - Jessica Talisman: https://jessicatalisman.substack.com/
