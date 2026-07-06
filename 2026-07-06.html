@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — July 6, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; margin-bottom: 10px; line-height: 1.6; }
+    .themes-box li:last-child { margin-bottom: 0; }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>July 6, 2026</h1>
+  <div class="meta">
+    <span>5 companies</span>
+    <span>7 practitioner blogs</span>
+    <span>6 Substacks</span>
+    <span>2 X accounts</span>
+    <span>HN / community</span>
+  </div>
+  <div class="meta" style="margin-top:6px;">
+    <span style="color:var(--muted)">Generated Jul 6, 2026 · 12:20 UTC — First Monday brief after the July 4–5 weekend. Headline: <strong>Claude is now generally available on Microsoft Foundry / Azure AI Foundry</strong>, the first Claude deployment on <strong>NVIDIA GB300 NVL72 Blackwell Ultra</strong>. <strong>Simon Willison</strong> shipped a weekend flurry — <strong>sqlite-utils 4.0rc2/rc3 mostly written by Claude Fable</strong> (~$149 in tokens) — while flagging Fable's Max-plan window is closing "in a few days." <strong>Armin Ronacher</strong>'s "Better Models: Worse Tools" argues newer Anthropic models regress on a specific tool schema. OpenAI (GPT-5.6 still limited preview), Google (Gemini 3.5 Pro still preview), and AWS unchanged over the holiday.</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>Claude reaches GA on Microsoft Foundry / Azure AI Foundry — first on NVIDIA GB300 Blackwell Ultra.</strong> Claude models are now production-GA on Azure AI Foundry, running on <a href="https://blogs.nvidia.com/blog/anthropic-nvidia-gb300-blackwell-ultra-microsoft-azure/">NVIDIA's liquid-cooled GB300 NVL72 rack (72 Blackwell Ultra GPUs)</a> with Quantum-X800 InfiniBand. Microsoft cites ~40% lower time-to-first-token and ~35% better throughput for Opus inference vs. prior-gen hardware; the release ships with an enterprise control plane (version pinning, region-locked inference, native content safety). Realizes the Nov 2025 Microsoft–NVIDIA–Anthropic partnership.</li>
+      <li><strong>Anthropic details Fable 5 cyber safeguards + a shared jailbreak framework (Jul 2).</strong> A newsroom post, <a href="https://www.anthropic.com/news/fable-safeguards-jailbreak-framework">"More details on Fable 5's cyber safeguards and our jailbreak framework,"</a> follows the Jun 30 redeployment — proposing an <strong>industry-wide framework for scoring jailbreak severity</strong> co-developed with Amazon, Microsoft, Google, and other Glasswing partners.</li>
+      <li><strong>Simon Willison: sqlite-utils 4.0rc2 "mostly written by Claude Fable" for ~$149.25 (Jul 5), rc3 Jul 6.</strong> A <a href="https://simonwillison.net/2026/Jul/5/sqlite-utils-fable/">2,400-word annotated build log</a> of using Fable on his Max plan to drive a comfortable 4.0 stable — because "we only have Claude Fable on our Max subscriptions for a few more days" before prices rise. <a href="https://simonwillison.net/2026/Jul/6/sqlite-utils/">rc3</a> adds compound foreign keys and case-insensitive column matching (built with Fable 5 + GPT-5.5).</li>
+      <li><strong>Armin Ronacher — "Better Models: Worse Tools" (Jul 4).</strong> <a href="https://lucumr.pocoo.org/2026/7/4/better-models-worse-tools/">Newer Anthropic models</a> (Opus 4.8, Sonnet 5) call Pi's edit tool with extra invented fields that don't match the schema — a regression <em>none</em> of the older models show. SOTA can be worse at a specific tool contract than its predecessors. Amplified by Simon Willison.</li>
+      <li><strong>Simon's "judgement" tip (Jul 3):</strong> from his AIE fireside with Claude Code's <strong>Cat Wu &amp; Thariq Shihipar (@trq212)</strong> — let Fable/Opus decide <em>when</em> to write tests rather than dictating; Jesse Vincent's add-on: <a href="https://simonwillison.net/2026/Jul/3/judgement/">"use your judgement to decide an appropriate lower power model and run that in a subagent"</a> to conserve pricey Fable tokens.</li>
+      <li><strong>Karpathy refreshes his coding "guidelines" (Jul 5)</strong> — explicit assumptions, simplicity, verifiable success criteria to cut common LLM coding mistakes; his AutoResearch / agentic-engineering framing continues as evergreen backdrop.</li>
+      <li><strong>Quiet over the holiday:</strong> OpenAI (GPT-5.6 Sol/Terra/Luna still limited preview), Google (Gemini 3.5 Pro still preview), and AWS (newest AI item still the Jun 17 AgentCore expansion) show no new posts.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- COMPANIES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Companies</h2>
+    <span class="section-tag tag-company">Anthropic · OpenAI · Google · AWS · Microsoft</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Anthropic × Microsoft × NVIDIA — Claude GA on Blackwell Ultra</div>
+
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title">Claude reaches general availability on Microsoft Foundry / Azure AI Foundry — first Claude deployment on NVIDIA GB300 Blackwell Ultra</div>
+        <span class="item-badge badge-sig">Significant</span>
+      </div>
+      <div class="item-date">Late Jun–Jul 1, 2026 — NVIDIA / Microsoft / Anthropic</div>
+      <div class="item-body">
+        Claude models are now generally available on <a href="https://blogs.nvidia.com/blog/anthropic-nvidia-gb300-blackwell-ultra-microsoft-azure/">Azure AI Foundry (Microsoft Foundry)</a>, powered by NVIDIA's liquid-cooled <strong>GB300 NVL72</strong> rack-scale architecture — 72 Blackwell Ultra GPUs tied together over high-bandwidth NVLink and Quantum-X800 InfiniBand, acting as one unified GPU. Microsoft's early benchmarks claim <strong>~40% lower time-to-first-token and ~35% better tokens-per-second</strong> for Opus-class inference vs. previous-gen hardware. The production release adds an enterprise control plane — version pinning, region-locked inference, native content safety filters. This is the concrete realization of the three-way Microsoft–NVIDIA–Anthropic partnership struck in Nov 2025, and it puts Claude on a first-party footing across all three major clouds (AWS, Google Cloud, now Azure). Continues the "governed Claude everywhere" thread that ran through last week's Enterprise analytics and Claude apps gateway items.
+      </div>
+    </div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">"More details on Fable 5's cyber safeguards and our jailbreak framework"</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 2, 2026 — anthropic.com/news</div>
+      <div class="item-body">
+        A follow-up to the Jun 30 <a href="https://www.anthropic.com/news/redeploying-fable-5">Redeploying Fable 5</a> post, this <a href="https://www.anthropic.com/news/fable-safeguards-jailbreak-framework">newsroom entry</a> spells out the specific cybersecurity safeguards shipped with Fable 5's global return (July 1) and proposes an <strong>industry-wide framework for scoring jailbreak severity</strong>, developed jointly with Amazon, Microsoft, Google, and other Glasswing partners. The through-line: after the US lifted export controls, Anthropic is trying to convert the Fable/Mythos episode into a shared, cross-lab standard for measuring how bad a given jailbreak actually is.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title">Newsroom otherwise unchanged; Sonnet 5 remains the Claude Code default</div>
+      </div>
+      <div class="item-date">Jul 2–6, 2026 — ongoing</div>
+      <div class="item-body">
+        No new newsroom post since the Jul 2 cyber-safeguards entry. Prior cluster still stands: <a href="https://www.anthropic.com/news/claude-sonnet-5">Sonnet 5</a> (default in Claude Code, native 1M-token context, intro $2/$10 per Mtok through Aug 31), <a href="https://www.anthropic.com/news/claude-science-ai-workbench">Claude Science</a>, and <a href="https://www.anthropic.com/news/redeploying-fable-5">Redeploying Fable 5</a> (all Jun 30). Practitioner note (Simon Willison): Fable access on Max subscriptions is winding down "in a few days" — a pricing cliff worth watching for anyone leaning on it for coding.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Microsoft — Copilot consolidation continues</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        No new AI post on the Microsoft AI blog over the holiday. Ongoing threads from last week: Microsoft is <a href="https://www.pymnts.com/news/artificial-intelligence/2026/microsoft-merges-enterprise-and-consumer-copilot-apps/">reportedly merging its consumer and enterprise Copilot apps</a> (per a Jul 2 memo cited by The Information) and trimming features to "earn the right to exist," with paid always-on <strong>"AutoPilot"</strong> agents planned. The Jul 1 SKU change (Microsoft 365 Business Standard/Premium with Copilot now permanent) and the Jul 3 Nine × Copilot journalism-grounding deal remain the most recent concrete moves. The bigger Microsoft story this cycle is infrastructure: Claude GA on Azure Foundry (above).
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">OpenAI — no new posts</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        The OpenAI newsroom is unchanged since Jun 30 (GeneBench-Pro; Core dump epidemiology). <strong>GPT-5.6</strong> (Sol / Terra / Luna) remains in <strong>limited preview</strong> — API + Codex access for select trusted partners, with broader ChatGPT/Codex/API rollout still pending. Recurring framing: Sol for frontier reasoning + new "ultra" subagent mode, Terra as GPT-5.5-competitive at ~2x lower cost, Luna as the cheapest/fastest; <a href="https://cryptobriefing.com/openai-releases-gpt-56-models-to-20-partners-public-launch-expected-by-july-2026/">public launch was expected by July</a>. Also live: GPT-5.6 Sol on Cerebras at up to 750 tok/s.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Google — no new post; Gemini 3.5 Pro still in preview</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        No new post on the DeepMind blog or blog.google since the Jun 30 Nano Banana 2 Lite / Gemini Omni Flash cluster. <strong>Gemini 3.5 Flash</strong> remains the newest broadly available release (leads on Terminal-Bench 2.1 and MCP Atlas, ~4x faster output tokens); <strong>Gemini 3.5 Pro</strong> (2M-token context, Deep Think) is still in limited preview for select Vertex AI customers. Gemini reportedly crossed <strong>900M monthly users</strong>. The 2026 arc stays "chatbot → agent platform."
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">AWS — unchanged</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>AWS Machine Learning Blog</strong> — no new AI post over the holiday. The newest AI item remains the <a href="https://aws.amazon.com/blogs/machine-learning/new-in-amazon-bedrock-agentcore-build-agents-with-broader-knowledge-and-continuous-learning/">Jun 17 AgentCore expansion</a> (managed harness GA, Bedrock Managed Knowledge Base, Web Search, Guardrails, plus A/B testing and batch evaluation for agent improvement). Amazon stays a deployment target for Anthropic's Claude apps gateway and a co-author of the new cross-lab jailbreak-severity framework.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; newsletters</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison — busy holiday weekend</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">sqlite-utils 4.0rc2, mostly written by Claude Fable (for about $149.25)</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 5, 2026 — simonwillison.net</div>
+      <div class="item-body">
+        A <a href="https://simonwillison.net/2026/Jul/5/sqlite-utils-fable/">2,427-word annotated build log</a> of using Claude Fable — on his Max subscription — to clear the backlog of issues and PRs toward a 4.0 stable he "felt truly comfortable about" (he keeps to SemVer and wants major bumps rare). The framing is explicitly economic: he did it now "since we only have Claude Fable on our Max subscriptions for a few more days" before prices go up, and tallies the real token spend (~$149.25). A concrete, itemized look at what frontier-agent-assisted maintenance actually costs. Follow-up <a href="https://simonwillison.net/2026/Jul/6/sqlite-utils/">rc3 (Jul 6)</a> lands compound foreign keys (a subtle breaking change to <code>table.foreign_keys</code>) and case-insensitive column matching, built with Fable 5 + GPT-5.5.
+      </div>
+    </div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">"Let it use its own judgement" — Claude Code cost/quality tips from AIE</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 3, 2026 — simonwillison.net</div>
+      <div class="item-body">
+        From <a href="https://simonwillison.net/2026/Jul/3/judgement/">Simon's AIE fireside</a> with Claude Code's <strong>Cat Wu and Thariq Shihipar (@trq212)</strong>: rather than dictating <em>how</em> Fable/Opus should work (e.g. exact testing rules), tell the model to use its own judgement — "only use automated testing for larger features, use your judgement on the rest." Jesse Vincent's related tip to stretch scarce Fable tokens: <code>For all coding tasks use your judgement to decide an appropriate lower power model and run that in a subagent</code>. A clean statement of the emerging "delegate the meta-decisions, not just the task" pattern.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title">Also this weekend: world map in 500 bytes, open-source AI gap map, June newsletter</div>
+      </div>
+      <div class="item-date">Jul 3–4, 2026 — simonwillison.net</div>
+      <div class="item-body">
+        Lighter links: <a href="https://simonwillison.net/2026/Jul/4/building-a-world-map-with-only-500-bytes/">Building a World Map with only 500 bytes</a> (ASCII world map rendered from a tiny data URL), an <a href="https://simonwillison.net/2026/Jul/3/open-source-ai-gap-map/">open-source AI gap map</a> explored in Datasette Lite, and his <a href="https://simonwillison.net/2026/Jul/3/june-newsletter/">June newsletter</a> recap.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Armin Ronacher — SOTA models can regress on tools</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Better Models: Worse Tools</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 4, 2026 — lucumr.pocoo.org</div>
+      <div class="item-body">
+        Ronacher observed that his <a href="https://lucumr.pocoo.org/2026/7/4/better-models-worse-tools/">Pi coding tool's edit function</a> was increasingly being called with <em>extra, invented fields</em> in the nested <code>edits[]</code> array — the edit content usually correct, but the arguments not matching the schema. The surprise: this is <strong>worse with newer Anthropic models</strong> — both <strong>Opus 4.8 and Sonnet 5 exhibit it, while none of the older models do</strong>. The takeaway is a caution against assuming monotonic progress: a frontier model can be worse at honoring a specific tool contract than its predecessor, so tool schemas and evals need to be re-checked with each model bump. Cross-referenced by Simon Willison the same day.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Substacks &amp; other blogs — quiet over the holiday</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>One Useful Thing (Ethan Mollick)</strong> — no confirmed new post; most recent remains the late-June Mythos-class hands-on ("The twilight of the chatbots" / early Fable 5 access). <strong>The Pragmatic Engineer</strong>, <strong>Lenny's Newsletter</strong>, <strong>Latent Space / swyx</strong>, <strong>Adam Tornhill</strong>, <strong>Computer, Enhance!</strong>, <strong>Jessica Talisman</strong>, <strong>Addy Osmani</strong>, <strong>jxnl</strong> — no confirmed new AI posts (Substack JSON APIs not reachable from the sandbox this run — provenance-restricted; checked via web search). <strong>O'Reilly Radar</strong>, <strong>Hugging Face</strong>, <strong>The Batch</strong> — no new item surfaced.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Practitioner accounts</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">@karpathy refreshes his coding "guidelines"</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jul 5, 2026 — karpathy.ai / X</div>
+    <div class="item-body">
+      Karpathy updated his widely-circulated coding <strong>guidelines</strong> (Jul 5), emphasizing reducing common LLM coding mistakes through <strong>explicit assumptions, simplicity, and verifiable success criteria</strong> — a distilled version of his agentic-engineering stance ("humans direct, supervise, and orchestrate agents; you're still responsible for the software"). Evergreen backdrop unchanged: <strong>AutoResearch</strong> (agents that close the research loop — 700 experiments in 2 days, 20 optimizations found) and the "infrastructure is still written for humans" thesis.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>@trq212 (Thariq Shihipar)</strong> — no clearly dated new standalone thread, but he features in Simon Willison's Jul 3 "judgement" writeup via the AIE Claude Code fireside (with Cat Wu). Claude Tag best-practices and OAuth/third-party-harness ToS posts still surface. Treat as no confirmed new thread, but actively referenced.
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community / Hacker News</h2>
+    <span class="section-tag tag-community">Front page</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      Coding-agent discourse continues to converge on <strong>"no single agent dominates every task category"</strong> — research on agent-generated PRs finds <a href="https://www.developersdigest.tech/blog/what-hacker-news-gets-right-about-ai-coding-agents-2026">tool quality depends on task shape, not benchmark supremacy</a> (Claude Code vs. Codex framing). Security remains a live thread: the <a href="https://thehackernews.com/2026/06/claude-code-github-action-flaw-let-one.html">Claude Code GitHub Action flaw</a> (a single malicious issue could expose CI/CD secrets) and <a href="https://www.securityweek.com/new-attack-abuses-claude-code-and-harmless-looking-repositories-to-hijack-developer-machines/">harmless-looking repos that hijack developer machines</a> keep circulating alongside the Jul 1 Fable/Mythos restoration coverage. Ambient themes otherwise unchanged: Agent Skills, human-in-the-loop review gaps, and the cost of frontier-model coding.
+    </div>
+  </div>
+</div>
+
+<!-- THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>Cross-cutting observations</h3>
+    <ul>
+      <li><strong>Claude is now first-party on all three clouds — and the hardware story matters.</strong> GA on Azure Foundry atop NVIDIA GB300 Blackwell Ultra completes the AWS/Google/Azure trifecta and foregrounds inference economics (Microsoft's claimed ~40% faster TTFT). The competitive front is shifting from "which model" to "where it runs, how fast, and under what governance" — a continuation of last week's Enterprise-analytics/gateway push.</li>
+      <li><strong>Progress isn't monotonic at the tool boundary.</strong> Armin Ronacher's finding that Opus 4.8 and Sonnet 5 mangle a tool schema that older models handled correctly is a pointed counter to "newer = strictly better." It argues for per-model tool evals and schema hardening on every upgrade — the practitioner counterpart to Anthropic's own eval-heavy release cadence.</li>
+      <li><strong>The Fable pricing cliff is shaping real behavior.</strong> Simon Willison timed a whole sqlite-utils 4.0 push around Fable's Max-plan window closing "in a few days," and openly tallied the ~$149 token cost. Frontier-agent coding is now something people schedule and budget around, not just reach for — and the "use a cheaper model in a subagent" tip is becoming standard cost hygiene.</li>
+      <li><strong>"Delegate the judgement, not just the task."</strong> Both Simon's AIE takeaways (let Fable decide when to test, and which model to use) and Karpathy's refreshed guidelines point the same way: the human's job is setting explicit assumptions and success criteria, then letting the agent make the meta-decisions. Orchestration is moving up a level of abstraction.</li>
+      <li><strong>Cyber safety is being institutionalized, not just patched.</strong> Anthropic's Jul 2 jailbreak-severity framework — co-authored with Amazon, Microsoft, and Google — tries to turn the Fable/Mythos export-control episode into a shared standard, even as HN keeps surfacing concrete Claude Code attack surfaces (GitHub Action secrets, poisoned repos). Offense and standardized defense are advancing together.</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <strong>Sources checked (Jul 6, 2026):</strong><br>
+  <em>Companies</em> — Anthropic (NEW: Claude GA on Microsoft/Azure AI Foundry via NVIDIA GB300 Blackwell Ultra; NEW: Jul 2 "Fable 5 cyber safeguards + jailbreak framework" post; newsroom otherwise unchanged since Jun 30 Sonnet 5 / Claude Science / Redeploying Fable 5), OpenAI News (no new posts since Jun 30 GeneBench-Pro / Core dump epidemiology; GPT-5.6 still limited preview), Google DeepMind / blog.google (no new post since Jun 30 Nano Banana 2 Lite; Gemini 3.5 Pro still in preview), AWS Machine Learning Blog (unchanged; newest is Jun 17 AgentCore expansion), Microsoft AI blog (no new post; Copilot consumer/enterprise merge + AutoPilot agents reported Jul 2; Claude-on-Azure is the concrete move).<br>
+  <em>Practitioners</em> — Simon Willison (NEW: sqlite-utils 4.0rc2 written by Fable ~$149.25 Jul 5, rc3 Jul 6; "judgement" AIE tips Jul 3; world-map-500-bytes, open-source AI gap map, June newsletter), Armin Ronacher / lucumr (NEW: "Better Models: Worse Tools" Jul 4), One Useful Thing / Ethan Mollick (no confirmed new), Pragmatic Engineer / Lenny's / Latent Space / Adam Tornhill / Computer Enhance / Jessica Talisman / Addy Osmani / jxnl (no confirmed new; Substack APIs provenance-blocked from sandbox, checked via search), O'Reilly Radar / Hugging Face / The Batch (no new item surfaced).<br>
+  <em>X / Social</em> — @karpathy (NEW: refreshed coding guidelines Jul 5; AutoResearch + agentic-engineering evergreen), @trq212 (no new standalone thread; featured in Simon's AIE writeup).<br>
+  <em>Community</em> — Hacker News ("no single coding agent dominates" PR research; Claude Code GitHub Action flaw + poisoned-repo attack circulating; Fable/Mythos restoration coverage), Reddit r/MachineLearning &amp; r/LocalLLaMA, LessWrong (no standout new AI headline surfaced).<br><br>
+  Generated by My AI Daily · Items marked <span style="color:var(--accent2)">New</span> or <span style="color:var(--accent)">Significant</span> were not in the Jul 3 brief (the prior brief in this folder). No brief was generated for Jul 4–5 (weekend).
+</footer>
+
+</body>
+</html>

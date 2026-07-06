@@ -160,6 +160,24 @@
 <!-- TOPICS -->
 <!-- ============================================================ -->
 
+<div class="topic" data-cat="engineering">
+  <div class="topic-header">
+    <span class="topic-cat cat-engineering">Engineering</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Progress isn't monotonic — newer models can regress on tools &amp; schemas</div>
+      <div class="topic-summary">A frontier model that beats its predecessor on benchmarks can be <em>worse</em> at honoring a specific tool contract, prompt convention, or output schema. As labs ship models on a fast cadence (Opus 4.8, Sonnet 5, Fable 5), practitioners are finding that each upgrade needs its own tool evals and schema hardening — "newer = strictly better" doesn't hold at the integration boundary. Related to the tokenizer-cost surprises and prompt-fragility threads tracked elsewhere. Watch whether labs start publishing tool-use / schema-adherence regressions in release notes.</div>
+      <div class="topic-meta">First seen: Jul 6, 2026 · Last updated: Jul 6, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jul 4, 2026</div>
+      <div class="entry-title">Armin Ronacher, <a href="https://lucumr.pocoo.org/2026/7/4/better-models-worse-tools/">"Better Models: Worse Tools"</a> — his Pi coding tool's edit function is increasingly called with extra, invented fields in the nested <code>edits[]</code> array (edit content correct, arguments off-schema). The regression appears in <strong>Opus 4.8 and Sonnet 5 but none of the older models</strong>, i.e. the SOTA models are worse at this specific tool schema than their predecessors. Cross-referenced by <a href="https://simonwillison.net/2026/Jul/4/better-models-worse-tools/">Simon Willison</a> the same day</div>
+      <div class="entry-source">lucumr / Simon Willison</div>
+    </div>
+  </div>
+</div>
+
 <div class="topic" data-cat="industry">
   <div class="topic-header">
     <span class="topic-cat cat-industry">Industry</span>
@@ -258,10 +276,15 @@
     <div class="topic-title-block">
       <div class="topic-title"><span class="status-dot status-active"></span>Cross-industry AI safety standards — jailbreak severity &amp; shared governance</div>
       <div class="topic-summary">The Fable 5 episode surfaced a structural gap: there's no consensus way to describe how severe an AI "jailbreak" is, so developers can't triage findings and governments have no agreed trigger for action. On <strong>Jun 30</strong>, Anthropic — together with <strong>Amazon, Microsoft, Google, and other Glasswing partners</strong> — proposed a shared, CVSS-style framework scoring a jailbreak on four axes: <em>capability gain</em> (how far beyond existing tools), <em>breadth</em> (how many offensive tasks it unlocks), <em>ease of weaponization</em> (human effort to turn it into an attack), and <em>discoverability</em> (how easy to obtain). The most severe class triggers immediate mitigations; Anthropic added 24/7 monitoring of submission channels and a HackerOne cyber-jailbreak bounty, and committed to expanded pre-release US-government access and shared safeguard information under the June 2 Executive Order. This reframes model safety from a per-product concern into an industry-governance standard, and is the maturation of the prompt-injection/jailbreak thread tracked elsewhere. Watch for: whether other labs (OpenAI, Mistral, Chinese labs) sign on, and whether the framework gets codified in regulation.</div>
-      <div class="topic-meta">First seen: Jul 1, 2026 · Last updated: Jul 1, 2026</div>
+      <div class="topic-meta">First seen: Jul 1, 2026 · Last updated: Jul 6, 2026</div>
     </div>
   </div>
   <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jul 2, 2026</div>
+      <div class="entry-title"><strong>Anthropic publishes the detailed version.</strong> A dedicated newsroom post, <a href="https://www.anthropic.com/news/fable-safeguards-jailbreak-framework">"More details on Fable 5's cyber safeguards and our jailbreak framework,"</a> spells out the specific cybersecurity safeguards shipped with Fable 5's July 1 return and formalizes the industry-wide jailbreak-severity scoring framework co-developed with Amazon, Microsoft, Google and other Glasswing partners. Moves the framework from a paragraph in the redeployment announcement to a standalone proposal — the step toward it becoming a citable cross-lab standard</div>
+      <div class="entry-source">Anthropic</div>
+    </div>
     <div class="entry">
       <div class="entry-date">Jun 30, 2026</div>
       <div class="entry-title"><a href="https://www.anthropic.com/news/redeploying-fable-5">Redeploying Fable 5</a> introduces the four-criteria jailbreak-severity framework with Amazon/Microsoft/Google, plus a <a href="https://hackerone.com/anthropic-cyber-jailbreak/">HackerOne cyber-jailbreak program</a> and four government-collaboration commitments (pre-release access, rapid info-sharing, joint research, a "common industry bar"). Anthropic invites other model providers to join</div>
@@ -666,10 +689,15 @@
     <div class="topic-title-block">
       <div class="topic-title"><span class="status-dot status-active"></span>AI coding agent costs &amp; ROI</div>
       <div class="topic-summary">Enterprise spending on AI coding tools is exploding faster than anyone budgeted. The question of when and how to cap spend — and whether the productivity gains justify the cost — is now a live management problem at major companies. The conversation is now extending from per-seat tool bills to <em>agent-platform</em> economics: build-vs-buy decisions and the non-linear cost curves of running agent systems at scale.</div>
-      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jul 3, 2026</div>
+      <div class="topic-meta">First seen: Jun 2026 · Last updated: Jul 6, 2026</div>
     </div>
   </div>
   <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jul 5, 2026</div>
+      <div class="entry-title"><strong>The itemized receipt.</strong> Simon Willison's <a href="https://simonwillison.net/2026/Jul/5/sqlite-utils-fable/">sqlite-utils 4.0rc2, mostly written by Claude Fable (for about $149.25)</a> is a rare fully-costed build log — he drove a comfortable 4.0 stable release with Fable on his Max plan and tallies the real token spend. Explicitly timed around a pricing cliff ("we only have Claude Fable on our Max subscriptions for a few more days" before prices rise), so frontier-agent coding becomes something you schedule and budget. Paired tip from his AIE fireside: tell the agent to <a href="https://simonwillison.net/2026/Jul/3/judgement/">"use your judgement to decide an appropriate lower power model and run that in a subagent"</a> — cost hygiene as delegated meta-decision</div>
+      <div class="entry-source">Simon Willison</div>
+    </div>
     <div class="entry">
       <div class="entry-date">Jul 2, 2026</div>
       <div class="entry-title"><a href="https://claude.com/blog/giving-admins-more-visibility-and-control-over-claude-usage-and-spend">Anthropic ships Claude Enterprise analytics + cost controls</a> — usage/cost broken down by group and user (artifacts, files edited, skills, connectors shown next to cost), model-level entitlements, spend alerts, and an Enterprise Analytics API for programmatic per-user cost across chat, Claude Code, Cowork, and Office agents. The "cap the spend" management problem now has a vendor-supplied dashboard and API. Pairs with a self-hosted <a href="https://devops.com/anthropic-adds-enterprise-gateway-to-simplify-claude-code-access-on-aws-and-google-cloud/">Claude apps gateway</a> (SSO, RBAC, per-user cost attribution) for Bedrock/Google Cloud</div>
