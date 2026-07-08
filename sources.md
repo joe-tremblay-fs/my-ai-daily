@@ -55,6 +55,6 @@
 - LessWrong: https://www.lesswrong.com
 
 ## X / Social
-- @trq212: https://x.com/trq212
+- Thariq Shihipar (@trq212): https://x.com/trq212
 - Andrej Karpathy (@karpathy): https://x.com/karpathy
-
+- Ethan Mollick (@emollick): https://x.com/emollick
