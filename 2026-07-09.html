@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — July 9, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; margin-bottom: 10px; line-height: 1.6; }
+    .themes-box li:last-child { margin-bottom: 0; }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>July 9, 2026</h1>
+  <div class="meta">
+    <span>5 companies</span>
+    <span>7 practitioner blogs</span>
+    <span>6 Substacks</span>
+    <span>2 X accounts</span>
+    <span>HN / community</span>
+  </div>
+  <div class="meta" style="margin-top:6px;">
+    <span style="color:var(--muted)">Generated Jul 9, 2026 · 13:15 UTC — Headline: <strong>The single busiest model-launch day of the summer.</strong> <strong>OpenAI is taking GPT-5.6 (Sol / Terra / Luna) fully public today</strong>, ending the 13-day government-coordinated preview after the White House lifted its restriction request — Sam Altman: "GPT-5.6 Sol launches Thursday! Happy building." In the 24 hours around it: <strong>OpenAI launched GPT-Live</strong> (a real voice-mode upgrade that delegates hard tasks to GPT-5.5), <strong>Musk's SpaceXAI shipped Grok 4.5</strong> (V9, 1.5T params, Cursor-trained, "Opus-class," radically token-efficient), and <strong>Cognition released SWE-1.7</strong> (RL-on-RL on a Kimi K2.7 base, 1,000 tok/s via Cerebras in Devin). Simon Willison's only new post is his GPT-Live writeup. Anthropic's Fable 5 stays included through Jul 12; Gemini 3.5 Pro still points at Jul 17.</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>GPT-5.6 goes fully public today (Jul 9).</strong> OpenAI is releasing <strong>Sol, Terra, and Luna across ChatGPT, the API, and Codex</strong>, ending the government-coordinated limited preview that began June 26. <a href="https://www.pymnts.com/news/artificial-intelligence/2026/openai-readies-gpt-5-6-launch-as-white-house-lifts-restriction-request/">Axios reported the White House lifted its restriction request</a>; OpenAI announced the broad launch and global preview expansion in a Jul 8 X post, and Sam Altman posted "GPT-5.6 Sol launches Thursday!" Reported pricing: <strong>Sol $5/$30, Terra $2.50/$15, Luna $1/$6 per Mtok</strong>. Ultra mode (subagents) reportedly hits <strong>91.9% on Terminal-Bench 2.1 vs 88.8% for plain Sol</strong>.</li>
+      <li><strong>OpenAI launched GPT-Live — a genuine voice-mode upgrade.</strong> <a href="https://simonwillison.net/2026/Jul/8/introducing-gptlive/">Simon Willison (early access) calls it "very impressive."</a> It replaces the aging GPT-4o-era voice model and can <strong>delegate harder questions to GPT-5.5 in the background</strong> while keeping the conversation flowing. #5 on Hacker News.</li>
+      <li><strong>Grok 4.5 shipped (Jul 8) from Musk's SpaceXAI.</strong> Built on the new <strong>1.5-trillion-parameter V9 foundation</strong> and <a href="https://roo.beehiiv.com/p/grok-4-5">trained on real Cursor developer-session data</a>. $2/$6 per Mtok, ~80 tok/s, live in Grok Build + Cursor (all plans). The real headline is <strong>token efficiency</strong> — 15,954 output tokens per SWE-Bench Pro task vs 67,020 for Opus 4.8 (4.2×). Musk calls it "Opus-class"; xAI's own chart shows it splitting four benchmarks with Opus, and <strong>Fable 5 leading all four</strong>. #2 on HN.</li>
+      <li><strong>Cognition released SWE-1.7 (Jul 8).</strong> Agentic coding model built via <strong>large-scale RL on top of a Kimi K2.7 Code base</strong>, served at <strong>1,000 tok/s via Cerebras inside Devin</strong>. Terminal-Bench 2.1 81.5% and FrontierCode 1.1 42.3% — just behind GPT-5.5 and Opus 4.8, at a fraction of the cost. Cognition frames the gains as evidence against a "post-training ceiling." #6 on HN.</li>
+      <li><strong>Anthropic: no new model news; Fable 5 included through Jul 12.</strong> Yesterday's extension holds; after Jul 12, continued Fable access meters via usage credits. Cowork on web/mobile (Jul 7) and the M365 write tools / Gov Desktop beta / Foundry GA rollouts from yesterday are unchanged.</li>
+      <li><strong>Google Gemini 3.5 Pro still in preview</strong> — no GA, benchmarks, or final pricing; the architectural-rebuild target remains <strong>July 17</strong>.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- COMPANIES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Companies</h2>
+    <span class="section-tag tag-company">OpenAI · xAI · Anthropic · Google · Microsoft · AWS</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">OpenAI — GPT-5.6 goes public; GPT-Live ships</div>
+
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title">GPT-5.6 (Sol / Terra / Luna) launches publicly today — government preview ends</div>
+        <span class="item-badge badge-sig">Significant</span>
+      </div>
+      <div class="item-date">Jul 9, 2026 — OpenAI / PYMNTS / Axios / CNBC</div>
+      <div class="item-body">
+        OpenAI is taking <strong>GPT-5.6 fully public today across ChatGPT, the API, and Codex</strong>, ending the 13-day, government-coordinated limited preview that began June 26. Per <a href="https://www.pymnts.com/news/artificial-intelligence/2026/openai-readies-gpt-5-6-launch-as-white-house-lifts-restriction-request/">PYMNTS</a>, the broad release follows the White House (via OSTP and the Office of the National Cyber Director) <strong>lifting the restriction request</strong> it had made after flagging Sol's cyber capability; OpenAI announced the plan in a Jul 8 X post and said it is already expanding preview access globally. The three models: <strong>Sol</strong> (flagship; strongest yet at agentic coding, biology, cybersecurity), <strong>Terra</strong> (~GPT-5.5 performance at half the cost), and <strong>Luna</strong> (cheapest/fastest). Reported pricing per Mtok: <strong>Sol $5/$30, Terra $2.50/$15, Luna $1/$6</strong>. Sol adds a <strong>max reasoning effort</strong> and an <strong>ultra mode</strong> that spins up subagents — reportedly lifting Terminal-Bench 2.1 from 88.8% (plain Sol) to <strong>91.9%</strong>. Notably, this is the mirror image of Anthropic's Fable 5 arc: both frontier US models were gated on government cyber concerns, and both are now cleared within roughly a week of each other.
+      </div>
+    </div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">GPT-Live — voice mode finally upgraded, delegates hard tasks to GPT-5.5</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 8, 2026 — OpenAI / simonwillison.net</div>
+      <div class="item-body">
+        OpenAI <a href="https://simonwillison.net/2026/Jul/8/introducing-gptlive/">launched GPT-Live</a>, the first real upgrade to ChatGPT voice mode in a long while — the prior version ran on a GPT-4o-era model with a 2024 knowledge cut-off. The new model can keep a natural conversation going while <strong>delegating questions that need web search, deeper reasoning, or complex work to GPT-5.5 in the background</strong>, then folding the result back in. Simon Willison, who had a few weeks of preview access on iPhone, calls it "very impressive" and says it revived voice mode as a brainstorming partner (he'd mostly abandoned the old one). It was #5 on Hacker News.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">xAI / SpaceXAI — Grok 4.5 ships (V9, Cursor-trained)</div>
+
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title">Grok 4.5 released — "Opus-class," 1.5T-param V9, trained on Cursor session data</div>
+        <span class="item-badge badge-sig">Significant</span>
+      </div>
+      <div class="item-date">Jul 8, 2026 — x.ai / Axios / Roo's Newsletter</div>
+      <div class="item-body">
+        Musk's <strong>SpaceXAI</strong> shipped <a href="https://roo.beehiiv.com/p/grok-4-5">Grok 4.5</a> to the public — its new flagship, built on the <strong>1.5-trillion-parameter V9 foundation</strong> (≈3× the prior V8-small) and, distinctively, supplemented with <strong>real developer-session data from Cursor</strong> (debugging traces, multi-file diffs, user corrections) following SpaceX's $60B agreement to acquire Cursor. Priced at <strong>$2/$6 per Mtok, ~80 tok/s</strong>, live now in Grok Build (default), inside Cursor on all plans, and the SpaceXAI console — <strong>not yet in the EU</strong>. Musk calls it "Opus-class, but faster, more token-efficient and lower cost." The token-efficiency claim is the real story: <strong>15,954 output tokens per SWE-Bench Pro task vs 67,020 for Opus 4.8 — a 4.2× gap</strong>. On raw benchmarks it's more mixed: on xAI's own chart Grok 4.5 beats Opus 4.8 on DeepSWE 1.0 and Terminal-Bench 2.1 but loses on DeepSWE 1.1 and SWE-Bench Pro — and <strong>Claude Fable 5 leads all four</strong>. It also scores #1 on Harvey's Legal Agent Benchmark. All figures are vendor self-reported; no independent verification yet.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Cognition — SWE-1.7 (RL-on-RL coding model)</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">SWE-1.7 — agentic coding model on a Kimi K2.7 base, 1,000 tok/s via Cerebras</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 8, 2026 — cognition.com</div>
+      <div class="item-body">
+        Cognition released <a href="https://cognition.com/blog/swe-1-7">SWE-1.7</a>, its most capable model yet, built for agentic software engineering via <strong>large-scale reinforcement learning on top of an already heavily-RL'd Kimi K2.7 Code base</strong> — available today in <strong>Devin at ~1,000 tokens/sec via Cerebras</strong>. Scores: <strong>Terminal-Bench 2.1 81.5%</strong> (vs GPT-5.5 84.2%, Opus 4.8 86.9%) and <strong>FrontierCode 1.1 42.3%</strong> (vs GPT-5.5 43.0%, Opus 4.8 46.5%) — near-frontier at a fraction of the cost. Cognition's framing is pointed: large gains from stacking their own RL on an already-RL'd open base <strong>challenge the idea of a "post-training ceiling."</strong> Like Grok 4.5 and Terra, the pitch is cost-performance, not benchmark leadership. Note the open-weights lineage — a Kimi (Moonshot) base underneath a US commercial coding model.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Anthropic — no new model news; Fable 5 included through Jul 12</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        No new Anthropic post today. Yesterday's <strong>Fable 5 extension holds — included access for Pro/Max/Team/select Enterprise through July 12</strong>, after which continued Fable use meters via usage credits (~$10 input / $50 output per Mtok). Unchanged from yesterday: <strong>Claude Cowork on web and mobile</strong> for Max (usage data showing business-ops 33.4% / content 16.4% / software-dev 8.7%), <strong>Microsoft 365 write tools</strong>, the <strong>Claude for Government Desktop</strong> public beta (FedRAMP High), and <strong>Claude in Microsoft Foundry GA</strong>. Backdrop for today: with GPT-5.6 and Grok 4.5 both leaning on cost/efficiency, Fable 5 still tops the head-to-head benchmark charts — including xAI's own.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Google — Gemini 3.5 Pro still in preview (Jul 17 target)</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>Gemini 3.5 Pro remains in limited preview</strong> with no confirmed GA date, published benchmarks, or final pricing; the ground-up <a href="https://finance.biggo.com/news/6f0c6bb2-795f-4c57-9d09-6db691d7638a">architectural-rebuild launch target stays July 17</a>. Conspicuously, on the busiest model-launch day of the summer Google is the one major lab without a shipping frontier model — 3.5 Flash remains its newest broadly available release. No change from yesterday.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Microsoft / AWS — no new AI post</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>Microsoft AI blog</strong> — no new standalone post; the consumer/enterprise Copilot merge and planned always-on "AutoPilot" agents remain the ongoing thread, and Claude-in-Foundry GA continues Anthropic's expansion across Microsoft's stack. Separately, <strong>TypeScript 7</strong> (the native Go-based compiler) was #3 on HN today — relevant to the coding-tools ecosystem but not a frontier-model item. <strong>AWS Machine Learning Blog</strong> — unchanged; newest frontier-relevant item is still the June NY Summit AgentCore wave.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; newsletters</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison — GPT-Live writeup</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">"Introducing GPT-Live" — hands-on with the upgraded ChatGPT voice mode</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 8, 2026 — simonwillison.net</div>
+      <div class="item-body">
+        Simon's only new post since sqlite-utils 4.0 is a link-blog writeup of <a href="https://simonwillison.net/2026/Jul/8/introducing-gptlive/">GPT-Live</a> (see OpenAI above). He had weeks of iPhone preview access and rates it "very impressive," noting the background delegation to GPT-5.5 and a fixed early bug where the model kept interrupting to laugh at non-jokes. His longest session was an hour walking the dog. His recent-articles list otherwise still shows <a href="https://simonwillison.net/2026/Jul/7/sqlite-utils-4/">sqlite-utils 4.0</a> (Jul 7) and <a href="https://simonwillison.net/2026/Jun/30/shot-scraper-video/">shot-scraper video</a> (Jun 30) — no new tooling release today.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Other blogs &amp; Substacks — no new July posts</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        No new posts surfaced across the rest of the tracked list. <strong>Ethan Mollick / One Useful Thing</strong> — latest remains <a href="https://www.oneusefulthing.org/p/what-it-feels-like-to-work-with-mythos">"What it feels like to work with Mythos"</a> (late June) and <a href="https://www.oneusefulthing.org/p/the-twilight-of-the-chatbots">"The twilight of the chatbots"</a> (Jun 30); no new July post. <strong>The Pragmatic Engineer</strong>, <strong>Lenny's Newsletter</strong>, <strong>Adam Tornhill</strong>, <strong>Computer, Enhance! (Casey Muratori)</strong>, <strong>jxnl (Jason Liu)</strong>, <strong>Addy Osmani / Elevate</strong>, <strong>Jessica Talisman</strong>, <strong>Latent Space / swyx</strong>, <strong>Chip Huyen</strong>, <strong>Hamel Husain</strong>, <strong>Eugene Yan</strong>, <strong>Armin Ronacher / lucumr</strong>, <strong>LangChain</strong> — all no new AI post. <strong>O'Reilly Radar</strong>, <strong>Hugging Face</strong>, <strong>The Batch</strong> — no new item surfaced.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Practitioner accounts</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>@sama (Sam Altman)</strong> — drove today's news with the Jul 8 "GPT-5.6 Sol launches Thursday! Happy building." post announcing the public launch.<br><br>
+      <strong>@karpathy</strong> — no confirmed new standalone thread. Backdrop unchanged: since joining Anthropic's pre-training team (May 2026) he keeps pressing "get the underlying model right before rushing into agents," alongside his <strong>LLM Council</strong> / <strong>LLM Wiki</strong> / <strong>autoresearch</strong> patterns and his "coding agents basically work since December [2025]" framing.<br><br>
+      <strong>@trq212 (Thariq Shihipar)</strong> — no confirmed new standalone thread; Claude Code / Cowork best-practices posts continue to circulate.
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community / Hacker News</h2>
+    <span class="section-tag tag-community">Front page</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">HN front page reads like a model-launch scoreboard: Grok 4.5 (#2), GPT-Live (#5), SWE-1.7 (#6), TypeScript 7 (#3)</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jul 9, 2026 — news.ycombinator.com</div>
+    <div class="item-body">
+      Four of today's top six HN stories are model/tooling launches — <strong>Grok 4.5</strong> (x.ai, #2), <strong>TypeScript 7</strong> (#3), <strong>GPT-Live</strong> (openai.com, #5), and <strong>"SWE-1.7 reach near GPT-5.5 and Opus intelligence"</strong> (cognition.com, #6) — with the #1 slot going to a non-AI story (PlayStation deleting inactive digital libraries in the EU). The recurring comment themes: skepticism of vendor-self-reported benchmarks on launch day, growing attention to <strong>output-token efficiency and cost-per-task</strong> over raw scores (driven by Grok 4.5's 4.2× claim), and interest in the <strong>open-weights lineage</strong> underneath commercial models (SWE-1.7 on a Kimi K2.7 base). GPT-5.6's own preview thread continues to draw discussion of the government-review-then-release pattern.
+    </div>
+  </div>
+</div>
+
+<!-- THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>Cross-cutting observations</h3>
+    <ul>
+      <li><strong>The frontier-model logjam broke all at once.</strong> Within ~24 hours: GPT-5.6 cleared for public launch (White House lifted its cyber-restriction request), Grok 4.5 shipped, SWE-1.7 shipped, and GPT-Live shipped. Two of these (Fable 5, GPT-5.6) were gated on government cyber concerns and were cleared within a week of each other — the safety-eval machinery that made "in preview" the default state for the strongest models is now releasing that backlog in a burst.</li>
+      <li><strong>The competitive axis has shifted from raw scores to tokens-per-task.</strong> Grok 4.5's marquee number isn't a benchmark win — it's using 15,954 output tokens where Opus 4.8 uses 67,020 (4.2×). Terra is "GPT-5.5 at half the cost." SWE-1.7 is "near-frontier at a fraction of the cost." With Fable 5 still topping the accuracy charts (per xAI's own chart), challengers are competing on cost-efficiency, not ceiling.</li>
+      <li><strong>Coding models are being trained on real developer behavior and open bases.</strong> Grok 4.5 folded in actual Cursor session data (diffs, corrections, debugging traces); SWE-1.7 stacked RL on a Kimi K2.7 Code base and argues this breaks the "post-training ceiling." The training signal is moving from static code corpora toward live agentic sessions — and increasingly starts from open weights.</li>
+      <li><strong>Google is the conspicuous absence.</strong> On the busiest launch day of the summer, every major lab except Google shipped or cleared a frontier model. Gemini 3.5 Pro is still previewing toward July 17 with no public benchmarks — leaving Google a spectator on a day defined by everyone else's releases.</li>
+      <li><strong>Voice quietly rejoined the frontier.</strong> GPT-Live is the first substantive voice upgrade in a long time, and its architecture (a fast conversational model that delegates hard work to a frontier model in the background) mirrors the subagent/LLM-Council patterns showing up everywhere else — orchestration, not a single monolithic model, is becoming the default shape.</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <strong>Sources checked (Jul 9, 2026):</strong><br>
+  <em>Companies</em> — OpenAI (NEW: GPT-5.6 Sol/Terra/Luna public launch today across ChatGPT/API/Codex, ending the Jun 26 government preview after White House lifted restriction request; pricing Sol $5/$30, Terra $2.50/$15, Luna $1/$6; ultra mode 91.9% Terminal-Bench 2.1; NEW: GPT-Live voice-mode upgrade delegating to GPT-5.5), xAI/SpaceXAI (NEW: Grok 4.5 — V9 1.5T params, Cursor-trained, $2/$6, ~80 tok/s, "Opus-class," 4.2× token efficiency vs Opus 4.8, #1 Harvey Legal Agent Benchmark, Fable 5 leads all four xAI-published benchmarks, not in EU), Cognition (NEW: SWE-1.7 — RL on Kimi K2.7 Code base, 1,000 tok/s via Cerebras in Devin, Terminal-Bench 2.1 81.5%, FrontierCode 1.1 42.3%), Anthropic (no new post; Fable 5 included through Jul 12 then usage credits; Cowork web/mobile, M365 write tools, Gov Desktop beta, Foundry GA all unchanged), Google DeepMind / blog.google (Gemini 3.5 Pro still in preview; Jul 17 rebuild target; 3.5 Flash newest broadly available), Microsoft AI blog (no new post; Copilot merge ongoing; TypeScript 7 shipped — #3 HN), AWS Machine Learning Blog (unchanged; June NY Summit AgentCore wave newest).<br>
+  <em>Practitioners</em> — Simon Willison (NEW: "Introducing GPT-Live" Jul 8 hands-on; sqlite-utils 4.0 and shot-scraper video unchanged from prior briefs), Ethan Mollick / One Useful Thing (no new July post; latest "What it feels like to work with Mythos" / "The twilight of the chatbots" Jun 30), Pragmatic Engineer / Lenny's / Latent Space / Adam Tornhill / Computer Enhance / Jessica Talisman / Addy Osmani / jxnl / Chip Huyen / Hamel Husain / Eugene Yan / Armin Ronacher / LangChain (no new July post), O'Reilly Radar / Hugging Face / The Batch (no new item surfaced).<br>
+  <em>X / Social</em> — @sama (drove the GPT-5.6 launch announcement), @karpathy (no new standalone thread; "models before agents" / LLM Council / LLM Wiki evergreen), @trq212 (no new standalone thread; Cowork best-practices circulating).<br>
+  <em>Community</em> — Hacker News (NEW: launch-day scoreboard — Grok 4.5 #2, TypeScript 7 #3, GPT-Live #5, SWE-1.7 #6; #1 was a non-AI PlayStation story; themes: vendor-benchmark skepticism, cost-per-task focus, open-weights lineage), Reddit r/MachineLearning &amp; r/LocalLLaMA (no standout distinct release surfaced beyond today's launches), LessWrong (no standout new AI headline surfaced).<br><br>
+  Generated by My AI Daily · Items marked <span style="color:var(--accent2)">New</span> or <span style="color:var(--accent)">Significant</span> were not in the Jul 8 brief (the prior brief in this folder).
+</footer>
+
+</body>
+</html>
