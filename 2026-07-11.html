@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — July 11, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; margin-bottom: 10px; line-height: 1.6; }
+    .themes-box li:last-child { margin-bottom: 0; }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>July 11, 2026</h1>
+  <div class="meta">
+    <span>9 companies</span>
+    <span>5 research/aggregators</span>
+    <span>12 practitioner blogs</span>
+    <span>10 Substacks</span>
+    <span>5 X accounts</span>
+    <span>HN / community</span>
+  </div>
+  <div class="meta" style="margin-top:6px;">
+    <span style="color:var(--muted)">Generated Jul 11, 2026 · 15:29 UTC — Headline: <strong>A quiet Saturday after a loud week — the news moves from model launches to the workforce and governance layer.</strong> With no new frontier model shipping today, the fresh signal is elsewhere: <strong>Simon Willison posted his answers on porting open-source code with LLMs</strong> (Jul 11); a planned <strong>"AI Protest" is set to march on OpenAI, Anthropic, and Google in San Francisco Jul 11–12</strong>; the U.S. Federal Reserve <strong>named a16z's Marc Andreessen to co-lead a task force on AI's impact on jobs and productivity</strong>; and <strong>DeepSeek's V4 "official" release is imminent (mid-July)</strong> with a 1M-token context and new peak/off-peak API pricing. Underneath, last week's launches keep settling: Grok 4.5 (#4 on the Intelligence Index at 54, ~$2/$6 per Mtok), GPT-5.6 (Sol/Terra/Luna), and Claude Sonnet 5 now the default in Claude Code and Devin. Google's Gemini 3.5 Pro is still in preview with a Jul 17 target.</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>Meta Superintelligence Labs ships Muse Spark 1.1 + Muse Image (Jul 9–10).</strong> <a href="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/">Muse Spark 1.1</a> is an agentic multimodal reasoning model — 1M-token context, computer-use, multi-agent orchestration — in public preview via a new <strong>Meta Model API at ~$1.25 / $4.25 per Mtok</strong> (about a quarter of frontier pricing), with a "Thinking" mode in the Meta AI app. Zuckerberg claims leads over Opus 4.8 and GPT-5.5 on several agent/tool-use benchmarks (vendor framing — no independent numbers yet). <a href="https://about.fb.com/news/2026/07/introducing-muse-image-meta-ai/">Muse Image</a>, MSL's first image model, shipped alongside it and was cross-flagged by Stratechery and The Rundown.</li>
+      <li><strong>Simon Willison posts his answers on porting open-source code with LLMs (Jul 11).</strong> <a href="https://simonwillison.net/2026/Jul/11/">"My answers to the questions I posed about porting open source code with LLMs"</a> follows his running thread on using coding agents for large migrations; earlier in the week he covered <a href="https://simonwillison.net/2026/Jul/9/">Fly's new Sprites.dev</a> (developer + API sandboxes) on Jul 9.</li>
+      <li><strong>An "AI Protest" plans to march on the big three labs in San Francisco, Jul 11–12.</strong> Per <a href="https://www.lesswrong.com/">LessWrong</a>, roughly 200 participants from ~13 groups intend to march on OpenAI, Anthropic, and Google, asking CEOs to commit to halting development of more powerful models if rival labs do the same — a rare physical-world expression of the pause debate landing the same weekend as the launch afterglow.</li>
+      <li><strong>The Fed names Marc Andreessen to co-lead an AI-and-jobs task force (Jul 11).</strong> The a16z co-founder will co-lead a new Federal Reserve task force on AI's impact on jobs, productivity, and monetary policy — governance/institutional adoption moving up the agenda as the model race continues.</li>
+      <li><strong>DeepSeek V4 "official" release is imminent — mid-July.</strong> The <a href="https://api-docs.deepseek.com/news/news260424/">preview</a> that launched in April graduates to official status this month: <strong>DeepSeek-V4-Pro</strong> (1.6T MoE, ~49B active) and <strong>DeepSeek-V4-Flash</strong> (284B / ~13B active), both with a <strong>1M-token context</strong> and thinking/non-thinking modes. DeepSeek also introduces <strong>peak vs off-peak API pricing</strong> (2x during peak hours) and retires legacy deepseek-chat/deepseek-reasoner on <strong>Jul 24</strong>.</li>
+      <li><strong>The Batch ships a Jul 10 edition on agentic coding loops.</strong> <a href="https://www.deeplearning.ai/the-batch">DeepLearning.AI's The Batch</a> centers the "keep working until a condition is satisfied" loop pattern — an agent iterating against a spec until it passes — echoing the week's harness-engineering thread (Lilian Weng, Addy Osmani).</li>
+      <li><strong>Claude Sonnet 5 is now the default coding model across ecosystems.</strong> Sonnet 5 (1M-token context, promo <strong>$2/$10 per Mtok through Aug 31</strong>) is the default in Claude Code and is now live in <strong>Devin Desktop and Devin CLI</strong> (~30% less quota than Sonnet 4.6). Cognition also shipped <strong>SWE-1.7</strong> (1000 tok/s via Cerebras, Jul 8) and <strong>Devin Fusion</strong> (a cheap "sidekick" model beside a frontier model, ~35% cost cut).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- COMPANIES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Companies</h2>
+    <span class="section-tag tag-company">Anthropic · OpenAI · Google · xAI · Microsoft · AWS</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Anthropic — Sonnet 5 as default; Reflect; Fable 5 metering; J-space</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Claude Sonnet 5 is the default in Claude Code — 1M context, $2/$10 promo through Aug 31</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 1–11, 2026 — anthropic.com / engineering</div>
+      <div class="item-body">
+        After a week dominated by Fable 5, the durable workhorse story is <strong>Claude Sonnet 5</strong>: now the default model in Claude Code, with a native <strong>1M-token context window</strong> and promotional pricing of <strong>$2 input / $10 output per Mtok through Aug 31</strong>. Anthropic's engineering updates this window are mostly plumbing: Claude Code gained <strong>auto mode by default on Bedrock, Vertex AI, and Foundry</strong>, updated Bedrock to <strong>Opus 4.8</strong>, added <strong>API-key expiration</strong> in the Console, and shipped a <a href="https://www.anthropic.com/engineering">Claude Code "Loops" official guide</a> (loop taxonomy + verification skills). No single dated flagship engineering essay surfaced for Jul 10–11.
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        Still fresh from earlier in the week: <strong>"Reflect"</strong> usage-insights dashboard (Jul 9); <strong>Cowork on web + mobile</strong> with background/remote sessions (Jul 7); the <a href="https://www.anthropic.com/research/global-workspace">"global workspace / J-space" interpretability paper</a> + Jacobian-lens tool (Jul 6). <strong>Fable 5</strong> came off flat-rate subscription bundles after Jul 7 and now meters via usage credits (~$10 input / $50 output per Mtok); <a href="https://www.anthropic.com/news/redeploying-fable-5">redeployed Jul 1</a> after the 19-day export-control suspension, with a new cybersecurity classifier that reroutes flagged requests to Opus 4.8. Anthropic's Thariq Shihipar has said Fable will return to subscriptions "as capacity allows."
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">OpenAI — GPT-5.6 GA settles; ChatGPT Work</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>No new flagship OpenAI post Jul 10–11.</strong> <a href="https://openai.com/index/gpt-5-6/">GPT-5.6</a> (<strong>Sol / Terra / Luna</strong>) reached broad GA Jul 9 across ChatGPT, the API, Codex, and ChatGPT Work after a government cybersecurity safety review cleared. Pricing: <strong>Sol $5/$30, Terra $2.50/$15, Luna $1/$6 per Mtok</strong>. Sol adds a new "max reasoning effort" and an "ultra" mode that leverages subagents; Altman claims it is <strong>54% more token-efficient</strong> on coding tasks and it runs on <a href="https://openai.com/index/previewing-gpt-5-6-sol/">Cerebras at up to 750 tok/s</a>. The <strong>ChatGPT Work</strong> agent (takes a goal, gathers across connected apps/files, and produces finished sheets/slides/docs) is the operational story practitioners are chewing on this weekend.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Google — Gemini 3.5 Flash gains computer use; 3.5 Pro still in preview (Jul 17 target)</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Computer use becomes a built-in tool in Gemini 3.5 Flash</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Early Jul 2026 — blog.google</div>
+      <div class="item-body">
+        Google made <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/">computer use a built-in tool in Gemini 3.5 Flash</a> (previously a standalone 2.5 model), letting developers build agents that see, reason, and act across browser, mobile, and desktop — with <strong>no premium surcharge</strong>. Google pairs it with two optional enterprise safeguards (explicit user confirmation for sensitive actions; automatic stop on detected prompt injection) and adversarial training against injection, access gated to the Gemini Enterprise Agent Platform. Meanwhile <strong>Gemini 3.5 Pro remains in limited enterprise preview</strong> — no GA, published benchmarks, or final pricing — with the ground-up rebuild still targeting <strong>Jul 17</strong> (reported, unconfirmed: 2M context, a "Deep Think" layer). Google remains the one major lab without a shipping frontier model this cycle.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">xAI / SpaceXAI — Grok 4.5 settles; Grok Build CLI updates</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <a href="https://x.ai/news/grok-4-5">Grok 4.5</a> (launched Jul 8, public Jul 9) is settling into its independent standing: <strong>#4 on the Artificial Analysis Intelligence Index at 54</strong>, above every Gemini and open-weight model, at <strong>$2/$6 per Mtok</strong> — built on the 1.5T-param V9 foundation and trained on Cursor session data. New dev-tooling this window: <strong>Grok Build</strong> added a <code>/goal</code> slash command, a refreshed <code>/sessions</code> flow, better skill/plugin handling, and faster startup on large repos. EU availability is still pending (targeted mid-July); Musk signals a further step-change release "next month" once the GB300-native inference stack ships. Grok 4.5 is not yet in the EU.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Microsoft / Azure — Foundry IQ; Hosted Agents GA; Claude in Copilot Chat</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>No new distinctly-dated Jul 10–11 flagship.</strong> Recent threads hold: <strong>Microsoft 365 Business with Copilot SKUs went GA Jul 1</strong>; AI content <strong>watermarking</strong> (video/audio) is rolling out; <strong>Claude is selectable in M365 Copilot Chat</strong>. On <strong>Azure/Foundry</strong>: <strong>Hosted Agents &amp; Toolboxes</strong> reached GA (SDK 2.3.0), <strong>Microsoft Foundry IQ</strong> (unified enterprise/external knowledge layer) and <strong>Microsoft Discovery</strong> (agentic scientific workflows) are GA, and <strong>Claude Opus 4.8 is available in Microsoft Foundry</strong>. Prior context: "Responsibly building the AI future" + 2026 Sustainability Report (Jul 9), $2.5B "Microsoft Frontier" investment (Jul 2), ~4,800 layoffs (Jul 6).
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">AWS — AgentCore continuous learning; Fable 5 on Bedrock</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Bedrock AgentCore: broader knowledge + continuous learning; Recommendations &amp; A/B testing GA</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 2026 — aws.amazon.com/blogs/machine-learning</div>
+      <div class="item-body">
+        AWS's ML blog highlights <a href="https://aws.amazon.com/blogs/machine-learning/new-in-amazon-bedrock-agentcore-build-agents-with-broader-knowledge-and-continuous-learning/">new AgentCore capabilities</a>: agents with broader knowledge and continuous learning, plus <strong>Recommendations &amp; A/B testing</strong> now GA (analyze traces/eval outputs to suggest prompt and tool-description improvements, then batch-test them against a dataset to catch regressions). A revamped console lets you browse/compare models side by side and organize work into projects. This extends the AWS Summit NYC wave — <strong>Claude Fable 5 on Amazon Bedrock</strong>, Fully Managed Knowledge Bases, and Web Search on AgentCore.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH & AGGREGATORS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Research &amp; Aggregators</h2>
+    <span class="section-tag tag-practitioner">HF · The Batch · arXiv · Rundown · AI Daily Brief</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">The Batch (Jul 10): agentic coding loops — keep going until the spec passes</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jul 10, 2026 — deeplearning.ai/the-batch</div>
+    <div class="item-body">
+      <a href="https://www.deeplearning.ai/the-batch">The Batch's</a> Jul 10 edition foregrounds the agentic-coding <strong>loop</strong>: have the agent keep working until a condition is satisfied (e.g., a product spec passes). It dovetails with the week's harness-engineering conversation and with Anthropic's own "Loops" guide for Claude Code. (The prior issue, Jul 3, covered how prompting practices shifted since 2022 and the rise of the "AI Forward Deployed Engineer.")
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>Hugging Face</strong> — freshest posts remain <a href="https://huggingface.co/blog/lerobot-release-v060">LeRobot v0.6.0</a> (Jul 7; imagine/evaluate/improve loop + NVIDIA Isaac GR00T 1.7) and the <a href="https://huggingface.co/blog/revamped-kernels">Kernels revamp</a> (Jul 6); no new Jul 10–11 post surfaced. <strong>arXiv cs.AI</strong> — recent listings lean toward agentic benchmarks and multi-agent coordination (e.g. <em>DyTopo: Dynamic Topology Routing for Multi-Agent Reasoning</em>; "What LLM Agents Say When No One Is Watching"), with a recurring finding that frontier models saturate narrow perception tests but still fail long-horizon, stateful safety reasoning; exact Jul 10–11 submission dates not individually confirmed. <strong>The Rundown AI</strong> — no specific dated Jul 10–11 issue surfaced (search returned only home/archive shells). <strong>The AI Daily Brief (NLW)</strong> — latest datable episodes are Jul 8: <em>"AI Costs Are Surging and the Cheap Model Fix Might Not Last"</em> and a walkthrough of the week's four launches (GPT-Live, Grok 4.5, SWE-1.7, GPT-5.6 Sol).
+    </div>
+  </div>
+</div>
+
+<!-- OPEN WEIGHTS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Open Weights / Emerging Labs</h2>
+    <span class="section-tag tag-company">DeepSeek · GLM · Qwen · Llama · Cognition</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title">Meta Muse Spark 1.1 — agentic multimodal model + a public Meta Model API</div>
+      <span class="item-badge badge-sig">Significant</span>
+    </div>
+    <div class="item-date">Jul 9–10, 2026 — ai.meta.com / about.fb.com</div>
+    <div class="item-body">
+      Meta Superintelligence Labs (MSL) introduced <a href="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/">Muse Spark 1.1</a>, a multimodal agentic reasoning model with a <strong>1M-token context</strong>, computer-use, and multi-agent orchestration, in public preview through a new <strong>Meta Model API</strong> priced at <strong>~$1.25 / $4.25 per Mtok input/output</strong> (roughly a quarter of rival flagships), with $20 starter credits and a "Thinking" mode in the Meta AI app. Zuckerberg claims Muse Spark leads Opus 4.8 and GPT-5.5 on several agent and tool-use benchmarks — <strong>vendor self-report; no independent evals yet</strong>. Alongside it, MSL shipped <a href="https://about.fb.com/news/2026/07/introducing-muse-image-meta-ai/">Muse Image</a>, its first image-generation model (notably able to generate from public Instagram photos via username tagging — a privacy flashpoint); a heavier "Watermelon" successor is reportedly still training. Muse Image was independently flagged by Stratechery (Jul 9) and The Rundown, raising confidence in the launch.
+    </div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title">DeepSeek V4 official release is imminent (mid-July): Pro + Flash, 1M context, peak/off-peak pricing</div>
+      <span class="item-badge badge-sig">Significant</span>
+    </div>
+    <div class="item-date">mid-July 2026 — api-docs.deepseek.com</div>
+    <div class="item-body">
+      DeepSeek is graduating its April <a href="https://api-docs.deepseek.com/news/news260424/">V4 preview</a> to official status this month. The lineup: <strong>DeepSeek-V4-Pro</strong> (1.6T-class MoE, ~49B active) and the economical <strong>DeepSeek-V4-Flash</strong> (284B / ~13B active), both with a <strong>1M-token context</strong> and thinking/non-thinking modes, and stronger agentic, math, and code performance. Two operational shifts land with it: <strong>peak vs off-peak API pricing</strong> for the first time (peak hours ~9a–12p and 2p–6p charged at 2x), and the <strong>retirement of legacy deepseek-chat and deepseek-reasoner on Jul 24</strong>. Another data point for the open-weights floor that the commercial cost race keeps responding to.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>Zhipu / GLM-5.2</strong> — no new model, but momentum: <a href="https://www.scmp.com/tech/tech-trends/article/3359170/zhipu-ai-releases-harness-glm-52-model-chinese-firm-takes-aim-anthropic">ZCode</a> (a coding-agent harness for GLM-5.2, Jul 2) with token-quota promos, and the stock <strong>jumped up to 22% Jul 9</strong> after a share offering. GLM-5.2 (MIT license, 1M context) lands within ~1 point of Opus 4.8 on a key agentic benchmark at ~a fifth of the cost; founder Tang Jie signals another release before year-end aiming at Mythos-class. <strong>Alibaba Qwen</strong> — no new model since <strong>Qwen 3.7</strong> (Max/Plus, May); Qwen3.7-Max sits ~5th on the Intelligence Index (56.6) with the lowest frontier hallucination rate (~22.9%) and native Anthropic-API compatibility. <strong>Meta / MSL</strong> — see Muse Spark 1.1 + Muse Image above (Jul 9–10); the classic Llama line is superseded by the Superintelligence Labs "Muse" branding, with a heavier "Watermelon" model still training. <strong>Cognition / Devin</strong> — <strong>SWE-1.7</strong> (1000 tok/s on Cerebras, Jul 8), <strong>Devin Fusion</strong> (cheap sidekick + frontier model, ~35% cost cut), and <strong>Claude Sonnet 5 now live in Devin Desktop &amp; CLI</strong> (~30% less quota than Sonnet 4.6).
+    </div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; newsletters</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison — porting open-source code with LLMs (Jul 11)</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">"My answers to the questions I posed about porting open source code with LLMs"</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 11, 2026 — simonwillison.net</div>
+      <div class="item-body">
+        Simon closes the loop on his running thread about using coding agents for large open-source ports/migrations, posting <a href="https://simonwillison.net/2026/Jul/11/">his own answers to the questions he'd earlier posed</a>. Earlier in the week: <a href="https://simonwillison.net/2026/Jul/9/">Fly's new Sprites.dev</a> (addressing developer sandboxes and API sandboxes at once, Jul 9); and the Jul 8 cluster — "Rewriting Bun in Rust," a GPT-5.6 family writeup, and Tencent's Apache-2.0 Hy3 (295B MoE). Most important practitioner source; multiple posts this week.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly Radar — "This Week in AI: Chips, Checks, and Changing Jobs" (Jul 10)</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Hardware buildout, government oversight, and a workforce reorganizing faster than job titles</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 10, 2026 — oreilly.com/radar</div>
+      <div class="item-body">
+        Michelle Smith's <a href="https://www.oreilly.com/radar/this-week-in-ai-chips-checks-and-changing-jobs/">"This Week in AI: Chips, Checks, and Changing Jobs"</a> (Jul 10) threads three currents: physical hardware racing to keep up with AI demand, widening government oversight of frontier labs, and a workforce reorganizing faster than titles can describe. Also Jul 10: Nick Davitashvili's <a href="https://www.oreilly.com/radar/">"Why NetworkPolicy isn't enough for AI agents"</a> (agent security). Charity Majors' "Enthusiasts race against time, skeptics race against entropy" ran Jul 9.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Swyx / Latent Space / LangChain / Addy Osmani (blog)</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>Swyx / swyx.io</strong> — new post <a href="https://swyx.io/">"David Ondrej AI"</a> (Jul 9); the Jul 5 "What America has meant to me" is a personal essay. <strong>Latent Space</strong> — recent episodes in the "Agent Cloud" series feature Databricks (Matei Zaharia &amp; Reynold Xin on Omnigent/Lakebase/agent security) and Modal's Akshat Bubna (why AI workloads break traditional cloud assumptions, "agent experience"). <strong>LangChain</strong> — actively posting (entries Jul 10/8/7/2/1); the flagship remains <a href="https://blogs.nvidia.com/blog/nemotron-langchain-agents-open-stack/">NVIDIA Nemotron + Deep Agents</a> (Jul 8, benchmark-leading open agents at ~10x lower inference cost) and <a href="https://www.langchain.com/blog/how-to-use-rlms-in-deep-agents">RLMs in Deep Agents</a> (Jul 1). <strong>Addy Osmani (addyosmani.com)</strong> — blog entries dated Jul 6 and Jul 2; his AI-engineering writing this week is on the Elevate Substack (below).
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Quiet this window — individually checked</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        Each searched individually; none showed a new post in the Jul 5–11 window: <strong>Lilian Weng</strong> (no new since <a href="https://lilianweng.github.io/posts/2026-07-04-harness/">"Harness Engineering for Self-Improvement," Jul 4</a>), <strong>Chip Huyen</strong> (no Jul 2026 post), <strong>Hamel Husain</strong> (nothing since ~Jun 29), <strong>Eugene Yan</strong> (nothing since Jun 21), <strong>Jason Liu / jxnl.co</strong> (latest "Three Ways Codex Can Use a Computer," Jun 16), <strong>Anthropic Engineering</strong> (Claude Code "Loops" guide + release notes; no dated flagship essay Jul 10–11).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUBSTACKS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Substacks</h2>
+    <span class="section-tag tag-practitioner">Newsletters</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">Zvi Mowshowitz — "AI #176 Part 1: Doing It Live" (Jul 9)</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jul 9, 2026 — thezvi.substack.com</div>
+    <div class="item-body">
+      Zvi's dense weekly roundup split into two parts this week; <a href="https://thezvi.substack.com/p/ai-176-part-1-doing-it-live">Part 1 "Doing It Live"</a> (Jul 9) covers model releases, OpenAI's upgraded voice mode as an early "step change," and a riff on how Claude-style AI writing is becoming harder not to notice (and harder to read) in the wild — with a Part 2 promised covering GPT-5.6 (Sol). First appearance of Interconnects/Zvi/Import AI in this brief since they were added to the source list.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      Individually checked, no new post in the Jul 8–11 window: <strong>Ethan Mollick / One Useful Thing</strong> (latest is the <a href="https://www.oneusefulthing.org/">Jul 7</a> "treat LLMs as literal executors that need management" piece), <strong>The Pragmatic Engineer</strong> (<a href="https://newsletter.pragmaticengineer.com/p/the-pragmatic-engineer-ama">AMA Jul 8</a>; "Tech jobs market part 3" Jul 7), <strong>Lenny's Newsletter</strong> (<a href="https://www.lennysnewsletter.com/archive">"a workforce splitting in two," Jul 7</a>), <strong>Addy Osmani / Elevate</strong> (<a href="https://addyo.substack.com/p/own-the-outer-loop">"Own the Outer Loop," Jul 9</a>; "Agentic Autonomy Levels," Jul 3), <strong>Interconnects / Nathan Lambert</strong> (latest is "State of the blog, mid-2026," Jun 17; no July post), <strong>Import AI / Jack Clark</strong> (latest indexed issue #455, May 4; no July issue surfaced), <strong>Adam Tornhill</strong> (nothing since "Compressed Cognition," ~May 7), <strong>Jessica Talisman</strong> (only the Jun 30 "Ontology Pipeline" book announcement), <strong>Computer, Enhance! / Casey Muratori</strong> ("Summer News" pre-announcement of a mid-July talk + an end-of-July article; no new technical post), <strong>Stratechery / Ben Thompson</strong> (back from summer break Jul 6; Jul 9 Updates were Sharp China / geopolitics, not AI; no AI Weekly Article, Interviews on break through early August).
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Practitioner accounts</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>@emollick (Ethan Mollick)</strong> — most recent datable posts are Jul 9 (a manager's belief in AI's value largely determines the value realized, citing startup research + an "AI-pilled startup" graph) and Jul 8 (had Fable build "a full procedural fantasy kingdom generator with economics, trade routes, wars, and occasional dragons" after planning first); no confirmed new Jul 10–11 thread. <strong>@addyosmani</strong> — Jul 8 "own the outer loop / accountability" article (~891K views); now Director at Google Cloud AI on Gemini Agents; no confirmed new Jul 10–11 post. <strong>@trq212 (Thariq Shihipar)</strong> — "A Field Guide to Fable" talk on YouTube (Jul 3) + Fable-subscription notes; no new Jul 10–11 standalone. <strong>@karpathy</strong> — no confirmed new Jul 9–11 thread; evergreen backdrop (joined Anthropic's frontier LLM team; "Karpathy Loop" autoresearch; Sequoia Ascent agentic-engineering talk). <strong>@xai / @grok</strong> — continued Grok 4.5 promotion; Grok Build CLI/agent updates; the "xAI → SpaceXAI" rebrand continues to circulate.
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community / Hacker News</h2>
+    <span class="section-tag tag-community">Front page + forums</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">LessWrong: an "AI Protest" plans to march on OpenAI, Anthropic &amp; Google (Jul 11–12)</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jul 11, 2026 — lesswrong.com</div>
+    <div class="item-body">
+      <a href="https://www.lesswrong.com/">LessWrong</a> flags a planned <strong>"AI Protest" for Jul 11–12</strong> in San Francisco: ~200 participants from ~13 groups intending to march on the three frontier labs and ask their CEOs to commit to <strong>halting development of more powerful models if rivals do the same</strong> — a conditional-pause ask. Also circulating: a post on reasoning models discarding prior chain-of-thought once a new user turn arrives (a transparency concern), and pre-deployment alignment auditing as a load-bearing part of frontier safety cases.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>Hacker News</strong> — the front page has cooled from launch week: the GLM-5.2 "Show HN: getting it running on my slow computer" thread persists near the top, alongside a distinctly weary cluster — <em>"I'm just so bored of AI,"</em> <em>"Show HN: Frugon – find which LLM calls a cheaper model could handle,"</em> <em>"What's slowing down the AI buildout,"</em> and <em>"AI changes the economics of software rewrites."</em> <strong>r/LocalLLaMA</strong> — self-hosting sentiment centers on the open-weights slate for local runs (GLM-5.2, Kimi K2.7, DeepSeek V4 Flash, Qwen 3.6, Gemma 4, MiniMax M3); no single new dated Jul 10–11 thread confirmed. <strong>r/MachineLearning</strong> — no new datable thread surfaced this run (search-only / best-effort). <strong>LessWrong</strong> — see above.
+    </div>
+  </div>
+</div>
+
+<!-- THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>Cross-cutting observations</h3>
+    <ul>
+      <li><strong>The story is migrating from models to institutions.</strong> With no new frontier model shipping today, the fresh signal is a physical-world <em>protest</em> at the labs (Jul 11–12) and a <em>central bank</em> standing up an AI-and-jobs task force led by Marc Andreessen. After a launch-heavy week, the governance and labor-market layers are where the action moved.</li>
+      <li><strong>"Cheaper, not smarter" is the durable axis.</strong> DeepSeek V4's imminent official release (1M context, peak/off-peak pricing), Devin Fusion's cheap-sidekick harness (~35% cut), Grok 4.5 at $2/$6, and HN's "Frugon" (route calls to a cheaper model) all point the same way: for production workloads, cost-per-task is winning attention over a few points of benchmark headroom.</li>
+      <li><strong>The loop is the unit of work.</strong> The Batch's Jul 10 issue, Anthropic's Claude Code "Loops" guide, Lilian Weng's harness engineering, and Addy Osmani's "own the outer loop" all converge on the same idea: the leverage now sits in the <em>harness</em> — spec, iterate, verify, repeat — not only in the weights.</li>
+      <li><strong>Agentic "computer use" is becoming table stakes.</strong> Gemini 3.5 Flash folds computer use into the base model at no surcharge (with injection safeguards); AWS AgentCore adds continuous learning; OpenAI's ChatGPT Work executes multi-step goals across apps. The frontier is competing on what agents can <em>do</em> across a screen, not just what they can say.</li>
+      <li><strong>A palpable fatigue is showing up in the community.</strong> HN's front page pairs "Show HN" enthusiasm with "I'm just so bored of AI" and "what's slowing down the AI buildout" — a sentiment counterweight worth tracking as the launch cadence stays relentless.</li>
+      <li><strong>Google's silence stretches into a third week.</strong> Gemini 3.5 Flash shipping computer use is real, but 3.5 Pro is still preview-only with no benchmarks while everyone else ships and gets independently scored. Jul 17 remains the date to watch.</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <strong>Sources checked (Jul 11, 2026 — each source searched individually):</strong><br>
+  <em>Companies</em> — <strong>Anthropic news</strong> (NEW: Sonnet 5 default in Claude Code, 1M context, $2/$10 through Aug 31; Reflect Jul 9; Cowork web/mobile Jul 7; Fable 5 metering post-Jul 7, redeployed Jul 1), <strong>Anthropic Research</strong> (global-workspace/J-space + J-lens, Jul 6), <strong>Anthropic Engineering</strong> (Claude Code auto-mode on Bedrock/Vertex/Foundry, "Loops" guide; no dated flagship Jul 10–11), <strong>OpenAI</strong> (GPT-5.6 Sol/Terra/Luna GA Jul 9; ChatGPT Work; 750 tok/s Cerebras; no new post Jul 10–11), <strong>Google DeepMind</strong> (Gemini 3.5 Pro still preview, Jul 17 target), <strong>Google AI Blog</strong> (NEW: computer use built into Gemini 3.5 Flash, enterprise safeguards), <strong>AWS ML</strong> (NEW: AgentCore broader knowledge + continuous learning, Recommendations/A-B testing GA; Fable 5 on Bedrock), <strong>Microsoft AI</strong> (M365 Business w/ Copilot GA Jul 1; watermarking; Claude in Copilot Chat), <strong>Azure</strong> (Hosted Agents GA, Foundry IQ, Discovery GA, Opus 4.8 in Foundry), <strong>xAI/SpaceXAI</strong> (Grok 4.5 #4 at 54, $2/$6; Grok Build CLI updates; EU pending).<br>
+  <em>Open Weights</em> — <strong>DeepSeek</strong> (SIGNIFICANT: V4 official mid-July, Pro 1.6T/49B + Flash 284B/13B, 1M context, peak/off-peak pricing, legacy retire Jul 24), <strong>Zhipu/GLM</strong> (ZCode harness Jul 2; stock +22% Jul 9; no new model), <strong>Alibaba Qwen</strong> (no new since Qwen 3.7, May), <strong>Meta Llama / MSL</strong> (SIGNIFICANT: Muse Spark 1.1 + Meta Model API ~$1.25/$4.25 per Mtok, Jul 9–10; Muse Image, cross-confirmed by Stratechery + The Rundown), <strong>Cognition/Devin</strong> (SWE-1.7 Jul 8, Devin Fusion, Sonnet 5 in Devin Desktop/CLI).<br>
+  <em>Research &amp; Aggregators</em> — <strong>Hugging Face</strong> (LeRobot v0.6.0 Jul 7, Kernels Jul 6; no new Jul 10–11), <strong>The Batch</strong> (NEW: Jul 10 edition on agentic coding loops), <strong>arXiv cs.AI</strong> (multi-agent coordination/benchmarks, DyTopo; exact Jul 10–11 dates unconfirmed), <strong>The Rundown AI</strong> (no specific dated issue surfaced), <strong>The AI Daily Brief (NLW)</strong> (Jul 8 "AI Costs Are Surging" + week-in-launches episode).<br>
+  <em>Practitioners</em> — <strong>Simon Willison</strong> (NEW: "porting open source code with LLMs" Jul 11; Fly Sprites.dev Jul 9; Bun-in-Rust/GPT-5.6/Hy3 Jul 8), <strong>O'Reilly Radar</strong> (NEW: "Chips, Checks, and Changing Jobs" + "NetworkPolicy isn't enough for AI agents" Jul 10; Charity Majors Jul 9), <strong>Swyx</strong> ("David Ondrej AI" Jul 9; personal essay Jul 5), <strong>Latent Space</strong> (Agent Cloud series — Databricks, Modal episodes), <strong>LangChain</strong> (entries Jul 10/8/7/2/1; Nemotron Deep Agents Jul 8, RLMs Jul 1), <strong>Addy Osmani blog</strong> (entries Jul 6/Jul 2), <strong>Lilian Weng</strong> (no new since Jul 4 Harness Engineering), <strong>Chip Huyen</strong> (no Jul post), <strong>Hamel Husain</strong> (nothing since ~Jun 29), <strong>Eugene Yan</strong> (nothing since Jun 21), <strong>Jason Liu/jxnl.co</strong> (latest Jun 16).<br>
+  <em>Substacks</em> — <strong>Zvi Mowshowitz</strong> (NEW: "AI #176 Part 1: Doing It Live" Jul 9), <strong>Ethan Mollick/One Useful Thing</strong> (Jul 7; no newer), <strong>Pragmatic Engineer</strong> (AMA Jul 8; jobs market pt.3 Jul 7), <strong>Lenny's Newsletter</strong> ("workforce splitting in two" Jul 7), <strong>Addy Osmani/Elevate</strong> ("Own the Outer Loop" Jul 9; "Agentic Autonomy Levels" Jul 3), <strong>Interconnects/Nathan Lambert</strong> (latest "State of the blog mid-2026" Jun 17; no July post), <strong>Import AI/Jack Clark</strong> (latest #455 May 4; no July issue surfaced), <strong>Adam Tornhill</strong> (nothing since ~May 7), <strong>Jessica Talisman</strong> (Jun 30 book note only), <strong>Computer Enhance/Casey Muratori</strong> ("Summer News" pre-announcement only), <strong>Stratechery/Ben Thompson</strong> (back from summer break Jul 6; Jul 9 Updates non-AI/Sharp China; Interviews on break).<br>
+  <em>X / Social</em> — <strong>@emollick</strong> (manager-belief post Jul 9; Fable kingdom-generator Jul 8; no confirmed Jul 10–11), <strong>@addyosmani</strong> (outer-loop article Jul 8; no confirmed Jul 10–11), <strong>@trq212</strong> (Field Guide to Fable Jul 3; no new Jul 10–11), <strong>@karpathy</strong> (no new Jul 9–11; joined Anthropic), <strong>@xai/@grok</strong> (Grok 4.5 promo + Grok Build updates; SpaceXAI rebrand).<br>
+  <em>Community</em> — <strong>Hacker News</strong> (GLM-5.2 Show HN persists; "bored of AI," "Frugon," "what's slowing the AI buildout," "economics of software rewrites"), <strong>r/LocalLLaMA</strong> (self-hosting sentiment on GLM-5.2/Kimi K2.7/DeepSeek V4 Flash/Qwen 3.6; no dated Jul 10–11 thread), <strong>r/MachineLearning</strong> (no new datable thread surfaced; search-only/best-effort), <strong>LessWrong</strong> (NEW: "AI Protest" Jul 11–12 SF; CoT-transparency + pre-deployment auditing posts).<br><br>
+  Generated by My AI Daily · 51 sources scanned individually · Items marked <span style="color:var(--accent2)">New</span> or <span style="color:var(--accent)">Significant</span> were not in the Jul 10 brief.
+</footer>
+
+</body>
+</html>
