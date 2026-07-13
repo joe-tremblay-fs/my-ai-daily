@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — July 13, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; margin-bottom: 10px; line-height: 1.6; }
+    .themes-box li:last-child { margin-bottom: 0; }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>July 13, 2026</h1>
+  <div class="meta">
+    <span>9 companies</span>
+    <span>5 research/aggregators</span>
+    <span>12 practitioner blogs</span>
+    <span>10 Substacks</span>
+    <span>5 X accounts</span>
+    <span>HN / community</span>
+  </div>
+  <div class="meta" style="margin-top:6px;">
+    <span style="color:var(--muted)">Generated Jul 13, 2026 · 13:16 UTC — Headline: <strong>The weekend's story is the legal, financial, and governance scaffolding hardening around the model race, not the models themselves.</strong> <strong>Apple sued OpenAI</strong> (filed Jul 10–11) for trade-secret theft, alleging a coordinated campaign built on 400+ former Apple employees — landing exactly as reports say OpenAI has <strong>confidentially filed for a ~$730B IPO</strong> targeting a September debut. On the policy side, <strong>Nathan Lambert warns of "6 months to live for open models"</strong> (Jul 12) as the White House weighs an executive order restricting open weights. <strong>Anthropic</strong> locked in a <strong>20-year, ~$19B TeraWulf compute lease</strong> and added <strong>Ben Bernanke to its Long-Term Benefit Trust</strong>, while <strong>extending Claude Fable 5 access on all paid plans through Jul 19</strong> (flagged by Simon Willison). Underneath, last week's launches still settle: Grok 4.5 ($2/$6), GPT-5.6 Sol/Terra/Luna, Meta's Muse Spark 1.1, GLM-5.2, and DeepSeek V4's imminent official release. Google's Gemini 3.5 Pro remains preview-only with a Jul 17 target.</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>Apple sues OpenAI over trade-secret theft (filed Jul 10–11).</strong> Apple filed in Northern California federal court alleging OpenAI ran "a broad effort to systematically acquire and exploit Apple's confidential information," citing <strong>400+ former Apple employees</strong> now at OpenAI — many from silicon, on-device AI, and hardware-design teams — to accelerate OpenAI's push into consumer hardware. <a href="https://www.bloomberg.com/news/articles/2026-07-13/how-apple-s-lawsuit-threatens-to-disrupt-openai-s-bid-to-rival-the-iphone">Bloomberg (Jul 13)</a> frames it as a threat to OpenAI's device ambitions; <a href="https://www.washingtonpost.com/technology/2026/07/10/apple-sues-openai-alleging-ai-company-stole-trade-secrets/">Washington Post</a> and <a href="https://www.cnbc.com/2026/07/10/apple-openai-lawsuit-trade-secrets.html">CNBC</a> cover the filing.</li>
+      <li><strong>OpenAI has confidentially filed for a ~$730B IPO (September target).</strong> Reports say OpenAI filed confidentially with Goldman Sachs and Morgan Stanley leading, targeting a public debut <strong>as soon as September 2026</strong> at a private-market valuation around <strong>$730 billion</strong> — which would be the largest tech IPO in history. The Apple suit is the obvious risk that could spook investors or delay the offering.</li>
+      <li><strong>Nathan Lambert: "6 months to live for open models" (Jul 12).</strong> <a href="https://www.interconnects.ai/p/6-months-to-live-for-open-models">Interconnects</a> reports White House discussions on managing open models via a <strong>new executive order</strong>, likely aimed at Chinese-origin weights and government uses — a direct counterweight to the week's open-weights momentum (GLM-5.2, DeepSeek V4, Qwen).</li>
+      <li><strong>Anthropic: 20-year, ~$19B TeraWulf lease + Ben Bernanke to the Long-Term Benefit Trust.</strong> Anthropic signed a 20-year lease at TeraWulf's <a href="https://investors.terawulf.com/news-events/press-releases/detail/142/terawulf-announces-anthropic-lease-at-justified-data-campus-and-sale-of-majority-interest-in-abernathy-joint-venture-to-fluidstack">Justified Data campus</a> in Hawesville, KY (~$19B contracted revenue over the initial term), and named former Fed chair <strong>Ben Bernanke</strong> to its Long-Term Benefit Trust. It also proposed an <strong>industry-wide framework for scoring jailbreak severity</strong> with Amazon, Microsoft, and Google.</li>
+      <li><strong>Fable 5 access extended on all paid plans through Jul 19.</strong> Per <a href="https://simonwillison.net/2026/Jul/12/bump/">Simon Willison (Jul 12)</a>, Anthropic is extending Claude Fable 5 access on all paid plans and keeping Claude Code's weekly rate limits <strong>50% higher</strong> through Jul 19 — a concrete follow-through on the "Fable returns as capacity allows" promise. Simon also posted <a href="https://simonwillison.net/2026/Jul/12/directly-responsible-individuals/">Directly Responsible Individuals</a> and a <a href="https://simonwillison.net/2026/Jul/12/shot-scraper/">shot-scraper 1.11</a> release the same day.</li>
+      <li><strong>Zvi's "AI #176 Part 2: Plan B" (Jul 10).</strong> The second half of <a href="https://thezvi.substack.com/p/ai-176-part-2-plan-b">Zvi's weekly roundup</a> covers speculation, rhetoric, policy, and alignment research, and endorses taking "Plan A" (a positive-vision follow-up to AI 2027) seriously — while deferring the GPT-5.6 Sol deep-dive a few days.</li>
+      <li><strong>Qualcomm in early talks to buy Tenstorrent for $8–10B.</strong> The reported deal would give Qualcomm a real seat at the AI-hardware table dominated by Nvidia and AMD — another sign the compute/chips layer is where a lot of the week's money is moving.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- COMPANIES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Companies</h2>
+    <span class="section-tag tag-company">Anthropic · OpenAI · Google · xAI · Microsoft · AWS</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Anthropic — TeraWulf lease; Bernanke to LTBT; Fable extended to Jul 19</div>
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title">Anthropic signs a 20-year, ~$19B TeraWulf compute lease and adds Ben Bernanke to its Long-Term Benefit Trust</div>
+        <span class="item-badge badge-sig">Significant</span>
+      </div>
+      <div class="item-date">Jul 2026 — anthropic.com/news · investors.terawulf.com</div>
+      <div class="item-body">
+        Anthropic executed a <strong>20-year lease</strong> with <a href="https://investors.terawulf.com/news-events/press-releases/detail/142/terawulf-announces-anthropic-lease-at-justified-data-campus-and-sale-of-majority-interest-in-abernathy-joint-venture-to-fluidstack">TeraWulf</a> at its Justified Data campus in Hawesville, Kentucky, expected to generate <strong>~$19 billion of contracted revenue</strong> over the initial term — a large, durable compute commitment as the frontier race turns capital-intensive. Separately, Anthropic named former Federal Reserve chair <strong>Ben Bernanke</strong> to its Long-Term Benefit Trust, and proposed an <strong>industry-wide framework for scoring jailbreak severity</strong> jointly with Amazon, Microsoft, and Google. Still fresh from earlier in the window: the <strong>Reflect</strong> usage-insights dashboard (Jul 9), Cowork on web + mobile (Jul 7), and the <a href="https://www.anthropic.com/research/global-workspace">global-workspace / J-space</a> interpretability paper (Jul 6).
+      </div>
+    </div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Fable 5 access extended on all paid plans; Claude Code rate limits kept 50% higher through Jul 19</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 12, 2026 — via simonwillison.net</div>
+      <div class="item-body">
+        Per <a href="https://simonwillison.net/2026/Jul/12/bump/">Simon Willison</a>, Anthropic is <strong>extending Claude Fable 5 access on all paid plans</strong> and keeping Claude Code's weekly rate limits <strong>50% higher through Jul 19</strong> — a concrete follow-through on Thariq Shihipar's earlier "Fable will return to subscriptions as capacity allows" note. Fable 5 and Mythos 5 came back online <a href="https://fortune.com/2026/07/01/anthropic-fable-mythos-ai-models-restored-trump-administration-export-controls/">Jul 1</a> after the U.S. Commerce Department lifted export controls; Fable had been metering via usage credits (~$10/$50 per Mtok). Claude Sonnet 5 (1M context, promo $2/$10 through Aug 31) remains the default in Claude Code.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">OpenAI — Apple lawsuit + confidential ~$730B IPO filing</div>
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title">Apple sues OpenAI over trade secrets as OpenAI reportedly files confidentially for a ~$730B IPO</div>
+        <span class="item-badge badge-sig">Significant</span>
+      </div>
+      <div class="item-date">Jul 10–13, 2026 — cnbc.com · washingtonpost.com · bloomberg.com</div>
+      <div class="item-body">
+        Two developments collide. <strong>Apple filed suit</strong> (Jul 10–11, N.D. Cal.) alleging OpenAI ran "a broad effort to systematically acquire and exploit Apple's confidential information through former employees, recruiting practices, and supplier relationships," citing <strong>400+ former Apple staff</strong> now at OpenAI — largely from silicon, on-device AI, and hardware teams — to fuel OpenAI's consumer-hardware ambitions (<a href="https://www.cnbc.com/2026/07/10/apple-openai-lawsuit-trade-secrets.html">CNBC</a>, <a href="https://www.washingtonpost.com/technology/2026/07/10/apple-sues-openai-alleging-ai-company-stole-trade-secrets/">WaPo</a>). Meanwhile reports say OpenAI has <strong>confidentially filed for an IPO</strong> (Goldman Sachs + Morgan Stanley leading), targeting a debut <strong>as soon as September 2026 at ~$730B</strong> — potentially the largest tech IPO ever. <a href="https://www.bloomberg.com/news/articles/2026-07-13/how-apple-s-lawsuit-threatens-to-disrupt-openai-s-bid-to-rival-the-iphone">Bloomberg (Jul 13)</a> notes a sticky trade-secrets suit could spook investors or delay the offering. Product-wise, <a href="https://techcrunch.com/2026/07/09/openai-launches-its-new-family-of-models-with-gpt-5-6/">GPT-5.6</a> (Sol/Terra/Luna) reached GA Jul 9; no new flagship product post surfaced Jul 12–13.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Google — Gemini 3 Deep Think opens to API; 3.5 Pro still preview (Jul 17 target)</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Gemini 3 Deep Think upgrade reaches the Gemini API for select researchers and enterprises</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Early–mid Jul 2026 — deepmind.google / blog.google</div>
+      <div class="item-body">
+        Google shipped a major upgrade to <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-deep-think/">Gemini 3 Deep Think</a>, its specialized reasoning mode for science, research, and engineering — now available in the Gemini app for AI Ultra subscribers and, <strong>for the first time, via the Gemini API</strong> to select researchers, engineers, and enterprises. Meanwhile <strong>Gemini 3.5 Pro remains in limited enterprise preview</strong> — no GA, published benchmarks, or final pricing — with the ground-up rebuild still targeting <strong>Jul 17</strong> (reported: 2M context, a Deep Think reasoning layer, autonomous workflows). Gemini 3.5 Flash's built-in computer use (no surcharge) continues to roll out. Google remains the one major lab without a shipping, independently-scored frontier model this cycle.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">xAI / SpaceXAI — Grok 4.5 settles; Grok Build gets a Jul 12 update</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <a href="https://x.ai/news/grok-4-5">Grok 4.5</a> (launched Jul 8, described by Musk as "Opus-class") is settling in as SpaceXAI's coding/agentic model, trained alongside Cursor, at <strong>$2/$6 per Mtok</strong> with configurable reasoning effort — available in Grok Build, Cursor, and the SpaceXAI console, though <strong>still not in the EU</strong>. New this window: a <strong>Jul 12 Grok Build update</strong> adding richer usage/cost tracking, Voice mode for API-key sessions, better transcript editing/scrollback, smoother agent + MCP handling, crash fixes, and localized /usage reset times. xAI also expanded to 21 multilingual Grok Voice voices with speech tags and voice cloning.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Microsoft / Azure — M365 Business w/ Copilot GA; Teams AI auto-attendant; Foundry</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>No new distinctly-dated Jul 12–13 flagship.</strong> Recent threads hold: <strong>Microsoft 365 Business with Copilot SKUs went GA Jul 1</strong> (Standard + Premium now permanent); Copilot added <strong>AI content watermarks, taskbar task tracking, scheduled agent prompts</strong>, and Notebook exports to PPT/Word/Excel; <strong>Claude is selectable in Copilot Chat</strong>. A new <strong>AI auto-attendant for Teams</strong> (main-line answering trained on uploaded FAQ docs, no IVR scripting) is the notable feature add. On <strong>Azure/Foundry</strong>: <strong>Hosted Agents &amp; Toolboxes reached GA</strong>, Foundry IQ and Microsoft Discovery are GA, and <strong>Claude (incl. Opus 4.8) is GA in Microsoft Foundry</strong>, hosted on Azure and running on NVIDIA GB300 Blackwell Ultra.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">AWS — Bedrock AgentCore: broader knowledge + continuous learning</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>No new distinctly-dated Jul 12–13 post.</strong> The standing AWS ML story is <a href="https://aws.amazon.com/blogs/machine-learning/new-in-amazon-bedrock-agentcore-build-agents-with-broader-knowledge-and-continuous-learning/">new AgentCore capabilities</a>: agents with broader knowledge and continuous learning, plus <strong>Recommendations &amp; A/B testing</strong> GA (analyze traces to suggest prompt/tool improvements, then batch-test against a dataset). This extends the Summit NYC wave — <strong>Claude Fable 5 on Amazon Bedrock</strong>, Fully Managed Knowledge Bases (Smart Parsing + Agentic Retriever), and Web Search on AgentCore (grounded, cited, zero data egress).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OPEN WEIGHTS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Open Weights / Emerging Labs</h2>
+    <span class="section-tag tag-company">DeepSeek · GLM · Qwen · Meta/MSL · Cognition</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title">DeepSeek V4 official release is imminent (mid-July): Pro + Flash, 1M context, peak/off-peak pricing</div>
+      <span class="item-badge badge-sig">Significant</span>
+    </div>
+    <div class="item-date">mid-July 2026 — api-docs.deepseek.com · technode.com</div>
+    <div class="item-body">
+      DeepSeek graduates its April <a href="https://api-docs.deepseek.com/news/news260424/">V4 preview</a> to official status this month (<a href="https://technode.com/2026/06/30/deepseek-to-launch-v4-in-mid-july-with-new-peak-time-api-pricing/">TechNode</a>). The lineup: <strong>DeepSeek-V4-Pro</strong> (1.6T MoE, ~49B active) and the economical <strong>DeepSeek-V4-Flash</strong> (284B / ~13B active), both with a <strong>1M-token context</strong> and thinking/non-thinking modes, and stronger agentic, math, and code performance. Two operational shifts land with it: <strong>peak vs off-peak API pricing</strong> for the first time (peak ~9a–12p and 2p–6p charged at 2x), and retirement of legacy deepseek-chat/deepseek-reasoner on <strong>Jul 24</strong>. Another data point for the open-weights cost floor — and a live target of the "6 months to live for open models" policy debate below.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">GLM-5.2 becomes the centerpiece of the "is China catching up?" debate</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jul 2026 — z.ai / scmp.com / the-decoder.com</div>
+    <div class="item-body">
+      Z.ai's <strong>GLM-5.2</strong> (~744B MoE, 1M context, MIT-licensed, ~$1.40/$4.40 per Mtok) — now within ~1 point of Opus 4.8 on a closely watched agentic benchmark at roughly a fifth of the cost — has become the reference point in a widening debate over whether <strong>China is closing the gap with U.S. frontier labs</strong>. Zhipu's Hong Kong-listed shares jumped as much as <strong>48%</strong> early in the week after JPMorgan raised its target and named it an "AI winner." O'Reilly's Radar notes GLM-5.2 is the top open model on the Artificial Analysis Intelligence Index, behind only Fable 5, Opus 4.8, and GPT-5.5. The <a href="https://www.scmp.com/tech/tech-trends/article/3359170/zhipu-ai-releases-harness-glm-52-model-chinese-firm-takes-aim-anthropic">ZCode</a> harness ships alongside.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>Meta / MSL</strong> — <a href="https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/">Muse Spark 1.1</a> (Jul 9; agentic multimodal, 1M-context compaction, computer use, public Meta Model API) and <a href="https://about.fb.com/news/2026/07/introducing-muse-image-meta-ai/">Muse Image</a> (Jul 7; No. 2 on Arena text-to-image) keep drawing scrutiny — the Instagram-photo editing feature sparked a privacy backlash, and <a href="https://www.theregister.com/ai-and-ml/2026/07/13/meta-admits-its-first-superintelligence-was-too-stupid-to-survive-for-three-days/5270234">The Register (Jul 13)</a> reports Meta pulled an earlier "superintelligence" attempt that "was too stupid to survive for three days." <strong>Alibaba Qwen</strong> — no new model since <strong>Qwen 3.7</strong> (Max/Plus, May); Qwen3.7-Max sits ~5th on the Intelligence Index (56.6). <strong>Cognition / Devin</strong> — <a href="https://cognition.ai/blog">SWE-1.7</a> (RL-post-trained on Kimi K2.7 Code, 1000 tok/s on Cerebras, Jul 8); Claude Sonnet 5, Kimi K2.7, and GLM-5.2 all live in Devin Desktop &amp; CLI.
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH & AGGREGATORS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Research &amp; Aggregators</h2>
+    <span class="section-tag tag-practitioner">HF · The Batch · arXiv · Rundown · AI Daily Brief</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>The Batch</strong> — no new issue confirmed since the <a href="https://www.deeplearning.ai/the-batch">Jul 10</a> edition on agentic coding <strong>loops</strong> (keep working until a spec passes) and the Jul 3 issue on AI-noise/hype. <strong>Hugging Face</strong> — freshest posts remain <a href="https://huggingface.co/blog/lerobot-release-v060">LeRobot v0.6.0</a> (Jul 7; imagine/evaluate/improve loop + NVIDIA Isaac GR00T 1.7) and the <a href="https://huggingface.co/blog/revamped-kernels">Kernels revamp</a> (Jul 6); no new Jul 12–13 post surfaced. <strong>arXiv cs.AI</strong> — recent listings lean agentic: <em>Externalization in LLM Agents</em> (memory/skills/protocols/harness survey), <em>Evaluation and Benchmarking of LLM Agents: A Survey</em>, <em>"What LLM Agents Say When No One Is Watching"</em> (latent objectives in multi-agent debate); exact Jul 12–13 submission dates not individually confirmed. <strong>The Rundown AI</strong> — no specific dated Jul 12–13 issue surfaced (search returned home/archive shells). <strong>The AI Daily Brief (NLW)</strong> — latest datable episodes are Jul 8 (<em>"AI Costs Are Surging and the Cheap Model Fix Might Not Last"</em> + a walkthrough of the four early-July launches), arguing the race has shifted from raw intelligence to interaction patterns and efficiency.
+    </div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; newsletters</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison — three posts Jul 12 (DRI, shot-scraper 1.11, Fable bump)</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Directly Responsible Individuals, shot-scraper 1.11, and "Fable gets another bump"</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 12, 2026 — simonwillison.net</div>
+      <div class="item-body">
+        Simon posted three items Jul 12: a link post on <a href="https://simonwillison.net/2026/Jul/12/directly-responsible-individuals/">Directly Responsible Individuals (DRI)</a> (praising the GitLab handbook's definition), a <a href="https://simonwillison.net/2026/Jul/12/shot-scraper/">shot-scraper 1.11</a> release (his screenshot/scraping CLI), and <a href="https://simonwillison.net/2026/Jul/12/bump/">"Fable gets another bump"</a> flagging Anthropic's extension of Fable 5 access on all paid plans + 50%-higher Claude Code weekly limits through Jul 19. Earlier in the window: <a href="https://simonwillison.net/2026/Jul/9/">the GPT-5.6 family writeup</a> (Jul 9) and sqlite-utils 4.0 (Jul 5–7, "mostly written by Claude Fable"). Most important practitioner source; multiple posts this window.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly Radar — "Chips, Checks, and Changing Jobs"; Radar Trends July</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        No new distinctly-dated Jul 12–13 post surfaced beyond the standing <a href="https://www.oreilly.com/radar/this-week-in-ai-chips-checks-and-changing-jobs/">"This Week in AI: Chips, Checks, and Changing Jobs"</a> (Jul 10 — hardware buildout, widening government oversight, a workforce reorganizing faster than titles) and the monthly <a href="https://www.oreilly.com/radar/radar-trends-to-watch-july-2026/">Radar Trends to Watch: July 2026</a> (Sonnet 5 near-Opus-at-lower-cost; Fable/Mythos back online Jul 1; GLM-5.2 as top open model; Android's earthquake alerts warning ~11.4M people in Venezuela). An earlier "Who Controls the Loop?" edition anchors the ongoing harness thread.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">LangChain / Swyx / Latent Space / Addy Osmani (blog)</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>LangChain</strong> — actively posting (entries Jul 7–8); flagship threads remain <a href="https://blogs.nvidia.com/blog/nemotron-langchain-agents-open-stack/">NVIDIA Nemotron + Deep Agents</a> (highest accuracy among open models via the tuned Deep Agents harness) and <a href="https://www.langchain.com/blog/how-to-use-rlms-in-deep-agents">RLMs in Deep Agents</a> (Jul 1; recursive language models to fight context rot). <strong>Swyx / swyx.io</strong> — no new post confirmed Jul 12–13; Latent Space's 2026 plan leans into more YouTube/video and AI-for-Science hosts. <strong>Latent Space</strong> — no new dated episode surfaced this window (recent "Agent Cloud" series: Databricks, Modal). <strong>Addy Osmani (addyosmani.com)</strong> — no new blog post confirmed Jul 12–13; his AI-engineering writing runs on the Elevate Substack (below).
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Quiet this window — each searched individually</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        None showed a new post in the Jul 11–13 window: <strong>Lilian Weng</strong> (no new since <a href="https://lilianweng.github.io/posts/2026-07-04-harness/">"Harness Engineering for Self-Improvement," Jul 4</a>), <strong>Chip Huyen</strong> (no dated July post; aims monthly), <strong>Hamel Husain</strong> (nothing since ~Mar 2026), <strong>Eugene Yan</strong> (nothing since Jun 21), <strong>Jason Liu / jxnl.co</strong> (Codex writeups; latest dated May 18), <strong>Anthropic Engineering</strong> (an "agent containment" essay — capping the blast radius of capable agents — plus the Claude Code "Loops" guide; no dated flagship Jul 12–13).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUBSTACKS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Substacks</h2>
+    <span class="section-tag tag-practitioner">Newsletters</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title">Interconnects / Nathan Lambert — "6 months to live for open models" (Jul 12)</div>
+      <span class="item-badge badge-sig">Significant</span>
+    </div>
+    <div class="item-date">Jul 12, 2026 — interconnects.ai</div>
+    <div class="item-body">
+      Lambert's paid piece <a href="https://www.interconnects.ai/p/6-months-to-live-for-open-models">"6 months to live for open models"</a> reports White House discussions on managing open models via a <strong>new executive order</strong> — likely aimed at Chinese-origin weights and government uses. Coming the same week GLM-5.2 anchors the "China is catching up" narrative and DeepSeek V4 goes official, it frames a real policy risk to the open-weights momentum that keeps resetting the cost/capability floor. Lambert also recapped a trip to China's AI labs. (First substantive Interconnects post since his mid-June "State of the blog.")
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">Zvi Mowshowitz — "AI #176 Part 2: Plan B" (Jul 10)</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jul 10, 2026 — thezvi.substack.com</div>
+    <div class="item-body">
+      The back half of Zvi's weekly roundup, <a href="https://thezvi.substack.com/p/ai-176-part-2-plan-b">"Part 2: Plan B,"</a> covers speculation, rhetoric, policy, and alignment research, and endorses taking "Plan A" — a positive-vision follow-up to AI 2027 — seriously. It defers the GPT-5.6 Sol deep-dive by a few days. (Part 1, "Doing It Live," ran Jul 9 and covered Sol's voice mode, J-space, and Grok 4.5.)
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      Individually checked, no new post in the Jul 11–13 window: <strong>Ethan Mollick / One Useful Thing</strong> (latest is the <a href="https://www.oneusefulthing.org/">Jul 7</a> "treat LLMs as literal executors that need management" piece), <strong>The Pragmatic Engineer</strong> (<a href="https://newsletter.pragmaticengineer.com/archive">AMA + "Tech jobs market pt.3," Jul 8</a>; Kent Beck Jul 7), <strong>Lenny's Newsletter</strong> (<a href="https://www.lennysnewsletter.com/archive">"a workforce splitting in two," Jul 7</a>), <strong>Addy Osmani / Elevate</strong> (<a href="https://addyo.substack.com/p/own-the-outer-loop">"Own the Outer Loop," Jul 9</a>), <strong>Import AI / Jack Clark</strong> (a July update surfaced on the Remote Labor Index — AI success rising from 2.5% at Oct-2025 launch to 16.1% in July, with Fable 5 leading at 16.1%; latest fully-indexed issue remains #455, May 4), <strong>Adam Tornhill</strong> (nothing new since ~May "Compressed Cognition"), <strong>Jessica Talisman</strong> (only the ongoing "Ontology Pipeline" book run, out Sep/Oct 2026), <strong>Computer, Enhance! / Casey Muratori</strong> (Jul 2 "Let's Decode the Mystery Bytes!" — non-AI; a mid-July conference talk pending), <strong>Stratechery / Ben Thompson</strong> (recent AI-adjacent article "A Script for Mark Zuckerberg" — every digital company faces an AI existential threat; no new AI Weekly Article Jul 12–13).
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Practitioner accounts</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>@emollick (Ethan Mollick)</strong> — most recent datable posts are Jul 9 (a manager's belief in AI's value largely determines the value realized) and Jul 8 (had Fable build "a full procedural fantasy kingdom generator"); no confirmed new Jul 12–13 thread. <strong>@addyosmani</strong> — the Jul 8 "own the outer loop / accountability" article (~891K views); no confirmed new Jul 12–13 post. <strong>@trq212 (Thariq Shihipar)</strong> — "A Field Guide to Fable" talk (AI Engineer World's Fair, Jul 6; "the models are grown, not designed," capability overhang, Claude Code system prompt cut 80%); no new Jul 12–13 standalone. <strong>@karpathy</strong> — no confirmed new Jul 12–13 thread; evergreen backdrop (Sequoia Ascent 2026 fireside — "you can outsource your thinking, but you can't outsource your understanding"; the AI-capability-perception gap). <strong>@xai / @grok</strong> — Grok 4.5 promotion + the Jul 12 Grok Build update (usage/cost tracking, Voice mode, MCP handling); the "xAI → SpaceXAI" rebrand continues to circulate.
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community / Hacker News</h2>
+    <span class="section-tag tag-community">Front page + forums</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">HN: Terry Tao on "old and new apps via modern coding agents"; a widening "slop vs craft" mood</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jul 12, 2026 — news.ycombinator.com</div>
+    <div class="item-body">
+      As of Jul 12 the top HN story was <strong>"Old and new apps, via modern coding agents" by Terry Tao</strong> — the mathematician documenting agent-built tooling. Alongside it, the July front-page mood clusters around three currents: <strong>AI-generated disinformation</strong>, <strong>cybersecurity / open-source strain</strong>, and a "quiet return to durable software choices," with recurring irritation over generated "slop," weak open-source clones, and "code volume without craft" (e.g. <em>"I don't think AI will make your processes go faster"</em>). Trust, security, and stability now rank above shiny demos for technical buyers.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>LessWrong</strong> — active AI-safety threads this window: <a href="https://www.lesswrong.com/posts/nrgqdZ2YSZrbPhLaJ/the-facade-of-ai-safety-will-crumble">"The Facade of AI Safety Will Crumble"</a> (the load-bearing question — knowing what an aligned superintelligence looks like before building one — is under-addressed), <a href="https://www.lesswrong.com/posts/jJjxWsGyoELmNQwvZ/beliefs-and-position-mid-2026">"Beliefs and Position Mid-2026"</a>, and continued discussion of pre-deployment alignment auditing as a load-bearing part of frontier safety cases; the SF "AI Protest" on the three labs was slated for Jul 11–12. <strong>r/LocalLLaMA</strong> — no single new dated Jul 12–13 thread surfaced (search-only / best-effort); self-hosting sentiment continues around the open-weights slate (GLM-5.2, DeepSeek V4 Flash, Kimi K2.7, Qwen 3.7). <strong>r/MachineLearning</strong> — no new datable thread surfaced this run (search-only / best-effort).
+    </div>
+  </div>
+</div>
+
+<!-- THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>Cross-cutting observations</h3>
+    <ul>
+      <li><strong>The scaffolding is the story.</strong> With no new frontier model shipping over the weekend, the fresh signal is legal (Apple v. OpenAI), financial (OpenAI's ~$730B IPO filing; Zhipu +48%; Qualcomm–Tenstorrent), governance (a White House open-model EO; Anthropic's jailbreak-severity framework; Bernanke to the LTBT), and infrastructural (Anthropic's 20-year, ~$19B TeraWulf lease). The model race is increasingly adjudicated by courts, capital markets, and regulators.</li>
+      <li><strong>Open weights hit a policy wall just as they hit their stride.</strong> GLM-5.2 sits within a point of Opus 4.8 at a fifth of the cost, DeepSeek V4 goes official this week, and Qwen 3.7 holds a top-5 slot — and yet Nathan Lambert's "6 months to live for open models" reports an EO that could restrict exactly this. The capability floor and the regulatory ceiling are converging.</li>
+      <li><strong>The China-catch-up narrative is now the frame, not a footnote.</strong> GLM-5.2's benchmark climb, DeepSeek V4's imminence, and the AI Daily Brief's "what if China restricts overseas access" episode all treat Chinese open models as a first-order strategic variable — which is precisely what the proposed U.S. open-model EO is responding to.</li>
+      <li><strong>Compute is being locked in for decades, not quarters.</strong> Anthropic's 20-year TeraWulf lease (~$19B) and Claude running on GB300 Blackwell Ultra in Foundry show frontier labs treating power and silicon as multi-decade commitments. Qualcomm's reported bid for Tenstorrent is the same impulse from the buyer side of the chip market.</li>
+      <li><strong>Practitioner fatigue and a "durable software" backlash keep building.</strong> HN's front page pairs Terry Tao's agent-built tooling with "slop vs craft" irritation and a return to boring, stable choices; O'Reilly threads the same "workforce reorganizing faster than titles." Enthusiasm and exhaustion are now running side by side.</li>
+      <li><strong>Google's silence stretches toward its Jul 17 date.</strong> Deep Think reaching the API is real, but Gemini 3.5 Pro is still preview-only with no independent benchmarks while everyone else ships and gets scored. Jul 17 remains the pivotal date to watch.</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <strong>Sources checked (Jul 13, 2026 — each source searched individually):</strong><br>
+  <em>Companies</em> — <strong>Anthropic news</strong> (SIGNIFICANT: 20-yr ~$19B TeraWulf lease; Ben Bernanke to LTBT; industry jailbreak-severity framework; NEW: Fable 5 extended on all paid plans + Claude Code limits 50% higher through Jul 19), <strong>Anthropic Research</strong> (J-space/global-workspace Jul 6; nothing newer), <strong>Google DeepMind</strong> (NEW: Gemini 3 Deep Think reaches the API; 3.5 Pro still preview, Jul 17 target), <strong>Google AI Blog</strong> (Gemini 3.5 Flash computer use rollout; Workspace gradual rollout Jul 13; no dated frontier post), <strong>AWS ML</strong> (AgentCore broader knowledge + continuous learning, Recommendations/A-B GA; no new Jul 12–13 post), <strong>Microsoft AI</strong> (M365 Business w/ Copilot GA Jul 1; Teams AI auto-attendant; watermarks; Claude in Copilot Chat), <strong>Azure</strong> (Hosted Agents/Toolboxes GA; Foundry IQ + Discovery GA; Claude/Opus 4.8 GA on GB300), <strong>OpenAI</strong> (SIGNIFICANT: Apple lawsuit filed Jul 10–11; confidential ~$730B IPO filing, Sept target; GPT-5.6 GA Jul 9), <strong>xAI/SpaceXAI</strong> (NEW: Jul 12 Grok Build update; Grok 4.5 $2/$6, not in EU).<br>
+  <em>Open Weights</em> — <strong>DeepSeek</strong> (SIGNIFICANT: V4 official mid-July — Pro 1.6T/49B + Flash 284B/13B, 1M context, peak/off-peak pricing, legacy retire Jul 24), <strong>Zhipu/GLM</strong> (NEW: GLM-5.2 anchors China-catch-up debate; stock +48%; ZCode), <strong>Alibaba Qwen</strong> (no new since Qwen 3.7, May), <strong>Meta Llama / MSL</strong> (Muse Spark 1.1 Jul 9 + Muse Image Jul 7; Instagram-photo backlash; Register Jul 13 "superintelligence too stupid to survive 3 days"), <strong>Cognition/Devin</strong> (SWE-1.7 Jul 8; Sonnet 5 / Kimi K2.7 / GLM-5.2 in Devin).<br>
+  <em>Research &amp; Aggregators</em> — <strong>Hugging Face</strong> (LeRobot v0.6.0 Jul 7, Kernels Jul 6; no new Jul 12–13), <strong>The Batch</strong> (Jul 10 agentic-loops issue; no newer confirmed), <strong>arXiv cs.AI</strong> (agent memory/eval/multi-agent surveys; exact Jul 12–13 dates unconfirmed), <strong>The Rundown AI</strong> (no specific dated issue surfaced), <strong>The AI Daily Brief (NLW)</strong> (Jul 8 "AI Costs Are Surging" + four-launch walkthrough).<br>
+  <em>Practitioners</em> — <strong>Simon Willison</strong> (NEW: DRI + shot-scraper 1.11 + "Fable gets another bump," all Jul 12; GPT-5.6 writeup Jul 9), <strong>O'Reilly Radar</strong> ("Chips, Checks, and Changing Jobs" Jul 10; Radar Trends July; no new Jul 12–13), <strong>LangChain</strong> (entries Jul 7–8; Nemotron Deep Agents; RLMs Jul 1), <strong>Swyx</strong> (no new Jul 12–13), <strong>Latent Space</strong> (Agent Cloud series; no new dated episode), <strong>Addy Osmani blog</strong> (no new Jul 12–13), <strong>Lilian Weng</strong> (no new since Jul 4 Harness Engineering), <strong>Chip Huyen</strong> (no dated July post), <strong>Hamel Husain</strong> (nothing since ~Mar), <strong>Eugene Yan</strong> (nothing since Jun 21), <strong>Jason Liu/jxnl.co</strong> (latest May 18), <strong>Anthropic Engineering</strong> ("agent containment" essay + Loops guide; no dated flagship Jul 12–13).<br>
+  <em>Substacks</em> — <strong>Interconnects/Nathan Lambert</strong> (SIGNIFICANT: "6 months to live for open models" Jul 12), <strong>Zvi Mowshowitz</strong> (NEW: "AI #176 Part 2: Plan B" Jul 10), <strong>Ethan Mollick/One Useful Thing</strong> (Jul 7; no newer), <strong>Pragmatic Engineer</strong> (AMA + jobs pt.3 Jul 8; Kent Beck Jul 7), <strong>Lenny's Newsletter</strong> ("workforce splitting in two" Jul 7), <strong>Addy Osmani/Elevate</strong> ("Own the Outer Loop" Jul 9), <strong>Import AI/Jack Clark</strong> (July Remote Labor Index update — 2.5%→16.1%; indexed issue #455 May 4), <strong>Adam Tornhill</strong> (nothing since ~May), <strong>Jessica Talisman</strong> (Ontology Pipeline book, Sep/Oct 2026), <strong>Computer Enhance/Casey Muratori</strong> (Jul 2 non-AI video; mid-July talk pending), <strong>Stratechery/Ben Thompson</strong> ("A Script for Mark Zuckerberg"; no new AI Weekly Jul 12–13).<br>
+  <em>X / Social</em> — <strong>@emollick</strong> (manager-belief Jul 9; no confirmed Jul 12–13), <strong>@addyosmani</strong> (outer-loop article Jul 8; no confirmed Jul 12–13), <strong>@trq212</strong> (Field Guide to Fable Jul 6; no new), <strong>@karpathy</strong> (no new Jul 12–13; Sequoia Ascent backdrop), <strong>@xai/@grok</strong> (Grok 4.5 promo + Jul 12 Grok Build update; SpaceXAI rebrand).<br>
+  <em>Community</em> — <strong>Hacker News</strong> (NEW: Terry Tao "old and new apps via coding agents"; slop-vs-craft, disinformation, durable-software mood), <strong>LessWrong</strong> ("Facade of AI Safety Will Crumble"; "Beliefs and Position Mid-2026"; pre-deployment auditing; SF AI Protest Jul 11–12), <strong>r/LocalLLaMA</strong> (no dated Jul 12–13 thread surfaced; search-only), <strong>r/MachineLearning</strong> (no new datable thread surfaced; search-only).<br><br>
+  Generated by My AI Daily · 51 sources scanned individually · Items marked <span style="color:var(--accent2)">New</span> or <span style="color:var(--accent)">Significant</span> were not in the Jul 11 brief.
+</footer>
+
+</body>
+</html>
