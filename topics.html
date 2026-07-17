@@ -160,6 +160,24 @@
 <!-- TOPICS -->
 <!-- ============================================================ -->
 
+<div class="topic" data-cat="engineering">
+  <div class="topic-header">
+    <span class="topic-cat cat-engineering">Engineering</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>The agent harness is the security surface — exfiltration &amp; destructive-action bugs</div>
+      <div class="topic-summary">The most dangerous failures aren't in the model — they're in the tooling wrapped around it. Coding agents and assistant tools read everything in reach (files, keys, memory) and can act destructively (delete files, upload directories, follow attacker-planted links). A recurring pattern is emerging: (1) <em>data exfiltration</em> via the "lethal trifecta" (private data + untrusted content + an outbound channel), and (2) <em>destructive actions</em> from over-broad permissions. Each incident forces an emergency patch or open-sourcing to rebuild trust. Watch whether labs ship default sandboxing, capability-scoped tools, and provenance rules — and whether "the harness, not the model" becomes the standard framing for AI security.</div>
+      <div class="topic-meta">First seen: Jul 17, 2026 · Last updated: Jul 17, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jul 16, 2026</div>
+      <div class="entry-title"><strong>"The Memory Heist" + a Codex <code>$HOME</code>-deletion bug, days after grok-build's directory upload.</strong> Ayush Paul found that Claude's <code>web_fetch</code> — hardened to only visit user/search URLs — would also follow URLs embedded in already-fetched pages, letting a honeypot exfiltrate stored memory "letter by letter" through nested generated links (a fresh <a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">lethal-trifecta</a> variant). The same day, OpenAI confirmed <a href="https://simonwillison.net/2026/Jul/16/bad-codex-bug/">GPT-5.6 in Codex has deleted users' <code>$HOME</code></a> when run full-access without sandboxing after mishandling the env var. Both follow last week's <strong>grok-build</strong> uploading whole working directories (SSH keys, password vaults) to xAI's cloud — forcing an emergency Apache-2.0 open-sourcing.</div>
+      <div class="entry-source">Simon Willison / ayush.digital / HN</div>
+    </div>
+  </div>
+</div>
+
 <div class="topic" data-cat="industry">
   <div class="topic-header">
     <span class="topic-cat cat-industry">Industry</span>
@@ -211,11 +229,16 @@
     <span class="topic-cat cat-models">Models</span>
     <div class="topic-title-block">
       <div class="topic-title"><span class="status-dot status-active"></span>Vendor benchmarks vs independent evals — the launch-day credibility gap</div>
-      <div class="topic-summary">The gap between what a lab claims on launch day and what third parties measure a day later is becoming a predictable, recurring pattern — and the community's reflexive launch-day skepticism keeps being vindicated. Vendors publish self-selected charts (often with a favorable subset of benchmarks) and superlatives ("Opus-class," "#1 on X"); within 24–48 hours neutral aggregators like Artificial Analysis re-rank the model, and factuality/hallucination indices surface trade-offs the launch post omitted. Watch whether independent-eval outfits become the de-facto arbiters, whether labs start pre-empting them with fuller disclosures, and how the cost-per-task axis interacts with the accuracy re-rankings.</div>
-      <div class="topic-meta">First seen: Jul 10, 2026 · Last updated: Jul 10, 2026</div>
+      <div class="topic-summary">The gap between what a lab claims on launch day and what third parties measure a day later is becoming a predictable, recurring pattern — and the community's reflexive launch-day skepticism keeps being vindicated. Vendors publish self-selected charts (often with a favorable subset of benchmarks) and superlatives ("Opus-class," "#1 on X"); within 24–48 hours neutral aggregators like Artificial Analysis re-rank the model, and factuality/hallucination indices surface trade-offs the launch post omitted. Independent evals now also gate <em>unreleased</em> models — Google's own internal bar reportedly kept Gemini 3.5 Pro from shipping. Watch whether independent-eval outfits become the de-facto arbiters, whether labs start pre-empting them with fuller disclosures, and how the cost-per-task axis interacts with the accuracy re-rankings.</div>
+      <div class="topic-meta">First seen: Jul 10, 2026 · Last updated: Jul 17, 2026</div>
     </div>
   </div>
   <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jul 16–17, 2026</div>
+      <div class="entry-title"><strong>Kimi K3 lands with independent GDPval numbers, not just vendor claims — while Gemini 3.5 Pro fails its own bar.</strong> Moonshot's <a href="https://venturebeat.com/technology/chinas-moonshot-ai-releases-kimi-k3-the-largest-open-source-model-ever-rivaling-top-u-s-systems">Kimi K3</a> (2.8T) shipped alongside <strong>Artificial Analysis GDPval-AA v2</strong> results: <strong>1,687, 3rd overall</strong>, behind only Fable 5 Max (1,815) and GPT-5.6 Sol Max (1,747.8), ahead of Opus 4.8 (1,600), plus 2nd on AA-Briefcase — third-party scoring baked into the launch narrative. The inverse case: <a href="https://www.techtimes.com/articles/320736/20260716/rebuilt-gemini-35-pro-misses-third-deadline-google-eyes-stopgap-release.htm">Gemini 3.5 Pro</a> missed its Jul 17 target a third time precisely because it couldn't clear reliability/hallucination bars and trailed GPT-5.6 — evals now gate release, not just re-rank it.</div>
+      <div class="entry-source">VentureBeat / Fortune / TechTimes</div>
+    </div>
     <div class="entry">
       <div class="entry-date">Jul 10, 2026</div>
       <div class="entry-title"><strong>Grok 4.5's "Opus-class" claim meets the aggregators.</strong> A day after Musk called Grok 4.5 "Opus-class" and claimed #1 on a "SWE marathon," <a href="https://artificialanalysis.ai/articles/grok-4-5-brings-spacexai-to-the-the-intelligence-frontier">Artificial Analysis</a> ranked it <strong>#4 on its Intelligence Index (54)</strong> behind Fable 5, GPT-5.5, and Opus 4.8, and its AA-Omniscience factuality index showed accuracy rising 35%→52% while the <strong>hallucination rate roughly doubled to 54%</strong> — the trade-off the launch post didn't headline. Independent numbers largely confirmed the <em>shape</em> of xAI's own chart (Fable 5 leads), just not the topline framing</div>
@@ -230,10 +253,15 @@
     <div class="topic-title-block">
       <div class="topic-title"><span class="status-dot status-active"></span>Coding models trained on real developer sessions &amp; open-weight bases</div>
       <div class="topic-summary">A new generation of coding models is being built less from static code corpora and more from live agentic data and open-weight foundations. Grok 4.5 folds in real Cursor session data (debugging traces, multi-file diffs, user corrections); Cognition's SWE-1.7 stacks large-scale RL on a Kimi K2.7 Code base and argues the gains challenge the idea of a "post-training ceiling." The pattern couples two shifts: (1) training signal moving toward real developer behavior captured in IDEs/agents, and (2) commercial US models increasingly starting from Chinese open-weight bases (Kimi/Moonshot). Watch whether IDE ownership (SpaceX/Cursor) becomes a durable data moat, and whether the open-base lineage draws the same export/security scrutiny frontier models now face.</div>
-      <div class="topic-meta">First seen: Jul 9, 2026 · Last updated: Jul 9, 2026</div>
+      <div class="topic-meta">First seen: Jul 9, 2026 · Last updated: Jul 17, 2026</div>
     </div>
   </div>
   <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jul 16, 2026</div>
+      <div class="entry-title"><strong>The open-weight base itself reaches the frontier: Kimi K3 (2.8T) beats Opus 4.8 on GDPval.</strong> Moonshot's <a href="https://venturebeat.com/technology/chinas-moonshot-ai-releases-kimi-k3-the-largest-open-source-model-ever-rivaling-top-u-s-systems">Kimi K3</a> — the base lineage behind Cognition's SWE-1.7 (K2.7 Code) — now ships as a ~2.8T MoE (Kimi Delta Attention, 1M context) scoring 3rd overall on GDPval-AA v2, with <strong>open weights promised by Jul 27</strong>. Days after Thinking Machines' Inkling (975B, Apache 2.0), the open-weight foundations that US coding models build on are themselves at or near the closed frontier — sharpening the export/security-scrutiny question this topic flagged.</div>
+      <div class="entry-source">VentureBeat / Fortune / Simon Willison</div>
+    </div>
     <div class="entry">
       <div class="entry-date">Jul 9, 2026</div>
       <div class="entry-title"><strong>Grok 4.5 (Cursor-trained) and SWE-1.7 (Kimi-based) ship a day apart.</strong> <a href="https://roo.beehiiv.com/p/grok-4-5">Grok 4.5</a> (SpaceXAI, V9 1.5T params) was trained with real developer-session data from Cursor — the IDE SpaceX agreed to acquire for $60B — a "different signal than most coding models train on." The same day, <a href="https://cognition.com/blog/swe-1-7">Cognition's SWE-1.7</a> was built by adding large-scale RL on top of an already heavily-RL'd <strong>Kimi K2.7 Code</strong> base, reaching near-frontier coding benchmarks and, per Cognition, challenging the "post-training ceiling." Two distinct routes to the same place: live agentic data and open-weight foundations, not bigger static corpora.</div>
@@ -419,10 +447,15 @@
     <div class="topic-title-block">
       <div class="topic-title"><span class="status-dot status-active"></span>Government intervention in frontier-model deployment — export controls &amp; recalls</div>
       <div class="topic-summary">The state has begun exercising direct control over which frontier models can be deployed and to whom. The frontier has now widened to <em>open</em> weights: reports of a White House executive order to manage open models (aimed at Chinese-origin weights and government uses) turn the export-control machinery on the open-weight ecosystem that has been resetting the cost/capability floor. On <strong>Jun 12</strong> the US government (Commerce Secretary Howard Lutnick, citing national-security authorities) issued an <strong>export-control directive ordering Anthropic to suspend all access to Fable 5 and Mythos 5 for any foreign national</strong> — inside or outside the US, including foreign-national Anthropic employees — forcing Anthropic to disable both models for <em>all</em> customers within hours (Opus/Sonnet/Haiku unaffected). The stated trigger, per Axios, was another company's claim that it had jailbroken Mythos; Anthropic's reading is the technique amounts to "ask the model to read a codebase and fix flaws," a capability it says is already in GPT-5.5 and used daily by defenders. The tension is sharp: three days earlier Anthropic's own <a href="https://www.anthropic.com/policy-on-the-ai-exponential">Policy on the AI Exponential</a> argued government <em>should</em> be able to block dangerous deployments — but "through a statutory process that is transparent, fair, clear, and grounded in technical facts," which it says this action fails. Watch for: whether access is restored, whether the same standard is applied to OpenAI/Google, the legal/process precedent, and how foreign-access restrictions ripple through Bedrock / Vertex / Foundry resellers.</div>
-      <div class="topic-meta">First seen: Jun 13, 2026 · Last updated: Jul 15, 2026</div>
+      <div class="topic-meta">First seen: Jun 13, 2026 · Last updated: Jul 17, 2026</div>
     </div>
   </div>
   <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Jul 17, 2026</div>
+      <div class="entry-title"><strong>Two governments make opposite moves the same day.</strong> At WAIC Shanghai, <strong>Xi Jinping's first-ever keynote</strong> pitched China as an open AI partner to the developing world (5,000 training slots, warnings against "monopoly" and security overreach) and proposed a Shanghai-headquartered <strong>World AI Cooperation Organization (WAICO)</strong> — <strong>29 governments signed on</strong> (<a href="https://www.cnbc.com/2026/07/17/x-china-ai-summit-risks-security.html">CNBC</a>, <a href="https://www.scmp.com/tech/article/3360404/xi-jinping-attend-world-ai-conference-first-time-china-elevates-tech-push">SCMP</a>). Simultaneously, NLW reported the <strong>White House is weighing action against Chinese open-source AI</strong> and eased UAE access to advanced US chips — the EO logic Lambert flagged (see Jul 12) moving toward concrete steps just as Kimi K3 (2.8T) launches. The governance contest is now overt and bilateral: China building multilateral cooperation structures, the US tightening around Chinese open weights.</div>
+      <div class="entry-source">CNBC / SCMP / The AI Daily Brief</div>
+    </div>
     <div class="entry">
       <div class="entry-date">Jul 15, 2026</div>
       <div class="entry-title"><strong>China forces a whole product category off the market by rule.</strong> The <em>Interim Measures for the Administration of AI Anthropomorphic Interactive Services</em> took effect <strong>Jul 15</strong>, requiring anti-addiction systems, identity checks for under-14 users, mandatory usage notifications, and an always-available exit — requirements architecturally incompatible with persistent-memory companion agents. <strong>ByteDance's Doubao</strong> disabled its custom humanlike agents (read-only data access until Oct 15); <strong>Alibaba's Qwen</strong> is permanently deleting agent configs and chat histories with no migration path (<a href="https://technode.com/2026/07/06/bytedances-doubao-and-alibabas-qwen-to-shut-down-ai-agent-features-on-july-15/">TechNode</a>, <a href="https://www.scmp.com/tech/big-tech/article/3359482/bytedance-and-alibaba-disable-humanlike-ai-custom-agents-new-rules-loom">SCMP</a>). Unlike the US Fable/Mythos episode (ad-hoc, capability-triggered, later reversed), this is a <em>standing statutory rule targeting a design pattern</em> — a different flavor of government intervention: not "which model ships" but "which agent behaviors are legal." Watch whether Western jurisdictions pick up the companion-AI framing, and whether it reshapes how persistent memory is offered to consumers globally.</div>
