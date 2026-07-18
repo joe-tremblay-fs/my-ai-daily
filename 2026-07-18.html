@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — July 18, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; margin-bottom: 10px; line-height: 1.6; }
+    .themes-box li:last-child { margin-bottom: 0; }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>July 18, 2026</h1>
+  <div class="meta">
+    <span>9 companies</span>
+    <span>5 research/aggregators</span>
+    <span>12 practitioner blogs</span>
+    <span>11 Substacks</span>
+    <span>5 X accounts</span>
+    <span>HN / community</span>
+  </div>
+  <div class="meta" style="margin-top:6px;">
+    <span style="color:var(--muted)">Generated Jul 18, 2026 · 12:12 UTC — Headline: <strong>The "Fablepocalypse" is over.</strong> Anthropic <strong>reversed course and is keeping Claude Fable 5 in subscriptions</strong>: from Jul 20, Fable 5 is included in all <strong>Max and Team Premium plans at 50% of limits</strong>, while Pro and Team Standard keep usage-credit access plus a one-time <strong>$100 credit</strong>. Simon Willison, who called the reversal last week, ties it directly to competitive pressure from <strong>GPT-5.6 Sol and Kimi K3</strong> — "why pay $200/month for a plan that doesn't include Anthropic's best model?" Meanwhile <strong>Kimi K3's shockwave kept rolling</strong>: the 2.8T open model triggered a <strong>chip-stock selloff on the Nasdaq and Nikkei</strong>, with Axios declaring "China just erased America's AI lead." <strong>Gemini 3.5 Pro is still unshipped</strong> (prediction markets now ~81% for Jul 31 / Aug 7). On the security front, <strong>Microsoft is prepping "Project Perception,"</strong> a multi-model AI bug-finder aimed squarely at Anthropic's Mythos, and <strong>xAI sued a user for generating CSAM with Grok</strong>.</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>Anthropic keeps Fable 5 in subscriptions — the deadline saga ends in a reversal.</strong> Per the <code>@claudeai</code> account (relayed in Simon Willison's <a href="https://simonwillison.net/2026/Jul/18/claude-make-fable-5-permanent/">Jul 18 post</a>): "Beginning July 20, Claude Fable 5 will be included in all Max and Team Premium plans, at 50% of limits. Pro and Team Standard users will continue to have access to Fable via usage credits, and will receive a one-time $100 credit." After four deadline extensions (Jun 22 → Jul 7 → Jul 12 → Jul 19), Anthropic's plan to move its best model to API-only pricing became "untenable" against <strong>GPT-5.6 Sol</strong> and <strong>Kimi K3</strong>. Willison wonders aloud whether Anthropic will "dial back their training efforts to make more GPUs available to serve the model."</li>
+      <li><strong>Kimi K3's market shock keeps rolling — a "new DeepSeek moment."</strong> A day after Moonshot's 2.8-trillion-parameter open MoE landed, the reaction turned financial: the debut "surprised investors, fueling a tech rout," with chip-stock selloffs on the <a href="https://www.bloomberg.com/news/articles/2026-07-17/china-s-powerful-new-ai-surprises-investors-fueling-tech-rout-mroxm71p">Nasdaq and Nikkei</a> (Bloomberg), and Axios ran the line "<a href="https://www.axios.com/2026/07/17/china-ai-kimi-k3-open-source-anthropic-opus">China just erased America's AI lead</a>." In Arena blind tests, K3 was preferred over Fable 5 and GPT-5.6 Sol for front-end coding; open weights are still promised <strong>by Jul 27</strong> (<a href="https://fortune.com/2026/07/17/china-moonshot-kimi-k3-markets-china-ai/">Fortune</a>).</li>
+      <li><strong>Microsoft preps "Project Perception," a multi-model AI vulnerability finder to rival Anthropic's Mythos.</strong> Reported Jul 17, the tool uses a smart-routing system across Microsoft, OpenAI and Anthropic models to match each security job to the best-fit (and cheapest) model, positioned as a lower-cost alternative to Mythos for finding and patching software bugs. Led by security chief Hayete Gallot, it's slated to ship <strong>by the end of July</strong> (<a href="https://www.techrepublic.com/article/news-microsoft-project-perception-ai-security-tool/">TechRepublic</a>).</li>
+      <li><strong>Gemini 3.5 Pro is still not out.</strong> No launch materialized on or after its Jul 17 target; reporting cites hallucinations and real-world reliability gaps versus GPT-5.6, with Google having registered <strong>Gemini 3.6 Flash</strong> and <strong>3.5 Flash Light</strong> as stopgaps. Prediction markets now favor <strong>Jul 31 (~81%)</strong> or Aug 7 (~73%) for the next flagship — Google remains the only major lab without a shipping 2026 flagship (<a href="https://www.techtimes.com/articles/320736/20260716/rebuilt-gemini-35-pro-misses-third-deadline-google-eyes-stopgap-release.htm">TechTimes</a>).</li>
+      <li><strong>xAI sues a user for generating child sexual abuse material with Grok.</strong> xAI filed suit in Texas federal court against a South Carolina man it accuses of using at least two Grok accounts under false identities to create CSAM — an unusual move by a lab against its own user (<a href="https://thehill.com/policy/technology/5971425-musk-xai-sues-over-grok-misuse/">The Hill</a>). Separately, Grok Build shipped voice-cloning and richer cost tracking; no new model.</li>
+      <li><strong>Hugging Face discloses a security incident; The Batch and Zvi ship new issues; Simon Willison has a busy two days.</strong> Hugging Face published a <a href="https://huggingface.co/blog/security-incident-july-2026">security incident disclosure</a> (surfaced via AI-assisted anomaly detection). <strong>The Batch</strong> ran a <a href="https://www.deeplearning.ai/the-batch">Jul 17 issue</a> on AI freeing developers for senior-engineer work; <strong>Zvi Mowshowitz</strong> posted <strong>AI #177</strong> (Parts 1–2). Willison also shipped an <a href="https://simonwillison.net/2026/Jul/17/llm-cliche-highlighter/">LLM cliché highlighter</a> and a wry <a href="https://simonwillison.net/2026/Jul/17/spot-birds-not-golf/">AI-water-usage</a> riff.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- COMPANIES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Companies</h2>
+    <span class="section-tag tag-company">Anthropic · OpenAI · Google · Microsoft · AWS · xAI</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Anthropic — Fable 5 stays in subscriptions (the reversal)</div>
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title">Anthropic keeps Claude Fable 5 in Max &amp; Team Premium plans from July 20 — ending the API-only migration plan</div>
+        <span class="item-badge badge-sig">Significant</span>
+      </div>
+      <div class="item-date">Jul 18, 2026 — @claudeai / simonwillison.net</div>
+      <div class="item-body">
+        Anthropic reversed its most-watched product decision of the month. Per the <code>@claudeai</code> account (relayed by <a href="https://simonwillison.net/2026/Jul/18/claude-make-fable-5-permanent/">Simon Willison</a>): "Beginning July 20, Claude Fable 5 will be included in all Max and Team Premium plans, at 50% of limits. Pro and Team Standard users will continue to have access to Fable via usage credits, and will receive a one-time $100 credit." The original plan — remove Fable 5 from flat-rate subscriptions and sell it only through API pricing — had been pushed back <strong>four times</strong> (Jun 22 → Jul 7 → Jul 12 → Jul 19) amid compute-capacity concerns. Willison, who predicted the climbdown, ties it to competitive pressure: with <a href="https://simonwillison.net/2026/Jul/9/gpt-5-6/">GPT-5.6 Sol</a> and <a href="https://simonwillison.net/2026/Jul/16/kimi-k3/">Kimi K3</a> shipping, "why pay $100 or $200/month for a subscription plan that <em>doesn't</em> include Anthropic's best model?" He speculates Anthropic may have to reallocate training GPUs to serving. Anthropic engineer <a href="https://x.com/trq212">Thariq Shihipar</a> had signaled in early July that the company aimed to restore Fable "as soon as capacity allows" — now realized.
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>Standing threads:</strong> banks are lining up investor meetings ahead of an expected fall <a href="https://www.cnbc.com/2026/07/15/anthropic-ipo-banks-investor-meetings.html">mega-IPO</a> (CNBC, Jul 15); Ben Bernanke joined the Long-Term Benefit Trust; the "large-scale code migrations with Claude Code" engineering post (Jul 16) and Claude Code's move to Opus 4.8 as default still stand; Claude Cowork is expanding to mobile/web in beta (Max users, doubled limits through Aug 5). <strong>Anthropic Research</strong> — nothing dated newer than the <a href="https://www.anthropic.com/research/global-workspace">global-workspace / J-space</a> interpretability work (Jul 6); Fellows cohorts (May &amp; July) continue.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Google — Gemini 3.5 Pro still unshipped</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Gemini 3.5 Pro still hasn't launched; markets now price Jul 31 / Aug 7 for the next flagship</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 16–18, 2026 — techtimes.com</div>
+      <div class="item-body">
+        No Gemini 3.5 Pro launch materialized on or after the widely-reported Jul 17 target. Reporting says the ground-up-rebuilt model cleared its earlier SVG / recursive-tool-calling failures but hit a new class of problems — <strong>frequent hallucinations and real-world reliability gaps</strong> — and trailed GPT-5.6 in benchmarks. Google has reportedly registered <strong>Gemini 3.6 Flash</strong> and <strong>Gemini 3.5 Flash Light</strong> as stopgaps, with analysts floating a skip to <strong>4.0 Flash</strong>. Prediction markets now lead with <strong>Jul 31 (~81%)</strong> and Aug 7 (~73%) (<a href="https://www.techtimes.com/articles/320736/20260716/rebuilt-gemini-35-pro-misses-third-deadline-google-eyes-stopgap-release.htm">TechTimes</a>). Confirmed API listings remain <code>gemini-3.5-flash</code> and <code>gemini-3.1-pro-preview</code> only; the 2M-context / Deep Think / pricing specs are all third-party.
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>Google AI Blog / DeepMind</strong> — no new frontier post dated Jul 17–18; the July throughline stays agentic Gemini (900M+ MAU across 230 countries), <a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/">Gemma 4</a> open models (from April), the Universal Commerce Protocol, and Claude Opus 4.8 landing on the Gemini Enterprise Agent Platform. DeepMind's recent publications (geo-cultural values Jul 10; ICML 2026 Seoul) still stand.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Microsoft · OpenAI · AWS · xAI</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Microsoft prepping "Project Perception" — a multi-model AI bug-finder to rival Anthropic's Mythos</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 17, 2026 — techrepublic.com</div>
+      <div class="item-body">
+        Microsoft is set to launch <strong>Project Perception</strong>, an AI-driven cybersecurity platform for spotting and patching software vulnerabilities. It uses a <strong>smart-routing system</strong> across Microsoft, OpenAI and Anthropic models to match each security job with the best-fit and lowest-cost model — explicitly positioned as a cheaper alternative to Anthropic's <strong>Mythos</strong> for AI-assisted vulnerability research. It's the work of security head <strong>Hayete Gallot</strong>, who has been reorganizing Microsoft's security business around AI. Target: <strong>by end of July</strong> (<a href="https://www.techrepublic.com/article/news-microsoft-project-perception-ai-security-tool/">TechRepublic</a>; also reported by The Information). It lands the same week Anthropic's own <code>web_fetch</code> exfiltration hole and OpenAI's Codex <code>$HOME</code>-deletion bug kept agent-security in the headlines.
+      </div>
+    </div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">xAI sues a user for generating CSAM with Grok; Grok Build adds voice cloning</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 2026 — thehill.com</div>
+      <div class="item-body">
+        xAI filed suit in Texas federal court against a South Carolina man, alleging he used at least two Grok accounts under false identities to generate <strong>child sexual abuse material</strong> — a notably aggressive move by a lab against its own user (<a href="https://thehill.com/policy/technology/5971425-musk-xai-sues-over-grok-misuse/">The Hill</a>). On the product side, <strong>Grok Build</strong> added voice cloning from a short clip (across TTS and Voice Agent APIs), richer usage/cost tracking and Voice mode; <strong>Grok 4.5</strong> ($2/$6, Cursor-trained) holds and reportedly took #1 on Long-Horizon Terminal-Bench. No new model this window.
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>OpenAI</strong> — no new dated Jul 17–18 post; GPT-5.6 Sol/Terra/Luna GA (since Jul 9), Codex crossed <strong>8M users</strong>, and Sol is now on Cerebras at up to 750 tok/s. <strong>AWS ML</strong> — no new frontier post; Bedrock AgentCore shipped operational updates (new <code>ActiveSessionCount</code> CloudWatch metric; runtime quota bumps, InvokeAgentRuntime 25→200 TPS). <strong>Microsoft / Azure</strong> (beyond Project Perception) — July shipping stands: M365 Copilot SKUs made permanent (Jul 1), Cobalt 200 VMs, Azure HorizonDB, and Project Polaris slated to replace GPT-4 Turbo as GitHub Copilot's default in August.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OPEN WEIGHTS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Open Weights / Emerging Labs</h2>
+    <span class="section-tag tag-company">Moonshot · DeepSeek · Qwen · GLM · Meta/MSL · Cognition</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title">Kimi K3's market shock keeps rolling — chip stocks sell off, "China just erased America's AI lead"</div>
+      <span class="item-badge badge-sig">Significant</span>
+    </div>
+    <div class="item-date">Jul 17, 2026 — bloomberg.com / axios.com / fortune.com</div>
+    <div class="item-body">
+      A day after Moonshot AI's <a href="https://venturebeat.com/technology/chinas-moonshot-ai-releases-kimi-k3-the-largest-open-source-model-ever-rivaling-top-u-s-systems">Kimi K3</a> (2.8T-param open MoE, 1M context, $3/$15) landed, the reaction went financial. The debut "surprised investors, fueling a tech rout," with chip-stock selloffs on the <a href="https://www.bloomberg.com/news/articles/2026-07-17/china-s-powerful-new-ai-surprises-investors-fueling-tech-rout-mroxm71p">Nasdaq and Tokyo's Nikkei</a>, and investors dubbed it a new "DeepSeek moment." Axios went further: "<a href="https://www.axios.com/2026/07/17/china-ai-kimi-k3-open-source-anthropic-opus">China just erased America's AI lead</a>." In Arena blind testing, developers preferred K3 over Fable 5 and GPT-5.6 Sol for front-end coding, and K3 outranked standard Opus 4.8 while tying Sol on Arena's broader text ranking — though Fable 5 stays #1 on the Artificial Analysis Intelligence Index. Open weights are still promised <strong>by Jul 27</strong> (<a href="https://fortune.com/2026/07/17/china-moonshot-kimi-k3-markets-china-ai/">Fortune</a>). The launch is inseparable from this week's WAIC Shanghai and Xi Jinping's <a href="https://www.npr.org/2026/07/17/nx-s1-5897285/chinas-xi-calls-for-step-up-of-global-effort-in-ai-as-us-curbs-squeeze-chinas-tech-access">keynote</a>.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      No brand-new open model dropped Jul 17–18. <strong>DeepSeek V4</strong> holds after graduating preview→official mid-July (V4-Pro 1.6T/49B, V4-Flash 284B/13B, peak/off-peak pricing); legacy <code>deepseek-chat</code>/<code>deepseek-reasoner</code> aliases retire <strong>Jul 24</strong> (<a href="https://technode.com/2026/06/30/deepseek-to-launch-v4-in-mid-july-with-new-peak-time-api-pricing/">TechNode</a>). <strong>Alibaba Qwen</strong> — no new model; Qwen3.7 Max/Plus stay the API-only flagships, and China's cyberspace regulator approved <a href="https://techcrunch.com/2026/07/15/apple-intelligence-approved-for-launch-in-china-with-alibabas-qwen-ai/">Apple Intelligence in China on Qwen</a> (Jul 15). <strong>Zhipu / GLM</strong> — no new model; <a href="https://www.scmp.com/tech/tech-trends/article/3359170/zhipu-ai-releases-harness-glm-52-model-chinese-firm-takes-aim-anthropic">GLM-5.2</a> (744B MoE, Jun 13) + ZCode harness anchor its Anthropic-catch-up push. <strong>Meta / MSL</strong> — no new drop; <a href="https://about.fb.com/news/2026/07/introducing-muse-image-meta-ai/">Muse Image</a> (Jul 7) and Muse Spark 1.1 (Jul 9) still lead the proprietary Muse line. <strong>Cognition / Devin</strong> — <a href="https://cognition.com/blog/swe-1-7">SWE-1.7</a> (Jul 8; Kimi K2.7 base, 1000 tok/s on Cerebras) remains the latest. Thinking Machines' Inkling (975B, Apache 2.0, Jul 15) is the fresh Western open-frontier entrant.
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH & AGGREGATORS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Research &amp; Aggregators</h2>
+    <span class="section-tag tag-practitioner">HF · The Batch · arXiv · Rundown · AI Daily Brief</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">Hugging Face discloses a July 2026 security incident (surfaced via AI-assisted anomaly detection)</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">~Jul 16, 2026 — huggingface.co/blog</div>
+    <div class="item-body">
+      Hugging Face published a <a href="https://huggingface.co/blog/security-incident-july-2026">security incident disclosure</a>. Per the writeup, the attack was initially surfaced through an <strong>AI-assisted anomaly-detection pipeline</strong> using LLM-based triage over security telemetry — a notable example of AI-on-AI defense in practice. It stands alongside recent HF blog work: LeRobot v0.6.0 (Jul 7) and the 🤗 Kernels revamp (Jul 6). A Kimi K3 Hub welcome is likely once its weights land Jul 27.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">The Batch (Jul 17): AI is automating coding, freeing developers for senior-engineer work</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jul 17, 2026 — deeplearning.ai</div>
+    <div class="item-body">
+      Andrew Ng's <a href="https://www.deeplearning.ai/the-batch">The Batch</a> ran a Jul 17 letter arguing that as AI increasingly automates code-writing, developers are freed to spend more time on high-level tasks traditionally reserved for senior engineers — technical architecture decisions and scoping product requirements. It extends the Jul 10 "agentic coding loops" edition and rhymes with O'Reilly's "coding was never the bottleneck" thesis.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>arXiv cs.AI</strong> — agent/benchmark churn continues (HAS-Bench for human-agent systems; a unified "Externalization in LLM Agents" review; new items like CommCP multi-agent coordination, AgenticPay buyer-seller negotiation, and a "Gender Dynamics and Homophily in a Social Network of LLM Agents" study over 70K+ agents); no single Jul 17–18 submission individually confirmed. <strong>The Rundown AI</strong> — no specific dated Jul 17–18 issue surfaced (JS-heavy; search returned home/archive shells). <strong>The AI Daily Brief (NLW)</strong> — no specific dated Jul 17–18 beehiiv issue surfaced this run; the WAIC/Xi keynote and Kimi K3 market rout dominate the daily-digest space.
+    </div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; newsletters</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison — Fable 5 reversal, cliché highlighter, AI water usage (Jul 17–18)</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Simon Willison: "Claude make Fable 5 permanent," an LLM cliché highlighter, and a birds-not-golf take on data-center water</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 17–18, 2026 — simonwillison.net</div>
+      <div class="item-body">
+        The most important practitioner source had a busy two days. His <a href="https://simonwillison.net/2026/Jul/18/claude-make-fable-5-permanent/">Jul 18 post</a> broke down Anthropic's Fable 5 reversal (see Companies), calling an end to the "Fablepocalypse." He shipped an <a href="https://simonwillison.net/2026/Jul/17/llm-cliche-highlighter/">LLM cliché highlighter</a> (Fable-5-vibe-coded, flags ~11 common LLM-writing tics like "the loss is real and worth naming"), noted a Kimi K3 personality quirk ("Is there something I can actually help you with today?" after refusing to leak its system prompt), and posted a <a href="https://simonwillison.net/2026/Jul/17/spot-birds-not-golf/">wry riff</a> suggesting hyperscalers under water-use pressure buy up golf courses (Google used 10.9B gallons in 2025 ≈ 30M gal/day; 40 Coachella Valley courses would offset it). A <a href="https://simonwillison.net/2026/Jul/18/quixote/">Jul 18 note</a> marvels that the 21-year-old Quixote Python web framework got a commit six hours prior.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly · LangChain · Lilian Weng · Anthropic Engineering</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>O'Reilly Radar</strong> — no new post dated Jul 17–18; recent stack: <a href="https://www.oreilly.com/radar/the-new-software-lifecycle/">"The New Software Lifecycle"</a> (Addy Osmani, Jul 15; "the job moves from writing code to judging it"), <a href="https://www.oreilly.com/radar/the-open-source-agent-toolkit-in-2026/">"The Open Source Agent Toolkit in 2026"</a> (Jul 14) and "Coding Was Never a Bottleneck" (Jul 16). <strong>LangChain</strong> — no new Jul 17–18 post; <a href="https://www.langchain.com/blog/deep-agents-0-6">Deep Agents v0.6</a> (Jul 1; streaming as a first-class primitive) and the NVIDIA NemoClaw blueprint (Jul 8) stand. <strong>Lilian Weng</strong> — no new since <a href="https://lilianweng.github.io/posts/2026-07-04-harness/">"Harness Engineering for Self-Improvement"</a> (Jul 4). <strong>Anthropic Engineering</strong> — no new since the "large-scale code migrations with Claude Code" post (Jul 16).
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Quiet this window — each searched individually</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        None showed a new AI post dated Jul 17–18: <strong>Chip Huyen</strong> (monthly cadence; nothing in July), <strong>Hamel Husain</strong> (evals FAQ, Jan 2026; ongoing course with Shreya Shankar), <strong>Eugene Yan</strong> (no new since the Jun 21 cybersecurity/threat-modeling post; now at Anthropic on recsys), <strong>Jason Liu / jxnl.co</strong> (no July post; latest ~May "Codex-maxxing"; on OpenAI's Codex team), <strong>Addy Osmani (addyosmani.com)</strong> ("Own the Outer Loop" Jul 9 / "Agentic Autonomy Levels"; nothing newer), <strong>Swyx</strong> (no dated AI-model post on swyx.io), <strong>Latent Space</strong> (a ~101-min Jul 16 episode surfaced but guest/title unconfirmed; prior #213 was Jul 8).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUBSTACKS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Substacks</h2>
+    <span class="section-tag tag-practitioner">Newsletters</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">Zvi Mowshowitz posts AI #177 (Parts 1–2); Stratechery runs "Closing Window for Open Source AI?"</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jul 16–17, 2026 — thezvi.substack.com / stratechery.com</div>
+    <div class="item-body">
+      <strong>Zvi Mowshowitz</strong> published his weekly roundup <strong>AI #177</strong> — "Part 1: Tip of the Iceberg" and "Part 2: Wish You Were Here" — his first AI #-numbered issue since Monthly Roundup #44, folding in the GPT-5.6 Sol/Terra/Luna rollout and the open-model wave (<a href="https://thezvi.substack.com/">Don't Worry About the Vase</a>). <strong>Ben Thompson / Stratechery</strong> ran "Is Netflix Washed Now?" (Jul 17) and a Sharp China episode titled "Closing Window for Open Source AI?" (Jul 16), plus a Dithering on OpenAI hardware — the open-source-AI-regulation thread threading through the week (<a href="https://stratechery.com/">Stratechery</a>).
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      Individually checked; nothing else new dated Jul 17–18. <strong>Ethan Mollick / One Useful Thing</strong> — no new post since "Twilight of the Chatbots" (Jun 30); TIME100 Creators (Jul 14). <strong>Pragmatic Engineer / Gergely Orosz</strong> — no new since "Context engineering with Dex Horthy" (Jul 15); "Tech jobs market 2026, part 3" (Jul 7). <strong>Lenny Rachitsky</strong> — "a workforce splitting in two" (Jul 7). <strong>Addy Osmani / Elevate</strong> — <a href="https://addyo.substack.com/p/own-the-outer-loop">"Own the Outer Loop"</a> (Jul 9). <strong>Interconnects / Nathan Lambert</strong> — <a href="https://www.interconnects.ai/p/6-months-to-live-for-open-models">"6 months to live for open models"</a> (Jul 12) + "State of the blog, mid-2026." <strong>Import AI / Jack Clark</strong> — Remote Labor Index update (AI success 2.5%→16.1%); fully-indexed issue remains #455 (May 4). <strong>Adam Tornhill</strong> — "Compressed Cognition" / "Coding Is Dead"; no dated July post. <strong>Jessica Talisman</strong> — Ontology Pipeline book (Technics, Sep/Oct 2026); no dated July post. <strong>Casey Muratori / Computer, Enhance!</strong> — "Summer News" (Jul 2); "Premature Optimization" article/video promised end of July.
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Practitioner accounts</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>@trq212 (Thariq Shihipar)</strong> — his early-July signal that Anthropic aimed to restore Fable 5 to subscriptions "as soon as capacity allows" was borne out by today's reversal; "A Field Guide to Fable" (Jul 3) still circulating. <strong>@karpathy</strong> — no new standalone Jul 17–18; at Anthropic (pre-training) since mid-July, his "stop using AI to write code, build a second brain with it" thread (21M views) still circulating. <strong>@emollick</strong> — no new standalone Jul 17–18; recent posts (Jul 7–12) push the "prompting tricks fade, management wins" thesis. <strong>@addyosmani</strong> — no new standalone Jul 17–18; agentic-engineering / own-the-outer-loop cadence; bio now "Director of Google Cloud AI and Gemini Agents." <strong>@xai / @grok</strong> — the CSAM lawsuit (see Companies) and Grok Build voice-cloning are the fresh items; no new model.
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community / Hacker News</h2>
+    <span class="section-tag tag-community">Front page + forums</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">HN: a $100 "AI music video" bake-off (Fable 5 vs GPT-5.6 Sol) and Kimi K3 headline the front page</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jul 17, 2026 — news.ycombinator.com</div>
+    <div class="item-body">
+      The Jul 17 front page ran a much-shared experiment — <strong>"$100 AI Music Video: Claude Fable 5 vs. GPT-5.6 Sol"</strong> — in which both models autonomously built "Uptown Funk"-style videos on $25/$100 budgets using FAL/Replicate and ffmpeg; all four runs completed but stumbled on character consistency, tempo alignment and self-iteration. Alongside it: <strong>"Kimi K3: Open Frontier Intelligence,"</strong> <strong>"LM Studio Bionic: the AI agent for open models,"</strong> and an <a href="https://news.ycombinator.com/item?id=48935342">HN thread</a> on Kimi K3's behavior. The month's mood stays on open models, trust and security.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>LessWrong</strong> — active alignment threads including <a href="https://www.alignmentforum.org/posts/WewsByywWNhX9rtwi/current-ais-seem-pretty-misaligned-to-me">"Current AIs seem pretty misaligned to me"</a> (they oversell work and downplay problems), <a href="https://www.lesswrong.com/s/NouBkh4qnK8uKwn3L/p/vPaXtarnJ37kGfPdJ">"Independent alignment of language models"</a>, and the standing "alignment remains a hard, unsolved problem" vs "alignment by default" debate. <strong>r/LocalLLaMA</strong> — no single dated Jul 17–18 thread surfaced (search-only / best-effort); self-hosting chatter tracks the open slate (Kimi K3 weights Jul 27, Inkling, GLM-5.2, DeepSeek V4-Flash). <strong>r/MachineLearning</strong> — no dated Jul 17–18 thread surfaced this run (search-only / best-effort).
+    </div>
+  </div>
+</div>
+
+<!-- THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>Cross-cutting observations</h3>
+    <ul>
+      <li><strong>Competition just forced Anthropic's hand on pricing.</strong> After four extensions and a stated compute-capacity rationale, Anthropic reversed its plan to pull Fable 5 from subscriptions — a direct, visible response to GPT-5.6 Sol and Kimi K3. When rivals ship a comparable model inside a flat-rate plan, "best model, API-only" stops being defensible. Willison's open question — whether Anthropic diverts training GPUs to serving — is the real tell about where the capacity crunch bites.</li>
+      <li><strong>The Kimi K3 shock is now a markets story, not just a benchmarks story.</strong> A 2.8T open model preferred over Fable 5 and Sol in front-end coding, arriving with a chip-stock selloff and "China erased America's lead" headlines, echoes last year's DeepSeek moment — but at a higher capability floor. Open weights (due Jul 27) landing near the closed frontier is exactly what Nathan Lambert's "6 months to live for open models" and Stratechery's "closing window for open source AI" are circling: the capability is here; the regulatory fight is next.</li>
+      <li><strong>Google's flagship gap has hardened into the story of the summer.</strong> No Gemini 3.5 Pro on its own Jul 17 date — now for reliability/hallucination reasons — while Anthropic, OpenAI, xAI, DeepSeek and Moonshot all ship. Stopgap Flash registrations and talk of skipping to 4.0 Flash suggest Google is managing the gap with what it can actually ship, betting distribution buys time.</li>
+      <li><strong>AI security is now a product category — and an adversarial one.</strong> Microsoft's Project Perception (a Mythos rival that routes across MS/OpenAI/Anthropic models) turns Anthropic's own security play into a competitive front, while the week's <code>web_fetch</code> exfiltration hole, Codex <code>$HOME</code>-deletion bug, HF's incident disclosure, and xAI's CSAM lawsuit all show the harness and the platform — not the raw model — as the surface where trust is won or lost.</li>
+      <li><strong>The "developers judge, not type" thesis keeps compounding.</strong> The Batch (freed for senior-engineer work), O'Reilly's new-software-lifecycle framing, and Addy Osmani's own-the-outer-loop line all point the same way: as code generation commoditizes toward the open frontier, the durable human work is architecture, verification and accountability. Even Willison's cliché-highlighter is a small artifact of the same shift — tooling to judge machine output rather than produce more of it.</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <strong>Sources checked (Jul 18, 2026 — each source searched individually):</strong><br>
+  <em>Companies</em> — <strong>Anthropic news</strong> (SIGNIFICANT: Fable 5 kept in Max/Team Premium from Jul 20 at 50% limits; Pro/Team Standard get $100 credit; IPO bankers, Bernanke, code-migrations post, Cowork mobile hold), <strong>Anthropic Research</strong> (global-workspace Jul 6 latest; Fellows cohorts), <strong>Google DeepMind / Gemini</strong> (NEW: Gemini 3.5 Pro still unshipped; markets ~81% Jul 31 / 73% Aug 7; stopgap Flash registered), <strong>Google AI Blog</strong> (no new frontier post; agentic Gemini, UCP, Opus 4.8 on Gemini Enterprise), <strong>AWS ML</strong> (AgentCore ActiveSessionCount metric + quota/TPS bumps; no new frontier post), <strong>Microsoft AI</strong> (NEW: Project Perception multi-model bug-finder vs Mythos, end-of-July target), <strong>Azure</strong> (Cobalt 200, HorizonDB, Project Polaris → GitHub Copilot default in Aug; no new Jul 17–18), <strong>OpenAI</strong> (no new Jul 17–18 post; GPT-5.6 GA, Codex 8M users, Cerebras 750 tok/s), <strong>xAI/SpaceXAI</strong> (NEW: CSAM lawsuit; Grok Build voice cloning; Grok 4.5 #1 Long-Horizon Terminal-Bench; no new model).<br>
+  <em>Open Weights</em> — <strong>Moonshot / Kimi</strong> (SIGNIFICANT: Kimi K3 market rout Jul 17, Nasdaq/Nikkei chip selloff, Arena front-end preference; weights by Jul 27), <strong>DeepSeek</strong> (V4 official mid-July; peak/off-peak pricing; legacy retire Jul 24), <strong>Alibaba Qwen</strong> (no new model; Qwen3.7 Max/Plus; Apple Intelligence on Qwen in China Jul 15), <strong>Zhipu/GLM</strong> (GLM-5.2 Jun 13 + ZCode; no new), <strong>Meta Llama/MSL</strong> (Muse Image Jul 7 / Muse Spark 1.1 Jul 9; no new), <strong>Cognition/Devin</strong> (SWE-1.7 Jul 8; no new).<br>
+  <em>Research &amp; Aggregators</em> — <strong>Hugging Face</strong> (NEW: security incident disclosure via AI anomaly detection; LeRobot v0.6.0, Kernels), <strong>The Batch</strong> (NEW: Jul 17 issue — AI frees devs for senior-engineer work), <strong>arXiv cs.AI</strong> (HAS-Bench, Externalization review, CommCP, AgenticPay, LLM-agent social-network study; no single Jul 17–18 confirmed), <strong>The Rundown AI</strong> (no dated Jul 17–18 issue surfaced; JS-heavy), <strong>The AI Daily Brief (NLW)</strong> (no specific dated Jul 17–18 beehiiv issue surfaced this run).<br>
+  <em>Practitioners</em> — <strong>Simon Willison</strong> (NEW: "Claude make Fable 5 permanent" Jul 18, LLM cliché highlighter Jul 17, birds-not-golf water riff Jul 17, Quixote note Jul 18, Kimi K3 quirk), <strong>O'Reilly Radar</strong> (no new Jul 17–18; New Software Lifecycle Jul 15, Open Source Agent Toolkit Jul 14), <strong>LangChain</strong> (Deep Agents v0.6 Jul 1, NemoClaw Jul 8; no new), <strong>Lilian Weng</strong> (no new since Jul 4 Harness Engineering), <strong>Anthropic Engineering</strong> (no new since code-migrations Jul 16), <strong>Chip Huyen</strong> (no July post), <strong>Hamel Husain</strong> (evals FAQ Jan 2026; no new), <strong>Eugene Yan</strong> (no new since Jun 21), <strong>Jason Liu/jxnl.co</strong> (no July post; ~May latest), <strong>Addy Osmani blog</strong> (Own the Outer Loop Jul 9; nothing newer), <strong>Swyx</strong> (no dated AI post), <strong>Latent Space</strong> (~101-min Jul 16 episode; guest/title unconfirmed; prior #213 Jul 8).<br>
+  <em>Substacks</em> — <strong>Zvi Mowshowitz</strong> (NEW: AI #177 Parts 1–2; Monthly Roundup #44), <strong>Stratechery/Ben Thompson</strong> (NEW: "Is Netflix Washed Now?" Jul 17; Sharp China "Closing Window for Open Source AI?" Jul 16; Dithering OpenAI hardware), <strong>Ethan Mollick/One Useful Thing</strong> (no new since Jun 30; TIME100 Jul 14), <strong>Pragmatic Engineer</strong> (Dex Horthy Jul 15 latest; no newer), <strong>Lenny's Newsletter</strong> ("workforce splitting in two" Jul 7), <strong>Addy Osmani/Elevate</strong> ("Own the Outer Loop" Jul 9), <strong>Interconnects/Nathan Lambert</strong> ("6 months to live for open models" Jul 12), <strong>Import AI/Jack Clark</strong> (Remote Labor Index 2.5%→16.1%; indexed #455 May 4), <strong>Adam Tornhill</strong> ("Compressed Cognition"/"Coding Is Dead"; no dated July post), <strong>Jessica Talisman</strong> (Ontology Pipeline book Sep/Oct 2026; no dated July post), <strong>Computer Enhance/Casey Muratori</strong> ("Summer News" Jul 2; Premature Optimization due end July).<br>
+  <em>X / Social</em> — <strong>@trq212</strong> (early-July "Fable will return" signal borne out; Field Guide to Fable Jul 3), <strong>@karpathy</strong> (no new standalone; at Anthropic; "second brain" thread), <strong>@emollick</strong> (no new standalone; "management wins" Jul 7–12), <strong>@addyosmani</strong> (no new standalone; own-the-outer-loop; now Director, Google Cloud AI &amp; Gemini Agents), <strong>@xai/@grok</strong> (CSAM lawsuit; Grok Build voice cloning; no new model).<br>
+  <em>Community</em> — <strong>Hacker News</strong> (NEW: $100 AI music-video bake-off Fable 5 vs Sol; Kimi K3; LM Studio Bionic; open-source-AI mood), <strong>LessWrong</strong> ("Current AIs seem pretty misaligned to me"; "Independent alignment of language models"; alignment-hard vs by-default), <strong>r/LocalLLaMA</strong> (open-slate chatter; no dated Jul 17–18 thread surfaced; search-only), <strong>r/MachineLearning</strong> (no dated thread surfaced; search-only).<br><br>
+  Generated by My AI Daily · 51 sources scanned individually · Items marked <span style="color:var(--accent2)">New</span> or <span style="color:var(--accent)">Significant</span> were not in the Jul 17 brief.
+</footer>
+
+</body>
+</html>
