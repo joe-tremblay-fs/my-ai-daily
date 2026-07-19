@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — July 19, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; margin-bottom: 10px; line-height: 1.6; }
+    .themes-box li:last-child { margin-bottom: 0; }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>July 19, 2026</h1>
+  <div class="meta">
+    <span>9 companies</span>
+    <span>5 research/aggregators</span>
+    <span>12 practitioner blogs</span>
+    <span>11 Substacks</span>
+    <span>5 X accounts</span>
+    <span>HN / community</span>
+  </div>
+  <div class="meta" style="margin-top:6px;">
+    <span style="color:var(--muted)">Generated Jul 19, 2026 · 12:12 UTC — Headline: <strong>A quiet Sunday, one day before Fable comes home.</strong> The month's biggest story enters its final act: <strong>Claude Fable 5 returns to Max and Team Premium subscriptions tomorrow (Jul 20)</strong> at 50% of limits, ending a five-week API-only saga — Anthropic's Thariq Shihipar called it "a heroic effort by many people … working sometimes literally around the clock." The fresh, if smaller, items are all tooling and infrastructure: Simon Willison confirmed <strong>Claude Code now ships Bun rewritten in Rust</strong> in production across millions of devices; <strong>AWS expanded Bedrock AgentCore</strong> with Fully Managed Knowledge Bases and a managed Web Search tool; <strong>OpenAI shipped a ChatGPT desktop overhaul</strong> unifying Chat and Codex; and the Hacker News front page led with a striking claim that <strong>GPT-5.6 closed a 30-year gap in convex optimization</strong>. Gemini 3.5 Pro remains unshipped; no new frontier model dropped today.</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>Fable 5 returns to subscriptions tomorrow — the saga's last act.</strong> From <strong>July 20</strong>, Claude Fable 5 is included again in all Max and Team Premium plans at 50% of limits, closing the API-only migration plan that had been extended four times. Anthropic engineer <a href="https://x.com/trq212">Thariq Shihipar</a> framed the reinstatement as "a heroic effort by many people at Anthropic working sometimes literally around the clock … Enjoy Fable." (The reversal itself was announced Jul 18; tomorrow is when it takes effect.)</li>
+      <li><strong>Claude Code now runs Bun rewritten in Rust, in production.</strong> Simon Willison <a href="https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/">poked at his own install</a> and confirmed Jarred Sumner's claim from <a href="https://bun.com/blog/bun-in-rust">Rewriting Bun in Rust</a>: <code>claude</code> bundles <strong>Bun v1.4.0</strong> (a not-yet-released version) with 563 <code>.rs</code> source filenames baked in. The Rust port has shipped since Claude Code v2.1.181 (Jun 17) "across millions of different devices … Boring is good."</li>
+      <li><strong>AWS expands Bedrock AgentCore with knowledge and web-search primitives.</strong> New <a href="https://aws.amazon.com/blogs/machine-learning/new-in-amazon-bedrock-agentcore-build-agents-with-broader-knowledge-and-continuous-learning/">Fully Managed Knowledge Bases</a> add native connectors, "Smart Parsing" multi-format prep and an Agentic Retriever for multi-step queries, plus a managed <strong>Web Search</strong> tool that grounds agents in cited web results with zero data egress from the customer's AWS environment.</li>
+      <li><strong>OpenAI ships a ChatGPT desktop overhaul unifying Chat and Codex.</strong> A <a href="https://openai.com/news/">ChatGPT Business</a> update adds a global switcher between ChatGPT and Codex, unified Recents (Chat + Work together, sortable/pinnable), and Projects in the desktop app; Codex also restored the <strong>272K-token context</strong> for GPT-5.6 Sol/Terra/Luna and custom instructions jumped to 5,000 chars.</li>
+      <li><strong>HN's top story: "GPT-5.6 used a prompt to close a 30-year gap in convex optimization."</strong> The <a href="https://news.ycombinator.com/front">Jul 18 Hacker News front page</a> led with the claim, alongside "What AI did to Stack Overflow, in a graph" and Isomorphic Labs' new drug-design engine — the front page's AI mood stayed on research wins and the model's effect on developer communities.</li>
+      <li><strong>Still no Gemini 3.5 Pro, and no new frontier model anywhere today.</strong> Google's flagship remains unshipped past its Jul 17 target (markets now favor Jul 31 / Aug 7); Kimi K3's open weights are still due Jul 27; DeepSeek V4, GLM-5.2, Qwen3.7 and Muse Spark 1.1 all hold. A genuinely quiet Sunday on the model front.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- COMPANIES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Companies</h2>
+    <span class="section-tag tag-company">Anthropic · OpenAI · Google · Microsoft · AWS · xAI</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Anthropic — Fable 5 back in subscriptions tomorrow</div>
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title">Claude Fable 5 returns to Max &amp; Team Premium plans on July 20 (50% of limits) — the API-only migration is over</div>
+        <span class="item-badge badge-sig">Significant</span>
+      </div>
+      <div class="item-date">Effective Jul 20, 2026 — anthropic.com/news</div>
+      <div class="item-body">
+        The month's defining story reaches its milestone: starting <strong>tomorrow, July 20</strong>, Fable 5 is once again included in all Max and Team Premium subscriptions at 50% of usage limits; Pro and Team Standard keep access via usage credits and receive a one-time $100 credit. The reversal (announced Jul 18) ends a plan — first floated with the June <a href="https://www.anthropic.com/news/redeploying-fable-5">redeployment</a> and pushed back four times (Jun 22 → Jul 7 → Jul 12 → Jul 19) — to sell Anthropic's best model only through API pricing. Anthropic engineer <a href="https://x.com/trq212">Thariq Shihipar</a> credited "a heroic effort by many people at Anthropic working sometimes literally around the clock … Enjoy Fable," echoing his earlier signal that Fable would return "as soon as capacity allows." The competitive backdrop — GPT-5.6 Sol and Kimi K3 shipping comparable capability inside flat-rate plans — is widely read as forcing the climbdown.
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>Standing threads:</strong> the <a href="https://www.anthropic.com/engineering">"large-scale code migrations with Claude Code"</a> engineering post (Jul 16) and Claude Code's stability update (subagent streaming, faster terminal rendering) still stand; the fall mega-IPO chatter, Ben Bernanke on the Long-Term Benefit Trust, and Cowork's mobile/web beta continue. <strong>Anthropic Research</strong> — nothing dated newer than the <a href="https://www.anthropic.com/research/global-workspace">global-workspace / J-space</a> interpretability work (Jul 6); the Alignment Science team's frontier-model sabotage case studies (mid-July) remain the latest safety output.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">AWS · OpenAI — infrastructure &amp; product</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">AWS expands Bedrock AgentCore: Fully Managed Knowledge Bases + a managed Web Search tool</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">~Jul 2026 — aws.amazon.com/blogs/machine-learning</div>
+      <div class="item-body">
+        AWS pushed a set of <a href="https://aws.amazon.com/blogs/machine-learning/new-in-amazon-bedrock-agentcore-build-agents-with-broader-knowledge-and-continuous-learning/">AgentCore capabilities</a> aimed at giving agents "broader knowledge and continuous learning." <strong>Fully Managed Knowledge Bases</strong> simplify enterprise RAG with native data connectors, "Smart Parsing" for automatic multi-format data prep, and an <strong>Agentic Retriever</strong> for complex multi-step queries, all wired to AgentCore Gateway. A new managed <strong>Web Search</strong> tool lets agents ground responses in current, cited web knowledge with <strong>zero data egress</strong> from the customer's secured AWS environment. Extends the operational updates (ActiveSessionCount metric, quota/TPS bumps) noted earlier this week; Fable 5 and GPT-5.5/5.4 remain available on Bedrock.
+      </div>
+    </div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">OpenAI overhauls the ChatGPT desktop app — global Chat/Codex switcher, unified Recents, Projects</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">~Jul 18, 2026 — openai.com/news</div>
+      <div class="item-body">
+        <a href="https://openai.com/news/">ChatGPT Business</a> shipped a desktop refresh (macOS + Windows): a <strong>global switcher</strong> between ChatGPT and Codex, <strong>unified Recents</strong> where Chat and Work conversations appear together (sortable, filterable, pinnable), and Projects surfaced directly in the app. Alongside it, Codex restored the <strong>272,000-token context window</strong> for GPT-5.6 Sol/Terra/Luna and bundled corrected instructions, and custom instructions expanded to <strong>5,000 characters</strong> for Plus/Business/Enterprise/Education. No new model — GPT-5.6 GA holds (Codex 8M+ users; Sol on Cerebras up to 750 tok/s).
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Google · Microsoft · xAI</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>Google DeepMind / Gemini</strong> — no launch: <a href="https://www.techtimes.com/articles/320736/20260716/rebuilt-gemini-35-pro-misses-third-deadline-google-eyes-stopgap-release.htm">Gemini 3.5 Pro</a> still hasn't shipped past its Jul 17 target (reliability/hallucination issues cited); prediction markets favor Jul 31 (~81%) / Aug 7 (~73%); stopgap Gemini 3.6 Flash / 3.5 Flash Light reportedly registered, and Alphabet shares slipped ~4% on the miss. No new DeepMind or Google AI Blog frontier post dated Jul 18–19. <strong>Microsoft / Azure</strong> — no new frontier post; <strong>Copilot Cowork</strong> is now GA worldwide (agentic "define the task, it delivers the deliverable"), the M365 Business Copilot SKUs are permanent (Jul 1), and partner GTM events (MCAPS Jul 22, FY27 briefing Jul 28) are queued; Project Perception (multi-model bug-finder vs Mythos) still targets end of July. <strong>xAI / Grok</strong> — no new model; Grok 4.5 ($2/$6) holds, Grok Build's voice/cost-tracking updates stand, and the CSAM lawsuit against a user continues (<a href="https://x.ai/news">x.ai/news</a>).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OPEN WEIGHTS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Open Weights / Emerging Labs</h2>
+    <span class="section-tag tag-company">Moonshot · DeepSeek · Qwen · GLM · Meta/MSL · Cognition</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      No brand-new open model dropped Jul 18–19 — a rare quiet day after last week's wave. <strong>Moonshot / Kimi K3</strong> — the 2.8T open MoE ($3/$15, 1M context) holds; full open weights (MXFP4, ~1.4 TB) still promised <strong>by Jul 27</strong> under a Modified MIT license, with a <a href="https://venturebeat.com/technology/chinas-moonshot-ai-releases-kimi-k3-the-largest-open-source-model-ever-rivaling-top-u-s-systems">community overview</a> circulating; no Hugging Face download yet. <strong>DeepSeek</strong> — V4 official mid-July (V4-Pro 1.6T/49B, V4-Flash 284B/13B, 1M context, peak/off-peak pricing); legacy <code>deepseek-chat</code>/<code>deepseek-reasoner</code> retire <a href="https://technode.com/2026/06/30/deepseek-to-launch-v4-in-mid-july-with-new-peak-time-api-pricing/">Jul 24</a>. <strong>Alibaba Qwen</strong> — no new model; Qwen3.7 Max/Plus stay API-only flagships; <a href="https://techcrunch.com/2026/07/15/apple-intelligence-approved-for-launch-in-china-with-alibabas-qwen-ai/">Apple Intelligence approved in China on Qwen</a> (Jul 15). <strong>Zhipu / GLM</strong> — no new model; <a href="https://www.scmp.com/tech/tech-trends/article/3359170/zhipu-ai-releases-harness-glm-52-model-chinese-firm-takes-aim-anthropic">GLM-5.2</a> (744B MoE, MIT) + ZCode harness anchor the Anthropic-catch-up push. <strong>Meta / MSL</strong> — no new drop; <a href="https://about.fb.com/news/2026/07/introducing-muse-image-meta-ai/">Muse Image</a> (Jul 7) and <a href="https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/">Muse Spark 1.1</a> (Jul 9, first Spark API) lead the proprietary Muse line; Llama effectively sunset. <strong>Cognition / Devin</strong> — <a href="https://cognition.com/blog/swe-1-7">SWE-1.7</a> (Jul 8; Kimi K2.7 base, 1000 tok/s on Cerebras) remains latest. Thinking Machines' <a href="https://huggingface.co/blog/thinkingmachines-inkling">Inkling</a> (~1T, multimodal, Jul 15) is the fresh Western open-frontier entrant.
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH & AGGREGATORS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Research &amp; Aggregators</h2>
+    <span class="section-tag tag-practitioner">HF · The Batch · arXiv · Rundown · AI Daily Brief</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>Hugging Face</strong> — no new blog post dated Jul 18–19; the standing stack is the <a href="https://huggingface.co/blog/security-incident-july-2026">security incident disclosure</a> (Jul 16; intrusion driven end-to-end by an autonomous AI agent, detected with HF's own AI), <a href="https://huggingface.co/blog/thinkingmachines-inkling">Welcome Inkling</a> (Jul 15) and the 🤗 Kernels revamp (Jul 6); a community Kimi K3 overview is up ahead of the Jul 27 weights. <strong>The Batch</strong> — latest is the <a href="https://www.deeplearning.ai/the-batch">Jul 17 letter</a> (AI automating code frees devs for senior-engineer work); no newer issue. <strong>arXiv cs.AI</strong> — agent/benchmark churn continues (HAS-Bench for human-agent systems; memory-architecture-driven language emergence; "What LLM Agents Say When No One Is Watching" multi-agent-debate study); no single Jul 18–19 submission individually confirmed. <strong>The Rundown AI</strong> — no dated Jul 18–19 issue surfaced (JS-heavy; search returned home/archive shells only). <strong>The AI Daily Brief (NLW)</strong> — no specific dated Jul 18–19 beehiiv issue surfaced this run.
+    </div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; newsletters</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison — Claude Code ships Bun-in-Rust (Jul 19)</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Simon Willison: "Claude Code uses Bun written in Rust now"</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 19, 2026 — simonwillison.net</div>
+      <div class="item-body">
+        The most important practitioner source posted a short forensic <a href="https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/">note</a> verifying Jarred Sumner's claim in <a href="https://bun.com/blog/bun-in-rust">Rewriting Bun in Rust</a>. Running <code>strings ~/.local/bin/claude | grep 'Bun v1'</code> returns <strong>Bun v1.4.0</strong> — a version newer than Bun's public v1.3.14 (May 12) — and a second <code>grep</code> pulls out <strong>563 Rust source filenames</strong> (e.g. <code>src/bundler/bundle_v2.rs</code>). Conclusion: the Zig-to-Rust rewrite (an $165K, 5.9B-token agentic port validated against a million-assertion TypeScript conformance suite, per Sumner) has been live in Claude Code since v2.1.181 (Jun 17) "across millions of different devices … Boring is good." His prior article, <a href="https://simonwillison.net/2026/Jul/16/kimi-k3/">Kimi K3 and the pelican benchmark</a> (Jul 16), remains the most recent long-form entry.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly · LangChain · Lilian Weng · Anthropic Engineering</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>O'Reilly Radar</strong> — no new post dated Jul 18–19; recent stack: <a href="https://www.oreilly.com/radar/radar-trends-to-watch-july-2026/">Radar Trends to Watch: July 2026</a> (Mike Loukides, Jul 7, coauthored with Claude) and <a href="https://www.oreilly.com/radar/this-week-in-ai-a-first-for-agentic-ransomware/">"This Week in AI: A First for Agentic Ransomware."</a> <strong>LangChain</strong> — no new Jul 18–19 post; <a href="https://www.langchain.com/blog/how-to-use-rlms-in-deep-agents">RLMs in Deep Agents</a> (Jul 1) and the NVIDIA Nemotron/Deep Agents harness result (Jul 8) stand. <strong>Lilian Weng</strong> — no new since <a href="https://lilianweng.github.io/posts/2026-07-04-harness/">"Harness Engineering for Self-Improvement"</a> (Jul 4). <strong>Anthropic Engineering</strong> — no new since the <a href="https://www.anthropic.com/engineering">large-scale code migrations</a> post (Jul 16).
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Quiet this window — each searched individually</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        None showed a new AI post dated Jul 18–19: <strong>Chip Huyen</strong> (monthly cadence; nothing in July), <strong>Hamel Husain</strong> (evals FAQ, Jan 2026; ongoing Maven course with Shreya Shankar), <strong>Eugene Yan</strong> (no new since the Jun 21 cybersecurity/eval post; at Anthropic on recsys), <strong>Jason Liu / jxnl.co</strong> (no July post; latest ~May "Codex-maxxing"; on OpenAI's Codex team), <strong>Addy Osmani (addyosmani.com)</strong> (posts Jul 15/14/6/2; nothing newer), <strong>Swyx</strong> (no dated AI-model post since ~Jul 9 on swyx.io), <strong>Latent Space</strong> (episode 214, ~101 min, Jul 16; no newer episode).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUBSTACKS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Substacks</h2>
+    <span class="section-tag tag-practitioner">Newsletters</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      Individually checked; nothing new dated Jul 18–19. <strong>Zvi Mowshowitz</strong> — latest is the weekly roundup <strong>AI #177</strong> (Parts 1–2, Jul 16–17) plus Monthly Roundup #44; nothing newer on <a href="https://thezvi.substack.com/">Don't Worry About the Vase</a>. <strong>Interconnects / Nathan Lambert</strong> — <a href="https://www.interconnects.ai/p/6-months-to-live-for-open-models">"6 months to live for open models"</a> (Jul 12) + "State of the blog, mid-2026." <strong>Ethan Mollick / One Useful Thing</strong> — no new post since "Twilight of the Chatbots" (Jun 30); very active on X this week (the "Golden Age of thinkpieces" and "vendors without frontier models" threads). <strong>Pragmatic Engineer / Gergely Orosz</strong> — "Context engineering with Dex Horthy" (Jul 15) latest; Kent Beck (Jul 1), tech jobs market part 3 (Jul 7). <strong>Lenny Rachitsky</strong> — "a workforce splitting in two" (Jul 7). <strong>Addy Osmani / Elevate</strong> — <a href="https://addyo.substack.com/p/own-the-outer-loop">"Own the Outer Loop"</a> (Jul 9) / <a href="https://addyo.substack.com/p/agentic-autonomy-levels">"Agentic Autonomy Levels"</a> (Jul 3). <strong>Import AI / Jack Clark</strong> — Remote Labor Index update (AI success 2.5%→16.1%); fully-indexed issue remains #455 (May 4). <strong>Adam Tornhill</strong> — "Compressed Cognition" / "Coding Is Dead"; no dated July post. <strong>Jessica Talisman</strong> — <a href="https://jessicatalisman.substack.com/p/the-ontology-pipeline">Ontology Pipeline</a> book (Technics, Sep/Oct 2026); no dated July post. <strong>Casey Muratori / Computer, Enhance!</strong> — <a href="https://www.computerenhance.com/p/computer-enhance-summer-news">"Summer News"</a> (Jul 2); "Premature Optimization" article/video promised end of July. <strong>Stratechery / Ben Thompson</strong> — Interviews paused for summer; recent Daily Updates through Jul 15 (IBM), <a href="https://stratechery.com/2026/apple-sues-openai-apples-real-problem/">"Apple Sues OpenAI"</a> (Jul 13), Codex-as-the-new-ChatGPT (Jul 14); no new free Jul 18–19 post.
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Practitioner accounts</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">Thariq Shihipar: "Enjoy Fable" — Anthropic's Fable-5 reinstatement was "a heroic effort … around the clock"</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">~Jul 19, 2026 — x.com/trq212</div>
+    <div class="item-body">
+      <a href="https://x.com/trq212">Thariq Shihipar</a>, who builds demos/prototypes at Anthropic, marked the Fable 5 return: "This was due to a heroic effort by many people at Anthropic working sometimes literally around the clock. It was not at all clear that we'd be able to do this in time, and so proud of everyone who made it happen. Enjoy Fable." It closes the loop on his earlier "Fable will return as soon as capacity allows" signal and the "Field Guide to Fable" (Jul 3).
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>@karpathy</strong> — no new standalone Jul 18–19; at Anthropic (pre-training) since mid-July; his "stop using AI to write code, build a second brain with it" thread (21M views) and nano repos (nanoGPT/nanochat/micrograd, 120K+ combined stars) still circulating. <strong>@emollick</strong> — very active but no new standalone model item; July threads riff on the "Golden Age of thinkpieces" and "vendors without frontier models are always explaining why you shouldn't trust the frontier model companies." <strong>@addyosmani</strong> — no new standalone Jul 18–19; own-the-outer-loop / "software factories" cadence; bio "Director of Google Cloud AI and Gemini Agents." <strong>@xai / @grok</strong> — no new model; the CSAM lawsuit and Grok Build voice/cost updates remain the fresh items.
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community / Hacker News</h2>
+    <span class="section-tag tag-community">Front page + forums</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">HN front page: "GPT-5.6 used a prompt to close a 30-year gap in convex optimization"</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jul 18, 2026 — news.ycombinator.com</div>
+    <div class="item-body">
+      The <a href="https://news.ycombinator.com/front">Jul 18 Hacker News front page</a> was topped by the convex-optimization claim, with "What AI did to Stack Overflow, in a graph" and Isomorphic Labs' new drug-design engine (billed as a step beyond AlphaFold) close behind. The front-page mood tracks two throughlines of the month: concrete research/math wins attributed to frontier models, and AI's measurable erosion of developer Q&amp;A communities. Roughly 17% of the July front page was itself AI-generated content, per one tracker.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>LessWrong</strong> — active alignment threads including <a href="https://www.lesswrong.com/posts/epjuxGnSPof3GnMSL/alignment-remains-a-hard-unsolved-problem">"Alignment remains a hard, unsolved problem"</a> and <a href="https://www.lesswrong.com/s/NouBkh4qnK8uKwn3L/p/vPaXtarnJ37kGfPdJ">"Independent alignment of language models"</a> (Jul 12) — the "more capable and more aligned, but not fast enough for the higher stakes" framing. <strong>r/LocalLLaMA</strong> — no single dated Jul 18–19 thread surfaced (search-only / best-effort); self-hosting chatter tracks the open slate (Kimi K3 weights Jul 27, Inkling, GLM-5.2, DeepSeek V4-Flash). <strong>r/MachineLearning</strong> — no dated Jul 18–19 thread surfaced this run (search-only / best-effort).
+    </div>
+  </div>
+</div>
+
+<!-- THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>Cross-cutting observations</h3>
+    <ul>
+      <li><strong>The Fable saga ends where it started — with capacity, not strategy.</strong> Tomorrow's reinstatement, and Thariq Shihipar's "around the clock … heroic effort" framing, confirm the throughline: Anthropic never wanted to pull its best model from subscriptions; it was a compute-capacity move that competition (GPT-5.6 Sol, Kimi K3 inside flat-rate plans) made untenable. The interesting open question — whether serving Fable at 50% of limits forces training-GPU reallocation — is the real capacity story to watch.</li>
+      <li><strong>The frontier is quiet; the harness is loud.</strong> On a day with zero new frontier models, the news was all tooling: Claude Code shipping Bun-in-Rust, AWS AgentCore adding managed knowledge and web-search primitives, OpenAI unifying Chat and Codex on the desktop. The competitive surface is migrating from "whose model is best" to "whose harness, retrieval and agent runtime are best" — exactly the shift practitioners (Willison, Weng, Osmani) have been narrating for weeks.</li>
+      <li><strong>Agentic engineering is now doing the biggest rewrites.</strong> Bun's Zig→Rust port — a "never do this" full rewrite per Joel Spolsky's 2000 rule — succeeded because a million-assertion conformance suite let a coordinated agent harness grind through $165K of tokens with adversarial review. Willison's forensic confirmation that it's now live "across millions of devices" is the concrete proof point that frontier models have quietly changed which projects are even attemptable.</li>
+      <li><strong>"Grounded, no-egress" is becoming table stakes for enterprise agents.</strong> AWS's managed Web Search that grounds answers in cited results with zero data egress reads as a direct answer to the security anxieties dominating the month (the web_fetch exfiltration hole, HF's AI-driven intrusion, Project Perception). The pitch is no longer just capability — it's capability that never leaves the customer's trust boundary.</li>
+      <li><strong>Research-win headlines are the new benchmark flex.</strong> HN's "GPT-5.6 closed a 30-year convex-optimization gap" and Isomorphic's post-AlphaFold drug engine show the marketing center of gravity shifting from leaderboard deltas to concrete, legible scientific results — even as "What AI did to Stack Overflow" quantifies the same models hollowing out the communities that trained them.</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <strong>Sources checked (Jul 19, 2026 — each source searched individually):</strong><br>
+  <em>Companies</em> — <strong>Anthropic news</strong> (SIGNIFICANT: Fable 5 returns to Max/Team Premium Jul 20 at 50% limits; $100 credit for Pro/Team Standard; redeploying-Fable-5 post is Jun 30, code-migrations Jul 16), <strong>Anthropic Research</strong> (global-workspace/J-space Jul 6 latest; Alignment Science sabotage case studies), <strong>Google DeepMind</strong> (no new frontier post; Gemini 3.5 Pro still unshipped, Alphabet −4%), <strong>Google AI Blog</strong> (no new Jul 18–19; agentic Gemini), <strong>AWS ML</strong> (NEW: AgentCore Fully Managed Knowledge Bases + Smart Parsing + Agentic Retriever + managed Web Search, zero egress), <strong>Microsoft AI</strong> (Copilot Cowork GA worldwide; Project Perception end-July; no new Jul 18–19), <strong>Azure</strong> (M365 Business Copilot SKUs permanent; MCAPS Jul 22 / FY27 Jul 28 events; no new frontier), <strong>OpenAI</strong> (NEW: ChatGPT desktop overhaul — global Chat/Codex switcher, unified Recents, Projects; Codex restores 272K context; 5,000-char custom instructions), <strong>xAI/Grok</strong> (no new model; Grok 4.5 $2/$6; Grok Build voice/cost; CSAM lawsuit stands).<br>
+  <em>Open Weights</em> — <strong>Moonshot / Kimi</strong> (K3 holds; open weights due Jul 27; no HF download yet), <strong>DeepSeek</strong> (V4 official mid-July; peak/off-peak pricing; legacy retire Jul 24), <strong>Alibaba Qwen</strong> (no new model; Qwen3.7 Max/Plus; Apple Intelligence on Qwen in China Jul 15), <strong>Zhipu/GLM</strong> (GLM-5.2 MIT + ZCode; no new), <strong>Meta Llama/MSL</strong> (Muse Image Jul 7 / Muse Spark 1.1 Jul 9; no new; Llama sunset), <strong>Cognition/Devin</strong> (SWE-1.7 Jul 8; no new). Thinking Machines Inkling (Jul 15) noted.<br>
+  <em>Research &amp; Aggregators</em> — <strong>Hugging Face</strong> (no new Jul 18–19; security incident Jul 16, Inkling Jul 15, Kernels Jul 6 stand), <strong>The Batch</strong> (Jul 17 letter latest; no newer), <strong>arXiv cs.AI</strong> (HAS-Bench, memory-architecture language emergence, multi-agent-debate study; no single Jul 18–19 confirmed), <strong>The Rundown AI</strong> (no dated Jul 18–19 issue surfaced; JS-heavy), <strong>The AI Daily Brief (NLW)</strong> (no specific dated Jul 18–19 beehiiv issue surfaced this run).<br>
+  <em>Practitioners</em> — <strong>Simon Willison</strong> (NEW: "Claude Code uses Bun written in Rust now" Jul 19; Kimi K3 Jul 16), <strong>O'Reilly Radar</strong> (no new Jul 18–19; Radar Trends July Jul 7, Agentic Ransomware piece), <strong>LangChain</strong> (RLMs in Deep Agents Jul 1, Nemotron Jul 8; no new Jul 18–19), <strong>Lilian Weng</strong> (no new since Jul 4 Harness Engineering), <strong>Anthropic Engineering</strong> (no new since code-migrations Jul 16), <strong>Chip Huyen</strong> (no July post), <strong>Hamel Husain</strong> (evals FAQ Jan 2026; no new), <strong>Eugene Yan</strong> (no new since Jun 21), <strong>Jason Liu/jxnl.co</strong> (no July post; ~May latest), <strong>Addy Osmani blog</strong> (posts Jul 15/14/6/2; nothing Jul 18–19), <strong>Swyx</strong> (no dated AI post since ~Jul 9), <strong>Latent Space</strong> (episode 214 Jul 16; no newer).<br>
+  <em>Substacks</em> — <strong>Zvi Mowshowitz</strong> (AI #177 Parts 1–2 Jul 16–17 latest; no new), <strong>Interconnects/Nathan Lambert</strong> ("6 months to live for open models" Jul 12), <strong>Ethan Mollick/One Useful Thing</strong> (no new since Jun 30; active on X), <strong>Pragmatic Engineer</strong> (Dex Horthy Jul 15 latest), <strong>Lenny's Newsletter</strong> ("workforce splitting in two" Jul 7), <strong>Addy Osmani/Elevate</strong> ("Own the Outer Loop" Jul 9 / "Agentic Autonomy Levels" Jul 3), <strong>Import AI/Jack Clark</strong> (Remote Labor Index 2.5%→16.1%; indexed #455 May 4), <strong>Adam Tornhill</strong> (no dated July post), <strong>Jessica Talisman</strong> (Ontology Pipeline book Sep/Oct 2026; no dated July post), <strong>Computer Enhance/Casey Muratori</strong> ("Summer News" Jul 2; Premature Optimization due end July), <strong>Stratechery/Ben Thompson</strong> (Interviews paused summer; Apple sues OpenAI Jul 13, Codex-as-ChatGPT Jul 14, IBM Jul 15; no new free Jul 18–19).<br>
+  <em>X / Social</em> — <strong>@trq212 (Thariq Shihipar)</strong> (NEW: "Enjoy Fable" heroic-effort tweet re: reinstatement), <strong>@karpathy</strong> (no new standalone; at Anthropic; "second brain" thread), <strong>@emollick</strong> (no new standalone; "Golden Age of thinkpieces" / "vendors without frontier models" threads), <strong>@addyosmani</strong> (no new standalone; own-the-outer-loop; Director, Google Cloud AI &amp; Gemini Agents), <strong>@xai/@grok</strong> (no new model; CSAM lawsuit; Grok Build updates).<br>
+  <em>Community</em> — <strong>Hacker News</strong> (NEW: "GPT-5.6 closes 30-year convex-optimization gap" tops Jul 18 front page; "What AI did to Stack Overflow"; Isomorphic Labs drug-design engine), <strong>LessWrong</strong> ("Alignment remains a hard, unsolved problem"; "Independent alignment of language models" Jul 12), <strong>r/LocalLLaMA</strong> (no dated Jul 18–19 thread surfaced; search-only), <strong>r/MachineLearning</strong> (no dated thread surfaced; search-only).<br><br>
+  Generated by My AI Daily · 51 sources scanned individually · Items marked <span style="color:var(--accent2)">New</span> or <span style="color:var(--accent)">Significant</span> were not in the Jul 18 brief.
+</footer>
+
+</body>
+</html>
