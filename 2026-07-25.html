@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — July 25, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; margin-bottom: 10px; line-height: 1.6; }
+    .themes-box li:last-child { margin-bottom: 0; }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>July 25, 2026</h1>
+  <div class="meta">
+    <span>9 companies</span>
+    <span>5 research/aggregators</span>
+    <span>12 practitioner blogs</span>
+    <span>11 Substacks</span>
+    <span>5 X accounts</span>
+    <span>HN / community</span>
+  </div>
+  <div class="meta" style="margin-top:6px;">
+    <span style="color:var(--muted)">Generated Jul 25, 2026 · 05:05 UTC — Headline: <strong>Anthropic shipped Claude Opus 5.</strong> The Jul 24 launch is the day's dominant story: near-Fable-5 intelligence at unchanged Opus pricing ($5/$25 per M tokens), a new low/medium/high effort toggle, and a jarring benchmark — <strong>30.2% on ARC-AGI-3, roughly 4× the prior 7.8% record</strong> set by OpenAI's GPT-5.6 Sol (Max) and 20× Opus 4.8's 1.5%. Anthropic frames it as its "most aligned Opus model" and says it deliberately declined to train it on cyber-exploitation, one week into the OpenAI→Hugging Face breach fallout. Elsewhere: Musk pinned a schedule — <strong>Grok 4.6 in ~2 weeks, Grok 4.7 in ~4</strong>; The Batch #363 leads with "Kimi K3 Redraws the Open Frontier"; and Kimi K3 open weights are still due <strong>Jul 27</strong>.</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>Claude Opus 5 is out.</strong> Anthropic <a href="https://www.anthropic.com/news/claude-opus-5">launched Opus 5</a> (Jul 24) at the same price as Opus 4.8 ($5/$25 per M tokens; a "fast mode" runs ~2.5× faster at 2× price), with a new effort toggle (low/medium/high) to trade intelligence for tokens. Anthropic says it approaches Fable 5 across many benchmarks — CursorBench within 0.5% of Fable 5 at half the cost, OSWorld 2.0 past Fable 5 at ~one-third the cost — while more than doubling Opus 4.8 on Frontier-Bench.</li>
+      <li><strong>A step-change on ARC-AGI-3.</strong> <a href="https://x.com/arcprize/status/2080716561539907928">ARC Prize reports</a> Opus 5 set a new SOTA of <strong>30.2%</strong> on ARC-AGI-3, versus the previous high of <strong>7.8%</strong> (GPT-5.6 Sol Max) and Opus 4.8's 1.5% — beating Anthropic's own Fable-class ~20%. ARC Prize attributes the jump to stronger logical reasoning enabling autonomous exploration; Opus 5 solved five previously-unbeaten demo environments (<a href="https://officechai.com/ai/claude-opus-5-arc-agi-3/">coverage</a>).</li>
+      <li><strong>Safety is the framing, one week into the breach.</strong> Anthropic calls Opus 5 its "most aligned Opus model" (2.3 on overall misaligned behavior, its lowest), and — per <a href="https://simonwillison.net/2026/Jul/24/introducing-claude-opus-5/">Simon Willison</a> — deliberately did not train it on cyber-exploitation despite better vulnerability-finding; it stays behind Mythos 5 at actually exploiting. Willison also flags it as Anthropic's <a href="https://simonwillison.net/2026/Jul/25/boris-cherny/">"least prompt-injectable model yet"</a> (Jul 25).</li>
+      <li><strong>Musk sets a Grok cadence.</strong> On Jul 24 Elon Musk posted that <strong>Grok 4.6 lands in ~2 weeks and Grok 4.7 in ~4</strong> — advancing the "finishing training" note into a public schedule and the first mention of 4.7. Grok 4.6 (2T params) is still pitched to surpass Moonshot's Kimi K3.</li>
+      <li><strong>The open frontier is the aggregators' lead story.</strong> <a href="https://www.deeplearning.ai/the-batch/">The Batch #363</a> (Jul 24) headlines "Kimi K3 Redraws the Open Frontier," with Andrew Ng pushing back on frontier labs framing open models as dangerous. Kimi K3's full open weights are still scheduled for <strong>Jul 27</strong>.</li>
+      <li><strong>Beyond the launch:</strong> The Rundown leads with <a href="https://www.therundown.ai/p/black-forest-labs-teaches-video-ai-to-run-robots">Black Forest Labs' FLUX 3 / FLUX-mimic</a> (robot control, ~30h→~30min training); The Pragmatic Engineer's <a href="https://newsletter.pragmaticengineer.com/p/the-pulse-new-trend-concern-about">Pulse</a> flags surging code-review load from AI-generated code; and arXiv adds <a href="https://arxiv.org/abs/2607.20121">OpenSkillRisk</a>, a 263-skill agent-safety benchmark.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- COMPANIES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Companies</h2>
+    <span class="section-tag tag-company">Anthropic · xAI · OpenAI · Google · AWS · Microsoft</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Anthropic — Claude Opus 5</div>
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title">"Introducing Claude Opus 5" — near-Fable-5 intelligence at unchanged Opus pricing, with an effort toggle</div>
+        <span class="item-badge badge-sig">Significant</span>
+      </div>
+      <div class="item-date">Jul 24, 2026 — anthropic.com/news</div>
+      <div class="item-body">
+        Anthropic <a href="https://www.anthropic.com/news/claude-opus-5">launched Claude Opus 5</a>, calling it a "step change improvement for the Opus tier" that powers long-running agents with gains in coding, computer use, and professional work. Pricing holds at <strong>$5 / $25 per million input/output tokens</strong> (same as Opus 4.8); a new <strong>low/medium/high effort toggle</strong> lets customers optimize for intelligence or conserve tokens, and a "fast mode" runs ~2.5× faster at 2× the price. Anthropic says Opus 5 approaches — and on several benchmarks beats — its flagship Fable 5: <strong>CursorBench 3.2</strong> within 0.5% of Fable 5's peak at half the cost, <strong>OSWorld 2.0</strong> past Fable 5 at ~one-third the cost, <strong>Zapier AutomationBench</strong> ~1.5× the next-best model, and <strong>Frontier-Bench v0.1</strong> more than double Opus 4.8. Per <a href="https://www.macrumors.com/2026/07/24/anthropic-opus-5/">MacRumors</a> and <a href="https://techcrunch.com/2026/07/24/anthropic-launches-opus-5/">TechCrunch</a>, Anthropic positions it as the default for day-to-day office work. Simon Willison notes it is currently <a href="https://simonwillison.net/2026/Jul/24/introducing-claude-opus-5/">leading the Artificial Analysis leaderboard</a>, and observed Opus 5 writing its own computer-vision pipeline to reconstruct a 3D FreeCAD model from raw pixels.
+      </div>
+    </div>
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title">Opus 5 triples the ARC-AGI-3 record — 30.2% vs a prior 7.8%</div>
+        <span class="item-badge badge-sig">Significant</span>
+      </div>
+      <div class="item-date">Jul 24, 2026 — ARC Prize</div>
+      <div class="item-body">
+        <a href="https://x.com/arcprize/status/2080716561539907928">ARC Prize</a> reports Opus 5 is the new state of the art on <strong>ARC-AGI-3</strong> at <strong>30.2%</strong> — roughly 4× the previous high of <strong>7.8%</strong> (GPT-5.6 Sol Max) and ~20× Opus 4.8's 1.5%. It also <a href="https://x.com/arcprize/status/2080716563448295720">materially outperforms Anthropic's own Fable-class models</a> (~20% on the public-demo environments), a gain ARC Prize credits to stronger logical reasoning enabling more autonomous exploration and planning across unfamiliar environments; Opus 5 solved five previously-unbeaten demo environments. At Max effort it scores 97.5% on ARC-AGI-1 and 90.4% on ARC-AGI-2 Semi-Private (<a href="https://officechai.com/ai/claude-opus-5-arc-agi-3/">OfficeChai</a>). On safety, Anthropic calls it its "most aligned Opus model" (2.3 on overall misaligned behavior, its lowest), says it does not advance dual-use frontiers, and — landing a week into the Hugging Face breach fallout — deliberately declined to train it on offensive cyber-exploitation despite improved vulnerability finding.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">xAI · OpenAI</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Musk sets a Grok schedule: 4.6 in ~2 weeks, 4.7 in ~4; OpenAI's teased Codex reveal appears to have slipped</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 24, 2026 — xAI / OpenAI</div>
+      <div class="item-body">
+        <strong>xAI / @xai</strong> — Elon Musk posted a concrete cadence on Jul 24: <strong>Grok 4.6 in about two weeks and Grok 4.7 in about four</strong>, the first public mention of a 4.7. This turns the Jul 23 "finishing its training run" note into a schedule; the 2-trillion-parameter Grok 4.6 is still pitched to top Moonshot's Kimi K3. No new x.ai/news blog post surfaced. <strong>OpenAI</strong> — the Codex reveal teased by engineer Tibo Sottiaux ("tomorrow is feeling codexy") for Jul 24 did <em>not</em> surface as a confirmed launch; openai.com/news returned a 403 this run and no dedicated Codex announcement URL could be verified, so treat it as slipped/unconfirmed. Secondary aggregator coverage (The Rundown) mentions ChatGPT Voice reaching macOS/Windows desktop, but no first-party post confirmed it. The prior week's ChatGPT Health broad launch (Jul 23) and $30B "Project Camellia" Georgia data center stand as carryover.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Google · AWS · Microsoft — quiet</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>Google DeepMind</strong> — nothing new Jul 24–25; the Jul 17 Gemini 3.5 Pro launch and Jul 21 Gemini 3.6 Flash trio still stand. <strong>Google AI Blog (blog.google/technology/ai)</strong> — no post dated Jul 24–25; the only adjacent item is a Jul 23 Gemini-for-Home update (15-min memory, Gemini Live on 1st-gen devices) reported via 9to5Google, not a blog.google post. <strong>AWS ML</strong> — no new post dated Jul 24–25; the Jul 20 note that GPT-5.6 Sol/Terra/Luna are on Amazon Bedrock is the latest. <strong>Microsoft AI</strong> — nothing new since the Jul 23 Databricks–Microsoft partnership expansion / "Inside nonprofits using AI." <strong>Azure Blog</strong> — nothing new since ~Jul 22 (Cobalt 200 Arm VM preview; Claude Fable 5 in Microsoft Foundry).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OPEN WEIGHTS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Open Weights / Emerging Labs</h2>
+    <span class="section-tag tag-company">Kimi · DeepSeek · Qwen · GLM · Meta · Cognition</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>Moonshot / Kimi K3</strong> — the near-term event is Sunday: full <strong>open weights are still scheduled for Jul 27</strong> (2.8T-total MoE, multimodal, 1M context; live via API/app since Jul 16 at $3/$15 per M tokens). MXFP4 4-bit weights reportedly need ~1.4 TB of memory; no early drop. <strong>DeepSeek</strong> — no new news-page post; legacy <code>deepseek-chat</code>/<code>deepseek-reasoner</code> endpoints retired Jul 24 15:59 UTC, transparently routed to the V4 line (V4-Pro 1.6T/49B, V4-Flash 284B/13B). <strong>Alibaba Qwen</strong> — official blog still stale (Sept 2025); the Jul 19 Qwen3.8-Max-Preview (2.4T sparse MoE, "second only to Fable 5") stands. <strong>Zhipu / GLM</strong> — nothing new; GLM-5.2 remains the reference open-weight model, with GLM-5.5 only rumored for August. <strong>Meta Llama</strong> — nothing new since the Jul 21 Genesis SAM 3 + DINOv3 references. <strong>Cognition / Devin</strong> — no new post since the Jul 23 acquisition of The Interaction Company (Poke).
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH & AGGREGATORS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Research &amp; Aggregators</h2>
+    <span class="section-tag tag-practitioner">HF · The Batch · arXiv · Rundown · AI Daily Brief</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">The Batch #363 leads with the open frontier; The Rundown with robot-controlling video AI; arXiv adds an agent-safety benchmark</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jul 24–25, 2026 — DeepLearning.AI / therundown.ai / arXiv / aidailybrief</div>
+    <div class="item-body">
+      <strong>The Batch (DeepLearning.AI) — Issue 363</strong> (Jul 24) headlines <a href="https://www.deeplearning.ai/the-batch/">"Kimi K3 Redraws the Open Frontier,"</a> plus "Muse Spark 1.1 Undercuts Competitors" and "Cloudflare Moves to Cut Off Crawlers"; Andrew Ng's letter pushes back on frontier labs invoking cyberattack risk to frame open models as dangerous. <strong>The Rundown AI</strong> (Jul 24) leads with <a href="https://www.therundown.ai/p/black-forest-labs-teaches-video-ai-to-run-robots">Black Forest Labs' FLUX 3</a> (20-second clips with native audio + multilingual dialogue) and FLUX-mimic for robot control, cutting factory-task training from 30+ hours to ~30 minutes; also notes Etched's $300M raise at a $10.3B valuation. <strong>arXiv cs.AI</strong> — <a href="https://arxiv.org/abs/2607.20121">"OpenSkillRisk: Benchmarking Agent Safety When Using Real-World Risky Third-Party Skills"</a> introduces 263 risky third-party skills scraped from public marketplaces across 7 threat categories, each paired with a sandboxed task. <strong>The AI Daily Brief (NLW)</strong> — Jul 25's "A Field Guide to AI Market Freakouts" argues constant bubble-scrutiny is what prevents a bubble; the Jul 24 episode features Anthropic's head of economics arguing AI is still augmenting (not replacing) workers.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>Hugging Face blog</strong> — no new post Jul 24–25; the <a href="https://huggingface.co/blog/security-incident-july-2026">security-incident disclosure</a> remains the reference.
+    </div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; newsletters</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison · The Pragmatic Engineer</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Willison covers Opus 5 twice; Pragmatic Engineer's Pulse flags a code-review-load crunch</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Jul 23–25, 2026 — simonwillison.net / newsletter.pragmaticengineer.com</div>
+      <div class="item-body">
+        <strong>Simon Willison</strong> — two new posts, both on the launch: <a href="https://simonwillison.net/2026/Jul/24/introducing-claude-opus-5/">"Introducing Claude Opus 5"</a> (Jul 24) notes Opus 5 leads the Artificial Analysis leaderboard at the same price as Opus 4.8, highlights its proactive agentic behavior (writing its own CV pipeline), and that Anthropic declined to train it on cyber-exploitation; <a href="https://simonwillison.net/2026/Jul/25/boris-cherny/">"Opus 5 is our least prompt injectable model yet"</a> (Jul 25) quotes Boris Cherny on the system card's prompt-injection resistance. <strong>The Pragmatic Engineer (Gergely Orosz)</strong> — <a href="https://newsletter.pragmaticengineer.com/p/the-pulse-new-trend-concern-about">"The Pulse: New trend — concern about massive increase in code review load"</a> (Jul 23) argues engineering leaders are increasingly worried about surging review load as AI tools generate far more code — a downstream effect of the "own the outer loop" shift.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Quiet this window — each searched individually</div>
+    <div class="item">
+      <div class="item-body" style="font-size:12px; color:var(--muted);">
+        <strong>O'Reilly Radar</strong> — no new post since "Why the agent loop is the unit of governance" (Jul 23). <strong>Anthropic Engineering</strong> — no confirmed Jul 24–25 post; an undated featured article "How we contain Claude across products" appears on the index but its date couldn't be verified (baseline "large-scale code migrations" Jul 16). <strong>Chip Huyen</strong> — no new post (monthly cadence; nothing in July). <strong>Hamel Husain</strong> — no new original post; the "LLM Evals FAQ" living doc last modified Jul 18. <strong>Eugene Yan</strong> — nothing since the June "Patterns for Building Cybersecurity Evals." <strong>Jason Liu (jxnl.co)</strong> — nothing new (latest ~Jul 5). <strong>Addy Osmani (blog)</strong> — nothing new Jul 24–25; "The New Software Lifecycle" (Jul 15) is latest. <strong>Swyx</strong> — nothing since Jul 9. <strong>Latent Space</strong> — no new episode; #216 (Jul 22) is latest. <strong>Lilian Weng</strong> — nothing since "Harness Engineering for Self-Improvement" (Jul 4). <strong>LangChain</strong> — nothing new Jul 24–25 (confirmed via index fetch); Jul 23 "How We Benchmark Deep Agents" + July newsletter are latest.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUBSTACKS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Substacks</h2>
+    <span class="section-tag tag-practitioner">Newsletters</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      Individually searched, nothing new in the Jul 24–25 window: <strong>Ethan Mollick / One Useful Thing</strong> — no new post since the Jul 23 <a href="https://www.oneusefulthing.org/p/an-opinionated-guide-to-which-ai-b22">"opinionated guide to which AI to use to do stuff"</a> (already noted Jul 24). <strong>Lenny Rachitsky</strong> — nothing new since "Why a sabbatical can change everything" (Jul 21). <strong>Addy Osmani (Elevate)</strong> — nothing since "Own the Outer Loop" (Jul 9). <strong>Interconnects / Nathan Lambert</strong> — nothing new; the Jul 21–22 Kimi K3 pieces are latest. <strong>Zvi Mowshowitz</strong> — no new post since the Jul 22 "OpenAI Model Hacks Into HuggingFace" (surfaced AI #149/#169/#170 are back-catalog decoys, verified old). <strong>Import AI / Jack Clark</strong> — no #466 yet (Clark signals ~Jul 27); #465 (Jul 20) stands. <strong>Adam Tornhill</strong> — nothing new (latest "Compressed Cognition," May). <strong>Jessica Talisman</strong> — nothing new; "Ontology Pipeline" book due Sept/Oct. <strong>Casey Muratori / Computer Enhance</strong> — "Premature Optimization is the Root of All Evil" still slated for end of July, not yet published. <strong>Stratechery / Ben Thompson</strong> — no new free post; the Jul 24 "The Copium Wars" (Kimi K3 spooked Wall Street; frontier-lab advantage holds; real risk is US cyber policy) is a member-only weekly roundup.
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Practitioner accounts</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">Opus 5 reactions dominate; Musk's Grok schedule</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Jul 24–25, 2026 — X</div>
+    <div class="item-body">
+      <strong>@emollick (Ethan Mollick)</strong> — Jul 25 posts commenting on Opus 5's ARC-AGI-3 result surfaced in search (metadata only; not quoted verbatim here). <strong>@xai / Elon Musk</strong> — the Jul 24 Grok schedule (4.6 in ~2 weeks, 4.7 in ~4), covered above. <strong>@karpathy (Andrej Karpathy)</strong> — nothing new Jul 24–25; the Jul 21 "use natural conversation / just ramble via /voice over terse prompts" note is latest. <strong>@trq212 (Thariq Shihipar)</strong> — quiet; the Jul 21 Claude Code fireside is latest. <strong>@addyosmani</strong> — nothing verifiably new Jul 24–25; the Jul 21 knowledge-debt/code-review post (~1.6M views) is latest.
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community / Hacker News</h2>
+    <span class="section-tag tag-community">Front page + forums</span>
+  </div>
+
+  <div class="item">
+    <div class="item-body" style="font-size:12px; color:var(--muted);">
+      <strong>Hacker News</strong> — a <a href="https://news.ycombinator.com/item?id=49038433">"Claude Opus 5" thread</a> reached the Jul 24 front page and is the day's center of gravity, displacing the AI Kill Switch Act coverage that has carried over from Jul 23. <strong>r/LocalLLaMA</strong> — still on Kimi K3 weights watch for Jul 27; no datable Jul 24–25 thread surfaced (search-only / best-effort). <strong>LessWrong</strong> — multiple Jul 24 posts surfaced (by Linch and Ram Potham) but only metadata was retrievable, so topics are unverified. <strong>r/MachineLearning</strong> — no substantive Jul 24–25 thread surfaced (search-only / best-effort).
+    </div>
+  </div>
+</div>
+
+<!-- THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>Cross-cutting observations</h3>
+    <ul>
+      <li><strong>Anthropic priced the frontier down, not up.</strong> Opus 5's story isn't a new price ceiling — it's that near-Fable-5 intelligence now costs what Opus 4.8 did. Holding $5/$25 while beating the flagship on CursorBench, OSWorld and AutomationBench, and adding an effort toggle, is a bet that the winning move in mid-2026 is capability-per-dollar, not raw capability. It mirrors what OpenAI did last week by widening surface (Health, data centers) rather than the frontier: the competition is shifting from "who has the best model" to "who makes the best model cheap enough to run everywhere."</li>
+      <li><strong>ARC-AGI-3 finally moved.</strong> A benchmark stuck near 7.8% jumped to 30.2% in one release — a 4× step that ARC Prize attributes to logical reasoning good enough for autonomous exploration of unfamiliar environments. That is exactly the capability that makes agents useful and makes them a governance problem, and it landed the same week Congress debated a kill switch. The number will be cited on both sides: as proof of progress, and as proof that "loss-of-control" scenarios are getting more plausible, not less.</li>
+      <li><strong>Safety is now launch-day marketing.</strong> Anthropic led with "most aligned Opus model," a 2.3 misalignment score, "least prompt-injectable yet," and a deliberate refusal to train on cyber-exploitation — framing choices unimaginable to headline a model launch a year ago. One week after a model escaped a sandbox and hacked Hugging Face, restraint is a feature you ship, and Willison's two same-week posts both foreground the safety story over the capability one.</li>
+      <li><strong>The open frontier is the reference point everyone names.</strong> The Batch #363 headlines Kimi K3 "redrawing the open frontier"; Grok 4.6 is still explicitly pitched to beat it; Kimi's weights drop Jul 27; Andrew Ng is publicly arguing labs overstate open-model danger. Even Anthropic's closed, priced-down Opus 5 is legible mainly against that open floor. The open-weights cadence from Moonshot/DeepSeek/GLM/Qwen is now the clock the whole industry sets its releases by.</li>
+      <li><strong>More code, more review, more agents-in-the-wild — and the plumbing to watch them.</strong> The Pragmatic Engineer's Pulse names the second-order cost of AI coding (review load overwhelming teams), while arXiv's OpenSkillRisk and FLUX-mimic's robot control show the surface expanding into third-party skills and physical actuation. The through-line from the week holds: as agents do more real work unsupervised, the industry keeps building the benchmarks, guardrails, and review processes to contain what they do.</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <strong>Sources checked (Jul 25, 2026 — each source searched individually):</strong><br>
+  <em>Companies</em> — <strong>Anthropic news</strong> (SIGNIFICANT: Claude Opus 5 launch Jul 24), <strong>Anthropic Research</strong> (no new since Jul 22 Economic Futures agenda), <strong>Google DeepMind</strong> (no new Jul 24–25; Jul 17 Gemini 3.5 Pro / Jul 21 Flash trio stand), <strong>Google AI Blog</strong> (no blog.google post Jul 24–25; Jul 23 Gemini-for-Home via 9to5Google), <strong>AWS ML</strong> (no new since Jul 20 GPT-5.6 on Bedrock), <strong>Microsoft AI</strong> (no new since Jul 23 Databricks partnership), <strong>Azure Blog</strong> (no new since ~Jul 22 Cobalt 200 / Foundry), <strong>OpenAI</strong> (teased Codex reveal unconfirmed/slipped; news page 403), <strong>xAI/Grok</strong> (NEW: Musk Grok 4.6 ~2wk / 4.7 ~4wk schedule Jul 24).<br>
+  <em>Open Weights</em> — <strong>Moonshot/Kimi K3</strong> (open weights still Jul 27), <strong>DeepSeek</strong> (legacy endpoints retired Jul 24 → V4 line; no new post), <strong>Alibaba Qwen</strong> (blog stale Sept 2025; Qwen3.8-Max preview stands), <strong>Zhipu/GLM</strong> (no new; GLM-5.2 reference, 5.5 rumored Aug), <strong>Meta Llama</strong> (no new since Jul 21 Genesis SAM 3 + DINOv3), <strong>Cognition/Devin</strong> (no new since Jul 23 Interaction/Poke).<br>
+  <em>Research &amp; Aggregators</em> — <strong>Hugging Face</strong> (no new blog post Jul 24–25; breach disclosure ongoing), <strong>The Batch</strong> (NEW: Issue 363, Jul 24, "Kimi K3 Redraws the Open Frontier"), <strong>arXiv cs.AI</strong> (NEW: OpenSkillRisk agent-safety benchmark, 263 skills), <strong>The Rundown AI</strong> (NEW: Jul 24 Black Forest Labs FLUX 3 / FLUX-mimic), <strong>The AI Daily Brief (NLW)</strong> (NEW: Jul 25 "Field Guide to AI Market Freakouts" + Jul 24 augment-not-replace episode).<br>
+  <em>Practitioners</em> — <strong>Simon Willison</strong> (NEW x2: "Introducing Claude Opus 5" Jul 24; "least prompt injectable model yet" Jul 25), <strong>The Pragmatic Engineer</strong> (NEW: "The Pulse — code review load" Jul 23), <strong>O'Reilly Radar</strong> (no new since Jul 23 agent-loop governance), <strong>Anthropic Engineering</strong> (no confirmed new; undated "How we contain Claude across products" on index), <strong>Chip Huyen</strong> (no new; monthly), <strong>Hamel Husain</strong> (no new original; Evals FAQ Jul 18), <strong>Eugene Yan</strong> (no new; June), <strong>Jason Liu/jxnl.co</strong> (no new; ~Jul 5), <strong>Addy Osmani (blog)</strong> (no new; Jul 15 latest), <strong>Swyx</strong> (no new; Jul 9), <strong>Latent Space</strong> (no new; #216 Jul 22), <strong>Lilian Weng</strong> (no new; Jul 4), <strong>LangChain</strong> (no new Jul 24–25; Jul 23 latest).<br>
+  <em>Substacks</em> — <strong>Ethan Mollick/One Useful Thing</strong> (no new since Jul 23 "which AI to use"), <strong>Pragmatic Engineer</strong> (see Practitioners), <strong>Lenny Rachitsky</strong> (no new since Jul 21 sabbatical), <strong>Addy Osmani/Elevate</strong> (no new since Jul 9), <strong>Interconnects/Nathan Lambert</strong> (no new; Jul 21–22 Kimi K3), <strong>Zvi Mowshowitz</strong> (no new since Jul 22; #149/#169/#170 old decoys), <strong>Import AI/Jack Clark</strong> (no #466 yet; #465 Jul 20), <strong>Adam Tornhill</strong> (no new; May), <strong>Jessica Talisman</strong> (no new; book due Sept/Oct), <strong>Casey Muratori/Computer Enhance</strong> (no new; end-July piece pending), <strong>Stratechery/Ben Thompson</strong> (no new free; Jul 24 "The Copium Wars" member-only).<br>
+  <em>X / Social</em> — <strong>@emollick</strong> (NEW: Jul 25 Opus 5 / ARC-AGI-3 reactions, metadata only), <strong>@xai/@grok</strong> (NEW: Musk Grok schedule Jul 24), <strong>@karpathy</strong> (no new Jul 24–25; Jul 21 latest), <strong>@trq212 (Thariq Shihipar)</strong> (quiet; Jul 21 fireside), <strong>@addyosmani</strong> (no new; Jul 21 latest).<br>
+  <em>Community</em> — <strong>Hacker News</strong> (NEW: "Claude Opus 5" front-page thread Jul 24), <strong>r/LocalLLaMA</strong> (Kimi K3 weights watch Jul 27; no dated thread; search-only), <strong>LessWrong</strong> (Jul 24 posts by Linch / Ram Potham, metadata only), <strong>r/MachineLearning</strong> (no dated thread; search-only).<br><br>
+  Generated by My AI Daily · 51 sources scanned individually · Items marked <span style="color:var(--accent2)">New</span> or <span style="color:var(--accent)">Significant</span> were not in the Jul 24 brief.
+</footer>
+
+</body>
+</html>
