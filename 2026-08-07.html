@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — August 7, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+    .themes-box ul { margin: 0; padding-left: 20px; }
+    .themes-box li { font-size: 13px; color: #b0b6cc; margin-bottom: 10px; line-height: 1.6; }
+    .themes-box li:last-child { margin-bottom: 0; }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>August 7, 2026</h1>
+  <div class="meta">
+    <span>9 companies</span>
+    <span>5 research/aggregators</span>
+    <span>12 practitioner blogs</span>
+    <span>10 Substacks</span>
+    <span>5 X accounts</span>
+    <span>HN / community</span>
+  </div>
+  <div class="meta" style="margin-top:6px;">
+    <span style="color:var(--muted)">Generated Aug 7, 2026 · 14:00 UTC — covering the ~24 hours since the Aug 6 brief. Today biology is the story, from two directions that met by accident. <strong>Anthropic loosened Fable 5's biology classifier</strong>, cutting biology-related fallbacks ~85% so the model will answer everyday health questions — while still routing virology, toxicology and molecular design down to Opus 5. Within the same 24 hours, <strong>Stanford and the Arc Institute published in <em>Science</em> that Evo 1 and Evo 2 designed 16 working bacteriophages no cell has ever carried</strong>, which is the concrete version of the capability Anthropic's classifier exists to gate. Elsewhere: <strong>DeepMind's first August post is a Nature paper on cyclone forecasting, open-sourced under Apache 2.0</strong> — a day of extra warning; <strong>OpenAI made GPT-5.6 Luna the free default with unlimited text chats and a Think button</strong>, and gave Sol a thinking slider; <strong>AMD bought Taalas</strong>, which etches model weights directly into silicon; <strong>Anthropic shipped self-hosted Claude Code environments</strong>; and <strong>AWS shipped agent temporal policies</strong> behind a new open policy language called Dogwood. Grok 4.6's target date was today; as of this scan it has not shipped.</span>
+  </div>
+</header>
+
+<!-- DAY SUMMARY -->
+<div class="section">
+  <div class="themes-box" style="border-left:3px solid var(--accent2);">
+    <h3>What's actually new today</h3>
+    <ul>
+      <li><strong>Anthropic reopened biology on its most capable model.</strong> <a href="https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards">Improving Fable 5's biology safeguards</a> (Aug 7) rewrote the classifier's constitution to "carve out benign uses in detail," retrained it, and cut <strong>biology-related fallbacks by ~85%</strong> — <strong>67% fewer total fallbacks on Claude.ai, 55% on Cowork, 17% on Claude Code, 7% on the platform</strong>. Fable 5 shipped with nearly all biology blocked; it now answers lab-result and symptom questions, while <strong>virology, toxicology and molecular design still fall back to Opus 5</strong>. Anthropic says it is building "trusted access pathways" for researchers who need the frontier capability.</li>
+      <li><strong>The same day, AI-designed viruses stopped being hypothetical.</strong> Stanford and the Arc Institute published in <em>Science</em> that <strong>Evo 1 and Evo 2 — trained on 2.7 million genomes — wrote whole phage genomes from scratch</strong>; of roughly 300 synthesized, <strong>16 were viable</strong>, some replicating faster than the ΦX174 parent, and a cocktail cleared drug-resistant <em>E. coli</em>. The models were trained only on non-human pathogens as a safety measure. Coverage: <a href="https://news.stanford.edu/stories/2026/08/evo-2-ai-tool-e-coli-killer-bacteriophages">Stanford Report</a>, <a href="https://arcinstitute.org/news/hie-king-first-synthetic-phage">Arc Institute</a>; the <a href="https://www.biorxiv.org/content/10.1101/2025.09.12.675911v1">bioRxiv preprint</a> predates it. Led <a href="https://www.therundown.ai/p/ai-designs-viruses-never-seen-in-nature">The Rundown</a> today, with Anthropic's classifier change as its second story.</li>
+      <li><strong>DeepMind broke its August silence with a Nature paper and open weights.</strong> <a href="https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/">WeatherNext: AI model achieves breakthrough in forecasting cyclones</a> (Aug 6) — <strong>three-day cyclone forecasts now match the accuracy previously achievable at two days</strong>, roughly <strong>a decade of meteorological progress</strong> in track, intensity and wind structure. Ensemble grew from <strong>50 to 1,000 scenarios</strong>; runs in <strong>under 60 seconds on a TPU</strong> at 28×28 km. Code and weights are on <a href="https://github.com/google-deepmind/weathernext">google-deepmind/weathernext</a> under Apache 2.0 across three variants, one of which fits a single TPU. Partners include NOAA's National Hurricane Center, CIRA and the UK Met Office; NHC used it operationally on Hurricane Melissa in 2025.</li>
+      <li><strong>OpenAI gave free users its newest model and took away the old one.</strong> <a href="https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/">Improving GPT-5.6 Sol in ChatGPT—and expanding access to GPT-5.6 Luna for free users</a> (Aug 6): Free and Go get <strong>Luna as default plus unlimited text chats</strong> and a <strong>Think button</strong> for harder questions; Plus and Pro get an updated Sol with a <strong>thinking slider — Instant / Medium / High / Extra High / Pro</strong>. On internal financial, medical and legal prompts, responses with at least one factual error were <strong>62% less common with Luna and 68% less common with Sol</strong> versus GPT-5.5 Instant. Not everyone reads it as a gift: <a href="https://the-decoder.com/openai-improves-gpt-5-6-sol-in-chatgpt-and-restricts-free-users-to-its-weakest-model/">The Decoder</a> headlines it as restricting free users to the weakest model, while <a href="https://techcrunch.com/2026/08/06/openai-brings-unlimited-chatgpt-text-chats-to-free-users/">TechCrunch</a> leads with unlimited chats. <a href="https://news.ycombinator.com/item?id=49199357">271 points on HN</a>.</li>
+      <li><strong>AMD bought the company that etches weights into silicon.</strong> <a href="https://www.theregister.com/systems/2026/08/06/amd-acquires-ai-chip-startup-taalas-to-boost-inference-performance-by-etching-models-into-silicon/5284344">AMD acquires Taalas</a> (Aug 6), a 2023 Toronto startup whose chips hold no HBM — the model weights are physically in the silicon, claimed at an order of magnitude or more on inference. Terms undisclosed, closing in Q4, folded into AMD's <strong>Helios</strong> racks in a disaggregated split: prompt processing on Instinct GPUs, token generation on Taalas. Comes seven months after Nvidia's $20B Groq deal. Top of HN at <a href="https://news.ycombinator.com/item?id=49201970">751 points / 573 comments</a>.</li>
+      <li><strong>Anthropic will now run Claude Code on your hardware.</strong> <a href="https://claude.com/blog/run-claude-code-sessions-on-your-own-compute">Run Claude Code sessions on your own compute</a> (Aug 6, public beta, Team and Enterprise): sessions execute inside your network with reach to internal services, databases and registries, pre-installed compilers and internal CLIs, and source plus build artifacts staying on your infrastructure. Each session gets its own checkout; every surface routes to the same environment. Two modes — fixed runners and on-demand orchestration (<a href="https://code.claude.com/docs/en/self-hosted-environments">docs</a>). Same day: <strong>beta security scanning of third-party skill and plugin uploads</strong> for Enterprise.</li>
+      <li><strong>AWS shipped a policy language for agent action sequences.</strong> <a href="https://aws.amazon.com/blogs/machine-learning/control-agent-behaviors-and-cost-beyond-a-single-action-new-capabilities-in-amazon-bedrock-agentcore/">Control agent behaviors and cost beyond a single action</a> (Aug 6) introduces <strong>temporal policies powered by Dogwood, a new open-source policy language for AI agents</strong> — stateful rules evaluated against an agent's session history, so you can enforce workflow ordering, block fabricated data, cap financial exposure and require human approval on high-value actions — plus <strong>gateway rate limiting</strong> on requests and tokens. Part of an eight-post AWS ML day.</li>
+      <li><strong>Qwen3.8-Max took the #1 agentic slot, briefly.</strong> HN's second-biggest AI thread (<a href="https://news.ycombinator.com/item?id=49200652">517 points / 323 comments</a>) was Qwen3.8-Max topping <a href="https://artificialanalysis.ai/?intelligence=agentic-index">Artificial Analysis's agentic index</a> — then dropping to second behind Opus Max within hours when the methodology was updated, which is most of what the thread is about. Meanwhile the promised open weights <strong>still do not exist</strong>: no Hugging Face or ModelScope model card, no license, no activated-parameter count.</li>
+      <li><strong>Grok 4.6's launch date was today. It didn't launch.</strong> Musk's target was "around August 7" for the 1.5T model with improved SFT and RL (<a href="https://x.com/elonmusk/status/2082123925283041545">his post</a>), with a 2.1T Grok 4.7 weeks later. As of this scan there is no x.ai announcement, no benchmark, no API entry — the only Aug 7 item on <a href="https://releasebot.io/updates/xai">xAI's release feed</a> is <strong>Grok Build 1.0.0</strong>, their agent CLI hitting a 1.0. Several SEO pages already assert the launch as fact; treat those as pre-written.</li>
+      <li><strong>Zvi published <a href="https://thezvi.substack.com/p/ai-180-no-longer-in-charge">AI #180: No Longer In Charge</a></strong> (Aug 6), reading the DeepMind reshuffle as Hassabis being kicked upstairs — "Demis Hassabis bet on Google. He stayed in the game for a decade, but he lost" — and arguing the cyber-evaluation story keeps getting worse than each disclosure admits, including models coordinating on message boards.</li>
+      <li><strong>HN's most uncomfortable number today: humans missed 1 in 3 malicious agent commands.</strong> A <a href="https://scalex.dev/blog/ai-agent-permissions-stats/">study across 40,000+ game rounds</a> found participants approved roughly a third of malicious commands <em>even when warned in advance</em>, with history logs above <code>npm run</code> commands routinely ignored (<a href="https://news.ycombinator.com/item?id=49195468">326 points / 228 comments</a>). The dominant reply: stop asking humans, sandbox the agent.</li>
+      <li><strong>Simon Willison shipped a SQL injection fix, and LangChain drew a map of its own stack.</strong> <a href="https://github.com/simonw/datasette/releases/tag/1.0a38">Datasette 1.0a38</a> and <a href="https://github.com/simonw/datasette/releases/tag/0.65.3">0.65.3</a> (Aug 6, 6:2x pm) patch a hole where users with <code>execute-sql</code> on public tables could read private tables in the same database. LangChain's <a href="https://www.langchain.com/blog/deep-agents-vs-langchain-vs-langgraph">Deep Agents vs LangChain vs LangGraph</a> (Aug 6) finally states which of its three products you should reach for.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- COMPANIES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Companies</h2>
+    <span class="section-tag tag-company">Anthropic · Google · OpenAI · AMD · AWS · Microsoft · xAI</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards">Anthropic: Fable 5's biology classifier retrained — ~85% fewer biology fallbacks, dual-use still gated</a></div>
+      <span class="item-badge badge-sig">Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Aug 7, 2026 — anthropic.com/news (fetched); the only August post on the newsroom</div>
+    <div class="item-body">Anthropic launched Fable 5 with almost all biology queries blocked, on the grounds that dual-use capability is genuinely hard to separate from benign use. This post is the walk-back of the over-correction, and it is unusually specific about method: the team <strong>rewrote the classifier's constitution to enumerate benign uses</strong>, solicited outside expert feedback, generated new training data and retrained — moving the boundary rightward rather than raising a threshold. The measured result is a <strong>~85% reduction in biology-related fallbacks</strong> and total fallback reductions of <strong>67% on Claude.ai, 55% on Cowork, 17% on Claude Code and 7% on the Claude Platform</strong> — a spread worth noticing, since it implies biology was a much larger share of chat friction than of coding friction. What did <em>not</em> change: requests Anthropic considers dual-use, naming <strong>virology, toxicology and molecular design</strong>, still fall back to Opus 5. The post cites the <strong>2026 Annual Threat Assessment</strong> on state actors and commits to "trusted access pathways" for legitimate frontier-biology researchers, which is the part with no shipping date. Read alongside today's <em>Science</em> phage result, this is a lab publicly tuning the dial on exactly the capability that just produced working synthetic viruses in a different lab.</div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://claude.com/blog/run-claude-code-sessions-on-your-own-compute">Anthropic: self-hosted Claude Code environments in public beta, plus security scanning for third-party skills and plugins</a></div>
+      <span class="item-badge badge-sig">Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Aug 6, 2026 — claude.com/blog; <a href="https://code.claude.com/docs/en/self-hosted-environments">Claude Code docs</a>; shipped in <a href="https://releasebot.io/updates/anthropic/claude-code">2.1.224</a></div>
+    <div class="item-body">Team and Enterprise organizations can now run Claude Code sessions on their own infrastructure. The three stated reasons are the three things that block enterprise adoption of hosted coding agents: <strong>network access</strong> (sessions sit inside your network and reach internal services, databases and registries without exposing them publicly), <strong>customizability</strong> (pre-install compilers, SDKs and internal CLIs so every session starts ready to build), and <strong>compliance</strong> (source and build artifacts never leave infrastructure you control). Each session gets its own checkout, so work stays isolated between developers; every supported surface routes to the same environment, so it's configured once. Two deployment modes: fixed runners and on-demand orchestration. Alongside it, Enterprise gets <strong>beta automated security scanning of third-party skill and plugin uploads</strong>, checked at creation and edit time. The Claude Code changelog is running unusually security-heavy this week: <strong>2.1.223</strong> fixed a <em>Bash permission bypass where a crafted command could hide parts of itself</em> and permission prompts defeated by tabs or invisible Unicode; <strong>2.1.224</strong> fixed sandbox filesystem deny entries with trailing slashes being "silently bypassable" and long project paths resolving into another project's session directory. Put next to yesterday's inference hooks, Anthropic has now shipped customer-controlled policy, customer-controlled compute and supply-chain scanning inside four days.</div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/">Google DeepMind: WeatherNext Cyclones in Nature — a day of extra warning, weights open under Apache 2.0</a></div>
+      <span class="item-badge badge-sig">Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Aug 6, 2026 — first post on the <a href="https://deepmind.google/blog/">DeepMind blog</a> in August (fetched); also on <a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/weathernext-2-cyclones/">blog.google</a></div>
+    <div class="item-body">After a leadership reshuffle and a month of blog silence, DeepMind's return is a peer-reviewed result with the weights attached. WeatherNext Cyclones reaches <strong>state-of-the-art accuracy on cyclone track, intensity and wind structure</strong>, and the headline framing is operationally legible in a way benchmark scores aren't: <strong>three-day forecasts now match what used to take two days to achieve</strong>, about <strong>24 hours of additional lead time</strong>, which the team compares to <strong>a decade of meteorological progress</strong>. Mechanically, the ensemble expanded from <strong>50 to 1,000 scenarios per cyclone</strong> — the point being tail events like sudden rapid intensification, which a small ensemble misses. It runs at <strong>28×28 km</strong> resolution, ~100× coarser than traditional numerical models, and produces a forecast in <strong>under 60 seconds on TPU</strong>. Code and weights are on <a href="https://github.com/google-deepmind/weathernext">google-deepmind/weathernext</a> under Apache 2.0 in three variants — WeatherNext Cyclones, WeatherNext 2, and <strong>WeatherNext 2-mini, which runs on a single TPU</strong>. Collaborators: NOAA's National Hurricane Center, CIRA, the UK Met Office and other national agencies; NHC used the model operationally during the 2025 Atlantic season, including Hurricane Melissa's rapid intensification and Jamaica landfall. Note the contrast with the rest of Google's week: the <a href="https://ai.google.dev/gemini-api/docs/changelog">Gemini API changelog</a> still ends at Jul 30, and there is no sign of Gemini 4.</div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/">OpenAI: GPT-5.6 Luna becomes the free default with unlimited text chats and a Think button; Sol gets a thinking slider</a></div>
+      <span class="item-badge badge-sig">Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Aug 6, 2026 — openai.com/index (403 to our fetcher; permalink confirmed via the <a href="https://news.ycombinator.com/item?id=49199357">HN item</a> and search, content from search + press)</div>
+    <div class="item-body">Two changes shipped together. For <strong>Free and Go</strong>, the default model becomes <strong>GPT-5.6 Luna</strong>, with <strong>unlimited text chats</strong> and a new <strong>Think button</strong> that escalates to higher reasoning on hard questions (subject to abuse guardrails). For <strong>Plus and Pro</strong>, Sol is updated to be more factually reliable and more focused — adapting detail to the question, avoiding gratuitous formatting, and offering "a helpful correction when simply agreeing wouldn't be useful," which is a sycophancy fix stated as a feature — plus a <strong>slider spanning Instant, Medium, High, Extra High and Pro</strong> thinking. The number worth keeping: on an internal set of financial, medical and legal prompts requiring factual detail, responses containing at least one factual error were <strong>~62% less common with Luna and ~68% less common with Sol</strong> than with GPT-5.5 Instant. The framing split is instructive — <a href="https://techcrunch.com/2026/08/06/openai-brings-unlimited-chatgpt-text-chats-to-free-users/">TechCrunch</a> leads with unlimited chats, <a href="https://the-decoder.com/openai-improves-gpt-5-6-sol-in-chatgpt-and-restricts-free-users-to-its-weakest-model/">The Decoder</a> with free users being confined to the weakest model — and HN's 221 comments mostly argue the third thing: that a Luna/Terra/Sol × Low/Medium/High/Xhigh matrix is a routing problem the product should solve, not a menu. Zvi's roundup separately reports an <strong>80% Luna price cut to $0.20/$1.20</strong>; that figure comes from his newsletter, not from a primary OpenAI page we could reach, so treat it as relayed.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">OpenAI: Codex 0.147.0 — portable Agent Plugins, persistent conversation sections, MCP 2026-07-28</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Aug 7, 2026 — via <a href="https://releasebot.io/updates/openai">release-notes aggregator</a> (fetched); openai.com/news not fetchable here</div>
+    <div class="item-body">Codex adds <strong>portable Agent Plugins</strong>, <strong>persistent conversation sections</strong>, <strong>automated approval behind a new CLI flag</strong>, and support for the <strong>MCP 2026-07-28</strong> spec revision, plus secret redaction and Windows process-handling fixes. Note the direction of travel against yesterday's 0.146.1, which <em>tightened</em> automatic-review defaults for cyber-capable models: one release hardens the default, the next ships a flag to skip approvals. Also still in flight from earlier in the week: ChatGPT Enterprise/EDU admins can now disable in-app desktop updates on macOS and Windows (Aug 6).</div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.theregister.com/systems/2026/08/06/amd-acquires-ai-chip-startup-taalas-to-boost-inference-performance-by-etching-models-into-silicon/5284344">AMD acquires Taalas, whose chips have no HBM because the weights are in the silicon</a></div>
+      <span class="item-badge badge-sig">Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Aug 6, 2026 — The Register; <a href="https://news.ycombinator.com/item?id=49201970">751 points / 573 comments</a>, top of HN</div>
+    <div class="item-body">Taalas, founded 2023 in Toronto, takes inference in a direction neither GPUs nor the dataflow accelerators (Groq LPUs, Cerebras wafers) go: <strong>model weights are etched directly into the silicon</strong> rather than streamed from high-bandwidth memory, with a claimed order-of-magnitude-plus improvement on inference. AMD did not disclose terms; reporting characterizes it as a real acquisition rather than an acquihire, closing in <strong>Q4</strong>. The integration plan is the interesting part: Taalas silicon goes into AMD's <strong>Helios</strong> rack-scale systems next to Instinct GPUs and EPYC CPUs in a <strong>disaggregated split — compute-heavy prompt processing on the GPUs, token generation offloaded to Taalas</strong>. That is a bet that the prefill/decode asymmetry is stable enough to build separate hardware for. It follows Nvidia's $20B Groq acquisition seven months ago, which makes two of the three big accelerator vendors having bought a dedicated inference architecture. The obvious tension, well aired in the HN thread: hardwiring weights means the chip is only as useful as the model's shelf life, in a market where flagship models turn over every few weeks.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://aws.amazon.com/blogs/machine-learning/control-agent-behaviors-and-cost-beyond-a-single-action-new-capabilities-in-amazon-bedrock-agentcore/">AWS: AgentCore temporal policies powered by Dogwood, a new open-source policy language for agents — plus gateway rate limits</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Aug 6, 2026 — <a href="https://aws.amazon.com/blogs/machine-learning/">AWS ML blog</a> (fetched), one of eight posts that day</div>
+    <div class="item-body">The conceptual move is from per-action authorization to <strong>sequence-aware authorization</strong>. Temporal policies are <strong>stateful rules evaluated against an agent's session history</strong>, expressed in <strong>Dogwood, a new open-source policy language for AI agents</strong>, and the four named use cases are all things a single-action check cannot express: enforce workflow ordering, prevent fabricated data, cap financial exposure across a run, and require human approval above a value threshold. The companion release is <strong>rate limiting on the AgentCore gateway</strong> — request and token ceilings that hold "regardless of agent behavior," protecting downstream systems from spikes and putting a hard number on cost. AWS's framing is worth quoting because it's the week's theme in one line: deterministic control over <em>sequences</em> of agent actions. The rest of the Aug 6 batch is unusually thick and mostly governance-shaped too: <strong>Agent Skills for Automated Reasoning policies in Bedrock</strong>, <strong>enforcing data residency with single-Region Claude Code on Bedrock</strong>, <strong>OpenTelemetry/CloudWatch visibility for Codex on Bedrock</strong>, an agentic app deployer on Lambda, and an LLM-optimization integration for the SageMaker Python SDK — with LendingTree's multi-agent mortgage assistant and Mobileye's support-operations rebuild on Aug 5.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">xAI: Grok 4.6's stated launch date is today, and it has not shipped</div>
+    </div>
+    <div class="item-date">Aug 7, 2026 — <a href="https://releasebot.io/updates/xai">xAI release feed</a> fetched; x.ai/news not fetchable here</div>
+    <div class="item-body">Musk's <a href="https://x.com/elonmusk/status/2082123925283041545">post</a> set the target: "Grok 4.6 releases around August 7. This will be the 1.5T model with significantly improved SFT &amp; RL. Grok 4.7 will be the 2.1T model released a few weeks later." As of this scan there is <strong>no x.ai announcement, no benchmark table, no API model entry, and no release-feed line for Grok 4.6</strong>. The only Aug 7 xAI item is <strong>Grok Build 1.0.0</strong> — their agent CLI reaching 1.0, with dashboard summaries of agent actions, alphabetically grouped extensions, automatic theme detection over SSH, and fixes to markdown tables and permission prompts. Worth flagging because it will mislead searches: several third-party pages already state flatly that Grok 4.6 "launched August 7, 2026" with specs and positioning against Kimi K3 and Opus 4.8. Those are pre-written to the announced date; nothing in xAI's own channels supports them yet.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">Meta, Microsoft, Azure: nothing new in the window</div>
+    </div>
+    <div class="item-date">Aug 6–7, 2026 — each checked individually</div>
+    <div class="item-body"><strong>Meta</strong>: <a href="https://ai.meta.com/blog/">ai.meta.com/blog</a> still has no August post — the Muse Code and Muse Spark 1.2 release covered yesterday reached the world through press and Simon Willison, and the Muse Spark 1.1 sandbox-escape incident likewise. Latest Meta AI blog posts remain Jul 27 (Genesis Mission models) and Jul 21 (Muse Image and Muse Video). <strong>Microsoft</strong>: <a href="https://blogs.microsoft.com/">blogs.microsoft.com</a> fetched — nothing dated August; newest are Jul 28 (Judson Althoff's FY26 retrospective) and Jul 27 ("Rethinking security for the age of AI"). <strong>Azure</strong>: <a href="https://azure.microsoft.com/en-us/blog/">azure.microsoft.com/blog</a> fetched — one August post, Aug 6, on being named a Leader in the 2026 Gartner Magic Quadrant for AI-Augmented Code Modernization Tools; analyst-relations content rather than a product or research announcement, so it's noted here and not given its own item. <strong>Anthropic Research</strong> and <strong>Anthropic Engineering</strong> were both checked and have no August post either; the engineering index still features <em>How we contain Claude across products</em>.</div>
+  </div>
+
+  <div class="subsection" style="margin-top:36px;">
+    <div class="subsection-title">Open Weights / Emerging Labs</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://news.ycombinator.com/item?id=49200652">Qwen3.8-Max hit #1 on the Artificial Analysis agentic index, then #2 within hours — and the open weights still don't exist</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Aug 6–7, 2026 — <a href="https://artificialanalysis.ai/?intelligence=agentic-index">agentic index</a>; 517 points / 323 comments on HN</div>
+      <div class="item-body">Two things happened and they point opposite ways. The ranking: Qwen3.8-Max took the top overall slot on Artificial Analysis's agentic index — the first time a Chinese model has led that board — and then <strong>fell to second behind Opus Max within hours when Artificial Analysis updated its methodology</strong>, which is what most of the 323 comments are actually arguing about. Two claims worth separating: that Chinese models have reached parity on agentic work (the result), and that leaderboards which reorder on a methodology change hours after a headline are load-bearing evidence (contested, with several commenters noting the timing). The non-event: the promised open weights. Yesterday's brief pinned them to the week of Aug 10 on the strength of an official Qwen quote; today there is <strong>still no Hugging Face or ModelScope model card, no named license, and no activated-parameter count</strong> for either Qwen3.8-Max (2.4T total, 1M context) or Qwen3.8-27B. Until a card exists, "first frontier-tier flagship with open weights" remains a promise, and the API-only model is what's shipping.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title">DeepSeek, GLM, Meta, Cognition: quiet</div>
+      </div>
+      <div class="item-date">Aug 7, 2026 — each searched individually</div>
+      <div class="item-body"><strong>DeepSeek</strong>: the release feed's newest entry is still the <strong>Jul 31 V4-Flash public beta</strong> (Terminal Bench 2.1 at 82.7, NL2Repo 54.2, native Responses API, Codex optimization), explicitly noting V4-Pro and the app/web models are unchanged. Reported V4 GA target remains mid-August; no primary confirmation surfaced today. Pricing on the board: V4-Pro $0.435/$0.87 per MTok ($0.003625 cache hit), V4-Flash $0.14/$0.28 ($0.0028). <strong>Zhipu/GLM</strong>: still no GLM-5.5 model card, benchmark or endpoint; official channels remain on GLM-5.2, and the August window is still Reuters/CGTN-via-JPMorgan plus mid-July leaks. <strong>Cognition</strong>: cognition.com fetched — nothing in August, latest is Jul 28's LTM partnership. <strong>Hugging Face blog</strong>: one new post, Aug 6's <em>Baseten on Hugging Face Inference Providers</em>, which pairs oddly well with Latent Space's Aug 3 Baseten inference masterclass.</div>
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH & AGGREGATORS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Research &amp; Aggregators</h2>
+    <span class="section-tag tag-company">HF · The Batch · arXiv · Rundown · AI Daily Brief</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.stanford.edu/stories/2026/08/evo-2-ai-tool-e-coli-killer-bacteriophages">Evo 1 and Evo 2 designed 16 working bacteriophages from scratch — published in Science</a></div>
+      <span class="item-badge badge-sig">Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Aug 6–7, 2026 — Stanford / Arc Institute in <em>Science</em>; surfaced via <a href="https://www.therundown.ai/p/ai-designs-viruses-never-seen-in-nature">The Rundown</a> (fetched) and <a href="https://arcinstitute.org/news/hie-king-first-synthetic-phage">Arc Institute</a></div>
+    <div class="item-body">The genome language models <strong>Evo 1 and Evo 2</strong>, trained on <strong>2.7 million genomes</strong>, generated whole viral genomes letter by letter — <strong>blueprints no living cell has carried</strong> — seeded from the bacteriophage <strong>ΦX174</strong>. Researchers synthesized the designs as physical DNA (reports give ~285–302 constructs) and dropped them into <em>E. coli</em> dishes to see which came alive. <strong>16 were viable</strong>, some replicating faster than the natural parent, and a <strong>cocktail of the AI-designed phages cleared drug-resistant <em>E. coli</em></strong> — which is the therapeutic pitch, phages as a new antibiotic class against resistant infections. The stated safety control is upstream and specific: <strong>the models were trained exclusively on non-human pathogens</strong>, so they have not seen the sequence space that would matter most. Everything so far is confined to lab dishes at Stanford and Arc, with no use in any patient. A <a href="https://www.biorxiv.org/content/10.1101/2025.09.12.675911v1">bioRxiv preprint</a> from September 2025 preceded the <em>Science</em> paper, so the result has been in the open for a while — but the peer-reviewed publication landing in the same 24 hours as Anthropic loosening its biology classifier is a coincidence with real content: this is the capability the classifier is calibrated against, demonstrated at exactly the moment the calibration moved.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.therundown.ai/p/ai-designs-viruses-never-seen-in-nature">The Rundown: "AI designs viruses never seen in nature"</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Aug 7, 2026 — The Rundown AI (fetched); yesterday's issue was "Google shakes up its AI brain trust"</div>
+    <div class="item-body">Leads with the Evo phage result, and — correctly — puts <strong>Anthropic's Fable 5 biology classifier change as story two</strong>, which is the pairing most coverage is missing. Third is a reader-built workflow: Charles Clogston's pipeline turning a topic into a self-paced course with lessons, curated YouTube videos and quizzes. Rowan Cheung's editorial note is a small data point on what the audience actually wants — the Community AI Workflow Hub launched with strong adoption, and readers prefer <strong>practical step-by-step workflows over high-level inspiration</strong>.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://aidailybrief.beehiiv.com/p/google-s-ai-leadership-shakeup-disaster-or-exactly-what-it-needs">AI Daily Brief: "Google's AI Leadership Shakeup: Disaster or Exactly What It Needs?"</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Aug 6, 2026 — NLW (fetched)</div>
+    <div class="item-body">NLW argues both sides rather than picking one, and the bear case has the harder numbers: <strong>Alphabet stock fell 4%</strong> on the news; Dean's exit after 27 years reads as lost confidence in Google's AGI strategy; and it follows <strong>John Jumper to Anthropic and Noam Shazeer to OpenAI</strong>, which makes it a pattern rather than an event. He also cites Susan Zhang's public posts about burnout under leadership "who never make hard calls." The bull case: Hassabis had been <strong>"checked out" of day-to-day operations for over a year</strong> and is better matched to long-horizon science than to shipping consumer products, and "Google was never getting back... with the same arrangement that lost it the race." The unresolved bit he flags is the one that matters commercially — internal sentiment on <strong>Gemini 4 is "muted,"</strong> and Google trails on coding, which is where the competition has moved. Compare Zvi below, who reads the same facts and does pick a side.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">arXiv cs.AI: long-horizon agent failure forensics, and gating agent self-improvement</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Aug 7, 2026 — <a href="https://arxiv.org/list/cs.AI/recent">cs.AI recent</a> (fetched)</div>
+    <div class="item-body">Today's listings are dominated by the debugging and containment of long-running agents rather than their capabilities. <strong>TRAJDEBUG</strong> (2608.06346) traces the <em>lifecycle</em> of an error through a long-horizon agent trajectory to find which failure was actually critical — the tooling gap everyone running multi-hour agents complains about. <strong>Pre-Commit Gating</strong> (2608.05810) addresses <em>skill contamination</em> when agents self-improve, i.e. how to stop a self-modifying agent from poisoning its own skill library; read it against Lilian Weng's harness-engineering framing and against Prime Agent on HN. On training: <strong>EnvACE</strong> (2608.06197) internalizes environment dynamics via "world rehearsal" for agentic RL, and <strong>DASH</strong> (2608.06243) proposes divergence-adaptive supervision horizons for on-policy self-distillation of reasoning models. Benchmarks continue to specialize by domain and time axis — <strong>FinEvo-Bench</strong> (2608.06144) is explicitly <em>longitudinal</em>, measuring self-evolving agents across professional financial workflows rather than at a single checkpoint, and 2608.05864 asks whether multimodal models can do executive decision-making. Also listed: <strong>iARCS</strong> (2608.06161) on iterative agentic RL for controllable 3D scene generation, and 2608.06300 using concept activation vectors to audit fairness in language assessment.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">The Batch: still no new issue</div>
+    </div>
+    <div class="item-date">Aug 7, 2026 — <a href="https://www.deeplearning.ai/the-batch">page fetched</a></div>
+    <div class="item-body">Still <strong>issue #364</strong> (Jul 31) — "Opus Outshines Even Fable," "Inside the Hugging Face Hack," "AI Companies Spend Big for Compute." A week overdue on the usual cadence, and now with a queue: the DeepMind reshuffle, the AISI incident report, Meta's sandbox escape, and today's phage result.</div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Blogs &amp; Substacks</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison — a security release, and a note on why he writes</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://github.com/simonw/datasette/releases/tag/1.0a38">Datasette 1.0a38</a> and <a href="https://github.com/simonw/datasette/releases/tag/0.65.3">0.65.3</a> — SQL injection let public-table users read private tables</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Aug 6, 2026 — 6:24 pm and 6:22 pm on <a href="https://simonwillison.net/">simonwillison.net</a>; no Aug 7 post yet</div>
+      <div class="item-body">The bug is a good illustration of why permission systems layered over SQL are hard: on instances using Datasette's permissions to restrict some tables while granting <code>execute-sql</code> on public ones, a user with public-table access could <strong>inject SQL to get read-only access to private tables in the same database</strong>. The advice for anyone who can't upgrade immediately is blunt — <strong>disable <code>execute-sql</code> on any database containing private tables</strong>. Patched in the 1.0 alpha line and backported to 0.65.3 within two minutes of each other. Also posted Aug 6: an interview, <a href="https://writethatblog.substack.com/p/simon-willison-on-technical-blogging">Simon Willison on Technical Blogging</a>, on his practice and advice. His Aug 6 12:25 am link to CNN's coverage of the Meta model incident was in yesterday's brief.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Zvi Mowshowitz — Don't Worry About the Vase</div>
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title"><a href="https://thezvi.substack.com/p/ai-180-no-longer-in-charge">AI #180: No Longer In Charge</a></div>
+        <span class="item-badge badge-sig">Significant</span>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Aug 6, 2026 (fetched) — the weekly roundup, one day after <em>The Three AI Pills</em></div>
+      <div class="item-body">Two threads carry it. On the <strong>cyber evaluations</strong>: his claim is that each disclosure has been contradicted by the next round of information, that <strong>models are coordinating extensively on message boards</strong>, and that the situation is "far worse than we know, even after accounting for everything we now know." He cites Joshua Achiam (OpenAI) — "security by obscurity is about to die" — and Zephaniah Roe on how little people have internalized what genuinely broken computer security would mean for infrastructure, banking and power. On <strong>Google</strong>: he reads Hassabis as removed rather than promoted — kicked upstairs with little real power — with Kavukcuoglu, "a capabilities guy," taking the operational seat; his verdict is "Demis Hassabis bet on Google. He stayed in the game for a decade, but he lost," and he considers Google's institutional commitment to existential-risk work effectively dead. He calls automating AI R&amp;D "probably among the most harmful full-time jobs in the world," which is aimed directly at Discovery Loop. Also relayed, and worth separate verification: an <strong>80% Luna price cut to $0.20/$1.20</strong> read as a share-grab against Chinese labs; frontier models <strong>out-persuading world-champion human debaters</strong> in text, using higher fact density as the strategy; and a White House evaluation framework that <strong>exempts open-weight models</strong>, creating an incentive to strip safeguards for immunity from testing. One item he reports that we could partly corroborate: <strong>Claude Code finding a Coldcard wallet vulnerability in eight minutes</strong>. The hack is real and large — <a href="https://www.trmlabs.com/resources/blog/the-largest-hardware-wallet-exploit-of-2026-inside-the-usd-116-million-coldcard-hack">TRM Labs</a> and <a href="https://fortune.com/2026/08/03/bitcoin-owners-116-million-hack-coldcard-coinkite-exploit/">Fortune</a> put it at <strong>~1,816 BTC / $116M drained from 5,200+ addresses across four waves from Jul 30</strong>, traced to a March 2021 firmware build-flag error that fell back to a weak software RNG for seed generation. The AI part is contested rather than settled: Coinkite's CEO blames AI code review, security researchers blame human engineering error, and the eight-minute discovery claim is Zvi's, not something the mainstream coverage carries.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">LangChain — naming the layers of its own stack</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://www.langchain.com/blog/deep-agents-vs-langchain-vs-langgraph">Deep Agents vs LangChain vs LangGraph</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Aug 6, 2026 — Sydney Runkle (fetched); sixth production-agent post in five days</div>
+      <div class="item-body">Useful because the confusion was real and self-inflicted. The three are abstraction levels, not alternatives. <strong>Deep Agents</strong> is "an off-the-shelf agent harness" with opinions baked in — filesystem-based context management, subagents, on-demand skills, memory — and is recommended as the default starting point; they cite their own internal GTM agent handling <strong>~10,000 requests a week</strong> on it. <strong>LangChain</strong> is the deliberately "incredibly minimal and un-opinionated" framework layer: an LLM in a loop calling tools, plus provider integrations and middleware hooks, for when you want fine-grained control over which tools and context reach the model (their example: a RAG docs Q&amp;A bot that needs no context engineering). <strong>LangGraph</strong> is the runtime — graph-based custom workflows with durable execution, human-in-the-loop and fault tolerance — for work that doesn't fit a loop or must mix deterministic and agentic steps, their example being rental-application processing where extraction is agentic and approval is rule-based. All three compose. Read next to AWS's temporal policies and Anthropic's self-hosted environments, three vendors spent today publishing the same message: the agent is the easy part, the harness is the product.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly Radar — two more AI pieces</div>
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://www.oreilly.com/radar/ai-on-the-pi-build-your-own-local-voice-agent/">AI on the Pi: Build Your Own Local Voice Agent</a> (Pete Warden) and <a href="https://www.oreilly.com/radar/your-ai-agent-isnt-a-static-artifact-its-growing-up/">Your AI Agent Isn't a Static Artifact. It's Growing Up.</a> (Wendi Soto)</div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Aug 7 and Aug 6, 2026 — <a href="https://www.oreilly.com/radar/">Radar</a> (fetched)</div>
+      <div class="item-body">Warden's is the counterweight to the week's frontier news: a fully local voice agent on a Raspberry Pi, from the person who has spent a decade on tiny-device ML. Soto's argues an agent is not a shipped artifact but something with a lifecycle — which is the same claim FinEvo-Bench makes quantitatively on arXiv today, that you have to measure agents longitudinally rather than at a checkpoint. Radar has now published five AI pieces in four days, after Zhou's <em>Introduction to Post-training</em> and Odewahn's <em>Building Organizational Intelligence</em> on Aug 5.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Stratechery</div>
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title">Aug 6 Daily Update: "Google Earnings, The Frontier Case, Amazon Earnings"; Aug 5 free weekly "2026.30: The Copium Wars"</div>
+      </div>
+      <div class="item-date">Aug 5–6, 2026 — <a href="https://stratechery.com/">stratechery.com</a> fetched; Daily Updates paywalled</div>
+      <div class="item-body">The Google/Amazon earnings Daily Update now shows as <strong>Aug 6</strong> on Stratechery's own front page; yesterday's brief dated it Aug 5 from the articles index, so treat the exact date as uncertain and the item as already covered. The free item is this week's <em>This Week in Stratechery</em>, <strong>2026.30: "The Copium Wars,"</strong> whose highlighted topics include Chinese AI models and OpenAI's cybersecurity incident. We can attribute topics, not arguments. Correction to a link that surfaced during this scan: <em>A Script for Mark Zuckerberg</em> — a fictional earnings-call script arguing Meta's capex is defensively necessary because "AI makes every pixel monetizable" — is dated <strong>Jul 7</strong>, not August, despite reading like this week's Meta earnings.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Quiet this window — each searched individually</div>
+    <div class="item">
+      <div class="item-body">
+        <strong>Chip Huyen</strong> — searched "Chip Huyen huyenchip blog 2026 new post"; nothing recent, latest indexed posts Jan 2025.<br>
+        <strong>Hamel Husain</strong> — hamel.dev fetched; newest is <em>Do Automated Evals Work?</em> (Jul 11), then <em>"It's Hard to Eval" Is a Product Smell</em> (Jun 29). No August post.<br>
+        <strong>Eugene Yan</strong> — searched "Eugene Yan eugeneyan.com 2026 new writing post"; nothing since <em>Patterns for Building Cybersecurity Evals</em> (Jun 21).<br>
+        <strong>Jason Liu (jxnl.co)</strong> — searched "Jason Liu jxnl.co writing 2026 new post"; nothing since <em>Three Ways Codex Can Use a Computer</em> (Jun 16).<br>
+        <strong>Addy Osmani (blog)</strong> — addyosmani.com/blog fetched; no August post, latest <em>Software Factories, Light and Dark</em> (Jul 20).<br>
+        <strong>Addy Osmani (Substack)</strong> — searched "site:addyo.substack.com August 2026" and fetched /archive; no August post, latest <em>Software Factories, Light and Dark</em> (Jul 22).<br>
+        <strong>Swyx</strong> — searched "swyx swyx.io 2026 new post AI engineer"; nothing since the Jul 9 David Ondrej episode.<br>
+        <strong>Latent Space</strong> — /archive fetched; nothing since <em>Unpacking ChatGPT Work</em> (Aug 4) and the Baseten inference masterclass (Aug 3).<br>
+        <strong>Lilian Weng</strong> — searched "Lilian Weng lilianweng.github.io 2026 new post"; nothing since <em>Harness Engineering for Self-Improvement</em> (Jul 4).<br>
+        <strong>Anthropic Engineering</strong> — searched and /engineering fetched; no August post, index still featuring <em>How we contain Claude across products</em>.<br>
+        <strong>Ethan Mollick / One Useful Thing</strong> — /archive fetched; nothing since <em>An opinionated guide to which AI to use to do stuff</em> (Jul 23).<br>
+        <strong>The Pragmatic Engineer</strong> — /archive fetched; no August post, latest <em>Formal methods with Hillel Wayne</em> (Jul 29).<br>
+        <strong>Lenny Rachitsky</strong> — /archive fetched; nothing since Aug 4's non-AI Molly Graham piece.<br>
+        <strong>Interconnects / Nathan Lambert</strong> — /archive fetched; nothing since <em>Introducing our Artifacts Hub and Adoption Dashboard</em> (Aug 3).<br>
+        <strong>Import AI / Jack Clark</strong> — <a href="https://jack-clark.net/">jack-clark.net</a> fetched; still <strong>#467</strong> (Aug 3), self-sustaining AI viruses / pacing AI progress / AI and creativity — the virus item reading rather differently after today's phage paper.<br>
+        <strong>Adam Tornhill</strong> — /archive fetched; nothing since <em>Stop Passing Everything</em> (Jul 23).<br>
+        <strong>Jessica Talisman</strong> — /archive fetched; nothing since <em>Semantics Evolved</em> (Aug 4).<br>
+        <strong>Casey Muratori / Computer Enhance</strong> — searched "Casey Muratori Computer Enhance August 2026 new post" and fetched computerenhance.com, which returned only the masthead; no recent post surfaced either way.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- X / SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Search-only</span>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">@karpathy, @emollick, @addyosmani, @trq212, @xai — each searched, nothing dated in the window</div>
+    </div>
+    <div class="item-date">Aug 6–7, 2026</div>
+    <div class="item-body"><strong>@karpathy</strong>: nothing dated in the window; what surfaced is his standing Sequoia Ascent 2026 material and the LLM Wiki pattern (5K+ stars, agent-maintained markdown wiki replacing RAG re-retrieval, which Google formalized as Open Knowledge Format). <strong>@emollick</strong>: no post dated Aug 6–7 surfaced with a usable status URL. <strong>@addyosmani</strong>: nothing in the window; the most recent substantive item remains his June "Loop Engineering" long-form post. <strong>@trq212 (Thariq Shihipar)</strong>: a substantive post did surface — <a href="https://x.com/trq212/status/2080710971228918066">"We removed ~80% of the Claude Code system prompt for our newest models"</a>, on what that taught them about writing system prompts, skills and CLAUDE.mds — but it predates this window by a few days, so it's noted rather than claimed as new. <strong>@xai/@grok</strong>: nothing beyond the restated Grok 4.6 target. Another thin social day against a heavy news day; the biology story broke through journals and newsletters, not through these handles.</div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community</h2>
+    <span class="section-tag tag-community">HN · LessWrong · Reddit</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title">HN: inference silicon on top, and two threads about whether humans can supervise agents at all</div>
+      <span class="item-badge badge-sig">Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Aug 6–7, 2026 — front page and /front fetched, plus five item pages</div>
+    <div class="item-body"><a href="https://news.ycombinator.com/item?id=49201970">AMD acquires Taalas to boost inference performance by etching models in silicon</a> (751 pts / 573) · <a href="https://news.ycombinator.com/item?id=49200652">Qwen3.8 Max now ranked as the best overall model by agentic index</a> (517 / 323) · <a href="https://news.ycombinator.com/item?id=49198069">Software development with AI is starting to feel like cooking steak</a> (378 / 404) · <a href="https://news.ycombinator.com/item?id=49195468">Humans missed 1 in 3 threats approving AI agent commands</a> (326 / 228) · <a href="https://news.ycombinator.com/item?id=49199357">Improving GPT-5.6 Sol in ChatGPT</a> (271 / 221) · <a href="https://news.ycombinator.com/item?id=49189075">Prime Agent: A self-improving RLM agent</a> (249 / 65, up from 138 yesterday) · <a href="https://news.ycombinator.com/item?id=49208393">Kitesurf: Agent-first browser that runs in V8 isolates</a> (new, climbing). The Qwen thread is the one to read for temperature: the top argument is not whether the model is good but whether a board that reorders on a same-day methodology change tells you anything.</div>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://scalex.dev/blog/ai-agent-permissions-stats/">"Humans missed 1 in 3 threats approving AI agent commands" — 40,000+ runs against the human-in-the-loop premise</a></div>
+      <span class="item-badge badge-sig">Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Aug 6, 2026 — <a href="https://news.ycombinator.com/item?id=49195468">326 points / 228 comments</a></div>
+    <div class="item-body">Participants reviewing AI agent permission requests across <strong>40,000+ rounds failed to identify roughly one third of malicious commands — while primed to expect them</strong>. The most damning detail is behavioral rather than statistical: the history log displayed above <code>npm run</code> commands is "typically ignored," i.e. people approve on the shape of the request, not its context. The thread's fair objections are worth keeping: a timed game with no real consequences may not model real approval decisions, and artificial pressure could inflate the miss rate. But the dominant response accepts the finding and rejects the design — "ask the user for permission" has failed as a security mechanism before, in browser and mobile permission prompts, and the proposed replacements are structural: sandboxes, VMs, separate users, network denial by default, and capability-based security at the language level. Line this up against Anthropic's Aug 6 changelog fixing a Bash permission bypass and invisible-Unicode prompt evasion, and the week's argument writes itself: the approval dialog is not a control, it's a formality.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://blog.sydorets.com/en/posts/almost-no-skill-required-to-cook-a-steak/">"Software development with AI is starting to feel like cooking steak"</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Aug 6, 2026 — <a href="https://news.ycombinator.com/item?id=49198069">378 points / 404 comments</a></div>
+    <div class="item-body">The argument: with good ingredients and one instrument — a thermometer, a reverse sear — excellent results stop requiring skill, and LLMs have done the same for routine coding given proper guidance. The comment section immediately attacks the analogy from the direction that makes it more interesting, not less: steak is one of the <em>easiest</em> things to cook well, so the comparison concedes that AI handles the easy cases. The more substantive thread argues the value was never in the technique — the farmer, or the open-source library, does the work, and the developer's job is not ruining it. 404 comments on a 378-point post is a high ratio; this is a thread people argued in rather than upvoted.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://blog.cloudflare.com/kitesurf/">Cloudflare: Kitesurf, an agent-first browser running in V8 isolates</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Aug 7, 2026 — <a href="https://news.ycombinator.com/item?id=49208393">on HN, ~3 hours old at scan time</a></div>
+    <div class="item-body">Agents Week continues. Kitesurf is a browser designed for agents rather than adapted for them, running <strong>in V8 isolates</strong> on Cloudflare's edge and built on <strong>Blitz, a new modular open-source browser engine</strong> — the architectural claim being that per-isolate browsing is cheap enough to give every agent its own. Cloudflare says its modifications will eventually be published and contributed upstream. Two days after open-sourcing Cloudflare OS with its "Gatekeepers" governance layer, the pattern is clear: Cloudflare is building the substrate agents run on and open-sourcing the parts that create lock-in for someone else.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">LessWrong and Reddit: no new AI material verified in the window</div>
+    </div>
+    <div class="item-date">Aug 7, 2026</div>
+    <div class="item-body"><strong>LessWrong</strong>: front page fetched. The newest post (~17 hours) is Mvolz's non-AI <em>Contra Oster on Alcohol in Pregnancy</em>. The AI-relevant items are the ones from two days ago already carried yesterday — Cleo Nardo's <em>Arguments for P</em>, Yudkowsky's <em>Generalized atheism rules out "inaccurate simulation"-ism</em> — plus philh's <em>The goalposts are shrouded, not moving</em>, also ~2 days. No fresh AI front-page post in the last 24 hours. <strong>r/LocalLLaMA</strong> and <strong>r/MachineLearning</strong>: both search-only here and both searched this run; neither returned a dated thread with a usable permalink, so no claim is made about what either actually discussed. Given the Qwen agentic-index result and the still-absent Qwen3.8 weights, r/LocalLLaMA almost certainly had threads on both; we could not verify one.</div>
+  </div>
+</div>
+
+<!-- THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>Cross-cutting observations</h3>
+    <ul>
+      <li><strong>Two labs moved the biology dial in opposite directions on the same day, and neither was coordinating with the other.</strong> Anthropic <em>widened</em> access — 85% fewer biology fallbacks, because blocking everything was costing real clinical and educational use — while keeping virology, toxicology and molecular design behind a fallback. Stanford and Arc <em>demonstrated</em> the thing the fallback exists for: generative models writing viable viral genomes, 16 of them working. The two facts are compatible and both defensible; what's notable is that the safety boundary is now being drawn by a classifier constitution at one company while the capability frontier is being set by a genome language model at another, with no shared instrument between them. Anthropic's promised "trusted access pathways" for legitimate researchers is the missing piece, and it has no date.</li>
+      <li><strong>Every serious vendor shipped harness governance this week, and the human-approval model died quietly in the middle of it.</strong> AWS shipped temporal policies in a new open language, Dogwood, because per-action authorization can't express "don't do these three things in this order." Anthropic shipped customer-owned compute and skill/plugin scanning, on top of Tuesday's inference hooks, while its own changelog patched a Bash permission bypass and prompts defeated by invisible Unicode. LangChain published a map telling people to stop hand-rolling harnesses. And a 40,000-run study found humans approve a third of malicious agent commands while <em>expecting</em> them. Read together, the industry has concluded within about five days that the approval dialog is theater and the enforceable controls are structural: policy languages, sandboxes, network denial by default, capability-based security. Nobody announced this conclusion; four companies just started shipping as if it were settled.</li>
+      <li><strong>Inference hardware is being specialized in public, and specialization is a bet on model shelf life.</strong> AMD buying Taalas — weights etched into silicon, no HBM — plus the plan to split prefill onto Instinct GPUs and decode onto Taalas, is the second such acquisition in seven months after Nvidia/Groq. That's both big accelerator vendors deciding general-purpose GPUs are the wrong shape for token generation. The unresolved question the HN thread went straight to: baking a model into silicon prices in a model lifetime measured in quarters, in a year when flagships have been turning over in weeks. If it works it reprices inference by an order of magnitude; if model churn wins, it's a very expensive lesson about where the abstraction boundary belongs.</li>
+      <li><strong>Google shipped the most defensible AI result of the day, and almost nobody framed it as a Google comeback.</strong> WeatherNext Cyclones is a Nature paper, a day of extra warning on tropical cyclones, operational use by the National Hurricane Center, and Apache 2.0 weights including a variant that fits one TPU. On any normal week that's the headline. Instead it landed 24 hours after the leadership reshuffle, in a window where the Gemini API changelog hasn't moved since Jul 30, internal sentiment on Gemini 4 is reportedly "muted" (NLW), and Zvi is writing that Google's safety commitment is dead. The gap between what DeepMind can still do in science and what Google can currently do in products is the story, and today made it wider rather than narrower.</li>
+      <li><strong>"Open weights" is doing a lot of unearned work as a phrase right now.</strong> Today it meant something concrete once — DeepMind actually put WeatherNext code and weights on GitHub under Apache 2.0, with a license named and a mini variant you can run. It meant nothing twice: Qwen3.8-Max topped an agentic leaderboard while its promised weights have no model card, no license and no activated-parameter count four days after the announcement; GLM-5.5 remains an August rumor with no artifact at all. Meanwhile Zvi relays a White House evaluation framework that <em>exempts</em> open-weight models — which, if accurate, makes "open weights" a regulatory status you can claim before you've shipped anything. The useful test is unchanged and increasingly worth applying literally: is there a model card with a license on it?</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <strong>Sources checked (Aug 7, 2026 — 51 sources, each searched individually; window: the ~24 hours since the Aug 6 brief):</strong><br>
+  <em>Companies</em> — <strong>Anthropic news</strong> (searched "Anthropic news announcement August 7 2026" + anthropic.com/news fetched; NEW Aug 7 <a href="https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards">Improving Fable 5's biology safeguards</a>, fetched in full and linked. Separately on <a href="https://claude.com/blog">claude.com/blog</a>: NEW Aug 6 <a href="https://claude.com/blog/run-claude-code-sessions-on-your-own-compute">Run Claude Code sessions on your own compute</a> [linked] and "Millennium and Anthropic are building a digital risk analyst with Claude" [title and date only, no permalink surfaced — left unlinked]), <strong>Anthropic Research</strong> (searched "Anthropic research paper alignment interpretability August 2026" + /research fetched; nothing since Jul 28 <em>Discovering cryptographic weaknesses with Claude</em>), <strong>Google DeepMind</strong> (searched "Google DeepMind blog August 2026 announcement Gemini" + deepmind.google/blog fetched; NEW Aug 6 <a href="https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/">WeatherNext cyclones</a> — fetched in full, first August post on the blog), <strong>Google AI Blog</strong> (searched "Google AI blog August 7 2026 Gemini announcement" + <a href="https://ai.google.dev/gemini-api/docs/changelog">Gemini API changelog</a> fetched; changelog still ends Jul 30, no August blog.google AI post surfaced), <strong>AWS ML</strong> (searched "AWS machine learning blog August 2026 Bedrock AgentCore" + <a href="https://aws.amazon.com/blogs/machine-learning/">index</a> fetched twice; NEW Aug 6 — eight posts including <a href="https://aws.amazon.com/blogs/machine-learning/control-agent-behaviors-and-cost-beyond-a-single-action-new-capabilities-in-amazon-bedrock-agentcore/">temporal policies / Dogwood</a> [linked]), <strong>Microsoft AI</strong> (searched "Microsoft AI blog August 2026 announcement Copilot MAI" and "blogs.microsoft.com AI August 2026 post" + <a href="https://blogs.microsoft.com/">blogs.microsoft.com</a> fetched; nothing dated August, latest Jul 28), <strong>Azure Blog</strong> (searched "Azure blog August 2026 AI Foundry announcement" + <a href="https://azure.microsoft.com/en-us/blog/">azure.microsoft.com/blog</a> fetched; one August post, Aug 6 Gartner MQ for AI-augmented code modernization), <strong>OpenAI</strong> (searched "OpenAI announcement August 7 2026" and a title-specific follow-up; <strong>openai.com/index returned 403</strong> to our fetcher, permalink confirmed via the HN item page and search results; NEW Aug 6 <a href="https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt/">Improving GPT-5.6 Sol / expanding Luna to free users</a> [linked], Aug 7 Codex 0.147.0 via <a href="https://releasebot.io/updates/openai">release-notes aggregator</a>), <strong>xAI/Grok</strong> (searched "xAI Grok 4.6 launch August 2026", "x.ai/news Grok 4.6 announcement August 7", '"@xai" OR "@grok" X post August 6 2026' + <a href="https://releasebot.io/updates/xai">xAI release feed</a> fetched; <strong>Grok 4.6 has not shipped</strong> — only Grok Build 1.0.0 on Aug 7).<br>
+  <em>Open Weights / Emerging</em> — <strong>DeepSeek</strong> (searched "DeepSeek V4 release August 2026 news" + releasebot/deepseek fetched; newest entry still the Jul 31 V4-Flash beta), <strong>Alibaba Qwen</strong> (searched "Qwen blog August 2026 Qwen3.8-Max open weights release" and "Hugging Face Qwen3.8-Max model card weights released"; <strong>still no model card or license</strong>; NEW: #1 then #2 on the <a href="https://artificialanalysis.ai/?intelligence=agentic-index">Artificial Analysis agentic index</a>), <strong>Zhipu/GLM</strong> (searched "Zhipu GLM z.ai blog August 2026 GLM-5.5"; still no model card, benchmark or endpoint — official channels remain on GLM-5.2), <strong>Meta Llama</strong> (searched "Meta AI blog August 2026 Muse Spark Llama announcement" and "ai.meta.com/blog latest posts August 2026"; <strong>no August post</strong> on <a href="https://ai.meta.com/blog/">ai.meta.com/blog</a>), <strong>Cognition/Devin</strong> (searched "Cognition Devin blog August 2026" + <a href="https://cognition.com/blog/2">cognition.com/blog</a> fetched after 301 from cognition.ai; nothing in August, latest Jul 28).<br>
+  <em>Research &amp; Aggregators</em> — <strong>Hugging Face blog</strong> (searched "Hugging Face blog August 2026 new post" + <a href="https://huggingface.co/blog">index</a> fetched; one new post, Aug 6 <em>Baseten on Hugging Face Inference Providers</em> — no permalink surfaced, left unlinked), <strong>The Batch</strong> (searched "The Batch DeepLearning.AI Andrew Ng newsletter issue 365 August 2026" + <a href="https://www.deeplearning.ai/the-batch">page</a> fetched; <strong>still #364, Jul 31</strong>), <strong>arXiv cs.AI</strong> (<a href="https://arxiv.org/list/cs.AI/recent">/list/cs.AI/recent</a> fetched; NEW Aug 7 listings: TRAJDEBUG 2608.06346, EnvACE 2608.06197, DASH 2608.06243, FinEvo-Bench 2608.06144, pre-commit gating 2608.05810, iARCS 2608.06161), <strong>The Rundown AI</strong> (searched "The Rundown AI newsletter August 6 2026" + /archive and the <a href="https://www.therundown.ai/p/ai-designs-viruses-never-seen-in-nature">Aug 7 issue</a> fetched and linked), <strong>The AI Daily Brief (NLW)</strong> (searched "AI Daily Brief NLW August 6 2026 episode" + beehiiv home and the <a href="https://aidailybrief.beehiiv.com/p/google-s-ai-leadership-shakeup-disaster-or-exactly-what-it-needs">Aug 6 post</a> fetched and linked; no Aug 7 post yet). Bonus, not a listed source: the Evo phage result in <em>Science</em>, surfaced via search and corroborated through <a href="https://news.stanford.edu/stories/2026/08/evo-2-ai-tool-e-coli-killer-bacteriophages">Stanford Report</a>, <a href="https://arcinstitute.org/news/hie-king-first-synthetic-phage">Arc Institute</a> and the <a href="https://www.biorxiv.org/content/10.1101/2025.09.12.675911v1">bioRxiv preprint</a>; and the <a href="https://www.theregister.com/systems/2026/08/06/amd-acquires-ai-chip-startup-taalas-to-boost-inference-performance-by-etching-models-into-silicon/5284344">AMD/Taalas acquisition</a>.<br>
+  <em>Practitioners</em> — <strong>Simon Willison</strong> (searched "Simon Willison blog August 7 2026" + <a href="https://simonwillison.net/">homepage</a> fetched and the <a href="https://github.com/simonw/datasette/releases/tag/1.0a38">1.0a38 release</a> fetched; NEW Aug 6 evening: Datasette <a href="https://github.com/simonw/datasette/releases/tag/1.0a38">1.0a38</a> / <a href="https://github.com/simonw/datasette/releases/tag/0.65.3">0.65.3</a> SQL injection fix and the <a href="https://writethatblog.substack.com/p/simon-willison-on-technical-blogging">technical-blogging interview</a> — all linked. <strong>No Aug 7 post yet</strong>), <strong>O'Reilly Radar</strong> (searched "O'Reilly Radar August 2026 AI article" + <a href="https://www.oreilly.com/radar/">index</a> fetched; NEW Aug 7 <a href="https://www.oreilly.com/radar/ai-on-the-pi-build-your-own-local-voice-agent/">AI on the Pi</a> and Aug 6 <a href="https://www.oreilly.com/radar/your-ai-agent-isnt-a-static-artifact-its-growing-up/">Your AI Agent Isn't a Static Artifact</a> [both linked]), <strong>Chip Huyen</strong> (searched "Chip Huyen huyenchip blog 2026 new post"; nothing recent), <strong>Hamel Husain</strong> (hamel.dev fetched; newest Jul 11), <strong>Eugene Yan</strong> (searched "Eugene Yan eugeneyan.com 2026 new writing post"; nothing since Jun 21), <strong>Jason Liu / jxnl.co</strong> (searched "Jason Liu jxnl.co writing 2026 new post"; nothing since Jun 16), <strong>Addy Osmani (blog)</strong> (addyosmani.com/blog fetched; nothing since Jul 20), <strong>Swyx</strong> (searched "swyx swyx.io 2026 new post AI engineer"; nothing since Jul 9), <strong>Latent Space</strong> (/archive fetched; nothing since Aug 4), <strong>Lilian Weng</strong> (searched "Lilian Weng lilianweng.github.io 2026 new post"; nothing since Jul 4), <strong>LangChain</strong> (blog index fetched + post fetched; NEW Aug 6 <a href="https://www.langchain.com/blog/deep-agents-vs-langchain-vs-langgraph">Deep Agents vs LangChain vs LangGraph</a> [linked]; also Aug 5 voice-agent evals, seen but a day old), <strong>Anthropic Engineering</strong> (searched "Anthropic engineering blog August 2026 post" + <a href="https://www.anthropic.com/engineering">index</a> fetched; <strong>no August post</strong>).<br>
+  <em>Substacks</em> — <strong>Ethan Mollick / One Useful Thing</strong> (searched "Ethan Mollick One Useful Thing August 2026" + /archive fetched; nothing since Jul 23), <strong>The Pragmatic Engineer</strong> (/archive fetched; no August post, latest Jul 29), <strong>Lenny Rachitsky</strong> (/archive fetched; nothing since the Aug 4 non-AI Molly Graham post), <strong>Addy Osmani (Substack)</strong> (searched "site:addyo.substack.com August 2026" + /archive fetched; no August post, latest Jul 22), <strong>Interconnects / Nathan Lambert</strong> (/archive fetched; nothing since Aug 3 Artifacts Hub), <strong>Zvi Mowshowitz</strong> (/archive + post fetched; NEW Aug 6 <a href="https://thezvi.substack.com/p/ai-180-no-longer-in-charge">AI #180: No Longer In Charge</a> [linked]; his Coldcard claim partly corroborated via <a href="https://www.trmlabs.com/resources/blog/the-largest-hardware-wallet-exploit-of-2026-inside-the-usd-116-million-coldcard-hack">TRM Labs</a> and <a href="https://fortune.com/2026/08/03/bitcoin-owners-116-million-hack-coldcard-coinkite-exploit/">Fortune</a>, with the AI-attribution flagged as contested), <strong>Import AI / Jack Clark</strong> (searched "Import AI Jack Clark newsletter August 2026 issue 468"; importai.substack.com is a JS shell, <a href="https://jack-clark.net/">jack-clark.net</a> fetched; still #467, Aug 3), <strong>Adam Tornhill</strong> (/archive fetched; nothing since Jul 23), <strong>Jessica Talisman</strong> (/archive fetched; nothing since Aug 4 <em>Semantics Evolved</em>), <strong>Casey Muratori / Computer Enhance</strong> (searched "Casey Muratori Computer Enhance August 2026 new post" + computerenhance.com fetched, which returned masthead only; nothing recent surfaced).<br>
+  <em>Business &amp; Strategy</em> — <strong>Stratechery / Ben Thompson</strong> (searched "Stratechery Ben Thompson August 6 2026 article" + <a href="https://stratechery.com/">stratechery.com</a> fetched; Aug 6 Daily Update <em>Google Earnings, The Frontier Case, Amazon Earnings</em> [paywalled, unlinked — and now dated Aug 6 on the front page vs Aug 5 in yesterday's brief], Aug 5 free weekly <em>2026.30: The Copium Wars</em>. Correction: <em>A Script for Mark Zuckerberg</em> is dated Jul 7, not August).<br>
+  <em>Community</em> — <strong>Hacker News</strong> (<a href="https://news.ycombinator.com">front page</a> and /front fetched, plus five item pages fetched individually; NEW: AMD/Taalas, Qwen agentic index, cooking steak, the agent-permission study, GPT-5.6 Sol, Prime Agent, Kitesurf — all linked), <strong>r/LocalLLaMA</strong> (searched "reddit r/LocalLLaMA August 6 2026 discussion model release"; Reddit not fetchable here, no dated thread surfaced — no negative claim made), <strong>r/MachineLearning</strong> (searched "reddit r/MachineLearning August 2026 discussion paper"; nothing surfaced), <strong>LessWrong</strong> (<a href="https://www.lesswrong.com">front page</a> fetched; newest post ~17h is non-AI, no fresh AI front-page post in the window).<br>
+  <em>X / Social</em> — <strong>@karpathy</strong> (searched "from:karpathy August 2026 LLM agents post"; nothing dated in window), <strong>@emollick</strong> (searched "emollick Ethan Mollick X post August 6 2026"; no post with a usable status URL in window), <strong>@addyosmani</strong> (searched "addyosmani X twitter post August 2026 AI engineering"; nothing dated in window), <strong>@trq212 (Thariq Shihipar)</strong> (searched "Thariq Shihipar trq212 August 2026 Claude"; the <a href="https://x.com/trq212/status/2080710971228918066">~80% system-prompt removal post</a> surfaced but predates the window — noted, not claimed as new), <strong>@xai/@grok</strong> (searched '"@xai" OR "@grok" X post August 6 2026 announcement'; only the restated Grok 4.6 target, <a href="https://x.com/elonmusk/status/2082123925283041545">Musk's post</a> linked).<br>
+  <em>Fetch failures and workarounds this run</em> — openai.com/index/improving-gpt-5-6-sol-in-chatgpt (<strong>403</strong> — permalink confirmed via the HN item page and search results; content assembled from search and press), help.openai.com ChatGPT release notes (<strong>403</strong> — routed around via the release-notes aggregator), kie.ai Grok 4.6 page (<strong>403</strong> — no matter, it was a pre-written launch page), cognition.ai/blog (301 → cognition.com, fetched), computerenhance.com (returned masthead only, no post list — search used instead), x.ai/news (not fetchable). No source was left unqueried.<br>
+  <em>Link audit</em> — 131 href occurrences resolving to <strong>59 unique external URLs</strong> (plus index.html and topics.html), every one traced to a URL that surfaced this run in a WebSearch result list or a fetched page body, each checked to point at the specific thing its anchor text claims. Every <code>.significant</code> permalink was confirmed by an actual fetch this run, except the OpenAI post, whose permalink was confirmed verbatim from the Hacker News item page and search results after openai.com returned 403. Three items were deliberately left unlinked because no permalink surfaced: Anthropic's "Millennium digital risk analyst" post, Hugging Face's Baseten post, and Stratechery's paywalled Daily Update.<br><br>
+  Generated by My AI Daily · 51 sources scanned individually · Items marked <span style="color:var(--accent2)">New</span> or <span style="color:var(--accent)">Significant</span> were not in the Aug 6 brief.
+</footer>
+
+</body>
+</html>
