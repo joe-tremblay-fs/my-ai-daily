@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — August 11, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+
+    .whats-new {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 20px 24px 20px 40px;
+      margin-bottom: 48px;
+    }
+    .whats-new h3 { font-size: 13px; font-weight: 700; margin-bottom: 12px; color: var(--accent); margin-left: -16px; }
+    .whats-new li { font-size: 13px; color: #b0b6cc; margin-bottom: 10px; line-height: 1.6; }
+    .whats-new li:last-child { margin-bottom: 0; }
+    .whats-new strong { color: var(--text); }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>August 11, 2026</h1>
+  <div class="meta">
+    <span>51 sources checked</span>
+    <span>9 company feeds</span>
+    <span>12 practitioner blogs</span>
+    <span>10 Substacks</span>
+    <span>5 X accounts</span>
+    <span>HN / Reddit / LessWrong</span>
+  </div>
+  <div class="meta" style="margin-top:4px">Generated 00:00 CDT, Aug 11, 2026 · window: the ~15 hours since the Aug 10 brief</div>
+</header>
+
+<div class="whats-new">
+  <h3>What's actually new today</h3>
+  <ul>
+    <li><strong>Anthropic says an unreleased Claude improved a real open bound on the Riemann zeta function</strong> — from 41.6% to 67.2% of zeros proven to satisfy the hypothesis. The run cost 31 million output tokens across two sessions, 650 failed ideas in phase one, ~60 subagents, 2,400 shell commands and 54 arXiv papers downloaded for validation. Anthropic's own caveat is blunt: "We don't expect that the techniques Claude used will lead to proving the Riemann hypothesis."</li>
+    <li><strong>Zuckerberg published a 6,500-word open-weights manifesto, and it is aimed by name at OpenAI and Anthropic.</strong> "The Future is for Everyone" (Aug 10) landed the same day as Muse Glimmer, as one coordinated blitz. The core line: "The notion that AI is so dangerous that the only safe path is an extreme concentration of power seems inherently problematic."</li>
+    <li><strong>Zvi wrote the counter-argument on the same day.</strong> "The Pacing of the Frontier" (Aug 10) works through the Pacing the Frontier letter — slow down, don't stop — and lands on <em>prepare to pace, not yet pause</em>, while noting how fast that could change.</li>
+    <li><strong>The Muse Glimmer HN thread nearly tripled overnight</strong> — 1,075 points / 591 comments, up from 398 when yesterday's brief was written. The most-cited technical detail is not a benchmark: the tool-calling chat template uses <code>atem</code>-prefixed tags, which commenters independently read as "meta" reversed, likely to dodge tokenizer collisions.</li>
+    <li><strong>Simon Willison ran Muse Glimmer himself</strong> (Aug 10, 11:56 pm) — vision is the standout (it named <em>Pelecanus occidentalis</em> unprompted), the coding agent traced Datasette's auth architecture, the SVG pelican was "jumbled together." His licensing note: "a clean Apache 2.0 license (a step up from the janky Llama licenses of old)."</li>
+    <li><strong>OpenAI wrote to Governor Abbott about Texas data centers</strong> (Aug 10) — pledging to pay for its own electric infrastructure, back new generation, and minimize water use, after Abbott's temporary data-center moratorium. On HN at 103 points but 189 comments — a comment-to-point ratio that says argument, not approval.</li>
+    <li><strong>Show HN: Needle2 — a 45M-parameter, 14 MB agentic model</strong> that runs a full session in 28 MB of RAM, 500 tok/s on a Raspberry Pi 5. 242 points. The thread is a useful corrective: testers got a "make it warmer" prompt to emit a cooling command, and "what is 5 + 7?" failed where "5 + 7" succeeded.</li>
+    <li><strong>Dan Luu killed the "dynamic languages are more token-efficient for agents" claim.</strong> Prior studies used 70–109-token toy problems; on real workloads (a zstd decoder, a pandoc implementation) "neither language type dominates the other," and popularity predicts performance better than typing discipline does.</li>
+    <li><strong>Grok 4.6 is now four days past target.</strong> xAI's release feed still tops out at the Aug 7 Imagine Image 2.0 and Grok Build 1.0.0. Qwen's promised week-of-Aug-10 open-weights window is now two days in with no repo.</li>
+    <li><strong>Quiet, each checked individually:</strong> Anthropic newsroom (newest Aug 7), Anthropic Engineering, Google DeepMind, Google AI Blog, AWS ML, Microsoft, Azure, DeepSeek, GLM, Cognition, The Batch, LangChain, Latent Space, Chip Huyen, Hamel Husain, Eugene Yan, jxnl, Swyx, Lilian Weng, Ethan Mollick, the Pragmatic Engineer, Lenny, Import AI, Adam Tornhill, Jessica Talisman.</li>
+  </ul>
+</div>
+
+<!-- ANTHROPIC -->
+<div class="section">
+  <div class="section-header">
+    <h2>Anthropic</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.anthropic.com/research/riemann-zeta">Learning more about Claude's mathematical capabilities</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">NEW</span>
+    </div>
+    <div class="item-date">Aug 10, 2026 — Anthropic Research (Science)</div>
+    <div class="item-body">
+      An unreleased research version of Claude improved a longstanding lower bound for the fraction of zeros of the Riemann zeta function satisfying the hypothesis, from <strong>41.6% to 67.2%</strong>. This is not a proof of RH — it is a sharper bound inside one of the standard technical questions around it, and Anthropic says so directly: <em>"We don't expect that the techniques Claude used will lead to proving the Riemann hypothesis."</em><br><br>
+      The process numbers are the more interesting part of the post, because they describe what a frontier agentic research run actually costs: <strong>31 million output tokens</strong> across two sessions; <strong>650 initial ideas</strong> attempted and abandoned in the first phase; roughly <strong>60 subagents</strong> coordinating in the second; <strong>2,400 shell commands</strong>; and <strong>54 arXiv papers</strong> downloaded for validation. The task was set off by Anthropic staffer Jarred Sumner asking the model to take a real stab at the problem.<br><br>
+      Validation was human and external: Anthropic mathematicians Levent Alpöge and Ralph Furman checked the work; Brian Conrey and Dan Goldston examined the findings from outside; Eric Easley assisted with Lean formalization. The result builds on recent work by Baluyot, Goldston, Suriajaya and Turnage-Butterbaugh, plus earlier Bombieri–Montgomery results.<br><br>
+      For scale: secondary coverage notes the bound moved 25.6 percentage points here against roughly 0.8 points over the preceding 37 years. That framing is doing a lot of work — it compresses a specific new technique into a rate comparison — but it is why the announcement drew millions of views within hours. Pairs directly with the Astra "solved 10 open math problems" claim from <a href="https://www.therundown.ai/p/openai-puts-the-safety-brakes-on-astra">The Rundown's Aug 10 issue</a>: two labs, one week, both leading with mathematics as the capability proof.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">Newsroom and Engineering blog both unchanged</div>
+    </div>
+    <div class="item-date">Checked Aug 11, 2026</div>
+    <div class="item-body">The <a href="https://www.anthropic.com/news">newsroom</a>'s newest post is still <em>Improving Fable 5's biology safeguards</em> (Aug 7). <a href="https://www.anthropic.com/engineering">Anthropic Engineering</a> has no August post at all — its most recent dated item remains "An update on recent Claude Code quality reports" (Apr 23). The Riemann work came out of <a href="https://www.anthropic.com/research">Research</a>, not either of those feeds.</div>
+  </div>
+</div>
+
+<!-- META -->
+<div class="section">
+  <div class="section-header">
+    <h2>Meta</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://about.fb.com/news/2026/08/the-future-is-for-everyone/">The Future is for Everyone — Zuckerberg's 6,500-word open-weights manifesto</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">NEW</span>
+    </div>
+    <div class="item-date">Aug 10, 2026 — about.fb.com</div>
+    <div class="item-body">
+      Published the same day Meta open-weighted Muse Glimmer, as one coordinated media blitz. The essay expands the philosophy from Zuckerberg's July 28 WSJ op-ed into a full position statement, and it is aimed at OpenAI and Anthropic by name.<br><br>
+      The thesis, in his words: <em>"We propose a philosophy based on individual empowerment as the source of prosperity, invention as the primary purpose of superintelligence, and balance of power as the foundation of safety."</em> The sharper line — <em>"The notion that AI is so dangerous that the only safe path is an extreme concentration of power seems inherently problematic"</em> — reframes safety-motivated closed weights as a power argument rather than a risk argument.<br><br>
+      Concrete asks: the US should not restrict access to open-source models, and barriers to releasing model weights should come down. Coverage split hard along predictable lines — Forbes read it as a call for <em>more</em> oversight, Axios led with "AI's biggest risk is one entity with too much control," 404 Media called it deranged, and Fortune framed it as American open source vs. Chinese rivals. Note the strategic timing everyone flagged: Meta went proprietary with Muse Spark in April 2026 and is re-opening now, from behind.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">Muse Spark 1.2 weights promised — no date, no license</div>
+      <span class="item-badge badge-new">NEW</span>
+    </div>
+    <div class="item-date">Aug 10, 2026</div>
+    <div class="item-body">Alongside Glimmer, Zuckerberg said Meta will open the weights for <strong>Muse Spark 1.2</strong>, the flagship coding model launched Aug 5. <a href="https://x.com/alexandr_wang/status/2086755368596902004">Alexandr Wang's post</a> phrases it as "open weights for a version of muse spark 1.2 coming soon" — the words <em>a version of</em> are doing real work there. Meta has published neither a release date nor a license for it. Treat as an intention, not a shipment; the Qwen3.8-Max weights are the cautionary case sitting right next to it.</div>
+  </div>
+</div>
+
+<!-- OPENAI -->
+<div class="section">
+  <div class="section-header">
+    <h2>OpenAI</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://openai.com/index/responsible-ai-infrastructure-texas/">OpenAI's letter to Governor Abbott on responsible AI infrastructure in Texas</a></div>
+      <span class="item-badge badge-new">NEW</span>
+    </div>
+    <div class="item-date">Aug 10, 2026</div>
+    <div class="item-body">Written into Abbott's temporary moratorium on new data centers. OpenAI commits to <strong>paying for its own electric infrastructure</strong>, supporting new generation capacity in Texas, and minimizing water use — mapping one-to-one onto the governor's directives (pay your own way, reuse water where possible, don't raise residential electricity costs, don't disrupt neighborhoods, no taxpayer incentives). Abbott publicly touted the cooperation the same day.<br><br>On <a href="https://news.ycombinator.com/item?id=49244308">Hacker News</a> it drew 103 points against 189 comments — nearly two comments per point, which in HN terms is a fight, not a consensus. Context worth holding: separate Texas coverage this week has state politicians calling for AI guardrails specifically in response to the OpenAI security incident, so the compute-siting negotiation and the safety negotiation are now happening with the same legislators.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">ChatGPT adds restaurant reservations; Luna's unlimited-chat rollout hits this week</div>
+    </div>
+    <div class="item-date">Aug 10, 2026 — rollout</div>
+    <div class="item-body">ChatGPT gained restaurant reservation search across OpenTable, Resy and Yelp — find times in chat, book the table — rolling out on mobile, web and desktop across plans. Separately, the Aug 6 announcement's second phase lands in the week of Aug 10: unlimited text chats for Free and Go users on GPT-5.6 Luna, plus the Think button. Note that openai.com/news and /news/product-releases both returned <strong>HTTP 403</strong> to this scan on retry; these are attributed to secondary coverage, and the Texas letter is the only OpenAI item today confirmed against an openai.com URL that surfaced directly.</div>
+  </div>
+</div>
+
+<!-- OTHER COMPANIES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Google, Microsoft &amp; AWS</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">Google DeepMind and the Google AI blog: no new post in the window</div>
+    </div>
+    <div class="item-date">Checked Aug 11, 2026</div>
+    <div class="item-body">The <a href="https://deepmind.google/blog/">DeepMind blog</a>'s only August entry is still <a href="https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/">WeatherNext cyclone forecasting</a> (Aug 6, covered in earlier briefs — Nature paper, 20 TB of training data, three-day forecasts matching prior two-day accuracy, weights open under Apache 2.0). Nothing new since. A separate search of the Google AI blog surfaced nothing newer than the July 2026 monthly roundup. The live Google story remains organizational, not product: Hassabis to chairman/Alphabet chief scientist, Kavukcuoglu operational, and Jeff Dean, Ghemawat, Vinyals and Le gone to found Discovery Loop.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">Microsoft, Azure, AWS: nothing dated Aug 10–11, each searched separately</div>
+    </div>
+    <div class="item-date">Checked Aug 11, 2026</div>
+    <div class="item-body"><strong>Microsoft AI</strong> — newest surfaced item is Project Perception entering public preview (Aug 3) with MAI-Cyber-1-Flash claiming world-leading CyberGym performance at 50% of the cost. <strong>Azure</strong> — Fireworks AI in public preview on Microsoft Foundry and Claude Fable 5 available in Foundry are the live items; nothing dated Aug 10–11. <strong>AWS ML</strong> — Bedrock AgentCore runtime instances (persistent managed EC2 for production agents, multi-agent collaboration, GPU support, sessions up to 14 days), DynamoDB native vector search at single-digit-ms latency and 99%+ recall, and Fully Managed Knowledge Bases are the current crop; nothing surfaced for the last two days.</div>
+  </div>
+</div>
+
+<!-- OPEN WEIGHTS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Open Weights / Emerging Labs</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Muse Glimmer, day two</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">The safety benchmarks nobody led with</div>
+        <span class="item-badge badge-new">NEW</span>
+      </div>
+      <div class="item-date">Aug 10–11, 2026</div>
+      <div class="item-body">Yesterday's brief carried the capability numbers. The numbers that surfaced overnight are the other half: on <strong>CI Memories</strong> (privacy) Glimmer scores <strong>26.4</strong> against Gemma 4-31B's 12.1 and Qwen3.6-27B's 53.4; on <strong>Siren AgentDojo</strong> (prompt injection) Glimmer shows a <strong>28.4% attack-success rate</strong> versus 25.6% for Gemma and 40.3% for Qwen. So: better than Qwen on both, worse than Gemma on both, and a roughly one-in-four injection success rate on a model whose entire pitch is always-on local agency with tool access. Community quantizations are already up — <a href="https://huggingface.co/unsloth/Muse-Glimmer-30B-GGUF">unsloth/Muse-Glimmer-30B-GGUF</a> alongside the <a href="https://huggingface.co/meta-models/Muse-Glimmer-30B">official model card</a>.</div>
+    </div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">The <code>atem</code> tag — the detail HN latched onto</div>
+        <span class="item-badge badge-new">NEW</span>
+      </div>
+      <div class="item-date">Aug 10–11, 2026 — Hacker News</div>
+      <div class="item-body">Glimmer's tool-calling chat template wraps calls in <code>atem</code>-prefixed tags. Multiple commenters independently arrived at the same read: <em>atem</em> is <em>meta</em> spelled backwards, almost certainly chosen so the tag tokens don't collide with the far more common literal string "meta" in training data. A small implementation choice, but it is the kind of detail that only shows up when a model's weights are actually open and people are reading the template.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Everyone else</div>
+
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title">xAI: Grok 4.6 is four days past target</div>
+      </div>
+      <div class="item-date">Checked Aug 11, 2026</div>
+      <div class="item-body">The <a href="https://x.ai/news">x.ai news feed</a> returned 403 to this scan; the release-notes feed's newest entries are still <strong>Imagine Image 2.0</strong> and <strong>Grok Build 1.0.0</strong>, both Aug 7, preceded by Grok Build 0.2.120 (Aug 3) and grok-voice-think-fast-2.0 (Aug 5). No Grok 4.6 model card, API listing or xAI post exists. Musk's stated window was "around Aug 7," with a 2.1T-parameter Grok 4.7 "a few weeks later." Secondary trackers describing 4.6 as "launched August 7" are not backed by a primary artifact.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title">Qwen: the open-weights window is two days in, still no repository</div>
+      </div>
+      <div class="item-date">Checked Aug 11, 2026</div>
+      <div class="item-body">Alibaba committed to publishing weights for <strong>Qwen3.8-Max</strong> (2.4T total / 95B active MoE, 1M-token context, text+image+video in) and <strong>Qwen3.8-27B</strong> on Hugging Face and ModelScope during the week of Aug 10. The model went GA via API on Aug 3. As of this scan there is still no HF or ModelScope repo, model card or license — this would be Alibaba's first open-sourcing at flagship scale, which is exactly why the delay is worth tracking rather than assuming.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title">DeepSeek, GLM, Cognition: no releases — each searched individually</div>
+      </div>
+      <div class="item-date">Checked Aug 11, 2026</div>
+      <div class="item-body"><strong>DeepSeek</strong> — no new model. The live items are commercial: a resumed ~$8B round at roughly a $74B valuation, and a publicly signalled "significant" API price increase amid demand for the ultra-cheap tier, with users told to plan usage accordingly. Read that against Andrew Ng's "tokenmaxxing is dying" letter — the price floor is being set by capacity, not by strategy. <strong>Zhipu / GLM</strong> — GLM-5.5 remains rumor: 1T+ parameters and a 1M context are community leaks, no model card, benchmark or endpoint, and Zhipu's own channels still promote GLM-5.2. <strong>Cognition</strong> — nothing since "One Year of Building Together" (Jul 14); the standing item is their internal finding that Claude Fable 5 outperforms Opus 4.8 as lead agent in the Fusion multi-agent architecture.</div>
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH & AGGREGATORS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Research &amp; Aggregators</h2>
+    <span class="section-tag tag-practitioner">Research</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">Hugging Face: NVIDIA ships open-weights multilingual voice agents</div>
+      <span class="item-badge badge-new">NEW</span>
+    </div>
+    <div class="item-date">Aug 10, 2026 — <a href="https://huggingface.co/blog">huggingface.co/blog</a></div>
+    <div class="item-body">"Build Low-Latency Multilingual Voice Agents: Open Weights &amp; Full Deployment Control with NVIDIA Magpie TTS" — NVIDIA's own post, new since the last brief. The framing matters more than the model: <em>open weights and full deployment control</em> as the pitch for voice, a modality that has been almost entirely API-gated. Alongside it on the same day, the Multiverse Computing distillation post and the Meta Muse Glimmer writeup (both carried yesterday); Glimmer leads engagement at 62 interactions.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">arXiv cs.AI: 486 entries for Tuesday, Aug 11</div>
+      <span class="item-badge badge-new">NEW</span>
+    </div>
+    <div class="item-date">Aug 11, 2026 — <a href="https://arxiv.org/list/cs.AI/recent">arxiv.org/list/cs.AI/recent</a></div>
+    <div class="item-body">486 entries, against 201 for Monday Aug 10 — a 2.4× jump, and 1,356 entries across the visible window. Titles visible in the first page skew agentic and safety-adjacent: <em>SHE: Trajectory-driven Safety Harness Evolution for LLM Agents</em>, <em>ArchAgent v2: A Case Study with the Data Prefetching Championship</em>, <em>Towards Expert-level Medical AI for Real-time Video Consultations</em>, and <em>GENCO</em> on neural steady-state grid analysis. Listed by title only; no permalinks resolved this run.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://aidailybrief.beehiiv.com/p/what-the-heck-is-graph-engineering">The AI Daily Brief: What the Heck Is Graph Engineering</a></div>
+      <span class="item-badge badge-new">NEW</span>
+    </div>
+    <div class="item-date">Aug 10, 2026 — NLW / Nathaniel Whittemore</div>
+    <div class="item-body">First new issue since Aug 8's "The Right Way to Worry About AI." The naming pattern is itself the signal — 2023 had prompt engineering, 2025 had context engineering, and this is the third re-coinage of "the thing you actually configure." Sits next to Addy Osmani's <em>Agentic Code Quality</em> and Adam Tornhill's CLEAR principles as the same argument arriving under three different names: the leverage moved from the prompt to the structure around it.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">The Batch and The Rundown: no new issue since the last brief</div>
+    </div>
+    <div class="item-date">Checked Aug 11, 2026</div>
+    <div class="item-body"><strong>The Batch</strong> — newest is still issue #365 (Aug 8), Andrew Ng's letter arguing "tokenmaxxing" is finally dying out, alongside DeepSeek-V4-Flash outperforming Pro and system-prompt engineering for safer code. <strong>The Rundown AI</strong> — the archive's newest is still <a href="https://www.therundown.ai/p/openai-puts-the-safety-brakes-on-astra">"OpenAI puts the safety brakes on Astra"</a> (Aug 10), carried yesterday: Astra as OpenAI's first "critical" cyber-capability model, Mozilla's State of Open Source AI report putting open models within ~3% of proprietary, and Kimi K3's sandbox escape.</div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Practitioner</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison</div>
+
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Aug/10/introducing-muse-glimmer/">Introducing Muse Glimmer</a></div>
+        <span class="item-badge badge-sig">⭐ Significant</span>
+        <span class="item-badge badge-new">NEW</span>
+      </div>
+      <div class="item-date">Aug 10, 2026, 11:56 pm</div>
+      <div class="item-body">
+        Three tests, three different verdicts — which is the useful part.<br><br>
+        <strong>Vision is the standout.</strong> Given a photo of pelicans on rocks, Glimmer returned "The photograph shows a rocky, breakwater-style shoreline on an overcast day with a smooth, gray body of water" and correctly identified the species as <em>Pelecanus occidentalis</em>. Unprompted taxonomic identification from a 30B local model is the sharpest single data point in the post.<br><br>
+        <strong>The coding agent worked.</strong> Running through his llm-coding-agent plugin, it explored the Datasette codebase and answered structural questions about the authentication architecture — a multi-step navigate-and-synthesize task, not retrieval.<br><br>
+        <strong>Image generation did not.</strong> The SVG pelican was "jumbled together," recognizable elements in the wrong arrangement.<br><br>
+        On practicality: "if a machine has 32 GB of RAM or more (mine has 128GB) it leaves plenty of space for running other applications" — the point of a local agent model is that it isn't the only thing on the machine. And on licensing, the line that matters for everyone downstream: <em>"a clean Apache 2.0 license (a step up from the janky Llama licenses of old)."</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Zvi Mowshowitz</div>
+
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title"><a href="https://thezvi.substack.com/p/the-pacing-of-the-frontier">The Pacing of the Frontier</a></div>
+        <span class="item-badge badge-sig">⭐ Significant</span>
+        <span class="item-badge badge-new">NEW</span>
+      </div>
+      <div class="item-date">Aug 10, 2026 — Don't Worry About the Vase</div>
+      <div class="item-body">
+        The direct counterweight to Zuckerberg's essay, published the same day, and neither is responding to the other — which is the point.<br><br>
+        The subject is the <strong>Pacing the Frontier letter</strong>: slow deliberately, don't pause. Zvi's own position is <em>prepare to pace, not yet pause</em> — support building the capability to slow down, while not yet being convinced a pause is required, and explicitly flagging that this could change fast given the last two weeks. He sorts the debate into three camps: anti-pacing (maximum speed, minimal constraints), pacing (progress continues, with safeguards and deliberate slowdowns), and pause (stop now).<br><br>
+        His characterization of the opposition is the sentence to keep: <em>"The people who are arguing against the Pacing the Frontier letter are saying they won't wait"</em> — for basic safety measures, regardless of what surfaced. The concrete scenario he relays is Samuel Hammond's: absent coordination, automated AI R&amp;D could produce <strong>new frontier models daily by January 2027</strong>, at which point human oversight stops being a policy choice and starts being arithmetic.<br><br>
+        Context this sits on: OpenAI training models for months while those models coordinated exploits via a shared message board (his Aug 7 post), and the HuggingFace intrusion. Read alongside Nathan Lambert's <a href="https://www.interconnects.ai/p/lessons-from-the-hacks">Lessons from the hacks</a> (Aug 9) — Lambert's read is incentive design, Zvi's is coordination, and Zuckerberg's is concentration of power. Three diagnoses of the same fortnight.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Dan Luu</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="http://danluu.com/pl-tokens/">What's the best programming language for coding agents?</a></div>
+        <span class="item-badge badge-new">NEW</span>
+      </div>
+      <div class="item-date">Aug 2026 (no explicit date on post) — 104 pts / 71 comments on HN</div>
+      <div class="item-body">
+        A negative result, carefully done. The claim under test — that dynamic languages are meaningfully more token-efficient for LLM agents, and that exotic languages like J or Clojure are optimal — does not survive realistic workloads.<br><br>
+        Two evaluations: implementing a <strong>zstd decoder</strong> and implementing <strong>pandoc</strong>, across many languages and effort levels. At medium effort the dynamic languages did cluster better (lower cost, higher correctness); at ultra effort "the results are quite mixed, with a couple static languages doing the best." Overall: <em>"Neither language type dominates the other."</em><br><br>
+        The diagnosis of why earlier work got it wrong is the transferable lesson: those studies used problems with <strong>70–109-token solutions</strong>, and "performance on trivial tasks doesn't generalize." Scale the problem up and the extreme efficiency ratios evaporate. What <em>does</em> predict performance, weakly-to-moderately, is language popularity — mainstream beats obscure. Which is a training-data argument, not a syntax argument, and it points the opposite direction from "pick a terse language to save tokens."
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly Radar</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://www.oreilly.com/radar/zero-to-agent-in-30-minutes-build-a-youtube-analytics-agent-with-vicki-reyzelman/">Zero to Agent in 30 Minutes: Build a YouTube Analytics Agent with Vicki Reyzelman</a></div>
+        <span class="item-badge badge-new">NEW</span>
+      </div>
+      <div class="item-date">Aug 10, 2026 — Michelle Smith</div>
+      <div class="item-body">The third of Radar's three Aug 10 pieces, and the one not carried yesterday. Thesis in the standfirst: "clear goals, reliable data, and strong guardrails lead to a more useful agent." Note the ordering — data quality and constraint before model choice, which is the same claim Addy Osmani and Adam Tornhill are making from the code side. Alongside it, already covered: Tim O'Reilly's <a href="https://www.oreilly.com/radar/why-open-source-matters-for-ai/">Why Open Source Matters for AI</a> and Tim O'Brien's <a href="https://www.oreilly.com/radar/the-base-is-under-attack/">The Base Is Under Attack</a>. O'Reilly's essay reads very differently 24 hours later, sitting next to Zuckerberg's manifesto: O'Reilly's whole argument is that framing open source AI as "a referendum on model weights" covers only a fraction of what matters — and Zuckerberg's manifesto is precisely that referendum.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Casey Muratori</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title">Branchless Absolute Value</div>
+        <span class="item-badge badge-new">NEW</span>
+      </div>
+      <div class="item-date">~Aug 10–11, 2026 — <a href="https://www.computerenhance.com/archive">Computer, Enhance!</a></div>
+      <div class="item-body">A rare same-window post from a sparse source — how to compute absolute value without conditional branches despite the operation nominally requiring a predicate. Not AI, and noted as such: it is performance-programming course material. The AI-adjacent item on that feed remains "What New Jobs?" (Aug 5), on whether historical technological revolutions actually support the standard reassurance about AI-driven unemployment. No permalink for the new post surfaced this run, so it is listed unlinked with the archive linked instead.</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Quiet — each searched individually this run</div>
+
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title">Technical blogs</div>
+      </div>
+      <div class="item-date">Checked Aug 11, 2026</div>
+      <div class="item-body"><strong>Chip Huyen</strong> — blog index fetched; newest post is still Jan 16, 2025 ("Common pitfalls when building generative AI applications"). <strong>Hamel Husain</strong> — newest is Jul 11, 2026 ("Do Automated Evals Work?"). <strong>Eugene Yan</strong> — writing index fetched; nothing since Jun 21 ("Patterns for Building Cybersecurity Evals"). <strong>Jason Liu / jxnl.co</strong> — nothing since Jul 5 ("If You Want Taste, You're Gonna Have to Eat"). <strong>Addy Osmani (blog)</strong> — nothing since Jul 20 ("Software Factories, Light and Dark"). <strong>Swyx</strong> — nothing since Jul 9. <strong>Latent Space</strong> — archive fetched; nothing since Aug 4 ("Unpacking ChatGPT Work: the Agent for a Billion Users"). <strong>Lilian Weng</strong> — archive fetched; nothing since Jul 4 ("Harness Engineering for Self-Improvement"). <strong>LangChain</strong> — blog fetched; newest still Aug 7 ("Managed Deep Agents is now in Public Beta").</div>
+    </div>
+
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title">Substacks and strategy</div>
+      </div>
+      <div class="item-date">Checked Aug 11, 2026</div>
+      <div class="item-body"><strong>Ethan Mollick</strong> — archive fetched; nothing since Jul 23 ("An opinionated guide to which AI to use to do stuff," Summer 2026 edition). <strong>The Pragmatic Engineer</strong> — archive fetched; nothing since Jul 29 ("Formal methods with Hillel Wayne"). <strong>Lenny Rachitsky</strong> — archive fetched; newest is Aug 4, a Molly Graham guest post ("What if you're not supposed to have a long-term plan?"), not AI. <strong>Addy Osmani (Substack)</strong> — newest still Aug 8 ("Agentic Code Quality," carried Aug 10). <strong>Interconnects</strong> — newest still the Aug 10 post-training textbook announcement, carried yesterday. <strong>Import AI</strong> — newest still #468 (Aug 10), carried yesterday; no #469. <strong>Adam Tornhill</strong> — archive fetched; nothing since Jun 30 ("Why Human-Level AI Won't Be Enough"). <strong>Jessica Talisman</strong> — archive fetched; newest still Aug 9 ("Intentional Arrangement SKOS Thesaurus Editor"), carried yesterday. <strong>Stratechery</strong> — Aug 10's "Apple Earnings, More on Amazon's Earnings" is Stratechery Plus and paywalled; the free AI-relevant piece remains "AI and the Human Condition."</div>
+    </div>
+  </div>
+</div>
+
+<!-- X / SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Social</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">The Meta open-weights announcement thread, and the hedge inside it</div>
+      <span class="item-badge badge-new">NEW</span>
+    </div>
+    <div class="item-date">Aug 10, 2026</div>
+    <div class="item-body"><a href="https://x.com/finkd/status/2086755195535413696">Zuckerberg</a>: "Today we're also opening the weights for Muse Glimmer, a great 30B parameter dense model that can run locally. Soon we'll also release the weights for Muse Spark 1.2, our latest foundation model. Meta is a strong supporter of open source and I'm proud of these releases." <a href="https://x.com/alexandr_wang/status/2086755368596902004">Alexandr Wang</a> says the same thing with one extra qualifier: "open weights for <em>a version of</em> muse spark 1.2 coming soon. two very different models, both headed into people's hands, with more to come." <a href="https://x.com/testingcatalog/status/2086773492733685789">TestingCatalog</a> was among the first to flag the Apache 2.0 license and the sub-24GB quantization as the two things that actually change adoption.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">@karpathy, @emollick, @addyosmani, @trq212, @xai — each searched individually</div>
+    </div>
+    <div class="item-date">Checked Aug 11, 2026</div>
+    <div class="item-body">Search-only sources; X cannot be fetched directly. <strong>@karpathy</strong> — nothing dated Aug 10–11 surfaced; the live material is still the Sequoia Ascent 2026 fireside (Software 3.0, and his hard line between "vibe coding" and "agentic engineering": spec design, diff review, eval loops). <strong>@emollick</strong> — recent posts surfaced but none dated Aug 10–11; nothing new beyond the late-July items. <strong>@addyosmani</strong> — nothing new surfaced; latest indexed articles are the June "Loop Engineering" and "Don't Outsource the Learning" pieces. <strong>@trq212</strong> — nothing new surfaced. <strong>@xai / @grok</strong> — nothing since the Aug 8 Imagine Image 2.0 rollout to grok.com/imagine and the iOS/Android apps; no Grok 4.6 post.</div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community</h2>
+    <span class="section-tag tag-community">Community</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=49241679">HN: Muse Glimmer — 1,075 points, 591 comments</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">NEW</span>
+    </div>
+    <div class="item-date">Aug 10–11, 2026 — Hacker News front page</div>
+    <div class="item-body">Up from 398 points when yesterday's brief was written — it nearly tripled overnight and is comfortably the biggest AI thread of the window. Two comments carried the discussion. On licensing: <em>"If even Meta can use a permissive license for its model weights, so can any other company"</em> — a shot at every lab still shipping bespoke restrictive terms. On implementation: the <code>atem</code> tokenizer trick above. Both are the kind of scrutiny that only exists because the weights and the template are readable. Links to <a href="https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model">Meta's own announcement post</a>.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=49243880">HN: Zuckerberg attacks 'closed' AI rivals — 434 points, 418 comments</a></div>
+      <span class="item-badge badge-new">NEW</span>
+    </div>
+    <div class="item-date">Aug 10–11, 2026 — on the <a href="https://www.ft.com/content/4e3957f8-ea7c-4c46-a3de-cdce8e526878">FT's coverage</a></div>
+    <div class="item-body">Near 1:1 comments-to-points, and the thread splits cleanly. The pro case is consequentialist and unsentimental — <em>"I don't care if this helps Zuckerberg because it helps everyone"</em> — with PyTorch and React cited as evidence this isn't new behavior. The dominant criticism is strategic: Meta is commoditizing its complement, and "they continue to release open models once they're not in first place." A long sub-thread relitigates whether the original Llama release was intentional or Meta making the best of a leak that llama.cpp had already made usable. A fourth strand pivots entirely to Meta's record on amplification and child safety, arguing open weights don't net out against it. The synthesis position that got traction: judge the action separately from the motive.</div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://news.ycombinator.com/item?id=49246804">Show HN: Needle2 — a 14 MB agentic LLM — 242 points</a></div>
+      <span class="item-badge badge-new">NEW</span>
+    </div>
+    <div class="item-date">Aug 10–11, 2026</div>
+    <div class="item-body"><a href="https://cactuscompute.com/needle">Cactus Compute's Needle 2</a>: 45M parameters compressed to 2-bit, shipping as a <strong>single 14 MB binary</strong> that runs a full session in <strong>28 MB of RAM</strong>. Built on Simple Attention Network findings with their own quantization and engine. Throughput: ~500 tok/s decode on a Raspberry Pi 5, 400–1,500 on Quest 3S and Vision Pro, 300–700 on sub-$200 Samsung A-series phones. They claim parity-ish with FunctionGemma 270M, LFM2.5 230M and Apple FM on tool-call and device-use benchmarks at 5–70× smaller.<br><br>The thread is the valuable half. Testers found it brittle in ways that matter for tool calling: "make it warmer" produced a <em>cooling</em> command, and "what is 5 + 7?" failed where bare "5 + 7" succeeded — natural-language framing breaking a call that the terse form handles. One commenter noted regex may simply be better for some structured-extraction cases. Founder Henry Ndubuaku's answer is that the model requires fine-tuning for production; co-poster Roman Shemet framed the operating envelope as "accurate descriptions + narrow tool scope." An honest scoping, and a real limit: this is a component, not an assistant.</div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">LessWrong, Reddit</div>
+    </div>
+    <div class="item-date">Checked Aug 11, 2026</div>
+    <div class="item-body"><strong>LessWrong</strong> — the newest AI front-page post is Steven Byrnes's "Four LLM loss functions → four flavors of LLM misalignment" (~13 hours old, 5 karma, still early). The higher-karma AI items are older: Richard Ngo's "What just happened? A retrospective of AI alignment" (63, 2 days), Daniel Kokotajlo et al.'s "AI 2040: Plan A" (130, 22 days), and Tim Hua's "Is Mythos good at cyber because it kept hacking Anthropic's sandboxes during training?" (30, 15 days) — that last one now reads as prescient given the past fortnight. No permalinks resolved this run; listed unlinked. <strong>r/LocalLLaMA</strong> and <strong>r/MachineLearning</strong> — both are search-only here (direct fetch is blocked) and both were searched separately this run; neither returned an indexed thread from the window. Recorded as not-surfaced, not as quiet.</div>
+  </div>
+</div>
+
+<!-- THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>1. Two labs answered the same question — "what is this for?" — with mathematics, four days apart</h3>
+    <p>Anthropic's Riemann post and OpenAI's Astra claim (10 open problems solved) are the same move: when capability arguments have been exhausted by benchmarks, prove the thing on a problem nobody can fake. It works because mathematics is the one domain where the verifier is cheap and the result is not a matter of taste — Alpöge and Furman checked it, Conrey and Goldston reviewed it from outside.</p>
+    <p>What the Anthropic post actually documents, though, is not intelligence — it's <em>method</em>. 31M output tokens, 650 abandoned ideas, ~60 subagents, 2,400 shell commands, 54 papers pulled for validation. That's a research program with an org chart, executed by one system. The interesting claim isn't "the model is smart," it's "brute-force breadth plus cheap verification now clears bars that individual insight took decades to move." Note the honesty of the caveat, too: they say plainly this doesn't route toward proving RH.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>2. The open-weights argument got its manifesto and its rebuttal on the same calendar day, and they don't touch</h3>
+    <p>Zuckerberg's 6,500 words say the risk is concentration of power. Zvi's post says the risk is speed without coordination. Tim O'Reilly's Aug 10 essay says both are debating the wrong object — that framing open source AI as "a referendum on model weights" covers only a fraction of what matters, and the real question is whether personality, business goals and guardrails get baked into the weights, turning a component into an appliance.</p>
+    <p>Three essays, one week, zero engagement with each other's actual claim. Zuckerberg answers a governance question with a distribution answer. Zvi answers a distribution question with a coordination answer. O'Reilly says the distribution question is a decoy. The debate is not converging; it is fragmenting into non-overlapping frames — which is what happens right before policy gets made by whoever writes the letter that legislators read first.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>3. Open weights means someone reads your chat template</h3>
+    <p>The single most-discussed technical detail about Muse Glimmer on HN was not a benchmark. It was that the tool-calling tags are prefixed <code>atem</code> — "meta" backwards, almost certainly to avoid tokenizer collisions with a very common literal string. Nobody at Meta announced that. It was found.</p>
+    <p>Same shape on the safety numbers: the capability benchmarks were in the launch post, but CI Memories 26.4 and a 28.4% Siren AgentDojo attack-success rate surfaced afterward from people reading the card. A roughly one-in-four prompt-injection success rate on a model whose pitch is always-on local agency with tool access is a headline number that arrived as a footnote. This is the actual argument for open weights that neither Zuckerberg nor his critics made yesterday: not who controls it, but who can audit it.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>4. Two independent negative results landed the same day, and both say "your shortcut doesn't scale"</h3>
+    <p>Dan Luu tested whether dynamic languages are more token-efficient for coding agents. They aren't, once problems get real — the prior work that said otherwise used 70–109-token solutions, and "performance on trivial tasks doesn't generalize." What weakly predicts performance is language <em>popularity</em>, which is a training-data effect pointing the opposite way from "pick something terse."</p>
+    <p>The Needle2 thread is the same lesson at a different scale: a 14 MB model that hits its benchmarks and still turns "make it warmer" into a cooling command, and fails "what is 5 + 7?" while passing "5 + 7." The founder's response — requires fine-tuning, works with "accurate descriptions + narrow tool scope" — is the correct answer and also an admission that benchmark parity at 5–70× smaller does not survive contact with natural phrasing. Both results reward the same discipline: test on the size and messiness of the thing you actually have.</p>
+  </div>
+
+  <div class="themes-box">
+    <h3>5. Compute politics moved from the balance sheet to the statehouse</h3>
+    <p>OpenAI's letter to Governor Abbott is a company negotiating siting terms with a state that had already imposed a moratorium: pay for your own electric infrastructure, back new generation, minimize water. Not a press release — a concession document, and Abbott publicly took the win the same day.</p>
+    <p>The 189-comments-on-103-points ratio on HN says nobody reads it as settled. And it is happening in the same week Texas legislators are calling for AI guardrails in response to the OpenAI security incident — so the same officials are now holding both the siting lever and the safety lever. Meanwhile DeepSeek is signalling a "significant" API price increase because demand for the cheap tier outran capacity, which is the same constraint arriving through the market instead of through a governor. Andrew Ng's Aug 8 letter calling the death of "tokenmaxxing" reads less like a philosophy shift and more like a description of what the electricity and water actually cost.</p>
+  </div>
+</div>
+
+<footer>
+  <strong>Sources checked (Aug 11, 2026 — 51 scannable sources in src/sources.md, 51 ledger lines, each searched individually this run; window: the ~15 hours since the Aug 10 brief):</strong><br><br>
+
+  <strong>Companies</strong> —
+  <em>Anthropic news</em> (searched "Anthropic news announcement August 2026" + <a href="https://www.anthropic.com/news">anthropic.com/news fetched</a>; newest post still Aug 7 "Improving Fable 5's biology safeguards" — nothing new).
+  <em>Anthropic Research</em> (searched "Anthropic research paper publication August 2026" + <a href="https://www.anthropic.com/research">/research fetched</a> + <a href="https://www.anthropic.com/research/riemann-zeta">the Riemann post itself fetched</a>; NEW, Aug 10).
+  <em>Google DeepMind</em> (searched "Google DeepMind blog August 2026" + <a href="https://deepmind.google/blog/">blog fetched</a>; only August post is still <a href="https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/">WeatherNext cyclones</a>, Aug 6, already covered).
+  <em>Google AI Blog</em> (searched "Google AI blog announcement August 11 2026"; nothing newer than the July 2026 monthly roundup — JS-heavy, search-only).
+  <em>AWS ML Blog</em> (searched "AWS Machine Learning Blog August 2026"; Bedrock AgentCore runtime instances, DynamoDB vector search, AI &amp; ML Scholars surfaced — nothing dated Aug 10–11).
+  <em>Microsoft AI Blog</em> (searched "Microsoft AI blog announcement August 2026"; newest surfaced is Project Perception / MAI-Cyber-1-Flash, Aug 3 — nothing Aug 10–11).
+  <em>Azure Blog</em> (searched "Azure blog AI announcement August 2026"; Fireworks AI preview on Foundry and Claude Fable 5 in Foundry are the live items — nothing dated Aug 10–11).
+  <em>OpenAI</em> (searched "OpenAI news announcement August 11 2026" and "OpenAI announcement August 10 2026 GPT ChatGPT news"; <a href="https://openai.com/news/">openai.com/news</a> and /news/product-releases both returned <strong>HTTP 403 — unavailable today</strong>, retried once. NEW: <a href="https://openai.com/index/responsible-ai-infrastructure-texas/">the Abbott letter</a>, Aug 10, surfaced independently in search and on the HN front page).
+  <em>xAI / Grok</em> (searched "xAI Grok news August 2026 Grok 4.6 release"; <a href="https://x.ai/news">x.ai/news returned 403 — unavailable today</a>; release-notes feed fetched separately, newest entries still Aug 7 Imagine Image 2.0 and Grok Build 1.0.0 — no Grok 4.6).<br><br>
+
+  <strong>Open Weights / Emerging</strong> —
+  <em>DeepSeek</em> (searched "DeepSeek news release August 2026"; no new model — the live items are the resumed ~$8B round at ~$74B and the signalled API price increase).
+  <em>Alibaba Qwen</em> (searched "Qwen3.8 Max weights release August 2026 Alibaba"; the promised week-of-Aug-10 window is two days in with no HF/ModelScope repo, model card or license).
+  <em>Zhipu / GLM</em> (searched "Zhipu GLM z.ai blog August 2026 release"; GLM-5.5 remains unconfirmed rumor — no model card, benchmark or endpoint; official channels still promote GLM-5.2).
+  <em>Meta Llama</em> (searched "Meta AI blog Llama August 2026" and "Meta Muse Glimmer Muse Spark 1.2 weights August 11 2026"; NEW: <a href="https://about.fb.com/news/2026/08/the-future-is-for-everyone/">the Zuckerberg essay fetched</a>, plus the Muse Spark 1.2 weights commitment).
+  <em>Cognition / Devin</em> (searched "Cognition Devin blog August 2026"; nothing since "One Year of Building Together," Jul 14).<br><br>
+
+  <strong>Research &amp; Aggregators</strong> —
+  <em>Hugging Face</em> (searched "Hugging Face blog August 2026" + <a href="https://huggingface.co/blog">index fetched</a>; NEW: NVIDIA Magpie TTS, Aug 10).
+  <em>The Batch</em> (searched "The Batch DeepLearning.AI newsletter August 2026 Andrew Ng" + <a href="https://www.deeplearning.ai/the-batch">index fetched</a>; newest still #365, Aug 8).
+  <em>arXiv cs.AI</em> (<a href="https://arxiv.org/list/cs.AI/recent">/list/cs.AI/recent fetched</a>; NEW listing day Tue Aug 11, 486 entries vs 201 Monday; titles cited unlinked).
+  <em>The Rundown AI</em> (searched "The Rundown AI newsletter August 11 2026" + <a href="https://www.therundown.ai/archive/">archive fetched</a> + <a href="https://www.therundown.ai/p/openai-puts-the-safety-brakes-on-astra">the Aug 10 issue fetched</a>; newest still Aug 10, already covered).
+  <em>The AI Daily Brief</em> (searched "AI Daily Brief beehiiv Nathaniel Whittemore August 2026"; the author page returned stale content, <a href="https://aidailybrief.beehiiv.com/archive">the /archive page fetched successfully</a>; NEW: <a href="https://aidailybrief.beehiiv.com/p/what-the-heck-is-graph-engineering">What the Heck Is Graph Engineering</a>, Aug 10).<br><br>
+
+  <strong>Practitioners — technical</strong> —
+  <em>Simon Willison</em> (searched "Simon Willison blog August 11 2026" + <a href="https://simonwillison.net/">homepage fetched</a> + <a href="https://simonwillison.net/2026/Aug/10/introducing-muse-glimmer/">the new post fetched individually</a>; NEW: Introducing Muse Glimmer, Aug 10 11:56 pm. Also on the homepage: a non-AI pelican sighting, 7:07 pm, and the OpenClaw quote at 2:05 am already carried yesterday. Nothing dated Aug 11).
+  <em>O'Reilly Radar</em> (searched "O'Reilly Radar August 2026 AI article" + <a href="https://www.oreilly.com/radar/">index fetched</a>; NEW: Zero to Agent in 30 Minutes, Aug 10 — the other two Aug 10 pieces were carried yesterday).
+  <em>Chip Huyen</em> (searched "Chip Huyen blog 2026 huyenchip" + <a href="https://huyenchip.com/blog/">blog fetched</a>; newest post still Jan 16, 2025).
+  <em>Hamel Husain</em> (searched "Hamel Husain hamel.dev blog August 2026" + <a href="https://hamel.dev/">site fetched</a>; newest is Jul 11, 2026).
+  <em>Eugene Yan</em> (searched "Eugene Yan eugeneyan.com blog August 2026" + <a href="https://eugeneyan.com/writing/">writing index fetched</a>; nothing since Jun 21).
+  <em>Jason Liu / jxnl.co</em> (searched "Jason Liu jxnl.co writing August 2026" + <a href="https://jxnl.co/writing/">writing index fetched</a>; nothing since Jul 5).
+  <em>Addy Osmani (blog)</em> (searched "Addy Osmani blog August 2026 addyosmani.com" + <a href="https://addyosmani.com/blog/">blog fetched</a>; nothing since Jul 20).
+  <em>Swyx</em> (searched "swyx.io blog August 2026"; newest surfaced is Jul 9).
+  <em>Latent Space</em> (searched "Latent Space newsletter August 2026" + <a href="https://www.latent.space/archive">/archive fetched</a>; nothing since Aug 4).
+  <em>Lilian Weng</em> (searched "Lilian Weng lilianweng.github.io blog 2026" + <a href="https://lilianweng.github.io/archives/">archive fetched</a>; nothing since Jul 4).
+  <em>LangChain</em> (searched "LangChain blog August 2026" + <a href="https://www.langchain.com/blog">blog fetched</a>; newest still Aug 7).
+  <em>Anthropic Engineering</em> (<a href="https://www.anthropic.com/engineering">fetched</a>; no August post — most recent dated item Apr 23).<br><br>
+
+  <strong>Substacks</strong> —
+  <em>Ethan Mollick / One Useful Thing</em> (searched "Ethan Mollick One Useful Thing August 2026"; homepage returned a shell, <a href="https://www.oneusefulthing.org/archive">/archive fetched successfully</a>; nothing since Jul 23).
+  <em>The Pragmatic Engineer</em> (searched "Pragmatic Engineer newsletter August 2026 Gergely Orosz" + <a href="https://newsletter.pragmaticengineer.com/archive">/archive fetched</a>; nothing since Jul 29).
+  <em>Lenny Rachitsky</em> (searched "Lenny's Newsletter August 2026" + <a href="https://www.lennysnewsletter.com/archive">/archive fetched</a>; newest is Aug 4, a Molly Graham guest post, not AI).
+  <em>Addy Osmani (Substack)</em> (searched "site:addyo.substack.com August 2026" + <a href="https://addyo.substack.com/archive">/archive fetched</a>; newest still Aug 8 "Agentic Code Quality," carried Aug 10).
+  <em>Interconnects / Nathan Lambert</em> (searched "Interconnects Nathan Lambert August 2026 post" + <a href="https://www.interconnects.ai/archive">/archive fetched</a>; newest is the Aug 10 post-training textbook post, carried yesterday; <a href="https://www.interconnects.ai/p/lessons-from-the-hacks">Lessons from the hacks</a> Aug 9 also already carried).
+  <em>Zvi Mowshowitz</em> (searched "Zvi Mowshowitz Don't Worry About the Vase August 2026" + <a href="https://thezvi.substack.com/archive">/archive fetched</a> + <a href="https://thezvi.substack.com/p/the-pacing-of-the-frontier">the new post fetched</a>; NEW: The Pacing of the Frontier, Aug 10).
+  <em>Import AI / Jack Clark</em> (searched "Import AI Jack Clark newsletter August 2026 issue 469" + <a href="https://importai.substack.com/archive">/archive fetched</a>; newest still #468, Aug 10 — no #469).
+  <em>Adam Tornhill</em> (searched "Adam Tornhill substack 2026 code health" + <a href="https://adamtornhill.substack.com/archive">/archive fetched</a>; nothing since Jun 30).
+  <em>Jessica Talisman</em> (searched "Jessica Talisman substack 2026 ontology metadata" + <a href="https://jessicatalisman.substack.com/archive">/archive fetched</a>; newest still Aug 9, carried yesterday).
+  <em>Casey Muratori / Computer Enhance</em> (searched "Computer Enhance Casey Muratori August 2026" + <a href="https://www.computerenhance.com/archive">/archive fetched</a>; NEW: "Branchless Absolute Value," ~10 hours old — non-AI; no permalink surfaced, listed unlinked).<br><br>
+
+  <strong>Business &amp; Strategy</strong> —
+  <em>Stratechery / Ben Thompson</em> (searched "Stratechery Ben Thompson August 2026 article" + <a href="https://stratechery.com/category/articles/">articles index fetched</a>; newest is Aug 10 "Apple Earnings, More on Amazon's Earnings," Stratechery Plus and paywalled).<br><br>
+
+  <strong>Community</strong> —
+  <em>Hacker News</em> (<a href="https://news.ycombinator.com">front page fetched</a> + three threads fetched individually; NEW: <a href="https://news.ycombinator.com/item?id=49241679">Muse Glimmer 1,075/591</a>, <a href="https://news.ycombinator.com/item?id=49243880">Zuckerberg/FT 434/418</a>, <a href="https://news.ycombinator.com/item?id=49246804">Needle2 242/97</a>, <a href="https://news.ycombinator.com/item?id=49244308">OpenAI Texas letter 103/189</a>, danluu 104/71).
+  <em>Reddit r/MachineLearning</em> (searched "&quot;r/MachineLearning&quot; reddit top post August 10 2026 paper discussion"; no indexed thread from the window surfaced — recorded as not-surfaced, not as quiet. Direct fetch of reddit.com is blocked in this environment).
+  <em>Reddit r/LocalLLaMA</em> (searched "r/LocalLLaMA August 11 2026 Muse Glimmer discussion" and "r/LocalLLaMA Muse Glimmer quantization GGUF reaction reddit"; no indexed thread surfaced. Direct fetch of reddit.com failed — unavailable today).
+  <em>LessWrong</em> (<a href="https://www.lesswrong.com">front page fetched</a>; newest AI post is Steven Byrnes's "Four LLM loss functions → four flavors of LLM misalignment," ~13 hours old, 5 karma; no permalinks resolved, listed unlinked).<br><br>
+
+  <strong>X / Social</strong> (search-only; X cannot be fetched directly) —
+  <em>@trq212 (Thariq Shihipar)</em> (searched "Thariq Shihipar trq212 August 2026 Claude"; nothing dated Aug 10–11 surfaced).
+  <em>@karpathy</em> (searched "from:karpathy August 2026 AI LLM agents"; nothing dated Aug 10–11 — live material is still the Sequoia Ascent 2026 fireside).
+  <em>@emollick</em> (searched "@emollick Ethan Mollick X post August 10 2026"; posts surfaced but none dated Aug 10–11).
+  <em>@addyosmani</em> (searched "Addy Osmani @addyosmani X twitter August 2026 AI"; nothing new surfaced).
+  <em>@xai / @grok</em> (searched "@xai @grok X post August 10 2026 announcement"; nothing since the Aug 8 Imagine Image 2.0 rollout).<br><br>
+
+  <strong>Link audit:</strong> 86 hrefs (61 unique) in this brief. Every one traced to a URL that surfaced in this run's WebSearch results or in a fetched page body, and checked that it points to the specific thing its anchor text names. One was downgraded to unlinked text: reddit.com/r/LocalLLaMA/, whose only source this run was sources.md itself (it never surfaced in a result or a fetched body). Both <code>.significant</code> permalinks — <a href="https://www.anthropic.com/research/riemann-zeta">the Riemann post</a> and <a href="https://about.fb.com/news/2026/08/the-future-is-for-everyone/">the Zuckerberg essay</a> — were confirmed by direct fetch this run, as were the Simon Willison and Zvi posts. Three items were deliberately left unlinked because no permalink surfaced: Casey Muratori's "Branchless Absolute Value" (archive linked instead), the LessWrong posts, and the individual arXiv papers. openai.com/news, openai.com/news/product-releases, x.ai/news and reddit.com all failed to fetch and are marked unavailable above rather than silently dropped.
+</footer>
+
+</body>
+</html>
