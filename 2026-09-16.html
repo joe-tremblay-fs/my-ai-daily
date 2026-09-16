@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily Brief — September 16, 2026</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3348;
+      --text: #e2e5f0;
+      --muted: #7c82a0;
+      --accent: #7b6ef6;
+      --accent2: #56cfb2;
+      --warn: #f0a850;
+      --red: #e06060;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    a { color: var(--accent2); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent2); }
+
+    nav { margin-bottom: 32px; display: flex; gap: 20px; align-items: center; }
+    nav a { font-size: 13px; font-weight: 600; color: var(--muted); border: none; }
+    nav a:hover { color: var(--text); }
+
+    header { margin-bottom: 48px; border-bottom: 1px solid var(--border); padding-bottom: 32px; }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 8px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header .meta { margin-top: 10px; color: var(--muted); font-size: 13px; }
+    header .meta span { margin-right: 20px; }
+
+    .section { margin-bottom: 56px; }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header h2 { font-size: 18px; font-weight: 700; }
+    .section-tag {
+      font-size: 10px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px;
+    }
+    .tag-company { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+    .tag-practitioner { background: color-mix(in srgb, var(--accent2) 18%, transparent); color: var(--accent2); }
+    .tag-social { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+    .tag-community { background: color-mix(in srgb, #e080e0 18%, transparent); color: #e080e0; }
+
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    .item.significant { border-left: 3px solid var(--accent); }
+    .item.new-item { border-left: 3px solid var(--accent2); }
+    .item-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+    .item-title { font-weight: 600; font-size: 14px; line-height: 1.4; flex: 1; }
+    .item-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.05em;
+      padding: 2px 6px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-sig { background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+    .badge-new { background: color-mix(in srgb, var(--accent2) 20%, transparent); color: var(--accent2); }
+    .item-date { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+    .item-body { font-size: 13px; color: #b0b6cc; line-height: 1.6; }
+
+    .subsection { margin-bottom: 36px; }
+    .subsection-title {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--border);
+    }
+
+    .themes-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+    .themes-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent2); }
+    .themes-box p { font-size: 13px; color: #b0b6cc; margin-bottom: 8px; line-height: 1.6; }
+    .themes-box p:last-child { margin-bottom: 0; }
+
+    .whatsnew { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px 20px 40px; margin-bottom: 12px; }
+    .whatsnew li { font-size: 13px; color: #b0b6cc; margin-bottom: 12px; line-height: 1.65; }
+    .whatsnew li:last-child { margin-bottom: 0; }
+    .whatsnew strong { color: var(--text); }
+
+    footer {
+      margin-top: 60px; font-size: 12px; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 20px;
+      line-height: 1.7;
+    }
+    footer h3 { font-size: 12px; color: var(--text); margin: 18px 0 8px; text-transform: uppercase; letter-spacing: 0.1em; }
+    footer ul { padding-left: 20px; }
+    footer li { margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">← All Briefs</a>
+  <span style="color:var(--border)">·</span>
+  <a href="topics.html">Topics</a>
+</nav>
+
+<header>
+  <div class="label">My AI Daily</div>
+  <h1>September 16, 2026</h1>
+  <div class="meta">
+    <span>51 sources checked</span>
+    <span>9 company feeds</span>
+    <span>12 practitioner blogs</span>
+    <span>10 Substacks</span>
+    <span>5 X accounts</span>
+    <span>HN / Reddit / LessWrong</span>
+  </div>
+</header>
+
+<div class="section">
+  <div class="section-header">
+    <h2>What's actually new today</h2>
+  </div>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">
+    Generated 08:30 CDT, Sep 16, 2026 · window: the ~32 hours since the Sep 15 brief closed.
+    Two days after the President called AI risk a hoax, OpenAI confirmed the labs have been coordinating on safety
+    for weeks anyway — and said they don't want an antitrust waiver. Meanwhile a startup nobody had heard of took
+    the top of Hacker News with a model that refuses to emit text, Google shipped voice models that lead the
+    speech benchmark, and the Pragmatic Engineer published a field report from inside OpenAI's build system.
+  </p>
+  <ul class="whatsnew">
+    <li><strong>OpenAI confirmed it has been in safety talks with Anthropic and Google DeepMind for weeks, and said no
+      antitrust waiver is needed.</strong> Per <a href="https://techcrunch.com/2026/09/15/openai-anthropic-google-have-been-in-talks-on-ai-safety-for-weeks/">TechCrunch, fetched in full</a>,
+      global policy chief <strong>Chris Lehane</strong> said at a Washington press conference that the engagement had
+      been under way for several weeks, that OpenAI backs <em>"independent verification organizations"</em> monitoring
+      frontier development, and — contra Amodei, who proposed seeking a narrow government waiver — that the firms
+      <em>don't believe one is necessary</em>. The Information is reported to have said the
+      three have discussed forming a shared standards body; also carried by
+      <a href="https://www.bloomberg.com/news/articles/2026-09-15/openai-says-it-s-working-with-anthropic-google-on-ai-safety">Bloomberg</a> (403 on fetch, headline only),
+      <a href="https://www.cnbc.com/2026/09/15/open-ai-google-anthropic-safety.html">CNBC</a> and
+      <a href="https://siliconangle.com/2026/09/15/openai-anthropic-and-google-secretly-joined-forces-to-collaborate-on-ai-safety/">SiliconANGLE</a>.</li>
+
+    <li><strong>TypeSafe AI came out of stealth with $40M and a model that cannot write a sentence — and it was the #1
+      story on Hacker News at 1,561 points.</strong>
+      <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">The launch post, fetched in full</a>:
+      <strong>Jev</strong> is a "System One model" trained with <strong>Reinforcement Learning for Calibrated Decisions
+      (RLCD)</strong> — unstructured state in, <em>typed probabilistic decisions</em> out, sampled in parallel rather than
+      token by token. Claims: <strong>70–500ms</strong> end to end, <strong>40–200× faster</strong> than frontier LLMs on
+      structured tasks, <strong>$0.042/Mtok input and $0 output</strong>, and a <strong>0% schema-hallucination rate</strong>
+      that is guaranteed by construction rather than measured. Founded by ex-OpenAI researcher <strong>Diogo Almeida</strong>.</li>
+
+    <li><strong>Google shipped Gemini 3.8 Live and 3.8 Live Extended Thinking, and took the #1 spot on the Speech-to-Speech
+      index.</strong> <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/">The Google blog post, fetched in full</a>, Sep 15:
+      <strong>82.6</strong> on Artificial Analysis' Speech-to-Speech Quality Index, <strong>68.6%</strong> on τ-Voice agentic
+      task completion, <strong>97.7%</strong> on Big Bench Audio, automatic switching across <strong>97 languages</strong>
+      mid-conversation, and background tool calls that don't interrupt the dialogue. Simon Willison had
+      <a href="https://simonwillison.net/2026/Sep/15/gemini-live/">a working browser client up the same night</a>.</li>
+
+    <li><strong>The Pragmatic Engineer published a field report from inside OpenAI, and the numbers rhyme with Anthropic's
+      CI post from Monday.</strong> <a href="https://newsletter.pragmaticengineer.com/p/openai-software-factory">"Inside OpenAI's agentic software factory," Sep 15, fetched</a>:
+      non-engineering departments went from near-zero to <strong>90% Codex usage in four months</strong>; VP of Engineering
+      Venkat Venkataramani reports PRs per engineer <em>"growing like a hockey stick… roughly a 10x increase in load on some
+      systems."</em> Anthropic said 25× on CI two days ago. Two labs, same graph.</li>
+
+    <li><strong>Zvi went through Anthropic's misuse report and pulled out the distillation numbers, which are enormous.</strong>
+      <a href="https://thezvi.substack.com/p/the-bad-guy-with-an-ai-named-claude">"The Bad Guy With An AI Named Claude," Sep 15, fetched in full</a>:
+      Alibaba/Qwen at <strong>151M+ exchanges across 3,500 accounts</strong>; Moonshot routing <strong>300,000+ live customer
+      requests</strong> through Claude and returning the answers as Kimi output; DeepSeek at <strong>12.1M exchanges in 14
+      days</strong>; Zhipu at 3.4M; Xiaomi ~400K. Zvi's read of the rest of the report is that most other misuse
+      <em>failed</em>, and that the distillation section is the real story.</li>
+
+    <li><strong>Google started letting its own engineers use Claude Opus 5.</strong>
+      <a href="https://dataconomy.com/2026/09/15/google-opens-anthropic-claude-access-for-engineers/">Per Dataconomy, Sep 15, fetched</a>:
+      access runs through <strong>Antigravity</strong>, Google's internal dev platform, under per-user quotas, "to supplement
+      Gemini." Google had previously barred most employees from Claude Code and Codex. Amazon reportedly did the same after
+      employee complaints.</li>
+
+    <li><strong>Also new, each confirmed by its own fetch or query:</strong>
+      <a href="https://press.aboutamazon.com/aws/2026/9/cognition-and-aws-sign-multi-year-collaboration-agreement">Cognition and AWS signed a multi-year Strategic Collaboration Agreement</a>
+      (Mercedes-Benz: an 8-month COBOL modernization done in 8 days);
+      <a href="https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs">Claude for Small Business went to 43 workflows and 27 new integrations</a>
+      at 900,000+ installs; OpenAI is in talks at
+      <a href="https://fortune.com/2026/09/16/openai-ipo-sam-altman-vc-funding-valuation-1-2-trillion/">$1.2T — and reportedly seeking $1.5T</a>;
+      <a href="https://www.caixinglobal.com/2026-09-14/zai-raises-5-billion-in-share-placement-convertible-bond-sale-102484813.html">Z.AI raised $5B</a>
+      with 60% earmarked for next-generation GLM; O'Reilly ran
+      <a href="https://www.oreilly.com/radar/beyond-navier-stokes-who-controls-scientific-discovery/">"Beyond Navier–Stokes: Who Controls Scientific Discovery?"</a>;
+      and <a href="https://arxiv.org/list/cs.AI/recent">cs.AI moved to Sep 16 with 1,091 entries</a>.</li>
+
+    <li><strong>A correction to yesterday's brief.</strong> This brief recorded Addy Osmani's Substack as having nothing from
+      September. It has: <a href="https://addyo.substack.com/p/brownfield-agentic-engineering">"Brownfield Agentic Engineering," Sep 14</a>,
+      fetched in full today and covered below. Latent Space was also recorded as a three-day gap; a
+      <strong>Sep 5</strong> post by Dan McAteer surfaced this run, which does not close the Sep 15–16 window but does
+      correct the "nothing retrievable" framing.</li>
+
+    <li><strong>Quiet, each confirmed by its own query this run:</strong> Anthropic Research, Microsoft AI (nothing after the
+      Sep 14 Code of Conduct), Azure (nothing after Sep 10), the OpenAI product feed, DeepSeek, Qwen, Meta, The Batch,
+      Chip Huyen, Hamel Husain, Eugene Yan, jxnl, Addy Osmani's own blog, Swyx, Lilian Weng, LangChain, Anthropic
+      Engineering, Ethan Mollick, Interconnects, Import AI, Adam Tornhill, Jessica Talisman, Computer Enhance, Stratechery,
+      both subreddits, and four of five X handles. Every one appears individually in the footer with the query that produced
+      the verdict.</li>
+  </ul>
+</div>
+
+<!-- SAFETY COORDINATION -->
+<div class="section">
+  <div class="section-header">
+    <h2>The labs were already coordinating</h2>
+    <span class="section-tag tag-company">Cross-vendor</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://techcrunch.com/2026/09/15/openai-anthropic-google-have-been-in-talks-on-ai-safety-for-weeks/">OpenAI confirms weeks of safety talks with Anthropic and Google DeepMind — and rejects the antitrust waiver Amodei asked for</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Sep 15, 2026 — searched "OpenAI Anthropic Google DeepMind coordinate AI safety Chris Lehane September 15 2026"; <a href="https://techcrunch.com/2026/09/15/openai-anthropic-google-have-been-in-talks-on-ai-safety-for-weeks/">TechCrunch was fetched in full</a> and supplies the detail below. <a href="https://www.bloomberg.com/news/articles/2026-09-15/openai-says-it-s-working-with-anthropic-google-on-ai-safety">Bloomberg</a> returned 403 and is cited as a headline only. Also carried by <a href="https://www.cnbc.com/2026/09/15/open-ai-google-anthropic-safety.html">CNBC</a>, <a href="https://siliconangle.com/2026/09/15/openai-anthropic-and-google-secretly-joined-forces-to-collaborate-on-ai-safety/">SiliconANGLE</a> and <a href="https://www.claimsjournal.com/news/national/2026/09/15/340158.htm">Claims Journal</a>, each cited as headline/summary only.</div>
+    <div class="item-body">
+      <strong>What was said.</strong> Chris Lehane, OpenAI's global policy chief, confirmed at a Washington press conference
+      that engagement with Anthropic and Google DeepMind on frontier safety had been under way <em>for several weeks</em> —
+      that is, predating Amodei's essay. OpenAI backs requirements for <em>"independent verification organizations"</em> to
+      monitor model development at top labs, consistent with Altman's earlier pledge to embed third-party evaluators. The
+      Information reported the three have discussed forming a <strong>shared AI safety standards body</strong>.<br><br>
+
+      <strong>The antitrust split.</strong> This is the part that matters. Amodei's essay proposed seeking a
+      <strong>narrow government waiver</strong> so that coordinated pacing would not read as collusion. Lehane's position is
+      that no waiver is necessary. Those are not compatible legal theories, and the disagreement is not academic: Hal Singer's
+      price-fixing objection was one of the loudest criticisms of the proposal last week, and one lab has now decided to
+      proceed without the cover the other said was required.<br><br>
+
+      <strong>Read this against Sunday and Monday.</strong> The proposal's Step 2 — democratic coordination — was declared
+      dead here yesterday when the President called the risk a hoax. What today's news shows is that Step 1 had already been
+      happening informally, off the record, before the essay that proposed it was published. The essay did not start the
+      coordination; it publicized it. That reframes the whole week. The interesting question is no longer "will the labs
+      coordinate" but "what do three companies talking privately about frontier safety for weeks owe the public in
+      disclosure," and the answer they've arrived at is a press conference after the fact.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://www.greaterwrong.com/posts/eeJB8x2pK8injCuBN/is-metr-a-meaningful-check-on-anthropic">LessWrong asks the question everyone keeps raising: "Is METR A Meaningful Check On Anthropic?" — and answers no</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Sep 16, 2026 — <a href="https://www.greaterwrong.com/">the greaterwrong mirror was fetched</a> for the listing (65 karma, Sep 16); searched "LessWrong 'Is METR A Meaningful Check On Anthropic' SE Gyges" to resolve the permalink. Author <strong>SE Gyges</strong>. The post body was not fetched; the characterization comes from the search summary and is stated as such.</div>
+    <div class="item-body">
+      <strong>The argument, as summarized.</strong> METR cannot be a meaningful check on Anthropic because it is
+      <em>not meaningfully independent</em>, <em>not sufficiently staffed</em>, and <em>has no authority that cannot be
+      revoked at Anthropic's discretion</em>. The sharpest line: embedding METR inside Anthropic as a "check" would look like
+      an attempt to <em>evade</em> oversight and to sabotage oversight generally.<br><br>
+
+      This is now the fourth consecutive day the METR-independence objection has surfaced in this brief from a different
+      direction — Holly Elmore (PauseAI) on Sep 14, the AI Daily Brief's tally, Hacker News, now a 65-karma LessWrong post
+      with the argument laid out. And it lands on the same day OpenAI says it backs "independent verification organizations."
+      Nobody proposing embedded evaluators has answered it. The objection is structural rather than empirical: an evaluator
+      whose access, funding and mandate are all revocable by the evaluated party is not independent regardless of the
+      integrity of its staff. That is a hard thing to fix with a press conference.
+    </div>
+  </div>
+</div>
+
+<!-- TYPESAFE -->
+<div class="section">
+  <div class="section-header">
+    <h2>TypeSafe AI</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">"System One Models and Jev" — a frontier model that deliberately cannot produce text, at $0.042/Mtok in and $0 out</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Sep 15, 2026 — surfaced as <strong>#1 on the Hacker News front page at 1,561 points / 435 comments</strong> via <a href="https://news.ycombinator.com/front">the front page, fetched</a>. Searched "TypeSafe Jev System One models Diogo Almeida launch September 15 2026"; <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">the launch post was fetched in full</a>. Independent coverage: <a href="https://www.theregister.com/ai-and-ml/2026/09/16/typesafe-ai-debuts-model-for-machines-that-plays-doom/5296711">The Register (Sep 16), fetched</a>, and <a href="https://finance.yahoo.com/technology/ai/articles/typesafe-ai-emerges-stealth-40m-190000776.html">Yahoo Finance on the $40M raise</a> (headline only).</div>
+    <div class="item-body">
+      <strong>The premise, in the founder's words.</strong> <em>"Models have been superhuman at chat for years, so where is
+      all the automation?"</em> — Diogo Almeida, ex-OpenAI, co-credited on RLHF/ChatGPT, with Erik Gafni and Sasha Sheng.
+      $40M seed led by DCVC. To The Register he put it more bluntly: <em>"people can't be the only consumers of
+      intelligence."</em><br><br>
+
+      <strong>What Jev is.</strong> <em>"A frontier-intelligence function call: unstructured state in, typed probabilistic
+      decisions out."</em> Output looks like <code>{"billing": 0.08, "technical": 0.85, "sales": 0.07}</code> — a
+      distribution over a declared type, with a calibrated confidence score, sampled <strong>in parallel</strong> rather
+      than autoregressively. Trained with <strong>RLCD</strong> (Reinforcement Learning for Calibrated Decisions), which the
+      post positions against RLHF (optimizes human preference) and RLVR (optimizes verifiable correctness): RLCD optimizes
+      for <em>"answers with epistemically honest probabilities."</em><br><br>
+
+      <strong>The numbers.</strong> <strong>70–500ms</strong> end to end against 3–329 seconds for frontier models;
+      <strong>40–200×</strong> faster on structured tasks; <strong>$0.042 per Mtok input</strong> and output
+      <em>"too cheap to meter"</em> at $0 — The Register works that out as <strong>238× cheaper than Fable 5.1</strong> and
+      contrasts it with GPT-5.6 Terra at $2.00/$12. Up to <strong>255</strong> choice options. And the claim with the
+      sharpest edge: a <strong>0% hallucination rate on schema matching</strong>, because a type error is
+      <em>mathematically impossible</em> rather than merely rare.<br><br>
+
+      <strong>What it explicitly cannot do.</strong> No creative text, no code, no explanations, no images, nothing outside
+      the declared schema, no sequential generation. The post's own framing: <em>"Giving up strings actually gives us a lot
+      of superpowers!"</em> The demos are a Doom bot at 10 queries per second for ~$7/hour and a Wikiracing solver.<br><br>
+
+      Worth being precise about what is and isn't demonstrated here. The 0% hallucination figure is a category claim, not a
+      benchmark result — it says the output is always a well-formed value of the type, which is a real and useful guarantee
+      and says nothing about whether the value is <em>right</em>. That distinction is going to get flattened in the
+      retelling. What makes this the top HN story is the economics: the industry has spent two years paying frontier prices
+      to make a model emit a JSON blob it then has to parse and validate, and this is the first serious argument that the
+      classification half of that workload is a different product with a different price. If the calibration holds up
+      outside the vendor's own evals, the routing/scoring/guardrail layer of a lot of agent stacks gets two orders of
+      magnitude cheaper. If it doesn't, the confidence scores are worse than useless, because they'll be trusted.
+    </div>
+  </div>
+</div>
+
+<!-- GOOGLE -->
+<div class="section">
+  <div class="section-header">
+    <h2>Google / DeepMind</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/">Gemini 3.8 Live and 3.8 Live Extended Thinking: 82.6 on Speech-to-Speech (#1), 97 languages detected mid-conversation, tool calls that run while it talks</a></div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Sep 15, 2026 — searched "Google AI blog September 15 2026 Gemini announcement", then "'Gemini 3.8 Live' DeepMind blog introducing extended thinking speech to speech"; <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/">the Google blog post was fetched in full</a> and supplies every number. Confirmed on <a href="https://deepmind.google/blog/">the DeepMind blog index, fetched</a>. A <a href="https://deepmind.google/models/model-cards/gemini-3-8-audio/">model card for Gemini 3.8 Audio</a> and <a href="https://www.marktechpost.com/2026/09/15/google-releases-gemini-3-8-live-and-3-8-live-extended-thinking-for-production-grade-voice-agents/">MarkTechPost coverage</a> surfaced in the same result list and are cited as headlines.</div>
+    <div class="item-body">
+      <strong>Two models.</strong> <strong>3.8 Live</strong> is the scale-and-cost tier; <strong>3.8 Live Extended
+      Thinking</strong> is the reasoning tier, and it reasons <em>while speaking</em>, using verbal cues like
+      <em>"Let me check that…"</em> to cover the latency instead of going silent.<br><br>
+
+      <strong>The benchmarks.</strong> <strong>82.6</strong> on Artificial Analysis' Speech-to-Speech Quality Index —
+      <strong>#1 overall</strong>. <strong>68.6%</strong> on τ-Voice agentic task completion; <strong>35.1%</strong> on
+      Sierra's τ-Voice-banking. <strong>97.7%</strong> on Big Bench Audio. The cheaper 3.8 Live ranks second on Speech Agent
+      Arena.<br><br>
+
+      <strong>The capabilities that matter operationally.</strong> Automatic detection and switching across
+      <strong>97 languages</strong> mid-conversation; <strong>background tool execution</strong> that does not interrupt the
+      dialogue; near-real-time visual input; SynthID watermarking on all generated audio.<br><br>
+
+      <strong>Availability.</strong> Gemini API and AI Studio immediately; private preview in Gemini Enterprise; Search Live
+      and Gemini Live for AI Pro/Ultra. Launch partners named: <strong>Salesforce, Agora, LiveKit, LangChain,
+      Fishjam</strong>.<br><br>
+
+      The competitive read is straightforward. OpenAI shipped GPT-Live-1 on Sep 10 and xAI has Grok Voice Think Fast 2.0 in
+      Teslas; Google has now taken the top of the independent speech index five days later and undercut on price. Voice went
+      from a differentiated feature to a contested tier in under a week. The detail worth stealing regardless of vendor is
+      the background tool call — the reason voice agents feel bad is the dead air while they work, and separating the speech
+      loop from the tool loop is a design fix, not a model fix.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://dataconomy.com/2026/09/15/google-opens-anthropic-claude-access-for-engineers/">Google opened Claude Opus 5 to engineers across the company, through its own internal Antigravity platform</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Sep 15, 2026 — surfaced while searching "Anthropic Engineering blog September 15 2026 claude.com/blog engineering post"; <a href="https://dataconomy.com/2026/09/15/google-opens-anthropic-claude-access-for-engineers/">Dataconomy (Aytun Çelebi, Sep 15) was fetched in full</a> and supplies the detail. A <a href="https://techbriefly.com/2026/09/15/google-anthropic-claude-access-coding-engineers/">TechBriefly version</a> surfaced in the same list and is cited as a headline.</div>
+    <div class="item-body">
+      <strong>What changed.</strong> Google had <em>"typically barred most employees from using external coding tools such
+      as Claude Code and OpenAI's Codex."</em> Engineers can now use <strong>Opus 5</strong> through
+      <strong>Antigravity</strong>, Google's internal development platform, under <strong>per-user quotas</strong>, framed
+      officially as a supplement to Gemini. A Google spokesperson said the access is <em>"aligned with our external
+      Antigravity enterprise offering."</em> DeepMind teams already had Claude access; this extends it company-wide.<br><br>
+
+      <strong>Why it happened.</strong> Per the report, engineer frustration with Gemini's coding performance despite the
+      Flash 3.8 improvements. Amazon is reported to have made the same move after employee complaints.<br><br>
+
+      Set this next to the item directly above and the day has an unusual shape: Google published a model that takes #1 on
+      an independent benchmark, and on the same day conceded that its own engineers prefer a competitor's model for coding.
+      Both are true and neither is spin. Google is also an Anthropic investor with up to $40B committed, which makes the
+      internal procurement decision less awkward than it looks — but it is still the clearest available signal about where
+      the coding frontier actually sits, because it is a revealed preference by people with free access to the alternative.
+    </div>
+  </div>
+</div>
+
+<!-- ANTHROPIC -->
+<div class="section">
+  <div class="section-header">
+    <h2>Anthropic</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs">Claude for Small Business goes to 43 workflows and 27 new integrations at 900,000+ installs, plus a 10-city workshop tour</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Sep 15, 2026 — searched "Anthropic news announcement September 16 2026"; <a href="https://www.anthropic.com/news">the newsroom was fetched</a> but again rendered nothing newer than Sep 10, so the dated items come from <a href="https://releasebot.io/updates/anthropic">the release-notes aggregator, fetched</a> and <a href="https://claude.com/blog">the claude.com/blog index, fetched</a>. <a href="https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs">The post itself was then fetched in full</a>. Secondary: <a href="https://www.unite.ai/anthropic-adds-43-workflows-27-integrations-to-claude-for-small-business/">Unite.AI</a> and <a href="https://the-decoder.com/anthropic-launches-claude-for-small-business-to-embed-ai-into-the-tools-you-forgot-you-pay-for/">The Decoder</a>, headlines only.</div>
+    <div class="item-body">
+      <strong>The numbers.</strong> <strong>43 workflows</strong>, <strong>27 new integrations</strong>,
+      <strong>900,000+ installs</strong> since the May 2026 launch. New partners include <strong>Shopify, Salesforce,
+      TikTok, Atlassian, Zoom, Xero, Gusto, Square, Stripe and Zapier</strong>, on top of the original seven (Intuit
+      QuickBooks, PayPal, HubSpot, Canva, DocuSign, Google Workspace, Microsoft 365).<br><br>
+
+      <strong>The shift in scope.</strong> The workflows move past back-office into revenue: weekly financial briefs, lead
+      qualification and response, proposal generation, marketing content scheduling, monthly close. The testimonial Anthropic
+      chose to lead with: <em>"What used to take me 120 hours now takes me five minutes."</em><br><br>
+
+      <strong>The distribution machine.</strong> Free half-day workshops in ten US cities (Boston, Pittsburgh, Detroit,
+      Minneapolis, Phoenix, Memphis, Savannah, Bentonville, Tampa, Raleigh); <strong>150+ Approved Claude SMB Trainers</strong>
+      running <strong>750+ community workshops</strong>; 14 partner webinars from late September through November, starting
+      with Notion on Sep 25; partnerships with <strong>Goldman Sachs 10,000 Small Businesses</strong>, IncuVersity and
+      Echoing Green.<br><br>
+
+      <strong>Also Sep 15.</strong> <a href="https://claude.com/blog">"Bringing Salesforce into Claude"</a> — a beta plugin
+      with 37 pre-built sales capabilities, pipeline and account data in-session — and
+      <strong>Claude Code 2.1.273</strong>, with gateway hint headers for LLM deployments, better MCP disconnect handling,
+      more accurate Bash permission checking, and fixes to skill sync across plan types.<br><br>
+
+      This is the fourth vertical in six days — Financial Services, enterprise safeguards, Financial Advisors, now the SMB
+      push with a trainer network attached. The trainer program is the part that isn't a product launch: 150 organizations
+      certified to run 750 workshops is channel-building, and it is aimed at the segment least likely to have an opinion
+      about which model is better. Worth noting the contrast with the top of this brief, where the same company's CEO is
+      arguing the industry should slow down.
+    </div>
+  </div>
+</div>
+
+<!-- OPENAI -->
+<div class="section">
+  <div class="section-header">
+    <h2>OpenAI</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">Not going public in 2026 — but in talks at $1.2T, and reportedly asking $1.5T</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Sep 15–16, 2026 — searched "OpenAI news announcement September 15 2026" and "OpenAI funding round $1.2 trillion valuation September 15 2026". <a href="https://www.bloomberg.com/news/articles/2026-09-15/openai-weighing-funding-round-at-over-1-2-trillion-valuation">Bloomberg</a> is cited as a headline (its sibling URL returned 403 on fetch this run). <a href="https://fortune.com/2026/09/16/openai-ipo-sam-altman-vc-funding-valuation-1-2-trillion/">Fortune (Sep 16)</a>, <a href="https://www.forbes.com/sites/siladityaray/2026/09/16/openai-is-reportedly-weighing-new-funding-round-at-15-trillion-valuation/">Forbes (Sep 16, the $1.5T figure)</a> and <a href="https://www.pymnts.com/news/artificial-intelligence/2026/openai-eyes-1-2-trillion-valuation-in-pre-ipo-funding-round/">PYMNTS</a> are cited as headline/summary only; none were fetched.</div>
+    <div class="item-body">
+      <strong>The sequence.</strong> Altman said Saturday OpenAI would not go public in 2026, citing safety. Investors
+      approached with an offer at <strong>$1.2T</strong>; OpenAI is reported to be seeking <strong>$1.5T</strong>. The talks
+      were investor-initiated, and whether the round proceeds reportedly depends on IPO timing. Prior marks: $122B raised at
+      <strong>$852B in March</strong>; confidential IPO filing in <strong>June</strong>.<br><br>
+
+      <strong>The product feed.</strong> <a href="https://releasebot.io/updates/openai">The release aggregator was fetched</a>
+      and carries <strong>nothing dated Sep 15 or 16</strong>. Newest remains Sep 14 — health-connection plugin permissions
+      defaulting to the global setting (OpenAI's stated rationale: <em>"more than 70% of Health users already choose to allow
+      ChatGPT to use data connected in Health without asking for permission each time"</em>) and the retirement of automatic
+      Instant→Thinking switching for Plus and Pro.<br><br>
+
+      The juxtaposition is doing a lot of work and is worth stating without editorializing past the facts: the same company
+      confirmed today that it has been coordinating on frontier safety for weeks, declined the antitrust waiver its peer
+      said was necessary, said an IPO would be ill-advised given safety concerns, and is negotiating a private round at up to
+      $1.5 trillion. All four can be sincere simultaneously. They also describe a company that would rather not have public
+      shareholders reading its safety disclosures.
+    </div>
+  </div>
+</div>
+
+<!-- OPEN WEIGHTS / EMERGING -->
+<div class="section">
+  <div class="section-header">
+    <h2>Open Weights / Emerging Labs</h2>
+    <span class="section-tag tag-company">Company</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title"><a href="https://press.aboutamazon.com/aws/2026/9/cognition-and-aws-sign-multi-year-collaboration-agreement">Cognition and AWS sign a multi-year Strategic Collaboration Agreement — and the headline number is an 8-month COBOL migration done in 8 days</a></div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Sep 15, 2026 — searched "Cognition Devin blog September 15 2026"; <a href="https://cognition.com/blog">the blog was fetched</a> and lists this as 09.15.26. Searched "Cognition AWS Strategic Collaboration Agreement Devin September 15 2026"; <a href="https://press.aboutamazon.com/aws/2026/9/cognition-and-aws-sign-multi-year-collaboration-agreement">the AWS press release was fetched in full</a> and supplies the figures. The individual Cognition blog permalink did not surface and is not linked.</div>
+    <div class="item-body">
+      <strong>The deal.</strong> Multi-year SCA to deploy Devin in production AWS environments. Devin runs inside a
+      <strong>single-tenant AWS VPC</strong> with per-session isolated VMs destroyed on completion — data residency and
+      security controls stay with the customer. Available through AWS Marketplace, with the Agent Toolkit for AWS usable
+      directly in Devin.<br><br>
+
+      <strong>The results claimed.</strong> <strong>Mercedes-Benz</strong>: an estimated <strong>8-month COBOL
+      modernization completed in 8 days</strong>. Another automaker: 25,000-line COBOL workflows migrated to AWS Lambda at an
+      estimated <strong>73% cost reduction</strong>. Other named customers: Echo Global Logistics, ActiveCampaign.
+      Art Levy, VP Global Partnerships: <em>"Enterprises can pair engineers with autonomous agents on infrastructure they
+      already trust."</em><br><br>
+
+      The modernization pattern described is the interesting technical claim: Devin analyzes the existing system, recreates
+      its behavior, writes replacement code, and tests the new system against <em>known outputs</em>. That is
+      characterization testing as a migration strategy — and it is precisely the technique Addy Osmani argues for in the
+      brownfield post covered below, published the day before. Two independent sources converging on "pin the behavior, then
+      let the agent work" is the closest thing to a methodology consensus this brief has seen on legacy code.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">Z.AI raised $5B — $2B in shares plus $3B in zero-coupon converts — with 60% earmarked for next-generation GLM</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Sep 13–14, 2026 (new to this brief) — searched "Zhipu z.ai GLM news September 15 2026 model", then "Zhipu Z.ai $5 billion placement convertible bonds September 12 2026 GLM". <a href="https://www.caixinglobal.com/2026-09-14/zai-raises-5-billion-in-share-placement-convertible-bond-sale-102484813.html">Caixin Global</a>, <a href="https://www.business-standard.com/companies/news/china-s-z-ai-raises-5-billion-through-share-convertible-bond-sales-126091400007_1.html">Business Standard</a> and <a href="https://thebambooworks.com/z-ai-to-raise-5-billion-from-share-placement-and-convertible-bond-sales/">Bamboo Works</a> surfaced in the result list and are cited as headline/summary only; none were fetched. <strong>This brief missed the raise when it happened and is recording it now.</strong></div>
+    <div class="item-body">
+      <strong>The structure.</strong> <strong>21.97 million H shares at HK$714</strong> (~$2B, roughly a 10% discount to the
+      prior close) plus ~<strong>$3B in zero-coupon convertibles due September 2027</strong> at an initial conversion price
+      of <strong>HK$892.50</strong>. This follows a <strong>$4B placement in July</strong> — two raises totaling ~$9B in under
+      two months.<br><br>
+
+      <strong>Where it goes.</strong> ~<strong>60%</strong> to next-generation GLM foundation-model R&amp;D, a
+      <em>"fully self-training system"</em> and compute infrastructure; 15% to expansion; the rest to capital structure and
+      working capital.<br><br>
+
+      This brief has spent three days noting that Qwen and GLM have been simultaneously silent for 20 days and speculating
+      that it looked pre-release. The financing is the missing evidence: you do not raise $9B in eight weeks, at a discount,
+      with 60% pointed at "next-generation GLM" and a self-training system, unless something is coming. Note the phrase
+      "fully self-training system" sitting in a use-of-proceeds disclosure, in the same week recursive self-improvement
+      became the stated justification for a Western pacing proposal. Newest shipped GLM is still <strong>GLM-5.3</strong>;
+      <strong>GLM-6.0</strong> remains named-but-undated from the Aug 31 earnings call.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">xAI is mid-event; DeepSeek, Qwen and Meta all quiet — each checked individually</div>
+    </div>
+    <div class="item-date">Sep 15–16, 2026 — searched "xAI Grok news September 15 2026" (<a href="https://releasebot.io/updates/xai">release notes fetched</a>; <a href="https://x.ai/news">x.ai/news returned 403</a>), "DeepSeek news September 15 2026 API changelog release" (<a href="https://api-docs.deepseek.com/updates/">changelog fetched</a>), "Qwen blog September 2026 Alibaba model release", and "Meta AI blog September 2026 Llama Muse Spark announcement".</div>
+    <div class="item-body">
+      <strong>xAI</strong> — <a href="https://x.ai/galaxy">Grok Bot Galaxy</a> is running <strong>Sep 15–17</strong> at The
+      Howard in San Francisco with a free livestream: role-specific blocks for engineering, product, founders, sales, support
+      and marketing, and a stunt in which Lauren Tan, Matt Palmer and Roshan Sadanani attempt to build a company in 72 hours
+      using Grok Bots as employees (<a href="https://teslanorth.com/2026/09/10/xai-grok-bot-galaxy-event/">event write-up</a>).
+      The release feed's newest entry is still <strong>Sep 11</strong> (Grok Build 1.0.30). <strong>Grok 4.7 remains
+      unreleased</strong> — no new date, six missed targets, and nothing from the brand accounts about the slip for a third
+      consecutive day.<br><br>
+      <strong>DeepSeek</strong> — changelog fetched; newest is still <strong>V4.1-Flash, Sep 10</strong>. The V4-Pro
+      continuation (billing unchanged past Sep 14) is confirmed and already covered.<br><br>
+      <strong>Qwen</strong> — nothing in September. Newest remains <strong>Qwen3.8-Flash-Next (Aug 26–28)</strong>, the
+      declared architecture preview for Qwen4. No Qwen 4 date. Note the awkward adjacency with the distillation item below:
+      the lab Anthropic accuses of 151M extraction exchanges is the one that has shipped nothing for three weeks.<br><br>
+      <strong>Meta</strong> — nothing new; newest remains <strong>Muse Spark 1.3 (Sep 2)</strong>, closed weights, 1M
+      context, behind <strong>Muse Voice Transcribe (Sep 1)</strong>.
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH & AGGREGATORS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Research &amp; Aggregators</h2>
+    <span class="section-tag tag-practitioner">Research</span>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">arXiv cs.AI has moved to Sep 16 with 1,091 entries, and the top of the list is recursive self-improvement again</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Sep 16, 2026 — <a href="https://arxiv.org/list/cs.AI/recent">the listing was fetched</a>: newest date <strong>Sep 16</strong>, <strong>1,091 entries</strong>. arXiv IDs below are stated as identifiers rather than hyperlinked, because their individual abstract URLs did not surface this run.</div>
+    <div class="item-body">
+      <strong>2609.17523 — "ScienceBuddy: Recursive-in-Recursive Self-Improvement for Interactive Scientific Agents"</strong>
+      (Xue, Zhong, Nan et al.). Sitting at the top of the listing, one day after RSIAgent and AlgoEvo. The category is no
+      longer emerging; it is the default framing.<br><br>
+      <strong>2609.17419 — "World Model Science: Self-Organized Criticality, Weak Chaos, and Metastable Belief Dynamics in
+      Long-Horizon LLM Agents"</strong> (Song, Cai) and <strong>2609.17416 — "Never Stop Thinking: Continuous-Time Language
+      Agents"</strong> (Li, Shi). Both attack the same problem from opposite ends: what happens to an agent's beliefs when
+      the horizon is long enough that the episode framing stops being true.<br><br>
+      <strong>2609.17496 — "Verifiable Social Reasoning for LLM Assistants"</strong> (Taubenfeld, Gekhman,
+      Grinstein-Dabush et al.). <strong>2609.17488 — "LimiX-2: A Contextual Mechanism Network Towards General
+      Structured-Data Intelligence"</strong> (Zhang, Ren, Yuan + 48 co-authors) — a 51-author structured-data model landing
+      the same day TypeSafe argues structured decisions deserve their own architecture. <strong>2609.17475 — "JustFit:
+      200K-Token LLM Serving on a 24 GiB Laptop with Just-in-Time State Management"</strong> (Chen), a single-author paper on
+      running long context on consumer hardware.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">Hugging Face: an OpenRouter price/speed leaderboard across 425 models, and Reef — open infrastructure for continually self-improving agents</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Sep 15–16, 2026 — <a href="https://huggingface.co/blog">the blog index was fetched</a>. The leaderboard post by <strong>ginigen-ai</strong> is ~3 hours old at time of check; the Reef post by <strong>quao627</strong> is ~23 hours old. <strong>Neither individual permalink surfaced this run, so both are cited against the fetched index.</strong> A separate search ("Hugging Face blog 'Reef' continual self-improving agents") surfaced <a href="https://www.reefinfra.ai/">the project site</a> and multiple GitHub mirrors, which corroborate the description.</div>
+    <div class="item-body">
+      <strong>"OpenRouter Leaderboard: 425 Models by Price, Measured Speed and Korean Quality"</strong> — the notable part is
+      <em>measured</em> speed rather than published speed, across 425 models, with a non-English quality axis. The
+      cost-per-capability question is being answered empirically by the community on the same day a vendor claims 238×.<br><br>
+      <strong>"Your Inference Server is Secretly a Learner: Reef Infrastructure for Continual Self-Improving Agents"</strong>
+      — Reef describes itself as the first open-source infrastructure connecting agent inference, feedback, learning and
+      versioned delivery in one loop: serve requests and record interactions, match feedback to recorded interactions, run a
+      training step once a recipe has enough feedback, then sync updated weights into the serving runtime <em>without
+      restarting</em>. It can train weights (Slime/SGLang) or improve the harness — prompts, rules, skills.<br><br>
+      Read Reef against the arXiv item above and the pacing debate two sections up. Recursive self-improvement stopped being
+      a lab-internal capability argument today and became an <em>installable package</em>. Whatever one thinks of the
+      pacing proposal, its central technical premise — that AI improving AI is the accelerant — now has an open-source
+      reference implementation that any team can run, which is not a thing a coordinated frontier-lab agreement can reach.<br><br>
+      Behind them on the index: ShadowPEFT in the PEFT library (1 day, EN + ZH), the AutoRound correction post (2 days),
+      "One sandbox per rollout" (5 days) and bartowski's per-tensor GGUF layout maps (6 days).
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">The AI Daily Brief, The Rundown and The Batch — checked individually</div>
+    </div>
+    <div class="item-date">Sep 15–16, 2026 — searched "AI Daily Brief NLW September 15 2026 episode" (<a href="https://aidailybrief.beehiiv.com/archive">archive fetched</a>); "The Rundown AI newsletter September 15 2026" (<a href="https://www.therundown.ai/archive">archive fetched</a>); "The Batch DeepLearning.AI issue September 2026 Andrew Ng letter".</div>
+    <div class="item-body">
+      <strong>The AI Daily Brief</strong> — NEW:
+      <a href="https://aidailybrief.beehiiv.com/p/trump-rails-against-ai-slowdown-hoax">"Trump Rails Against AI Slowdown Hoax"</a>,
+      dated Sep 15 on the fetched archive. The issue body was not fetched; it is listed here as the day's episode, covering
+      the Truth Social post this brief carried in full yesterday.<br><br>
+      <strong>The Rundown AI</strong> — the archive is server-rendered but <strong>still exposes no per-issue dates</strong>,
+      third consecutive day. Two items are new at the top: <strong>"ChatGPT co-creator launches a new kind of AI"</strong>
+      (the TypeSafe launch) and <strong>"Trump, China both shoot down the AI slowdown."</strong> The Rundown's own
+      <a href="https://www.therundown.ai/news/typesafe-jev-ai-decisions-software">TypeSafe writeup</a> is dated Sep 15 via
+      search and describes Jev's three output shapes: yes/no with probabilities, choice among defined options, or a score
+      against a scale — with a confidence measure on the latter two.<br><br>
+      <strong>The Batch</strong> — nothing new. Newest remains the <strong>Sep 11</strong> issue; issue 369 was Sep 4.
+    </div>
+  </div>
+</div>
+
+<!-- PRACTITIONERS -->
+<div class="section">
+  <div class="section-header">
+    <h2>Practitioners</h2>
+    <span class="section-tag tag-practitioner">Practitioner</span>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">The Pragmatic Engineer</div>
+
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title"><a href="https://newsletter.pragmaticengineer.com/p/openai-software-factory">"Inside OpenAI's agentic software factory" — finance and legal went from zero to 90% Codex usage in four months, and PRs per engineer are a hockey stick</a></div>
+        <span class="item-badge badge-sig">⭐ Significant</span>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Sep 15, 2026 — searched "Pragmatic Engineer newsletter September 15 2026 Gergely Orosz"; <a href="https://newsletter.pragmaticengineer.com/p/openai-software-factory">the post was fetched</a>. It is a paid article; the material below is what the fetch returned. Based on interviews with seven OpenAI engineering leaders and engineers: <strong>Venkat Venkataramani</strong> (VP Eng, Applied Infra), <strong>Sulman Choudhry</strong> (Head of Eng, ChatGPT), <strong>Andrew Ambrosino</strong> (Lead, Desktop), <strong>Joe Gershenson</strong> (Lead, Core Agent), <strong>Akshay Nathan</strong> (Eng Lead, Productivity), <strong>Ahmed Ibrahim</strong> (Codex) and <strong>Steve Coffey</strong> (Responses API).</div>
+      <div class="item-body">
+        <strong>The adoption number.</strong> Since January 2026, non-engineering departments — finance, legal, recruitment —
+        went from <strong>near-zero to 90% Codex usage in four months</strong>. Ambrosino's framing:
+        <em>"everything is now a coding agent. Whether the visible code is your output or not, agents write your
+        artifacts."</em><br><br>
+
+        <strong>The load number.</strong> Venkataramani: <em>"The number of pull requests per engineer is growing like a
+        hockey stick… roughly a 10x increase in load on some systems."</em> The post reports infrastructure bottlenecks
+        surfacing <strong>monthly</strong>, forcing continuous redesign of CI/CD and code review.<br><br>
+
+        <strong>The pipeline, as described.</strong> Humans define outcomes → Codex gathers context from repos, Slack, Notion
+        and internal systems → implementation and testing run automatically → multiple <em>specialist</em> review agents
+        (security, infrastructure) → autonomous deployment agents watching production signals → <strong>Perf Factory</strong>
+        finding and fixing performance regressions → <strong>Sevbot</strong> handling incident response, potentially
+        autonomously.<br><br>
+
+        <strong>The constraint nobody solved.</strong> Mobile. Choudhry: <em>"If software can be written in minutes, waiting
+        days or weeks to get it onto a phone starts to look increasingly absurd."</em> App Store review is now a
+        first-order engineering problem.<br><br>
+
+        Two days ago Anthropic published a capacity number: CI jobs up <strong>25×</strong> in six months, Claude writing
+        80% of the code, three mitigations that lasted 70 days, 29 days, and less than one. Today OpenAI's number is
+        <strong>10× load on some systems</strong> with bottlenecks appearing monthly. These are independent reports from
+        competing companies describing the same failure mode, and neither cites the other. That is about as close to
+        replication as industry reporting gets. The difference worth noting is where they put the human: Anthropic's post is
+        about test selection infrastructure, OpenAI's is about a chain of specialist review agents. One scaled the
+        verification system; the other scaled the reviewers. Both concluded that writing the code was never the part that
+        was going to break.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Zvi Mowshowitz</div>
+
+    <div class="item significant">
+      <div class="item-header">
+        <div class="item-title"><a href="https://thezvi.substack.com/p/the-bad-guy-with-an-ai-named-claude">"The Bad Guy With An AI Named Claude" — most misuse failed; the distillation campaigns did not</a></div>
+        <span class="item-badge badge-sig">⭐ Significant</span>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Sep 15, 2026 — searched "Zvi Mowshowitz Don't Worry About the Vase September 15 2026"; <a href="https://thezvi.substack.com/archive">the archive was fetched</a> and lists this as ~24 hours old. <a href="https://thezvi.substack.com/p/the-bad-guy-with-an-ai-named-claude">The post was then fetched in full</a>; mirrored at <a href="https://thezvi.wordpress.com/2026/09/15/the-bad-guy-with-an-ai-named-claude/">thezvi.wordpress.com</a>. The underlying Anthropic report (Sep 10) was covered here previously; <strong>what is new is Zvi's reading and the per-lab figures</strong>, independently corroborated by <a href="https://techcrunch.com/2026/09/10/anthropic-details-distillation-campaigns-from-alibaba-moonshot-ai-and-deepseek/">TechCrunch</a> and <a href="https://www.cnbc.com/2026/09/11/chinese-ai-labs-moonshot-deepseek-alibaba-anthropic.html">CNBC</a>, cited as summaries.</div>
+      <div class="item-body">
+        <strong>The good news first.</strong> Anthropic disrupted activity across seven categories between December 2025 and
+        August 2026 — cyber operations, influence operations, surveillance, scams and fraud, biological misuse, conventional
+        weapons, and distillation. Zvi's verdict on most of it: attempts were made, most failed or achieved minimal impact.
+        The observation he keeps: <em>"Sophisticated attacks no longer require sophisticated attackers"</em> — AI compensates
+        for skill gaps, but effectiveness was still limited.<br><br>
+
+        <strong>The distillation figures, per lab.</strong>
+        <strong>Alibaba (Qwen)</strong> — <strong>151M+ exchanges across 3,500+ accounts</strong>, extracting reasoning
+        traces; TechCrunch reports this peaked near <strong>3M exchanges/day</strong> between May and July, attributed to a
+        single campaign because all 3,500 accounts shared one fixed extraction prompt.
+        <strong>Moonshot (Kimi)</strong> — <strong>300,000+ live customer requests</strong> secretly forwarded to Claude and
+        the responses returned to users as Kimi output, captured without consent.
+        <strong>DeepSeek</strong> — <strong>12.1M exchanges in 14 days</strong>, same routing method.
+        <strong>Zhipu (GLM)</strong> — <strong>3.4M exchanges</strong>, targeting Fable's cyber safeguards.
+        <strong>Xiaomi</strong> — ~<strong>400,000 messages</strong> built from saved user requests. TechCrunch's total:
+        <strong>~200M exchanges across five campaigns.</strong><br><br>
+
+        <strong>The legal angle Zvi raises.</strong> The Moonshot and DeepSeek methods — routing a paying customer's
+        conversation to a third party without consent — violate <strong>Chinese</strong> law, specifically PIPL Article 39,
+        as well as fraud statutes. That is a notably different argument from the usual IP-theft framing.<br><br>
+
+        <strong>The countermeasure worth noting.</strong> Anthropic's defenses include account attribution, adversarial
+        extraction classifiers, and <em>summarizing internal reasoning</em> so that chain-of-thought cannot be stolen
+        usefully. Which is to say: the trace is deliberately degraded as a security measure. Hold that next to this week's
+        other thread — three independent results arguing the scratchpad isn't a reliable window into the model. It isn't
+        one, partly by design, for commercial reasons.<br><br>
+
+        <strong>The geopolitical cost.</strong> Zvi's closing concern is that China reads this report and "Pacing the
+        Frontier" as one coordinated American competitive play rather than two separate safety arguments — which is exactly
+        what <a href="https://www.npr.org/2026/09/14/nx-s1-5968456/china-hits-back-ai-development">Beijing said on Sep 14</a>,
+        when Foreign Ministry spokesperson Guo Jiakun condemned <em>"fearmongering, confrontation and vicious
+        competition."</em> If the two documents are read as one, the cooperation needed for the catastrophic-risk case gets
+        harder, and Anthropic published both.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Simon Willison</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://simonwillison.net/2026/Sep/15/gemini-live/">"Gemini Live audio" — a working browser client for Google's new voice models, built the night they shipped, with no libraries</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Sep 15, 2026, 10:47pm — <a href="https://simonwillison.net/">the homepage was fetched</a> and shows this as the only Sep 15 post and nothing yet for Sep 16; <a href="https://simonwillison.net/2026/Sep/15/gemini-live/">the post was fetched in full</a>.</div>
+      <div class="item-body">
+        <strong>What he built.</strong> A browser UI for Gemini 3.8 Live and 3.8 Live Extended Thinking: model and voice
+        selection, optional system prompt, voice conversation with transcript, and the ability to interrupt the model
+        mid-response. <em>"The implementation uses no libraries. It connects to the
+        <code>wss://generativelanguage.googleapis.com/…BidiGenerateContent?key=…</code> WebSocket endpoint and uses a Web
+        Audio API <code>AudioContext</code> for both capture and playback."</em><br><br>
+
+        <strong>His read on the models.</strong> <em>"A similar shape to OpenAI's GPT-Live family."</em> That is the whole
+        assessment, and it is a useful corrective to the benchmark table in the Google section above: the leading
+        speech-to-speech score and "the same shape as the competitor" are both true, and the second one is what a developer
+        notices first.<br><br>
+
+        The turnaround is the point. A frontier voice model shipped during the day and a working third-party client existed
+        that evening, written against the raw WebSocket protocol with zero dependencies. That is the practical argument for
+        publishing a clean streaming API, and it is worth contrasting with the mobile bottleneck OpenAI describes above —
+        the web has no App Store review, so the loop closes in hours.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Addy Osmani</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://addyo.substack.com/p/brownfield-agentic-engineering">"Brownfield Agentic Engineering" — zone the codebase green/yellow/red, pin behavior with characterization tests first, and "a person draws the map, not the agent"</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Sep 14, 2026 — searched "site:addyo.substack.com 2026 September"; <a href="https://addyo.substack.com/p/brownfield-agentic-engineering">the post was fetched in full</a>. <strong>This corrects yesterday's brief, which recorded the Substack as having nothing from September.</strong> Addy's own blog at <a href="https://addyosmani.com/blog/">addyosmani.com</a> was fetched separately and remains unchanged since <strong>Aug 21</strong>.</div>
+      <div class="item-body">
+        <strong>The zoning model.</strong> Split the codebase into <strong>green</strong> (well-tested, isolated),
+        <strong>yellow</strong> (mixed quality) and <strong>red</strong> (auth, billing, anything sensitive), and set agent
+        autonomy per zone. The governing line: <em>"A person draws the map, not the agent."</em><br><br>
+
+        <strong>On documentation.</strong> Against flooding agents with markdown. <em>"Write down what the code can't say,
+        and nothing else"</em> — business nuance, trade-offs, domain rules. Everything else the agent can read from
+        source.<br><br>
+
+        <strong>On research artifacts.</strong> Agent exploration should produce durable comprehension memos, not chat
+        history, so the next agent doesn't repeat the archaeology.<br><br>
+
+        <strong>On tests.</strong> <em>"Pin the behavior first, in a separate pass or by a person; then let the agent
+        work."</em> Characterization tests before modification, not after.<br><br>
+
+        <strong>On migrations.</strong> Half-finished migrations are worse than none, because they create contradictory
+        precedent that the agent will learn from. Migrate end to end, including deletion of the deprecated path.<br><br>
+
+        <strong>The sentence that reframes the productivity argument.</strong> Agents reduced the <em>cost of attempting</em>
+        multiple implementations — not the <em>evidence required</em> to choose between them. Human review remains the
+        bottleneck and <em>should not be parallelized</em> before verification and recovery paths are reliable.<br><br>
+
+        That last point is the counterweight to everything else in today's brief. OpenAI reports 10× PR load, Anthropic 25×
+        CI load, Cognition an 8-month migration in 8 days — all three are measurements of <em>attempt</em> throughput.
+        Osmani's claim is that the evidence cost per decision is invariant, which is the same structural argument Laurie
+        Voss made about product discovery on Sunday: the cheap part got cheaper and the expensive part didn't move.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">O'Reilly Radar</div>
+
+    <div class="item new-item">
+      <div class="item-header">
+        <div class="item-title"><a href="https://www.oreilly.com/radar/beyond-navier-stokes-who-controls-scientific-discovery/">"Beyond Navier–Stokes: Who Controls Scientific Discovery?"</a></div>
+        <span class="item-badge badge-new">New</span>
+      </div>
+      <div class="item-date">Sep 15, 2026 — searched "O'Reilly Radar September 15 2026 AI article"; <a href="https://www.oreilly.com/radar/">the index was fetched</a> and supplies the title, author and permalink. Author <strong>Hugo Bowne-Anderson</strong>. <strong>The article body was not fetched</strong>; the search summary framed it as being about what AI's mathematical breakthroughs mean for human understanding, corporate power and the future of knowledge work, and it is characterized that way here rather than quoted.</div>
+      <div class="item-body">
+        The Navier–Stokes result is now a week old and has produced a distinct genre of response. O'Reilly's angle is the
+        governance one — who controls discovery when the discoverer is a lab-owned model. Hacker News took the opposite tack
+        the same day with <strong>"Why I'm still bearish on LLMs after Navier-Stokes"</strong> by Jay Kruer
+        (<a href="https://dank.systems/posts/2026-09-15-ai-bear.html">dank.systems</a>,
+        <a href="https://news.ycombinator.com/item?id=49715927">292 points / 380 comments</a>), whose argument is that the
+        proof is the <em>best case</em> for agentic work and therefore weak evidence: the theorem statement is already a
+        rigorous specification audited by the mathematical community for decades, and rendering it in Lean is a
+        straightforward translation. He pairs it with a chess result — when not told which moves were legal, no model
+        identified legal moves better than 80% of the time.<br><br>
+        Also on the index: Michelle Smith's <a href="https://www.oreilly.com/radar/zero-to-agent-in-30-minutes-build-a-shared-knowledge-base-for-all-your-agents-with-sajal-sharma/">"Zero to Agent in 30 Minutes"</a>
+        and Nitesh Khapekar's <a href="https://www.oreilly.com/radar/enterprise-analytics-beyond-dashboards-intelligent-data-orchestration-with-llms/">"Enterprise Analytics Beyond Dashboards"</a>,
+        both Sep 14 and both covered yesterday.
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">Everyone else — each queried individually this run</div>
+
+    <div class="item">
+      <div class="item-header">
+        <div class="item-title">One new non-AI post at Lenny's; the rest of the tail quiet</div>
+      </div>
+      <div class="item-date">Sep 15–16, 2026 — one query per source; every result reproduced in the footer.</div>
+      <div class="item-body">
+        <strong>Lenny Rachitsky</strong> — <a href="https://www.lennysnewsletter.com/archive">the archive was fetched</a>.
+        NEW but <strong>not AI</strong>: <strong>"60+ new creative growth ideas"</strong> (Sep 15) by Tom Orbach, on
+        standing out when everyone runs the same playbook. Recorded for completeness; the <em>/p/</em> permalink did not
+        surface and is not linked.<br><br>
+        <strong>Chip Huyen</strong> — no September 2026 post surfaced; most recent dated material is June.<br><br>
+        <strong>Hamel Husain</strong> — no new post. The <a href="https://hamel.dev/blog/posts/evals-faq/">evals FAQ</a> was
+        <em>last modified</em> <strong>Sep 13</strong> (previously recorded here as Sep 1); the evals-skills post remains
+        Aug 31, and the eval-skills plugin gained a <strong>new error-discovery skill</strong>. The Oct 10 cohort is the last
+        evals course of 2026.<br><br>
+        <strong>Eugene Yan</strong> — nothing since <strong>Jun 21, 2026.</strong><br><br>
+        <strong>Jason Liu (jxnl)</strong> — no September 2026 writing surfaced.<br><br>
+        <strong>Addy Osmani (blog)</strong> — index fetched; newest is still <strong>Aug 21</strong>. (The Substack is
+        covered above.)<br><br>
+        <strong>Swyx</strong> — no September 2026 post on swyx.io surfaced.<br><br>
+        <strong>Latent Space</strong> — nothing from the Sep 15–16 window. <strong>Correction to the standing "gap"
+        note:</strong> a <strong>Sep 5</strong> post by Dan McAteer on SpaceXAI's Grok Bot did surface this run, so the
+        publication is not dark — the post list simply isn't retrievable from the homepage.<br><br>
+        <strong>Lilian Weng</strong> — nothing since <strong>Jul 4, "Harness Engineering for Self-Improvement."</strong>
+        Search notes the blog is running at low and variable frequency as of Sep 2.<br><br>
+        <strong>LangChain</strong> — nothing after <strong>Sep 3</strong> (LangChain/LangGraph 1.0, MCP support with
+        <code>elicitation="interrupt"</code>, stricter error handling, PII redaction). Named as a Gemini 3.8 Live launch
+        partner today, which is a mention rather than a post.<br><br>
+        <strong>Anthropic Engineering</strong> — <a href="https://claude.com/blog">claude.com/blog fetched</a>. Nothing new
+        since <strong>Sep 14's CI post</strong>; the three Sep 15 entries are product and enterprise pieces, not
+        engineering.<br><br>
+        <strong>Ethan Mollick</strong> — nothing since <strong>Aug 31</strong>, "An opinionated guide to which AI to use to
+        do stuff — The Summer 2026 Edition."<br><br>
+        <strong>Interconnects / Nathan Lambert</strong> — <a href="https://www.interconnects.ai/archive">archive fetched</a>;
+        nothing after the <strong>Sep 11</strong> open-models reading list.<br><br>
+        <strong>Import AI / Jack Clark</strong> — no September 2026 issue surfaced; newest indexed remains <strong>#455</strong>
+        (May 4).<br><br>
+        <strong>Adam Tornhill</strong> — nothing since <strong>Sep 3, "Practices I Abandoned with Agents."</strong><br><br>
+        <strong>Jessica Talisman</strong> — nothing recent; <em>Ontology Pipeline</em> remains dated September/October 2026
+        from Technics Publications.<br><br>
+        <strong>Computer Enhance / Casey Muratori</strong> — nothing after <strong>Sep 9</strong>, the
+        <a href="https://www.computerenhance.com/p/spacetimedb">SpacetimeDB interview with Tyler Cloutier</a>, behind
+        Sep 8's <a href="https://www.computerenhance.com/p/520-pages-per-hour">"520 Pages Per Hour."</a><br><br>
+        <strong>Stratechery / Ben Thompson</strong> — no new free article surfaced for Sep 15–16. The Sep 15 output that did
+        surface is a <strong>Dithering</strong> podcast episode, "Football and the Frontier." Yesterday's paywalled Daily
+        Update on pacing remains the most recent substantive piece.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- X / SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <h2>X / Social</h2>
+    <span class="section-tag tag-social">Social</span>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">One handle active, four quiet — and DeepMind's account carried the day's launch</div>
+    </div>
+    <div class="item-date">Sep 15–16, 2026 — one search per handle: "'@xai' OR '@grok' X post September 15 2026 Grok Bot Galaxy announcement"; "from:karpathy September 2026 AI LLM agents tweet"; "Ethan Mollick @emollick X post September 15 2026"; "Addy Osmani @addyosmani X post September 2026 agents"; "Thariq Shihipar trq212 X post September 2026". X cannot be fetched directly.</div>
+    <div class="item-body">
+      <strong>@xai / @grok</strong> — the accounts are running <a href="https://x.ai/galaxy">Grok Bot Galaxy</a> (Sep 15–17),
+      with a published session schedule and the 72-hour company-building stunt. <strong>Still nothing from either brand
+      account about the Grok 4.7 slip</strong>, third consecutive day.<br><br>
+      <strong>@karpathy</strong> — nothing dated Sep 15–16. Searchable material remains his standing 2026 positions (the
+      decade of agents; context engineering over prompt engineering; LLM-as-CPU with the context window as RAM), the
+      <a href="https://karpathy.bearblog.dev/sequoia-ascent-2026/">Sequoia Ascent 2026 summary</a>, and the undated
+      "idea file" thread — <em>in this era of LLM agents there is less need to share the specific code, you share the idea
+      and the other person's agent builds it for their needs</em>.<br><br>
+      <strong>@emollick</strong> — nothing confirmable by date from Sep 15–16. Undated recent items include the
+      moving-target problem for fine-tuned small models against an improving frontier, and the standing line that GPT-6
+      Astra and Fable 5.1 are already enough for transformative economic impact.<br><br>
+      <strong>@addyosmani</strong> — nothing from September 2026 surfaced on X; his writing this window went to Substack
+      (covered above).<br><br>
+      <strong>@trq212</strong> — nothing from September 2026 surfaced.<br><br>
+      Worth noting where the actual signal was: <strong>@GoogleDeepMind</strong>'s launch thread for Gemini 3.8 Live
+      surfaced in search with the capability list (upgraded reasoning, near-real-time visual understanding, automatic
+      detection for 97 languages, background tool calling) — a tracked-adjacent account outproducing four of the five
+      tracked ones. These are search-only surfaces; read the above as "nothing surfaced," not "nothing posted."
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-header">
+    <h2>Community</h2>
+    <span class="section-tag tag-community">Community</span>
+  </div>
+
+  <div class="item significant">
+    <div class="item-header">
+      <div class="item-title">Hacker News gave a stealth startup 1,561 points and the frontier labs 445 — and the #3 AI story is an argument that the Navier-Stokes proof means less than claimed</div>
+      <span class="item-badge badge-sig">⭐ Significant</span>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Sep 15, 2026 — <a href="https://news.ycombinator.com/front">the Hacker News front page for Sep 15 was fetched</a>.</div>
+    <div class="item-body">
+      <strong>The AI items, by points.</strong>
+      <strong>"System One Models and Jev" (typesafe.ai) — 1,561 points / 435 comments</strong>, the top story on the page.
+      <strong>"Gemini 3.8 Live and Extended Thinking" (blog.google) — 445 / 300.</strong>
+      <strong>"Why I'm Still Bearish on LLMs After Navier-Stokes" (dank.systems) — 292 / 380</strong> — note the comment-to-point
+      ratio, the highest of the five.
+      "Backprop Alternative: Augmented Lagrangian Predictive Coding" (sakana.ai) — 123 / 45.
+      "Learning to Solve Hard Problems in RL for LLMs" — 103 / 6.<br><br>
+
+      <strong>The non-AI page.</strong> An e-ink bird-drawing frame (1,766), a Papua New Guinea essay (1,082), a mass
+      surveillance critique (878), and a Wayback Machine access update (596).<br><br>
+
+      The ordering is the story, for the second day running. Yesterday this brief noted HN voting for the specific over the
+      abstract — an actual incident over an essay about a counterfactual. Today it did it again in a different register: a
+      $40M seed-stage company with a working price sheet beat a Google frontier launch by more than 3×, and the most
+      <em>argued-over</em> item was a skeptic's post. The community is not rewarding capability announcements; it is
+      rewarding things that change what you can build on Monday and things that make a falsifiable claim about limits.
+      Kruer's "best case, therefore weak evidence" framing is the sharpest version of the bear argument in weeks precisely
+      because it concedes the result and attacks the extrapolation.
+    </div>
+  </div>
+
+  <div class="item new-item">
+    <div class="item-header">
+      <div class="item-title">LessWrong: the METR question gets a direct answer, and a cluster of new inoculation/midtraining results lands</div>
+      <span class="item-badge badge-new">New</span>
+    </div>
+    <div class="item-date">Sep 15–16, 2026 — searched "LessWrong September 15 2026 new post AI safety karma"; <a href="https://www.greaterwrong.com/">the greaterwrong mirror was fetched</a> for the listing, as LessWrong's own allPosts page has returned navigation only on prior runs. Only the METR post's permalink was resolved (by a second search); <strong>the rest are cited against the fetched listing and not individually linked.</strong></div>
+    <div class="item-body">
+      <strong>Sep 16.</strong> <a href="https://www.greaterwrong.com/posts/eeJB8x2pK8injCuBN/is-metr-a-meaningful-check-on-anthropic">"Is METR A Meaningful Check On Anthropic?"</a>
+      by SE Gyges, <strong>65 karma</strong> — covered at the top of this brief. Also
+      <strong>"Phantom transfer works via extremely subtle semantic cues"</strong> by Helena Casademunt et al.
+      (<strong>40</strong>), <strong>"Should our journal publish AI-drafted manuscripts?"</strong> by Dan MacKinlay (12),
+      "Who computes?" by the same author (6), and "J-space auditing might be unreliable" by Kartikay Luthra (5).<br><br>
+
+      <strong>Sep 15.</strong> <strong>"Cooperation with AIs seems to be a low-hanging fruit for better eval practices"</strong>
+      by Clément Dumas at <strong>100 karma</strong> — the highest-scoring new post in the window.
+      <strong>"Quick notes from teaching technical profiles how to talk in public"</strong> by Camille B. (<strong>97</strong>).
+      <strong>"Inoculation Midtraining with Learned Neologisms"</strong> by Kyle O'Brien et al. (<strong>72</strong>) and
+      <strong>"Shallow Beliefs: Midtraining does not inoculate against EM from reward hacking"</strong> by Jozdien and Julian
+      Stastny (<strong>45</strong>) — two midtraining-inoculation results on the same day pointing opposite ways, which is
+      the healthiest thing on the list. Plus "Why would AI cause human extinction?" by jacob (7).<br><br>
+
+      The pattern across four days now: the alignment community's new work is overwhelmingly about <em>whether the
+      interventions we already deploy actually work</em> — inoculation, midtraining, scratchpad monitoring, third-party
+      evaluation — rather than about new capabilities. Two of today's posts are a direct test-and-refutation pair. That is
+      what a field looks like when it stops taking its own tooling on faith.
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="item-title">Both subreddits — search-only surfaces, nothing dated surfaced this run</div>
+    </div>
+    <div class="item-date">Sep 15–16, 2026 — searched "reddit r/LocalLLaMA September 15 2026 discussion" and "r/MachineLearning reddit September 2026 discussion paper".</div>
+    <div class="item-body">
+      Neither query returned dated threads from the window. The r/LocalLLaMA query again surfaced only a subreddit-analytics
+      page (last updated Sep 13; standing topics are local models, Qwen, GPU optimization and hardware comparisons); the
+      r/MachineLearning query returned no Reddit results at all, only conference and syllabus pages. Both are flagged in
+      sources.md as JS-heavy / search-only and cannot be fetched directly. <strong>This is an observed search failure, not
+      evidence the communities were quiet</strong> — fourth consecutive day for both.
+    </div>
+  </div>
+</div>
+
+<!-- THEMES -->
+<div class="section">
+  <div class="section-header">
+    <h2>Notable Themes</h2>
+  </div>
+
+  <div class="themes-box">
+    <h3>1. The coordination was already happening; the essay just made it public</h3>
+    <p>
+      Chris Lehane confirmed that OpenAI, Anthropic and Google DeepMind had been in safety talks <em>for several weeks</em>
+      before Amodei published — and that OpenAI backs independent verification bodies but, unlike Amodei, sees
+      <strong>no need for an antitrust waiver</strong>. That single disagreement is the most concrete thing to come out of
+      nine days of argument: two labs that agree on the mechanism disagree on whether it is legal without permission. Meanwhile
+      the strongest objection to the mechanism got its clearest statement yet, on LessWrong: METR cannot check Anthropic
+      because it is not independent, not staffed for it, and holds no authority Anthropic cannot revoke. Step 2 died Monday
+      when the President called the risk a hoax. Step 1 turns out to have been running since August, unannounced, and its
+      central design flaw is now being argued in public by the people most sympathetic to it.
+    </p>
+  </div>
+
+  <div class="themes-box">
+    <h3>2. Two frontier labs independently published the same load graph, three days apart</h3>
+    <p>
+      Anthropic, Sep 14: engineers ship <strong>8× more code</strong>, Claude writes <strong>80%</strong> of it, CI jobs up
+      <strong>25×</strong> in six months, three mitigations lasting 70 days / 29 days / less than one. OpenAI, via the
+      Pragmatic Engineer today: non-engineering departments at <strong>90% Codex usage in four months</strong>, PRs per
+      engineer <em>"growing like a hockey stick… roughly a 10x increase in load on some systems,"</em> infrastructure
+      bottlenecks appearing <strong>monthly</strong>, and a pipeline of specialist review agents, autonomous deploy agents, a
+      Perf Factory and an incident-response bot. Neither post cites the other. Cognition's AWS release adds the enterprise
+      version of the same number: an 8-month Mercedes-Benz COBOL modernization in <strong>8 days</strong>. The common finding
+      is not that agents write code well — it's that <em>generation throughput is now a load-testing problem for everything
+      downstream of generation</em>, and every organization is discovering it at its own scale.
+    </p>
+  </div>
+
+  <div class="themes-box">
+    <h3>3. Attempt cost collapsed; evidence cost didn't move</h3>
+    <p>
+      Addy Osmani's brownfield post makes the argument the rest of the day keeps illustrating: agents reduced the
+      <em>cost of attempting</em> multiple implementations, not the <em>evidence required</em> to choose between them — so
+      human review is the bottleneck and <strong>should not be parallelized</strong> until verification and recovery paths
+      are reliable. His prescriptions are unglamorous and testable: zone the codebase green/yellow/red with a human drawing
+      the map, write down only what the code can't say, produce durable comprehension memos instead of chat logs, pin
+      behavior with characterization tests <em>before</em> the agent touches anything, and never leave a migration half
+      done. Cognition's AWS migration method is that last idea productized — analyze, recreate behavior, test against known
+      outputs. And it is the same shape as Laurie Voss on Sunday: the transferable cost fell, the per-artifact cost didn't.
+    </p>
+  </div>
+
+  <div class="themes-box">
+    <h3>4. Someone finally unbundled classification from conversation, and the market noticed immediately</h3>
+    <p>
+      TypeSafe's Jev is the first frontier-adjacent model to argue that the industry has been paying chat prices for a job
+      that isn't chat. <em>"Unstructured state in, typed probabilistic decisions out,"</em> sampled in parallel:
+      <strong>70–500ms</strong>, <strong>40–200×</strong> faster, <strong>$0.042/Mtok in and $0 out</strong>, up to 255
+      options, and schema conformance guaranteed by construction rather than measured. Hacker News put it at
+      <strong>1,561 points</strong> — more than three times the Gemini 3.8 Live launch on the same page. Two cautions worth
+      carrying forward. The 0% hallucination figure is a type-safety claim, not an accuracy claim, and that distinction will
+      be lost in the retelling. And the entire value proposition rests on the confidence scores being <em>calibrated</em> —
+      if they aren't, a fast cheap number that looks like a probability is more dangerous than a slow expensive sentence.
+      The claim is clean enough to be falsified by anyone with an eval set, which is the best thing about it.
+    </p>
+  </div>
+
+  <div class="themes-box">
+    <h3>5. Recursive self-improvement shipped as a package while everyone argued about whether to slow it down</h3>
+    <p>
+      Amodei's stated reason for urgency is AI building the next AI. This week: <strong>Reef</strong> landed on the Hugging
+      Face blog as open-source infrastructure connecting agent inference, feedback, learning and versioned weight delivery in
+      one loop — training steps that sync into the serving runtime without a restart. <strong>ScienceBuddy</strong>
+      ("Recursive-in-Recursive Self-Improvement") sits at the top of today's cs.AI listing, one day after RSIAgent and
+      AlgoEvo. <strong>Z.AI</strong> disclosed that ~60% of a <strong>$5B</strong> raise — its second in two months, ~$9B
+      total — goes to next-generation GLM and a <em>"fully self-training system."</em> A coordinated agreement among three
+      American labs cannot reach an open-source package, a Chinese balance sheet, or an arXiv listing. Whatever pacing means
+      operationally, it has to mean something that survives all three, and nobody has yet proposed what that is.
+    </p>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Coverage ledger — 51 scannable sources in sources.md, 51 ledger lines.</strong> The "Retired / Dropped" section
+  (jxnl.substack.com, ElectricSQL, SageOx) is excluded from both counts and was not scanned. Every line below names one source,
+  the query actually run this session, and the result.</p>
+
+  <h3>Major AI Company News (9)</h3>
+  <ul>
+    <li><strong>Anthropic news</strong> — "Anthropic news announcement September 16 2026"; <a href="https://www.anthropic.com/news">newsroom fetched</a> (rendered nothing newer than Sep 10 — recorded as a partial render, second consecutive day). <a href="https://releasebot.io/updates/anthropic">Release aggregator fetched</a> and <a href="https://claude.com/blog">claude.com/blog fetched</a>. NEW: <a href="https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs">Claude for Small Business expansion</a> (Sep 15, fetched in full), "Bringing Salesforce into Claude" beta (Sep 15), Claude Code 2.1.273 (Sep 15).</li>
+    <li><strong>Anthropic Research</strong> — "Anthropic Research paper September 15 2026 interpretability alignment". Nothing dated Sep 15–16 surfaced; results were all pre-2026 interpretability work.</li>
+    <li><strong>Google DeepMind</strong> — "Google DeepMind blog September 15 2026 announcement"; <a href="https://deepmind.google/blog/">blog fetched</a>. NEW: "Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking" confirmed on the index. Index still shows month-level dates only.</li>
+    <li><strong>Google AI Blog</strong> — "Google AI blog September 15 2026 Gemini announcement". <strong>NEW:</strong> <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/">the Gemini 3.8 Live post, fetched in full</a> (Sep 15) — 82.6 S2S, 68.6% τ-Voice, 97.7% Big Bench Audio, 97 languages.</li>
+    <li><strong>AWS ML Blog</strong> — "AWS machine learning blog September 15 2026 Bedrock SageMaker"; <a href="https://aws.amazon.com/blogs/machine-learning/">index fetched</a>. NEW: two posts dated Sep 15 — Bedrock prompt caching (Daniel Abib; up to 90% input-token savings) and AI product tagging via SageMaker serverless customization of Qwen3-8B. Nothing Sep 16.</li>
+    <li><strong>Microsoft AI Blog</strong> — "Microsoft AI blog September 15 2026 Copilot announcement", "microsoft.ai news September 15 2026 MAI model Suleyman", "Microsoft AI news September 15 2026 announcement MAI". <strong>Nothing new</strong> after the Sep 14 MAI Code of Conduct already covered here; Sep 15 coverage is secondary reporting on that draft.</li>
+    <li><strong>Azure Blog</strong> — "Azure blog September 15 2026 AI announcement Microsoft"; <a href="https://azure.microsoft.com/en-us/blog/">index fetched</a>. Nothing Sep 11–16; newest three remain Sep 10.</li>
+    <li><strong>OpenAI</strong> — "OpenAI news announcement September 15 2026"; <a href="https://releasebot.io/updates/openai">release aggregator fetched</a> — <strong>nothing dated Sep 15 or 16</strong>, newest is Sep 14. NEW externally: the safety-coordination confirmation and the $1.2T/$1.5T funding talks.</li>
+    <li><strong>xAI / Grok</strong> — "xAI Grok news September 15 2026"; <a href="https://releasebot.io/updates/xai">release notes fetched</a> (newest Sep 11, Grok Build 1.0.30); <a href="https://x.ai/news">x.ai/news returned HTTP 403</a>. <a href="https://x.ai/galaxy">Grok Bot Galaxy</a> running Sep 15–17. Grok 4.7 still unreleased.</li>
+  </ul>
+
+  <h3>AI Labs — Open Weights / Emerging (5)</h3>
+  <ul>
+    <li><strong>DeepSeek</strong> — "DeepSeek news September 15 2026 API changelog release"; <a href="https://api-docs.deepseek.com/updates/">changelog fetched</a>. Nothing Sep 15–16; newest is V4.1-Flash (Sep 10).</li>
+    <li><strong>Alibaba Qwen</strong> — "Qwen blog September 2026 Alibaba model release". Nothing in September; newest is Qwen3.8-Flash-Next (Aug 26–28), the declared Qwen4 architecture preview. Qwen 4 still undated.</li>
+    <li><strong>Zhipu / GLM</strong> — "Zhipu z.ai GLM news September 15 2026 model", then "Zhipu Z.ai $5 billion placement convertible bonds September 12 2026 GLM". <strong>NEW to this brief:</strong> the <a href="https://www.caixinglobal.com/2026-09-14/zai-raises-5-billion-in-share-placement-convertible-bond-sale-102484813.html">$5B raise</a> (announced Sep 13) — ~60% to next-generation GLM and a "fully self-training system." No new model; GLM-5.3 remains newest, GLM-6.0 undated.</li>
+    <li><strong>Meta Llama</strong> — "Meta AI blog September 2026 Llama Muse Spark announcement". Nothing new; newest remains Muse Spark 1.3 (Sep 2), behind Muse Voice Transcribe (Sep 1).</li>
+    <li><strong>Cognition / Devin</strong> — "Cognition Devin blog September 15 2026"; <a href="https://cognition.com/blog">blog fetched</a>. <strong>NEW:</strong> "Cognition and AWS team up…" (09.15.26) — <a href="https://press.aboutamazon.com/aws/2026/9/cognition-and-aws-sign-multi-year-collaboration-agreement">the AWS press release was fetched in full</a>. Individual Cognition permalink did not surface; not linked.</li>
+  </ul>
+
+  <h3>Research &amp; Aggregators (5)</h3>
+  <ul>
+    <li><strong>Hugging Face Blog</strong> — <a href="https://huggingface.co/blog">index fetched</a>. NEW: "OpenRouter Leaderboard: 425 Models by Price, Measured Speed and Korean Quality" (ginigen-ai, ~3h) and "Your Inference Server is Secretly a Learner: Reef…" (quao627, ~23h). <strong>Neither permalink surfaced — both cited against the index.</strong> Corroborated by a separate search that surfaced <a href="https://www.reefinfra.ai/">reefinfra.ai</a>.</li>
+    <li><strong>The Batch</strong> — "The Batch DeepLearning.AI issue September 2026 Andrew Ng letter". Nothing new; newest is the Sep 11 issue, issue 369 was Sep 4.</li>
+    <li><strong>ArXiv cs.AI</strong> — <a href="https://arxiv.org/list/cs.AI/recent">listing fetched</a>. NEW: moved to <strong>Sep 16 with 1,091 entries</strong>, led by 2609.17523 (ScienceBuddy, recursive-in-recursive self-improvement); also 2609.17496, 2609.17488, 2609.17475, 2609.17419, 2609.17416. IDs stated, not linked — abstract URLs did not surface.</li>
+    <li><strong>The Rundown AI</strong> — "The Rundown AI newsletter September 15 2026"; <a href="https://www.therundown.ai/archive">archive fetched</a>. Still <strong>no per-issue dates rendered</strong> (third day). New at the top: "ChatGPT co-creator launches a new kind of AI" and "Trump, China both shoot down the AI slowdown." Their <a href="https://www.therundown.ai/news/typesafe-jev-ai-decisions-software">TypeSafe writeup</a> is dated Sep 15 via search.</li>
+    <li><strong>The AI Daily Brief</strong> — "AI Daily Brief NLW September 15 2026 episode"; <a href="https://aidailybrief.beehiiv.com/archive">archive fetched</a>. NEW: <a href="https://aidailybrief.beehiiv.com/p/trump-rails-against-ai-slowdown-hoax">"Trump Rails Against AI Slowdown Hoax"</a> (Sep 15). Issue body not fetched.</li>
+  </ul>
+
+  <h3>Practitioner Blogs — Software Engineering (12)</h3>
+  <ul>
+    <li><strong>Simon Willison</strong> — "Simon Willison blog September 16 2026"; <a href="https://simonwillison.net/">homepage fetched</a>. NEW: <a href="https://simonwillison.net/2026/Sep/15/gemini-live/">"Gemini Live audio"</a> (Sep 15, 10:47pm, fetched in full). <strong>Nothing yet for Sep 16</strong> at time of check.</li>
+    <li><strong>O'Reilly Radar</strong> — "O'Reilly Radar September 15 2026 AI article"; <a href="https://www.oreilly.com/radar/">index fetched</a>. NEW: <a href="https://www.oreilly.com/radar/beyond-navier-stokes-who-controls-scientific-discovery/">"Beyond Navier–Stokes: Who Controls Scientific Discovery?"</a> (Hugo Bowne-Anderson, Sep 15). Body not fetched; characterized from the search summary.</li>
+    <li><strong>Chip Huyen</strong> — "Chip Huyen blog September 2026 huyenchip". No September 2026 post surfaced; most recent dated material is June.</li>
+    <li><strong>Hamel Husain</strong> — "Hamel Husain blog September 2026 evals hamel.dev". No new post; the <a href="https://hamel.dev/blog/posts/evals-faq/">evals FAQ</a> was last <em>modified</em> Sep 13 (previously recorded here as Sep 1). Eval-skills plugin gained a new error-discovery skill.</li>
+    <li><strong>Eugene Yan</strong> — "Eugene Yan blog September 2026 eugeneyan.com". Nothing since Jun 21, 2026.</li>
+    <li><strong>Jason Liu (jxnl)</strong> — "jxnl.co Jason Liu writing September 2026". No September 2026 writing surfaced.</li>
+    <li><strong>Addy Osmani (blog)</strong> — "Addy Osmani blog September 2026 AI engineering addyosmani.com"; <a href="https://addyosmani.com/blog/">index fetched</a>. Nothing since Aug 21.</li>
+    <li><strong>Swyx / Shawn Wang</strong> — "swyx.io Shawn Wang September 2026 blog post". No September 2026 post surfaced.</li>
+    <li><strong>Latent Space</strong> — "Latent Space newsletter September 2026 latent.space post". Nothing from Sep 15–16. <strong>Correction:</strong> a Sep 5 post by Dan McAteer did surface, so the prior "nothing retrievable" framing is revised — the post list isn't retrievable from the homepage, but the publication is active.</li>
+    <li><strong>Lilian Weng</strong> — "Lilian Weng blog September 2026 lilianweng.github.io". Nothing since Jul 4; blog running at low/variable frequency as of Sep 2.</li>
+    <li><strong>LangChain Blog</strong> — "LangChain blog September 2026 announcement LangGraph". Nothing after Sep 3. Named as a Gemini 3.8 Live launch partner today.</li>
+    <li><strong>Anthropic Engineering</strong> — "Anthropic Engineering blog September 15 2026 claude.com/blog engineering post"; <a href="https://claude.com/blog">index fetched</a>. Nothing new since the Sep 14 CI post; the three Sep 15 entries are product/enterprise. This query also surfaced the Google-adopts-Claude story.</li>
+  </ul>
+
+  <h3>Substacks (10)</h3>
+  <ul>
+    <li><strong>Ethan Mollick (One Useful Thing)</strong> — "Ethan Mollick One Useful Thing September 2026". Nothing since Aug 31 ("An opinionated guide to which AI to use to do stuff — Summer 2026 Edition").</li>
+    <li><strong>The Pragmatic Engineer</strong> — "Pragmatic Engineer newsletter September 15 2026 Gergely Orosz". <strong>NEW:</strong> <a href="https://newsletter.pragmaticengineer.com/p/openai-software-factory">"Inside OpenAI's agentic software factory"</a> (Sep 15, fetched). Paid article.</li>
+    <li><strong>Lenny Rachitsky</strong> — "Lenny's Newsletter September 15 2026 post"; <a href="https://www.lennysnewsletter.com/archive">archive fetched</a>. NEW but non-AI: "60+ new creative growth ideas" (Tom Orbach, Sep 15). Permalink did not surface; not linked.</li>
+    <li><strong>Addy Osmani (Substack)</strong> — "site:addyo.substack.com 2026 September". <strong>NEW to this brief:</strong> <a href="https://addyo.substack.com/p/brownfield-agentic-engineering">"Brownfield Agentic Engineering"</a> (Sep 14, fetched in full). Corrects yesterday's "nothing from September" line.</li>
+    <li><strong>Interconnects / Nathan Lambert</strong> — "Interconnects Nathan Lambert September 15 2026 post"; <a href="https://www.interconnects.ai/archive">archive fetched</a> (the homepage returned no post list). Nothing after Sep 11's open-models reading list.</li>
+    <li><strong>Zvi Mowshowitz</strong> — "Zvi Mowshowitz Don't Worry About the Vase September 15 2026", then "Zvi 'The Bad Guy With An AI Named Claude' thezvi substack"; <a href="https://thezvi.substack.com/archive">archive fetched</a>. <strong>NEW:</strong> <a href="https://thezvi.substack.com/p/the-bad-guy-with-an-ai-named-claude">"The Bad Guy With An AI Named Claude"</a> (Sep 15, fetched in full), mirrored at <a href="https://thezvi.wordpress.com/2026/09/15/the-bad-guy-with-an-ai-named-claude/">wordpress</a>.</li>
+    <li><strong>Import AI / Jack Clark</strong> — "Import AI Jack Clark newsletter September 2026". No September 2026 issue surfaced; newest indexed remains #455 (May 4).</li>
+    <li><strong>Adam Tornhill</strong> — "Adam Tornhill Substack September 2026". Nothing since Sep 3 ("Practices I Abandoned with Agents"), behind Sep 1 ("Beyond Lambdas").</li>
+    <li><strong>Jessica Talisman</strong> — "Jessica Talisman Substack 2026 ontology metadata". Nothing recent; <em>Ontology Pipeline</em> remains dated September/October 2026 from Technics Publications.</li>
+    <li><strong>Computer Enhance / Casey Muratori</strong> — "Computer Enhance Casey Muratori September 2026". Nothing after <a href="https://www.computerenhance.com/p/spacetimedb">Sep 9's SpacetimeDB interview</a>, behind <a href="https://www.computerenhance.com/p/520-pages-per-hour">Sep 8's "520 Pages Per Hour."</a></li>
+  </ul>
+
+  <h3>Business &amp; Strategy (1)</h3>
+  <ul>
+    <li><strong>Stratechery / Ben Thompson</strong> — "Stratechery Ben Thompson September 15 2026". No new free article for Sep 15–16. The Sep 15 output that surfaced is a Dithering episode, "Football and the Frontier." Yesterday's paywalled Daily Update on pacing remains the most recent substantive piece.</li>
+  </ul>
+
+  <h3>Community Discussions (4)</h3>
+  <ul>
+    <li><strong>Hacker News</strong> — <a href="https://news.ycombinator.com/front">front page for Sep 15 fetched</a>. Top story overall: <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">"System One Models and Jev"</a>, 1,561/435. Also Gemini 3.8 Live 445/300, <a href="https://news.ycombinator.com/item?id=49715927">"Why I'm still bearish on LLMs after Navier-Stokes"</a> 292/380, Sakana backprop alternative 123/45, RL-for-LLMs 103/6.</li>
+    <li><strong>Reddit r/MachineLearning</strong> — "r/MachineLearning reddit September 2026 discussion paper". <strong>No Reddit results returned at all</strong> (search-only / best-effort per sources.md). Fourth consecutive day.</li>
+    <li><strong>Reddit r/LocalLLaMA</strong> — "reddit r/LocalLLaMA September 15 2026 discussion". Nothing dated surfaced; only a subreddit-analytics page last updated Sep 13 (search-only / best-effort). Fourth consecutive day.</li>
+    <li><strong>LessWrong</strong> — "LessWrong September 15 2026 new post AI safety karma"; <a href="https://www.greaterwrong.com/">greaterwrong mirror fetched</a>, plus a second search to resolve one permalink. NEW: <a href="https://www.greaterwrong.com/posts/eeJB8x2pK8injCuBN/is-metr-a-meaningful-check-on-anthropic">"Is METR A Meaningful Check On Anthropic?"</a> (SE Gyges, 65, Sep 16); Clément Dumas at 100, Camille B. at 97, Kyle O'Brien et al. at 72, Jozdien/Stastny at 45, Casademunt et al. at 40, plus five others.</li>
+  </ul>
+
+  <h3>X / Social (5)</h3>
+  <ul>
+    <li><strong>@trq212 (Thariq Shihipar)</strong> — "Thariq Shihipar trq212 X post September 2026". Nothing from September 2026 surfaced; newest dated result is May 8.</li>
+    <li><strong>@karpathy (Andrej Karpathy)</strong> — "from:karpathy September 2026 AI LLM agents tweet". Nothing dated Sep 15–16; the <a href="https://karpathy.bearblog.dev/sequoia-ascent-2026/">Sequoia Ascent 2026 summary</a> and the undated "idea file" thread surfaced.</li>
+    <li><strong>@emollick (Ethan Mollick)</strong> — "Ethan Mollick @emollick X post September 15 2026". Nothing confirmable by date from the window.</li>
+    <li><strong>@addyosmani (Addy Osmani)</strong> — "Addy Osmani @addyosmani X post September 2026 agents". Nothing from September 2026 surfaced on X; his writing this window went to Substack.</li>
+    <li><strong>@xai / @grok</strong> — "'@xai' OR '@grok' X post September 15 2026 Grok Bot Galaxy announcement". <a href="https://x.ai/galaxy">Grok Bot Galaxy</a> running Sep 15–17 with a published schedule and a 72-hour company-building stunt. Neither brand account addressed the Grok 4.7 slip.</li>
+  </ul>
+
+  <h3>Fetch failures and gaps this run</h3>
+  <ul>
+    <li><strong>Bloomberg</strong> — HTTP 403 on both the AI-safety-coordination story and the $1.2T valuation story. Every quote in the coordination item comes from the TechCrunch page, which fetched in full; the valuation figures are attributed to Fortune/Forbes/PYMNTS headlines and explicitly not quoted as read.</li>
+    <li><strong>x.ai/news</strong> — HTTP 403. xAI is covered via the release-notes aggregator and the surfaced event pages.</li>
+    <li><strong>Anthropic newsroom</strong> — fetched but rendered nothing newer than Sep 10, second consecutive day. Recorded as a partial render, not as evidence that later posts do not exist. The dated Sep 15 Anthropic items come from the release aggregator and from claude.com/blog, both fetched.</li>
+    <li><strong>Google DeepMind blog</strong> — fetched, but the index still shows month-level dates only; day-level confirmation for Gemini 3.8 Live came from the blog.google post instead.</li>
+    <li><strong>Interconnects homepage</strong> — fetched to a header-only shell with no post list; the archive page was fetched instead and worked.</li>
+    <li><strong>The Rundown AI archive</strong> — server-rendered but still exposes no per-issue dates, so items from it are dated only where a separate search supplied a date.</li>
+    <li><strong>Permalinks deliberately not linked</strong> — the two new Hugging Face posts (index linked instead), the individual arXiv abstracts (IDs stated in text), the Cognition blog post for the AWS deal (the AWS press release is linked instead), the three Sep 15 claude.com/blog entries other than Small Business (index linked), Lenny's Sep 15 post, the Latent Space Sep 5 post, and all LessWrong posts except the METR one.</li>
+    <li><strong>Bodies not fetched, and said so</strong> — the O'Reilly Sep 15 article, the AI Daily Brief Sep 15 issue, the LessWrong METR post, and every Bloomberg/Fortune/Forbes/CNBC/SiliconANGLE/Caixin item. Each is characterized from its search summary and marked as such in place.</li>
+  </ul>
+
+  <p style="margin-top:20px;"><strong>Link audit:</strong> 149 hrefs resolving to 70 unique external URLs plus index.html and
+  topics.html. Every one was traced to a WebSearch result list or a fetched page body from this run, and checked to point at the
+  specific thing its anchor text claims. Five were downgraded during the audit: the two Hugging Face posts are cited against
+  their fetched index, the Cognition blog item is linked to the AWS press release that was actually fetched rather than to an
+  unresolved blog permalink, the arXiv papers are named by ID rather than linked, Lenny's Sep 15 post is stated without a
+  link, and <strong>a link on "The Information" was removed</strong> — the outlet was named in TechCrunch's body but no URL of
+  its own surfaced this run, so the attribution is now stated in prose only. All six <code>.significant</code> items — the safety-coordination confirmation, TypeSafe's Jev, Gemini 3.8 Live, the
+  Pragmatic Engineer OpenAI report, Zvi on distillation, and the Hacker News front page — have their primary sources confirmed
+  by an actual fetch this run.</p>
+</footer>
+
+</body>
+</html>
