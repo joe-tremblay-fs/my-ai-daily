@@ -31,6 +31,16 @@
   dates, and /p/<slug> URLs — WebSearch then fetch the /p/ pages, same as Substacks. A beehiiv
   RSS feed likely exists at https://rss.beehiiv.com/feeds/<id>.xml — grab the id from the page's
   RSS <link> if you want the feed. YouTube @AIDailyBrief for episode titles.)
+- MLOps Community / Agentic AI Foundation: https://home.mlops.community/public/content
+  (blogs + conference talk videos from production-AI practitioners.
+  /home/<path> redirects to /public/<path>, use /public/.
+  No RSS / JS-heavy: the content index renders client-side, but each item page has OG tags 
+  with title, date, speakers and a real summary paragraph, so /p/-style fetching works once 
+  you have the URL. Best discovery path is the sitemap, which IS server-rendered:
+  https://home.mlops.community/sitemap/content/sitemap.xml — Diff it for new /blogs/ and
+  /videos/ URLs, then fetch those pages for the summary.
+  Cadence is ~2-3 items/week; expect empty days, don't treat silence as a fetch failure.)
+  
 
 ## Practitioner Blogs & Newsletters
 
