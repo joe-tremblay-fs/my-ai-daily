@@ -16,9 +16,12 @@ cd "$HOME/repos/my-ai-daily" || { echo "$(date '+%F %T') cd failed"; exit 1; }
 echo "$(date '+%F %T') run-daily.sh starting"
 
 # 2) generate today's brief with the Claude CLI, non-interactive —
-#    skip if today's brief already exists (idempotent for a frequent schedule)
+#    skip if today's brief already exists (idempotent for a frequent schedule).
+#    The model writes it to the root; organize.sh then files it under YYYY/MM/,
+#    so check both locations or a same-day re-run would regenerate it.
 TODAY_BRIEF="$(date +%F).html"
-if [ -f "$TODAY_BRIEF" ]; then
+TODAY_FILED="$(date +%Y/%m)/$TODAY_BRIEF"
+if [ -f "$TODAY_BRIEF" ] || [ -f "$TODAY_FILED" ]; then
     echo "$(date '+%F %T') $TODAY_BRIEF already exists; skipping generation"
 else
     claude -p "$(cat src/prompt.md)" --permission-mode bypassPermissions \
@@ -26,5 +29,10 @@ else
     echo "$(date '+%F %T') brief generated"
 fi
 
-# 3) commit & push to the remote repo (cheap; retries a stranded push, no-op if clean)
+# 3) file the new brief under YYYY/MM/ and regenerate index.html + archive.html
+#    from cards/ — must run before anything is staged or committed
+src/organize.sh && src/build-index.sh \
+    || { echo "$(date '+%F %T') layout scripts failed"; exit 1; }
+
+# 4) commit & push to the remote repo (cheap; retries a stranded push, no-op if clean)
 src/publish-my-ai-daily.sh
