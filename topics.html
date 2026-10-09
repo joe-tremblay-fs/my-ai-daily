@@ -160,16 +160,40 @@
 <!-- TOPICS -->
 <!-- ============================================================ -->
 
+<div class="topic" data-cat="agents">
+  <div class="topic-header">
+    <span class="topic-cat cat-agents">Agents</span>
+    <span class="topic-cat cat-economics">Economics</span>
+    <div class="topic-title-block">
+      <div class="topic-title"><span class="status-dot status-active"></span>Agents with wallets: payment rails that put the approval where the model can't write</div>
+      <div class="topic-summary">On <strong>Oct 8, 2026</strong>, two unrelated posts described agents paying for things over HTTP 402. Both designs keep the authority to spend outside the model. LangChain's Restock combines Stripe Link, the Machine Payments Protocol, a cap set by the user and two human approvals. AWS's AgentCore customers (BlockRun, Incarna) settle x402 payments in USDC on Base, with spending limits enforced at the infrastructure layer. Google's Gemini agent shipped per-project spend caps the same day. Watch for: whether 402-style payment becomes a standard for agent-callable APIs, who carries liability for a wrong purchase, and whether card networks or stablecoin rails win.</div>
+      <div class="topic-meta">First seen: Oct 9, 2026 · Last updated: Oct 9, 2026</div>
+    </div>
+  </div>
+  <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Oct 8, 2026</div>
+      <div class="entry-title"><strong>Two payment designs, one principle.</strong> <a href="https://www.langchain.com/blog/agents-that-can-pay-with-stripe-link">LangChain, "Agents that can pay"</a>: 12 pens approved up to $23, $22.18 charged including the $1 Zinc fee, $0.82 refunded, and the payment token deleted after use. "Nothing the model writes into a tool call can approve it." <a href="https://aws.amazon.com/blogs/machine-learning/pay-per-inference-for-ai-agents-how-blockrun-and-incarna-use-amazon-bedrock-agentcore-payments/">AWS, pay-per-inference with AgentCore payments</a>: built in 3 days in about 200 lines of code, with 1,000+ beta payments at $0.001–$0.05 per call over x402 "exact" and "upto" schemes. Incarna gives agents persistent identities with wallets.</div>
+      <div class="entry-source">langchain.com / aws.amazon.com</div>
+    </div>
+  </div>
+</div>
+
 <div class="topic" data-cat="industry">
   <div class="topic-header">
     <span class="topic-cat cat-industry">Industry</span>
     <div class="topic-title-block">
       <div class="topic-title"><span class="status-dot status-active"></span>Routing across vendors: the model becomes a back end that someone else's router picks</div>
       <div class="topic-summary">On <strong>Oct 7, 2026</strong>, four unrelated sources described products that choose models per task rather than committing to one lab. Musk said Grok Bot will use "the best back end model for any given task, including Claude Opus 5.5, MidJourney, Suno." GitHub's HydraFusion routes between local and cloud models on Windows. Devin Fusion and AWS both pair Opus 5.5 as the planner with Haiku 5.5 as the executor. On Pragmatic Engineer, Sam Newman advised keeping more than one AI vendor option. Meanwhile, Microsoft reportedly cut per-employee AI spending tenfold while steering staff off Claude. Watch for: whether users can see which model answered, how routers price their margin, and whether labs restrict competitors' products from reselling their models (Anthropic already rents SpaceXAI compute).</div>
-      <div class="topic-meta">First seen: Oct 8, 2026 · Last updated: Oct 8, 2026</div>
+      <div class="topic-meta">First seen: Oct 8, 2026 · Last updated: Oct 9, 2026</div>
     </div>
   </div>
   <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Oct 8, 2026</div>
+      <div class="entry-title"><strong>Google puts Claude under its own flagship agent.</strong> <a href="https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026">Gemini at Work 2026</a>: "Gemini is the agent, and the model underneath it is a separate choice," orchestrating across Gemini "and Claude models from Anthropic today." <a href="https://www.constellationr.com/insights/news/google-cloud-launches-gemini-agent-work-across-enterprise-systems">Constellation</a> reports a private beta, with GA at the end of October or in early November. <a href="https://aidailybrief.beehiiv.com/p/the-most-important-trends-showing-up-in-new-ai-products">The AI Daily Brief</a> names multi-model harnesses as the top product trend. BlockRun, on <a href="https://aws.amazon.com/blogs/machine-learning/pay-per-inference-for-ai-agents-how-blockrun-and-incarna-use-amazon-bedrock-agentcore-payments/">AWS AgentCore</a>, routes 90+ models from 15+ providers, paid per call.</div>
+      <div class="entry-source">cloud.google.com / constellationr.com / aidailybrief / aws.amazon.com</div>
+    </div>
     <div class="entry">
       <div class="entry-date">Oct 7, 2026</div>
       <div class="entry-title"><strong>Grok Bot will route to Claude, Midjourney and Suno.</strong> <a href="https://thenextweb.com/news/grok-bot-claude-opus-midjourney-suno-musk">TNW</a>: a SpaceXAI staffer said "all bots will be powered by opus 5.5," with cloud agents running Cursor models. There is no official xAI statement.</div>
@@ -245,10 +269,15 @@
     <div class="topic-title-block">
       <div class="topic-title"><span class="status-dot status-active"></span>Spend limits as a safety control: agents make runaway bills routine, and hard caps become the circuit breaker</div>
       <div class="topic-summary">On <strong>Oct 3–4, 2026</strong>, three unrelated sources treated cost limits as the control that matters for unattended agents. Simon Willison argued that pay-per-use services should ship with <strong>hard budget caps on by default</strong>, with unlimited spend as an explicit opt-in. Wagtail's month on GLM-5.3-Flash showed the failure: one bad model choice burned 450M tokens and $150 overnight. Google's Gemini tiers now ration Pro and Deep Think by price, with effort settings that "use more of your limit." Watch for: AWS spending limits leaving limited release, other clouds and model APIs adding hard caps, and coding agents steering users toward capped providers.</div>
-      <div class="topic-meta">First seen: Oct 4, 2026 · Last updated: Oct 4, 2026</div>
+      <div class="topic-meta">First seen: Oct 4, 2026 · Last updated: Oct 9, 2026</div>
     </div>
   </div>
   <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Oct 8, 2026</div>
+      <div class="entry-title"><strong>Caps become the authorization model for agents that buy things.</strong> <a href="https://www.langchain.com/blog/agents-that-can-pay-with-stripe-link">LangChain's Restock</a> uses a cap set by the user, a cart approval in Slack and a payment approval in Stripe Link: "Nothing the model writes into a tool call can approve it." In <a href="https://aws.amazon.com/blogs/machine-learning/pay-per-inference-for-ai-agents-how-blockrun-and-incarna-use-amazon-bedrock-agentcore-payments/">AgentCore payments</a>, spending limits are enforced at the infrastructure layer so the model can't override them. Google's Gemini agent adds real-time spend caps per project. Hugging Face's <a href="https://huggingface.co/blog/building-with-ml-intern">ML-intern</a> authors recommend "spending limits with approval gates."</div>
+      <div class="entry-source">langchain.com / aws.amazon.com / huggingface.co</div>
+    </div>
     <div class="entry">
       <div class="entry-date">Oct 3, 2026</div>
       <div class="entry-title"><strong>The argument, and the bill.</strong> <a href="https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/">Willison</a> (HN #4, 301 points): soft caps, meaning warning emails, don't help when "while they slept, their rogue service had consumed several hundred (or several thousand) more dollars of usage." The default should be "after $X/month, cut this thing off and return errors," and removing the cap should be an explicit checkbox. Google Cloud Spend Caps (July) and AWS spending limits (Sep 16, limited release) are early steps. <a href="https://wagtail.org/blog/one-month-on-glm-53-flash/">Wagtail</a> (HN #18): about 1B tokens of September coding on GLM-5.3-Flash cost <strong>$68</strong>, but one wrong model choice cost $150 overnight. <a href="https://9to5google.com/2026/10/03/gemini-model-limits-oct-26/">9to5Google</a>: from Oct 9, free Gemini users are limited to Flash-Lite, and the per-model "low/medium/high" effort settings draw down the limit faster.</div>
@@ -339,10 +368,15 @@
     <div class="topic-title-block">
       <div class="topic-title"><span class="status-dot status-active"></span>Team agents: from one agent per person to shared agents with their own identity</div>
       <div class="topic-summary">On <strong>Sep 29, 2026</strong>, three unrelated sources described the same design. Asana's Claude agents sit inside a shared work graph with their own roles and access controls. NLW's AI Daily Brief described the path organizations take from individual agents, through sprawl, to consolidated team agents. OpenAI's ChatGPT Space makes Pages that people, ChatGPT and Dots edit together. The common pattern: shared context and memory, a distinct identity for each agent, and permissions inherited from the person who triggers it. The unsolved parts are ownership and maintenance (NLW: skip team agents when nobody owns upkeep) and verification (Tim O'Reilly on Superpowers: the agent that writes the work never certifies it done).</div>
-      <div class="topic-meta">First seen: Sep 30, 2026 · Last updated: Sep 30, 2026</div>
+      <div class="topic-meta">First seen: Sep 30, 2026 · Last updated: Oct 9, 2026</div>
     </div>
   </div>
   <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Oct 8, 2026</div>
+      <div class="entry-title"><strong>Coworker agents get email addresses, and the identity-only model is challenged.</strong> <a href="https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026">Google's coworker agents</a> get their own <code>@agents.company.com</code> email, calendar, Drive and directory entry, plus cryptographically attested identity with least privilege. <a href="https://www.langchain.com/blog/how-snyk-turned-an-internal-support-agent-into-a-customer-feature">Snyk's agent</a> registers tools per user from that user's permissions. The counterpoint is <a href="https://www.oreilly.com/radar/intent-not-identity/">O'Reilly, "Intent, Not Identity"</a> (Oct 9): "The signature proves who is making the request, not the intent behind it."</div>
+      <div class="entry-source">cloud.google.com / langchain.com / oreilly.com</div>
+    </div>
     <div class="entry">
       <div class="entry-date">Sep 29, 2026</div>
       <div class="entry-title"><strong>Three sources, one design.</strong> <strong>(1)</strong> <a href="https://claude.com/blog/agents-you-can-coach-how-asana-builds-human-agent-teams-with-claude">Asana, "Agents you can coach"</a>: support, renewals and planning agents in the Work Graph. CPO Arnab Bose: <em>"Every team is part human, part agent… distinct identity for every agent."</em> <strong>(2)</strong> The AI Daily Brief, "How to Build Team Agents" (unlinked; permalink unverified). It names four types (expert, common-work, bridge, chief-of-staff) and five design decisions: scope, where it runs, knowledge access, permissions and logging, and governance. <strong>(3)</strong> ChatGPT Space and Dots (<a href="https://decrypt.co/379584/openai-ai-agents-computers-devday-2026-everything-announced">Decrypt</a>). Related: <a href="https://www.oreilly.com/radar/superpowers-for-humans/">Tim O'Reilly, "Superpowers for Humans"</a>, on making agents prove their work with evidence.</div>
@@ -1016,10 +1050,15 @@
     <div class="topic-title-block">
       <div class="topic-title"><span class="status-dot status-active"></span>Mathematics has no CVE process — 25 Fields Medallists say the labs are shipping proofs faster than the field can absorb them</div>
       <div class="topic-summary">The AI-and-mathematics story has run all year as a capability story, then briefly as a provenance dispute. On <strong>September 11, 2026</strong> it became an institutional one. <strong>Terence Tao published a declaration signed by 25 Fields Medallists</strong> — including <strong>Artur Avila, Manjul Bhargava, Caucher Birkar, Pierre Deligne, Simon Donaldson, June Huh, James Maynard, Peter Scholze and Maryna Viazovska</strong> — stating that AI companies and the mathematical community are structurally misaligned. The declaration <em>concedes the capability</em>: LLMs can now solve major outstanding problems across many fields. Its objection is about what a solved problem is for — <em>"solving problems is only a tool and proxy for achieving the primary goal of conceptual understanding and insight"</em> — and about a pipeline running at the wrong speed. Results are <em>"announced in a rush, leaving no time for a proper writeup, the isolation of new methods and ideas, and citing relevant previous work,"</em> and without mathematicians developing and integrating what AI discovers, <em>"the crucial human transmission chain between mathematicians would be lost."</em> The asymmetry that makes it self-reinforcing: companies optimize for speed and announce faster than the community can verify, while <strong>retractions draw a fraction of the attention the claims got</strong>, so flawed proofs propagate through citations into downstream work. The declaration <strong>carries moral authority and no enforcement mechanism</strong>, by its authors' own account — it is a reference point for journal editors, funding agencies and policymakers, and no company is obliged to do anything. It follows the <strong>June 2026 Leiden Declaration</strong> on AI and expertise-dependent professions, and lands eight days after two individual mathematicians (Buckmaster, then Thom) raised provenance complaints about the same company. Tao's signature carries the weight precisely because he has been the most prominent senior mathematician willing to use these tools in public — this is not a refusenik document. The generalizable claim is that mathematics has no equivalent of a CVE process: no disclosure obligation, no timeline, no coordinating body, no way to compel a correction to travel as far as the original announcement. Watch whether any lab adopts a pre-announcement verification window or agrees to publish with formalization attached; whether a journal or the Clay Institute adopts the declaration as policy; whether a retraction of an AI-announced result occurs and how it propagates; whether the signatory count grows or a lab responds substantively; and whether an equivalent declaration appears from another expertise-dependent field.</div>
-      <div class="topic-meta">First seen: Sep 12, 2026 · Last updated: Oct 8, 2026</div>
+      <div class="topic-meta">First seen: Sep 12, 2026 · Last updated: Oct 9, 2026</div>
     </div>
   </div>
   <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Oct 8, 2026</div>
+      <div class="entry-title"><strong>The first withdrawals, and doubts about the checker.</strong> OpenAI <a href="https://aiweekly.co/alerts/openai-pulls-three-ai-generated-math-papers-over-sign-error">withdrew three manuscripts</a>: a sign error in one Hodge-related proof broke two papers that depended on it, and none of the three had a Lean proof. The catalog is now 719, with 14 repaired and about 42% formalized. <a href="https://karagila.org/2026/openai-pp/">Karagila</a> (HN #20) criticizes exposition and attribution. <a href="https://www.greaterwrong.com/posts/zHhGa3iQBQcdSifFL/a-critical-look-at-lean4-1">"A critical look at Lean4"</a> (LessWrong) quotes de Moura that "AIs are really good at exploiting soundness bugs." <a href="https://thezvi.substack.com/p/ai-189-new-math">Zvi's AI #189, "New Math"</a> calls the release a watershed.</div>
+      <div class="entry-source">aiweekly.co / karagila.org / LessWrong / thezvi</div>
+    </div>
     <div class="entry">
       <div class="entry-date">Oct 7, 2026</div>
       <div class="entry-title"><strong>Checking of OpenAI's 722 papers begins.</strong> <a href="https://arxiv.org/abs/2610.08144">"Navier–Stokes Lost in Translation"</a> (HN #21) argues that the written blow-up proof doesn't match its Lean statement. <a href="https://www.greaterwrong.com/posts/neHiCSdL4tJDg7Hrm/are-openai-s-math-results-creative-in-an-important-way">Raemon</a> asks whether the results are "creative." The Rundown reports mathematicians angry that OpenAI released everything at once after promising to space it out. On the open side, <a href="https://arxiv.org/abs/2610.09769">Bolzano</a> resolved about 200 of 3,800 open problems, and the authors of four STOC 2026 papers confirmed its answers to their questions.</div>
@@ -1364,10 +1403,15 @@
     <div class="topic-title-block">
       <div class="topic-title"><span class="status-dot status-active"></span>Cyber capability became the release gate — frontier launches are now organized around containment, not coding scores</div>
       <div class="topic-summary">Through mid-2026, a frontier model launch was a capability announcement with a safety appendix. On September 1, 2026 two labs shipped on the same afternoon and inverted that structure: OpenAI published a post whose <em>entire subject</em> is that its forthcoming model crosses the <strong>Critical cybersecurity threshold</strong> of its own Preparedness Framework — the first time any lab has formally claimed that of a model it intends to ship — while Anthropic's flagship release put <strong>"can now identify software vulnerabilities"</strong> and <strong>"60% fewer false positives in cybersecurity safeguards"</strong> in the feature list next to the benchmarks. Neither led with SWE-bench. The distribution mechanism is the part to track, because it is converging: both labs gate the sharpest capability behind a <strong>vetted-defender program</strong> — OpenAI's Daybreak Blue, Anthropic's Cyber Verification Program — which is precisely what an open letter signed by <strong>100+ companies four days earlier</strong> asked frontier labs to build. Read in sequence, the letter looks less like advocacy than like coordinated pre-announcement of a distribution model. What makes this a standing topic rather than one news cycle: the gating decision is now a <em>commercial</em> decision with a safety justification, made unilaterally by each lab, with no external verification of either the threshold crossing or the vetting. Watch whether any third party is permitted to reproduce a Critical-threshold evaluation; whether "vetted defender" acquires a shared definition across labs or stays a per-vendor allowlist; whether an open-weights release from any lab crosses the same bar with no gate available; whether the false-positive number becomes a marketed spec; and whether a government body — rather than a lab — ever certifies a threshold crossing.</div>
-      <div class="topic-meta">First seen: Sep 2, 2026 · Last updated: Oct 1, 2026</div>
+      <div class="topic-meta">First seen: Sep 2, 2026 · Last updated: Oct 9, 2026</div>
     </div>
   </div>
   <div class="topic-entries">
+    <div class="entry">
+      <div class="entry-date">Oct 8, 2026</div>
+      <div class="entry-title"><strong>Anthropic offers frontier-model scanning to open source.</strong> In the <a href="https://www.anthropic.com/news/anthropic-cyber-mission">Cyber Mission</a>, 11 partners join a Critical Infrastructure Defense Program. <a href="https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source">OSS Scanner</a> found 29,000+ candidates, triaged 6,000 and sent 5,000 reports. 85 of 97 critical/high findings (88%) were validated, and CyberGym went from under 20% to over 85%. curl's Stenberg, who earlier called the Mythos curl scan a marketing stunt, now credits it with "one of the worst curl vulnerabilities reported in the last few years."</div>
+      <div class="entry-source">anthropic.com</div>
+    </div>
     <div class="entry">
       <div class="entry-date">Sep 30, 2026</div>
       <div class="entry-title"><strong>Google followed the pattern with Gemini 4 Argon.</strong> <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">Argon</a> goes first to defenders in the Fairwind Program. A US government pre-release process is planned before API customers and AI Ultra get access. Google says it can <em>"autonomously find, validate, and patch critical software vulnerabilities"</em>. It scores 68% on CWE-bench v1 (tied with Astra) and 0.7% on Gray Swan's prompt-injection test. All three US frontier labs now gate cyber-capable models behind defender programs: Glasswing, Daybreak Red and Fairwind.</div>
